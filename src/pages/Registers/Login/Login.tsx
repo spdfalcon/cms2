@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 
-export default function Signup() {
+export default function Login() {
   return (
     <div className="flex h-screen text-center">
-      <div className="m-auto bg-white px-[60px] py-9 rounded">
+      <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold text-[32px]">Create an Account</h2>
-          <div className="text-2xl">
-            <span className="text-a_general-80 ">Have an Account?</span>
-            <Link className="text-a_primary-100" to={"/"}>
-            Sign In
+          <h2 className="text-a_general-100 font-bold text-[32px]">Sign in</h2>
+          <div className="">
+            <span className="text-a_general-80">New to Our Product?</span>{" "}
+            <Link className="text-a_primary-100" to={"/signup"}>
+              Create an Account
             </Link>
           </div>
 
@@ -42,11 +42,11 @@ export default function Signup() {
             </div>
             <div>
               <button className="p-3 w-full rounded bg-a_primary-100 text-white ">
-                Create Account
+                Go To Account
               </button>
             </div>
             <div className="text-sm">
-              <Link className="text-a_primary-100" to={""}>
+              <Link className="text-a_primary-100" to={"/resetpassword"}>
                 Forgot your password?
               </Link>
             </div>
@@ -72,5 +72,5 @@ export default function Signup() {
         </form>
       </div>
     </div>
-  )
+  );
 }

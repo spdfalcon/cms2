@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Signup() {
   return (
     <div className="flex h-screen text-center">
-      <div className="m-auto bg-white px-[60px] py-9 rounded">
+      <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold text-[32px]">Sign in</h2>
-          <div className="text-2xl">
-            <span className="text-a_general-80">New to Our Product?</span>{" "}
-            <Link className="text-a_primary-100" to={"/signup"}>
-              Create an Account
+          <h2 className="text-a_general-100 font-bold text-[32px]">Create an Account</h2>
+          <div className="">
+            <span className="text-a_general-80 ">Have an Account?</span>
+            <Link className="text-a_primary-100" to={"/"}>
+            Sign In
             </Link>
           </div>
 
@@ -28,17 +28,12 @@ export default function Login() {
               <label htmlFor="password" className="text-sm text-a_general-80">Password</label>
               <input
                 className="border p-2 rounded focus:outline-none"
-                placeholder="Enter Password"
+                placeholder="Create Password"
                 type="text"
                 name=""
                 id="password"
               />
-              <div className="flex mt-4 gap-2">
-                <input className="" type="checkbox" name="" id="check" />
-                <label className="text-a_general-80" htmlFor="check">
-                  Keep me signed in
-                </label>
-              </div>
+              
             </div>
             <div>
               <button className="p-3 w-full rounded bg-a_primary-100 text-white ">
@@ -46,13 +41,14 @@ export default function Login() {
               </button>
             </div>
             <div className="text-sm">
+              <p className="text-sm text-a_general-80">By creating account, you agree to our</p>
               <Link className="text-a_primary-100" to={""}>
-                Forgot your password?
+              Terms of Service
               </Link>
             </div>
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-sm text-a_general-80">Or sign in using:</p>
+              <p className="text-sm text-a_general-80">Or create an account using:</p>
             </div>
             <Link
               to={""}
@@ -72,5 +68,5 @@ export default function Login() {
         </form>
       </div>
     </div>
-  );
+  )
 }
