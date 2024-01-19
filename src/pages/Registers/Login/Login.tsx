@@ -41,9 +41,9 @@ export default function Login() {
               </div>
             </div>
             <div>
-              <button className="p-3 w-full rounded bg-a_primary-100 text-white ">
+              <Link to={'/admin'} className="block p-3 w-full rounded bg-a_primary-100 text-white ">
                 Go To Account
-              </button>
+              </Link>
             </div>
             <div className="text-sm">
               <Link className="text-a_primary-100" to={"/resetpassword"}>
