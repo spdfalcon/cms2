@@ -49,13 +49,13 @@ export default function TopBar() {
             </div>
 
             <div
-              className={`absolute ${
-                isShowLangModal ? "flex" : "hidden"
+              className={`absolute h-44 flex duration-300 ${
+                isShowLangModal ? "" : "h-0 opacity-0"
               } flex-col gap-4 px-5 py-4 text-sm w-64 top-12 left-1/2 -translate-x-1/2 bg-white rounded-xl`}
             >
               <p>Select Language </p>
               <span className="block w-full h-px bg-a_general-50"></span>
-              <div className="flex flex-col gap-6">
+              <div className={`flex flex-col gap-6 duration-300 ${isShowLangModal ? 'translate-y-0' : '-translate-y-48'}`}>
                 <div
                   onClick={() => {
                     setLang({
