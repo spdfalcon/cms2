@@ -41,7 +41,7 @@ export default function Login() {
               </div>
             </div>
             <div>
-              <Link to={'/admin'} className="block p-3 w-full rounded bg-a_primary-100 text-white ">
+              <Link to={'/admin/dashboard'} className="block p-3 w-full rounded bg-a_primary-100 text-white ">
                 Go To Account
               </Link>
             </div>

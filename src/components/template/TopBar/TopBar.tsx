@@ -12,7 +12,7 @@ export default function TopBar() {
     <div onClick={()=>setIsShowLangModal(false)} className={`absolute ${isShowLangModal ? 'block' : 'hidden'} w-full h-screen bg-a_general-50/0 top-[68px]`}></div>
     {/* back modal */}
 
-      <div className="h-[68px] px-7 py-3 bg-white sticky top-0 flex justify-between items-center z-10">
+      <div className="shadow-md h-[68px] px-7 py-3 bg-white sticky top-0 flex justify-between items-center z-10">
         <div className="left flex items-center gap-10">
           <img src="/img/topbar/logo.png" alt="Logo" />
           <div className="flex gap-3 items-center">
@@ -45,7 +45,7 @@ export default function TopBar() {
             >
               <img className="w-10 h-[27px]" src={lang.flag} alt="" />
               <span>{lang.name}</span>
-              <i className="bi bi-chevron-down"></i>
+              <i className={`duration-300 bi bi-chevron-down ${isShowLangModal ? 'rotate-180' : ''}`}></i>
             </div>
 
             <div

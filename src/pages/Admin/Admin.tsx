@@ -1,14 +1,17 @@
+import { Outlet } from "react-router-dom";
 import SideBar from "../../components/template/SideBar/SideBar";
-import TopBar from "../../components/template/TopBar/TopBar"
+import TopBar from "../../components/template/TopBar/TopBar";
 
 export default function Admin() {
   return (
-    <div>
+    <>
       <TopBar></TopBar>
-      <div className="h-screen"></div>
-      <div className="h-screen"></div>
-      <div className="h-screen"></div>
-      <SideBar></SideBar>
-    </div>
+      <div className="flex ">
+        <SideBar></SideBar>
+        <div className="flex-1">
+          <Outlet></Outlet>
+        </div>
+      </div>
+    </>
   );
 }
