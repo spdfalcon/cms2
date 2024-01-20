@@ -55,7 +55,7 @@ export default function TopBar() {
             >
               <p>Select Language </p>
               <span className="block w-full h-px bg-a_general-50"></span>
-              <div className={`flex flex-col gap-6 duration-300 ${isShowLangModal ? 'translate-y-0' : '-translate-y-48'}`}>
+              <div className={`flex flex-col gap-6 duration-300 ${isShowLangModal ? 'translate-y-0' : '-translate-y-56'}`}>
                 <div
                   onClick={() => {
                     setLang({
