@@ -1,3 +1,5 @@
+import ChartLastWeek from "../../../components/module/ChartLastWeek/ChartLastWeek";
+import Chartorder from "../../../components/module/Chartorder/Chartorder";
 import DashboardCard from "../../../components/module/DashboardCard/DashboardCard";
 
 export default function Dashboard() {
@@ -23,11 +25,15 @@ export default function Dashboard() {
         </div>
         {/* e dashboard boxs */}
 
-        <div className="grid grid-cols-12 *:col-span-12 *:md:col-span-6">
+        <div className="grid grid-cols-12 *:col-span-12 *:md:col-span-6 mt-8 *:p-7 *:bg-white gap-5 *:rounded-md" >
           {/* s chart order over time */}
-          <div className=" xl:col-span-9">mohammad</div>
+          <div className=" xl:col-span-9">
+            <Chartorder></Chartorder>
+          </div>
           {/* s Last 7 Days Sales */}
-          <div className=" xl:col-span-3">ali</div>
+          <div className=" xl:col-span-3">
+            <ChartLastWeek></ChartLastWeek>
+          </div>
           {/* e Last 7 Days Sales */}
         </div>
       </div>
