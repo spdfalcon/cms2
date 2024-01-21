@@ -53,7 +53,7 @@ const data = [
 ];
 export default function Chartorder() {
   return (
-    <div className="h-64 md:min-h-72 lg:h-[469px]">
+    <div className="h-64 md:min-h-72 lg:h-[469px] flex">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           className=""

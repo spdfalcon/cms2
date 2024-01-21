@@ -19,7 +19,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x">
           {Array(4)
             .fill(0)
-            .map((index) => (
+            .map((item,index) => (
               <DashboardCard key={index}></DashboardCard>
             ))}
         </div>
@@ -31,7 +31,7 @@ export default function Dashboard() {
             <Chartorder></Chartorder>
           </div>
           {/* s Last 7 Days Sales */}
-          <div className=" xl:col-span-3">
+          <div className=" xl:col-span-3 ">
             <ChartLastWeek></ChartLastWeek>
           </div>
           {/* e Last 7 Days Sales */}
