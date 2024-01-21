@@ -1,11 +1,8 @@
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   AreaChart,
   Area,
@@ -57,7 +54,7 @@ const data = [
 export default function Chartorder() {
   return (
     <div className="h-64 md:min-h-72 lg:h-[469px]">
-      <ResponsiveContainer width='100%' height='100%'>
+      <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           className=""
           height={400}

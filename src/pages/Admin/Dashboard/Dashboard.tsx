@@ -19,13 +19,13 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x">
           {Array(4)
             .fill(0)
-            .map((item ,index) => (
+            .map((index) => (
               <DashboardCard key={index}></DashboardCard>
             ))}
         </div>
         {/* e dashboard boxs */}
 
-        <div className="grid grid-cols-12 *:col-span-12 *:md:col-span-6 mt-8 *:p-7 *:bg-white gap-5 *:rounded-md" >
+        <div className="grid grid-cols-12 *:col-span-12 *:md:col-span-6 mt-8 *:p-7 *:bg-white gap-5 *:rounded-md">
           {/* s chart order over time */}
           <div className=" xl:col-span-9">
             <Chartorder></Chartorder>
