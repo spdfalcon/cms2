@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Orders() {
   const recentTransactions = [
     {
@@ -46,6 +48,7 @@ export default function Orders() {
       total: "$49.90",
     },
   ];
+  const [allchecked, setAllchecked] = useState(false);
   return (
     <>
       <div className="px-10 py-[30px] flex flex-col gap-y-10">
@@ -86,10 +89,10 @@ export default function Orders() {
               </div>
             </div>
             <div className="right text-a_primary-100  flex gap-2">
-              <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md">
+              <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
                 <i className="bi bi-pencil"></i>
               </div>
-              <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md">
+              <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
                 <i className="bi bi-trash"></i>
               </div>
             </div>
@@ -100,8 +103,14 @@ export default function Orders() {
               <thead className="">
                 <tr className="text-a_general-80 text-sm border-b grid grid-cols-6 py-3">
                   <th className="">
-                    <input className="me-2" type="checkbox" name="" id="" />
-                    <span className="">Order</span>
+                    <input
+                      onChange={(e) => setAllchecked(e.target.checked)}
+                      className="me-2"
+                      type="checkbox"
+                      name=""
+                      id="headerchecked"
+                    />
+                    <label htmlFor="headerchecked" className="">Order</label>
                   </th>
                   <th>Date</th>
                   <th>Customer</th>
@@ -117,8 +126,23 @@ export default function Orders() {
                     className="text-center h-12 grid grid-cols-6"
                   >
                     <td className="text-a_general-100 font-medium text-sm">
-                      <input className="me-2" type="checkbox" name="" id="" />
-                      <span className="">{item.order}</span>
+                      {allchecked ? (
+                        <input
+                          className="me-2 "
+                          type="checkbox"
+                          name=""
+                          id={`checkbox${item.id}`}
+                          checked
+                        />
+                      ) : (
+                        <input
+                          className="me-2 "
+                          type="checkbox"
+                          name=""
+                          id={`checkbox${item.id}`}
+                        />
+                      )}
+                      <label htmlFor={`checkbox${item.id}`} className="">{item.order}</label>
                     </td>
                     <td className="text-a_general-100 text-sm">{item.date}</td>
                     <td className="text-a_general-100 text-sm">
@@ -153,6 +177,23 @@ export default function Orders() {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="flex justify-between text-a_general-70">
+            <div className="l flex gap-2 items-center">
+              <i className="bi bi-arrow-left cursor-pointer"></i>
+              <ul className="flex *:flex *:justify-center *:items-center gap-2 *:size-7 *:rounded *:cursor-pointer">
+                <li>1</li>
+                <li className="bg-a_primary-30">2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+              </ul>
+              <i className="bi bi-arrow-right cursor-pointer"></i>
+            </div>
+            <div className="r">
+              <p>274 Results</p>
+            </div>
           </div>
         </div>
       </div>
