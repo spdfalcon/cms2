@@ -1,11 +1,46 @@
-import ChartLastWeek from "../../../components/module/ChartLastWeek/ChartLastWeek";
-import Chartorder from "../../../components/module/Chartorder/Chartorder";
-import DashboardCard from "../../../components/module/DashboardCard/DashboardCard";
+import ChartLastWeek from "../../../components/module/dashboard/ChartLastWeek/ChartLastWeek";
+import Chartorder from "../../../components/module/dashboard/Chartorder/Chartorder";
+import DashboardCard from "../../../components/module/dashboard/DashboardCard/DashboardCard";
+import RecentTransactions from "../../../components/template/RecentTransactions/RecentTransactions";
+import TopProductsbox from "../../../components/template/TopProductsbox/TopProductsbox";
 
 export default function Dashboard() {
+  
+  const TopProductsbyUnitsSold = [
+    {
+      name: "Men Grey Hoodie",
+      pic: "/img/dashboard/11.png",
+      price: "$49.90",
+      unitssold: "204",
+    },
+    {
+      name: "Men Grey Hoodie",
+      pic: "/img/dashboard/11.png",
+      price: "$49.90",
+      unitssold: "204",
+    },
+    {
+      name: "Men Grey Hoodie",
+      pic: "/img/dashboard/11.png",
+      price: "$49.90",
+      unitssold: "204",
+    },
+    {
+      name: "Men Grey Hoodie",
+      pic: "/img/dashboard/11.png",
+      price: "$49.90",
+      unitssold: "204",
+    },
+    {
+      name: "Men Grey Hoodie",
+      pic: "/img/dashboard/11.png",
+      price: "$49.90",
+      unitssold: "204",
+    },
+  ];
   return (
     <>
-      <div className="px-10 py-[30px] ">
+      <div className="px-10 py-[30px] flex flex-col gap-y-10">
         {/* s header */}
         <div className="header flex justify-between">
           <h2 className="text-a_general-100 text-2xl font-bold">Dashboard</h2>
@@ -19,13 +54,13 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x">
           {Array(4)
             .fill(0)
-            .map((item,index) => (
+            .map((item, index) => (
               <DashboardCard key={index}></DashboardCard>
             ))}
         </div>
         {/* e dashboard boxs */}
-
-        <div className="grid grid-cols-12 *:col-span-12 *:md:col-span-6 mt-8 *:p-7 *:bg-white gap-5 *:rounded-md">
+        {/* s charts */}
+        <div className="grid grid-cols-12 *:col-span-12 *:md:col-span-6 *:p-7 *:bg-white gap-5 *:rounded-md">
           {/* s chart order over time */}
           <div className=" xl:col-span-9">
             <Chartorder></Chartorder>
@@ -35,6 +70,11 @@ export default function Dashboard() {
             <ChartLastWeek></ChartLastWeek>
           </div>
           {/* e Last 7 Days Sales */}
+        </div>
+        {/* e charts */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <RecentTransactions></RecentTransactions>
+              <TopProductsbox></TopProductsbox>
         </div>
       </div>
     </>
