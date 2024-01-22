@@ -6,38 +6,7 @@ import TopProductsbox from "../../../components/template/TopProductsbox/TopProdu
 
 export default function Dashboard() {
   
-  const TopProductsbyUnitsSold = [
-    {
-      name: "Men Grey Hoodie",
-      pic: "/img/dashboard/11.png",
-      price: "$49.90",
-      unitssold: "204",
-    },
-    {
-      name: "Men Grey Hoodie",
-      pic: "/img/dashboard/11.png",
-      price: "$49.90",
-      unitssold: "204",
-    },
-    {
-      name: "Men Grey Hoodie",
-      pic: "/img/dashboard/11.png",
-      price: "$49.90",
-      unitssold: "204",
-    },
-    {
-      name: "Men Grey Hoodie",
-      pic: "/img/dashboard/11.png",
-      price: "$49.90",
-      unitssold: "204",
-    },
-    {
-      name: "Men Grey Hoodie",
-      pic: "/img/dashboard/11.png",
-      price: "$49.90",
-      unitssold: "204",
-    },
-  ];
+  
   return (
     <>
       <div className="px-10 py-[30px] flex flex-col gap-y-10">
@@ -60,7 +29,7 @@ export default function Dashboard() {
         </div>
         {/* e dashboard boxs */}
         {/* s charts */}
-        <div className="grid grid-cols-12 *:col-span-12 *:md:col-span-6 *:p-7 *:bg-white gap-5 *:rounded-md">
+        <div className="grid grid-cols-12 *:col-span-12 *:lg:col-span-6 *:p-7 *:bg-white gap-5 *:rounded-md">
           {/* s chart order over time */}
           <div className=" xl:col-span-9">
             <Chartorder></Chartorder>
@@ -72,7 +41,7 @@ export default function Dashboard() {
           {/* e Last 7 Days Sales */}
         </div>
         {/* e charts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <RecentTransactions></RecentTransactions>
               <TopProductsbox></TopProductsbox>
         </div>
