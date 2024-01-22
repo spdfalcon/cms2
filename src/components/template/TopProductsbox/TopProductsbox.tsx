@@ -41,7 +41,7 @@ export default function TopProductsbox() {
         <h3 className="font-bold">Recent Transactions</h3>
         <table className="w-full min-w-96">
           <thead className="">
-            <tr className="text-a_general-80 text-sm border-b h-11">
+            <tr className="text-a_general-80 text-sm border-b grid grid-cols-3 py-3">
               <th>Name</th>
               <th>Price</th>
               <th>Units Sold</th>
@@ -49,10 +49,10 @@ export default function TopProductsbox() {
           </thead>
           <tbody className="">
             {TopProductsbyUnitsSold.map((item) => (
-              <tr key={item.id} className="text-center h-12">
-                <td className="text-a_general-100 font-medium text-sm flex gap-5 items-center mt-2">
+              <tr key={item.id} className="text-center grid grid-cols-3">
+                <td className="text-a_general-100 font-medium text-sm flex gap-5 items-center mt-2 ">
                   <img src={item.pic} alt="" />
-                  <span>{item.name}</span>
+                  <span className="w-20">{item.name}</span>
                 </td>
                 <td className="text-a_general-100 text-sm mt-2">{item.price}</td>
                 <td className="text-a_general-100 text-sm mt-2">{item.unitssold}</td>

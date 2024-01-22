@@ -5,6 +5,7 @@ import TopBar from "../../components/template/TopBar/TopBar";
 export default function Admin() {
   return (
     <>
+    <div className="">
       <TopBar></TopBar>
       <div className="flex ">
         <SideBar></SideBar>
@@ -12,6 +13,7 @@ export default function Admin() {
           <Outlet></Outlet>
         </div>
       </div>
+    </div>
     </>
   );
 }

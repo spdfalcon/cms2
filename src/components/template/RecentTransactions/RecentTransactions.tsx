@@ -42,16 +42,16 @@ export default function RecentTransactions() {
         <h3 className="font-bold">Recent Transactions</h3>
         <table className="w-full min-w-96">
           <thead className="">
-            <tr className="text-a_general-80 text-sm border-b h-11">
+            <tr className="text-a_general-80 text-sm border-b grid grid-cols-4 py-3">
               <th>Name</th>
               <th>Date</th>
               <th>Amount</th>
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="flex flex-col gap-5 mt-5">
             {recentTransactions.map((item) => (
-              <tr key={item.id} className="text-center h-12 ">
+              <tr key={item.id} className="grid grid-cols-4  ">
                 <td className="text-a_general-100 font-medium text-sm">
                   {item.name}
                 </td>

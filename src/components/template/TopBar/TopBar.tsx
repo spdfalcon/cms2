@@ -50,7 +50,7 @@ export default function TopBar() {
 
             <div
               className={`absolute h-44 flex duration-300 ${
-                isShowLangModal ? "" : "h-0 opacity-0"
+                isShowLangModal ? "" : "-translate-y-56 opacity-0 h-0"
               } flex-col gap-4 px-5 py-4 text-sm w-64 top-12 left-1/2 -translate-x-1/2 bg-white rounded-xl`}
             >
               <p>Select Language </p>

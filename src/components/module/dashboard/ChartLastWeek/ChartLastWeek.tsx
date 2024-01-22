@@ -71,7 +71,7 @@ export default function ChartLastWeek() {
             <XAxis dataKey="name"></XAxis>
             <YAxis></YAxis>
             <Tooltip></Tooltip>
-            <Bar barSize={15} dataKey="uv" fill="#8884d8" />
+            <Bar barSize={15} dataKey="uv" fill="#1FD286" />
           </BarChart>
         </ResponsiveContainer>
       </div>
