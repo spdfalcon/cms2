@@ -1,7 +1,8 @@
 import { useState } from "react";
+import EmpityOrder from "../../../components/template/EmpityOrder/EmpityOrder";
 
 export default function Orders() {
-  const recentTransactions = [
+  const recentTransactions:any = [
     {
       id: 1,
       order: "Jessica S.",
@@ -57,16 +58,18 @@ export default function Orders() {
           <div className="header flex justify-between">
             <h2 className="text-a_general-100 text-2xl font-bold">Orders</h2>
             <div className="flex gap-4">
-              <div className="px-5 py-2 flex gap-2 items-center bg-white text-a_primary-100 rounded border">
+              <button className="px-5 py-2 flex gap-2 items-center bg-white text-a_primary-100 rounded border">
                 <p>Export</p>
-              </div>
-              <div className="px-5 py-2 flex gap-2 items-center text-white bg-a_primary-100 rounded border">
+              </button>
+              <button className="px-5 py-2 flex gap-2 items-center text-white bg-a_primary-100 rounded border">
                 <i className="bi bi-plus-lg"></i>
                 <p>Add Order</p>
-              </div>
+              </button>
             </div>
           </div>
         </div>
+        {
+          recentTransactions.length ? (
         <div className="bg-white py-8 px-7 rounded-lg">
           <div className="header flex justify-between">
             <div className="left flex gap-4">
@@ -110,7 +113,9 @@ export default function Orders() {
                       name=""
                       id="headerchecked"
                     />
-                    <label htmlFor="headerchecked" className="">Order</label>
+                    <label htmlFor="headerchecked" className="">
+                      Order
+                    </label>
                   </th>
                   <th>Date</th>
                   <th>Customer</th>
@@ -120,7 +125,7 @@ export default function Orders() {
                 </tr>
               </thead>
               <tbody className="flex flex-col mt-5">
-                {recentTransactions.map((item) => (
+                {recentTransactions.map((item:any) => (
                   <tr
                     key={item.id}
                     className="text-center h-12 grid grid-cols-6"
@@ -142,7 +147,9 @@ export default function Orders() {
                           id={`checkbox${item.id}`}
                         />
                       )}
-                      <label htmlFor={`checkbox${item.id}`} className="">{item.order}</label>
+                      <label htmlFor={`checkbox${item.id}`} className="">
+                        {item.order}
+                      </label>
                     </td>
                     <td className="text-a_general-100 text-sm">{item.date}</td>
                     <td className="text-a_general-100 text-sm">
@@ -178,7 +185,7 @@ export default function Orders() {
               </tbody>
             </table>
           </div>
-          <div className="flex justify-between text-a_general-70">
+          <div className="flex down justify-between text-a_general-70">
             <div className="l flex gap-2 items-center">
               <i className="bi bi-arrow-left cursor-pointer"></i>
               <ul className="flex *:flex *:justify-center *:items-center gap-2 *:size-7 *:rounded *:cursor-pointer">
@@ -196,6 +203,12 @@ export default function Orders() {
             </div>
           </div>
         </div>
+
+          ): (
+            <EmpityOrder></EmpityOrder>
+          )
+        }
+
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+import { Children } from "react";
 import Admin from "../pages/Admin/Admin";
 import Categories from "../pages/Admin/Categories/Categories";
 import Coupons from "../pages/Admin/Coupons/Coupons";
@@ -15,6 +16,8 @@ import ConfirmEmail from "../pages/Registers/ConfirmEmail/ConfirmEmail";
 import Login from "../pages/Registers/Login/Login";
 import ResetPassword from "../pages/Registers/ResetPassword/ResetPassword";
 import Signup from "../pages/Registers/Signup/Signup";
+import Addproduct from "../pages/Admin/Products/Addproduct/Addproduct";
+import Editproduct from "../pages/Admin/Products/Editproduct/Editproduct";
 
 const routes = [
   { path: "/", element: <Login></Login> },
@@ -24,7 +27,14 @@ const routes = [
     children: [
       { path: "dashboard", element: <Dashboard></Dashboard> },
       { path: "orders", element: <Orders></Orders> },
-      { path: "products", element: <Products></Products> },
+      {
+        path: "products",
+        element: <Products></Products>,
+        children: [
+          { path: "addproduct", element: <Addproduct></Addproduct> },
+          { path: "editproduct", element: <Editproduct></Editproduct> },
+        ],
+      },
       { path: "categories", element: <Categories></Categories> },
       { path: "customers", element: <Customers></Customers> },
       { path: "reports", element: <Reports></Reports> },
@@ -32,7 +42,10 @@ const routes = [
       { path: "inbox", element: <Inbox></Inbox> },
       { path: "knowledgebase", element: <Knowledgebase></Knowledgebase> },
       { path: "productupdates", element: <Productupdates></Productupdates> },
-      { path: "personalsettings", element: <Personalsettings></Personalsettings> },
+      {
+        path: "personalsettings",
+        element: <Personalsettings></Personalsettings>,
+      },
       { path: "globalsettings", element: <Globalsettings></Globalsettings> },
     ],
   },
