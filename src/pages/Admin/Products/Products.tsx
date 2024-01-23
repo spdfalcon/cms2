@@ -107,9 +107,11 @@ export default function Products() {
                     </div>
                   </div>
                   <div className="right text-a_primary-100  flex gap-2">
-                    <Link to={'editproduct'} className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
+                    <button
+                      className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300"
+                    >
                       <i className="bi bi-pencil"></i>
-                    </Link>
+                    </button>
                     <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
                       <i className="bi bi-trash"></i>
                     </div>
@@ -119,7 +121,7 @@ export default function Products() {
                   <h3 className="font-bold">Recent Transactions</h3>
                   <table className="w-full">
                     <thead className="">
-                      <tr className="text-a_general-80 text-sm border-b grid grid-cols-5 gap-4 py-3">
+                      <tr className="text-a_general-80 text-sm border-b grid grid-cols-6 gap-4 py-3">
                         <th className="">
                           <input
                             onChange={(e) => setAllchecked(e.target.checked)}
@@ -136,13 +138,14 @@ export default function Products() {
                         <th>Color</th>
                         <th>Price</th>
                         <th>Rating</th>
+                        <th>edit</th>
                       </tr>
                     </thead>
                     <tbody className="flex flex-col mt-5">
                       {recentTransactions.map((item: any) => (
                         <tr
                           key={item.id}
-                          className="text-center h-12 grid grid-cols-5 gap-4 items-center"
+                          className="text-center h-12 grid grid-cols-6 gap-4 items-center"
                         >
                           <td className="text-a_general-100 font-medium text-sm flex items-center gap-2">
                             {allchecked ? (
@@ -187,6 +190,19 @@ export default function Products() {
                             <span className={`px-4 py-1 rounded-md`}>
                               {item.Rating}
                             </span>
+                          </td>
+                          <td>
+                            <div className="right text-a_primary-100  flex gap-2 justify-center">
+                              <Link
+                                to={`${item.id}`}
+                                className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300"
+                              >
+                                <i className="bi bi-pencil"></i>
+                              </Link>
+                              <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
+                                <i className="bi bi-trash"></i>
+                              </div>
+                            </div>
                           </td>
                         </tr>
                       ))}

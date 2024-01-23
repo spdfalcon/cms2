@@ -32,7 +32,7 @@ const routes = [
         element: <Products></Products>,
         children: [
           { path: "addproduct", element: <Addproduct></Addproduct> },
-          { path: "editproduct", element: <Editproduct></Editproduct> },
+          { path: ":editproductid", element: <Editproduct></Editproduct> },
         ],
       },
       { path: "categories", element: <Categories></Categories> },
