@@ -21,8 +21,8 @@ export default function Addproduct() {
         </div>
       </div>
 
-      <div className="grid grid-cols-12 gap-5">
-        <div className="l col-span-8 px-10 py-2 bg-white mt-10 rounded-md">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
+        <div className="l  xl:col-span-8 px-10 py-2 bg-white mt-10 rounded-md">
           <div className="py-10 border-b">
             <h2 className="font-bold">Information</h2>
             <div className="mt-5 flex flex-col gap-2">
@@ -144,10 +144,10 @@ export default function Addproduct() {
                   id="radioprice"
                 />
                 <label
-                  className={`flex justify-start px-1 items-center relative w-11  h-6 rounded-full bg-a_general-50`}
+                  className={`flex justify-end px-1 items-center relative w-11  h-6 rounded-full bg-a_primary-100`}
                   htmlFor="radioprice"
                 >
-                  <span className="absolute size-4 rounded-full bg-white "></span>
+                  <span className="absolute size-4 rounded-full bg-white"></span>
                 </label>
               </div>
               {/* radio */}
@@ -189,11 +189,116 @@ export default function Addproduct() {
             </div>
           </div>
           {/* Different Options */}
-          <button className="text-a_primary-100 mt-5">Add More</button>
+          <button className="text-a_primary-100 mt-5 border-b py-3 w-full text-left">Add More</button>
+
+          <div className="py-5 border-b">
+            <h2 className="font-bold">Shipping</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
+              <div className="mt-5 flex flex-col gap-2">
+                <p className="text-a_general-80 text-sm">Weight</p>
+                <input
+                  className="border w-full outline-none px-4 py-2 rounded-md"
+                  placeholder="Enter Weight"
+                  type="text"
+                  name=""
+                  id=""
+                />
+              </div>
+              <div className="mt-5 flex flex-col gap-2">
+                <p className="text-a_general-80 text-sm">Country</p>
+                <div>
+                  <select className="w-full h-10 border px-2" name="" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="mt-5 flex items-center gap-3 text-a_general-80">
+              {/* radio */}
+              <div className="">
+                <input
+                  className="hidden"
+                  type="radio"
+                  name=""
+                  id="radioprice"
+                />
+                <label
+                  className={`flex justify-start px-1 items-center relative w-11  h-6 rounded-full bg-a_general-50`}
+                  htmlFor="radioprice"
+                >
+                  <span className="absolute size-4 rounded-full bg-white "></span>
+                </label>
+              </div>
+              {/* radio */}
+              <span className="">This is digital item</span>
+            </div>
+            {/* price */}
+          </div>
         </div>
         
 
-        <div className="r col-span-4 p-10 bg-white mt-10 rounded-md"></div>
+        <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white *:p-7 *:rounded-md">
+          <div className="section1">
+            <h3 className="font-bold">Categories</h3>
+            <div className="flex gap-2 mt-3 items-center rounded ">
+              <input className="" type="checkbox" name="" id="checkboxCategories1" />
+              <label htmlFor="checkboxCategories1">Women</label>
+            </div>
+            <div className="flex gap-2 mt-3 items-center rounded ">
+              <input className="" type="checkbox" name="" id="checkboxCategories1" />
+              <label htmlFor="checkboxCategories1">Men</label>
+            </div>
+            <div className="flex gap-2 mt-3 items-center rounded ">
+              <input className="" type="checkbox" name="" id="checkboxCategories1" />
+              <label htmlFor="checkboxCategories1">T-Shirt</label>
+            </div>
+            <div className="flex gap-2 mt-3 items-center rounded ">
+              <input className="" type="checkbox" name="" id="checkboxCategories1" />
+              <label htmlFor="checkboxCategories1">Hoodie</label>
+            </div>
+            <div className="flex gap-2 mt-3 items-center rounded ">
+              <input className="" type="checkbox" name="" id="checkboxCategories1" />
+              <label htmlFor="checkboxCategories1">Dress</label>
+            </div>
+            <p className="mt-3 text-a_primary-100">Create New</p>
+          </div>
+          <div className="section2 flex flex-col gap-4">
+            <h3 className="font-bold">Tags</h3>
+            <div className="flex flex-col gap-2">
+              <label className="text-a_general-60" htmlFor="inputTags">Add Tags</label>
+              <input className="border px-3 py-2 rounded-md outline-none" placeholder="Enter tag name" type="text" name="" id="inputTags" />
+            </div>
+            <div className="flex justify-start gap-3 flex-wrap">
+              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 flex items-center">
+                <p>T-Shirt</p>
+                <i className="bi bi-x"></i>
+              </div>
+              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 flex items-center">
+                <p>T-Shirt</p>
+                <i className="bi bi-x"></i>
+              </div>
+              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 flex items-center">
+                <p>T-Shirt</p>
+                <i className="bi bi-x"></i>
+              </div>
+            </div>
+          </div>
+          <div className="section3 flex flex-col gap-4">
+            <h3 className="font-bold">SEO Settings</h3>
+            <div className="flex flex-col gap-2">
+              <label className="text-a_general-60" htmlFor="inputTags">Title</label>
+              <input className="border px-3 py-2 rounded-md outline-none"  type="text" name="" id="inputTags" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-a_general-60" htmlFor="inputTags">Description</label>
+              <textarea className="border px-3 py-2 rounded-md outline-none" name="" id="inputTags" />
+            </div>
+            
+          </div>
+        </div>
       </div>
     </div>
   );

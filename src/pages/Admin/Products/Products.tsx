@@ -119,9 +119,10 @@ export default function Products() {
                 </div>
                 <div className="tablee p-7 bg-white rounded-lg">
                   <h3 className="font-bold">Recent Transactions</h3>
+                  <div className="relative overflow-x-auto">
                   <table className="w-full">
                     <thead className="">
-                      <tr className="text-a_general-80 text-sm border-b grid grid-cols-6 gap-4 py-3">
+                      <tr className="text-a_general-80 text-sm border-b grid grid-cols-6 gap-4 py-3 ">
                         <th className="">
                           <input
                             onChange={(e) => setAllchecked(e.target.checked)}
@@ -208,6 +209,7 @@ export default function Products() {
                       ))}
                     </tbody>
                   </table>
+                  </div>
                 </div>
                 <div className="flex down justify-between text-a_general-70">
                   <div className="l flex gap-2 items-center">
