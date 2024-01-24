@@ -18,6 +18,8 @@ import ResetPassword from "../pages/Registers/ResetPassword/ResetPassword";
 import Signup from "../pages/Registers/Signup/Signup";
 import Addproduct from "../pages/Admin/Products/Addproduct/Addproduct";
 import Editproduct from "../pages/Admin/Products/Editproduct/Editproduct";
+import AddCategories from "../pages/Admin/Categories/AddCategories/AddCategories";
+import EditCategory from "../pages/Admin/Categories/EditCategory/EditCategory";
 
 const routes = [
   { path: "/", element: <Login></Login> },
@@ -36,6 +38,9 @@ const routes = [
         ],
       },
       { path: "categories", element: <Categories></Categories> },
+      { path: "categories/addcategory", element: <AddCategories></AddCategories> },
+      { path: "categories/:editcategory", element: <EditCategory></EditCategory> },
+
       { path: "customers", element: <Customers></Customers> },
       { path: "reports", element: <Reports></Reports> },
       { path: "coupons", element: <Coupons></Coupons> },
