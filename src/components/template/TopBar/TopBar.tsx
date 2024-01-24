@@ -9,10 +9,10 @@ export default function TopBar() {
   return (
     <>
     {/* back modal */}
-    <div onClick={()=>setIsShowLangModal(false)} className={`absolute ${isShowLangModal ? 'block' : 'hidden'} w-full h-screen bg-a_general-50/0 top-[68px]`}></div>
+    <div onClick={()=>setIsShowLangModal(false)} className={`z-50 absolute  ${isShowLangModal ? 'block' : 'hidden'} w-full h-screen bg-a_general-50/0 top-[68px]`}></div>
     {/* back modal */}
 
-      <div className="shadow-md h-[68px] px-7 py-3 bg-white sticky top-0 flex justify-between items-center z-10">
+      <div className="shadow-md h-[68px] px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 hidden lg:flex">
         <div className="left flex items-center gap-10">
           <img src="/img/topbar/logo.png" alt="Logo" />
           <div className="flex gap-3 items-center">

@@ -9,9 +9,9 @@ export default function Categories() {
     { id: 4, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
     { id: 5, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
     { id: 6, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
-    { id: 6, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
-    { id: 6, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
-    { id: 6, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
+    { id: 7, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
+    { id: 8, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
+    { id: 9, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
   ];
   return (
     <div className="py-8 px-10">
@@ -35,14 +35,16 @@ export default function Categories() {
           >
             <div className="relative flex justify-center">
               <img
-                className="z-20 object-contain"
+                className=" object-contain"
                 src="/img/category/11.png"
                 alt=""
 
               />
               <Link className="group-hover:bg-a_general-70/40 hidden group-hover:flex w-full h-full justify-center items-center z-50 text-white absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2" to={`${item.id}`}>
-                
-                <span className="px-3 bg-white rounded text-a_primary-100">Edit</span>
+                <span className="px-3 bg-white rounded text-a_primary-100 flex gap-2">
+              <i className="bi bi-pencil"></i>
+                  <span>Edit</span>
+                </span>
               </Link>
             </div>
             <div className="px-3">
