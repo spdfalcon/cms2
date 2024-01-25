@@ -20,6 +20,8 @@ import Addproduct from "../pages/Admin/Products/Addproduct/Addproduct";
 import Editproduct from "../pages/Admin/Products/Editproduct/Editproduct";
 import AddCategories from "../pages/Admin/Categories/AddCategories/AddCategories";
 import EditCategory from "../pages/Admin/Categories/EditCategory/EditCategory";
+import Addcustomer from "../pages/Admin/Customers/Addcustomer/Addcustomer";
+import Editcustomers from "../pages/Admin/Customers/Editcustomers/Editcustomers";
 
 const routes = [
   { path: "/", element: <Login></Login> },
@@ -42,6 +44,8 @@ const routes = [
       { path: "categories/:editcategory", element: <EditCategory></EditCategory> },
 
       { path: "customers", element: <Customers></Customers> },
+      { path: "customers/addcustomer", element: <Addcustomer></Addcustomer> },
+      { path: "customers/:editcustomers", element: <Editcustomers></Editcustomers> },
       { path: "reports", element: <Reports></Reports> },
       { path: "coupons", element: <Coupons></Coupons> },
       { path: "inbox", element: <Inbox></Inbox> },

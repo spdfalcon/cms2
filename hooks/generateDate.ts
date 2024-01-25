@@ -20,7 +20,6 @@ function miladi_be_shamsi(gy:any, gm:any, gd:any) {
   }
   return [jy + '/' + jm + '/' + jd];
 }
-console.log(miladi_be_shamsi(1990, 7, 22));
 // Output: ['1369/4/31']
 const tarikh = new Date()
   const shamsi:any = miladi_be_shamsi(tarikh.getFullYear() ,tarikh.getMonth()+1 ,tarikh.getDate())[0].split('/')
