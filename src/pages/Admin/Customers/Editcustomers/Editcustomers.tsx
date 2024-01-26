@@ -1,51 +1,51 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom";
 
 export default function Editcustomers() {
-    const {editcustomers} = useParams()
-    const customerorder = [
-      {
-        id: 1,
-        order: "#23534D",
-        date: "May 25, 3:12 PM",
-        orderstatus: "Pending",
-        price: 29.74,
-      },
-      {
-        id: 1,
-        order: "#23534D",
-        date: "May 25, 3:12 PM",
-        orderstatus: "Pending",
-        price: 29.74,
-      },
-      {
-        id: 1,
-        order: "#23534D",
-        date: "May 25, 3:12 PM",
-        orderstatus: "Completed",
-        price: 29.74,
-      },
-      {
-        id: 1,
-        order: "#23534D",
-        date: "May 25, 3:12 PM",
-        orderstatus: "Completed",
-        price: 29.74,
-      },
-      {
-        id: 1,
-        order: "#23534D",
-        date: "May 25, 3:12 PM",
-        orderstatus: "Pending",
-        price: 29.74,
-      },
-      {
-        id: 1,
-        order: "#23534D",
-        date: "May 25, 3:12 PM",
-        orderstatus: "Completed",
-        price: 29.74,
-      },
-    ];
+  const { editcustomers } = useParams();
+  const customerorder = [
+    {
+      id: 1,
+      order: "#23534D",
+      date: "May 25, 3:12 PM",
+      orderstatus: "Pending",
+      price: 29.74,
+    },
+    {
+      id: 1,
+      order: "#23534D",
+      date: "May 25, 3:12 PM",
+      orderstatus: "Pending",
+      price: 29.74,
+    },
+    {
+      id: 1,
+      order: "#23534D",
+      date: "May 25, 3:12 PM",
+      orderstatus: "Completed",
+      price: 29.74,
+    },
+    {
+      id: 1,
+      order: "#23534D",
+      date: "May 25, 3:12 PM",
+      orderstatus: "Completed",
+      price: 29.74,
+    },
+    {
+      id: 1,
+      order: "#23534D",
+      date: "May 25, 3:12 PM",
+      orderstatus: "Pending",
+      price: 29.74,
+    },
+    {
+      id: 1,
+      order: "#23534D",
+      date: "May 25, 3:12 PM",
+      orderstatus: "Completed",
+      price: 29.74,
+    },
+  ];
   return (
     <div className="px-10 py-8">
       <div className="header flex items-center justify-between">
@@ -120,7 +120,10 @@ export default function Editcustomers() {
               </thead>
               <tbody className="text-sm">
                 {customerorder.map((item) => (
-                  <tr key={item.id} className="*:px-6 *:py-3 border-b-2 *:text-nowrap">
+                  <tr
+                    key={item.id}
+                    className="*:px-6 *:py-3 border-b-2 *:text-nowrap"
+                  >
                     <td className="font-medium">{item.order}</td>
                     <td>{item.date}</td>
                     <td>
@@ -195,7 +198,7 @@ export default function Editcustomers() {
         </div>
       </div>
       <div className="flex justify-end py-5">
-      <div className="l flex gap-2">
+        <div className="l flex gap-2">
           <button className="px-6 py-1 bg-white text-a_primary-100 rounded-md border">
             Cancel
           </button>
@@ -205,5 +208,5 @@ export default function Editcustomers() {
         </div>
       </div>
     </div>
-  )
+  );
 }
