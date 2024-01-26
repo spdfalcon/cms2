@@ -94,10 +94,10 @@ export default function Customers() {
           </div>
           <div className="tablee p-7 bg-white rounded-lg">
             <h3 className="font-bold">Recent Transactions</h3>
-            <div className="relative overflow-x-auto">
+            <div className="w-full overflow-x-auto">
               <table className="w-full">
                 <thead className="">
-                  <tr className="text-a_general-80 text-sm border-b grid grid-cols-5 gap-4 py-3 ">
+                  <tr className="text-a_general-80 text-sm border-b *:px-6 *:text-nowrap *:py-3">
                     <th className="">
                       <input
                         onChange={(e) => setAllchecked(e.target.checked)}
@@ -116,11 +116,11 @@ export default function Customers() {
                     <th>edit</th>
                   </tr>
                 </thead>
-                <tbody className="flex flex-col mt-5">
+                <tbody className=" mt-5">
                   {recentTransactions.map((item: any) => (
                     <tr
                       key={item.id}
-                      className="text-center h-12 grid grid-cols-5 gap-4 items-center"
+                      className="*:px-6 *:py-3 *:text-nowrap"
                     >
                       <td className="text-a_general-100 font-medium text-sm flex items-center gap-2">
                         {allchecked ? (
