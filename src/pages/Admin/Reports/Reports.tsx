@@ -79,6 +79,32 @@ export default function Reports() {
       amt: 2100,
     },
   ];
+  const data2 = [
+    {
+      name: "Page A",
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Page B",
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: "Page C",
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: "Page D",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+  ];
   const SalesGoal = [
     {
       name: "Group A",
@@ -111,6 +137,12 @@ export default function Reports() {
     { id: 3, name: "Tommy Walker", Orders: 52, Spent: "$658" },
     { id: 4, name: "Lela Cannon", Orders: 52, Spent: "$658" },
     { id: 5, name: "Jimmy Cook", Orders: 52, Spent: "$658" },
+  ];
+  const data3 = [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 },
   ];
   return (
     <div className="p-7">
@@ -304,7 +336,7 @@ export default function Reports() {
               </div>
             </div>
           </div>
-          <div className="sec3right lg:col-span-6 flex flex-col justify-between">
+          <div className="sec3right lg:col-span-6 flex flex-col justify-between overflow-x-auto">
             <div className="flex flex-col gap-2">
               <p className="font-bold">Conversion Rate</p>
               <div className="flex gap-4">
@@ -318,7 +350,7 @@ export default function Reports() {
                 </span>
               </div>
             </div>
-            <div className="h-64">
+            <div className="h-64 min-w-[500px]">
               <ResponsiveContainer>
                 <LineChart
                   width={730}
@@ -338,7 +370,7 @@ export default function Reports() {
           </div>
         </div>
         <div className="sec4 grid grid-cols-1 lg:grid-cols-12 gap-3">
-          <div className="sec4left lg:col-span-9 bg-white p-7 rounded-md">
+          <div className="sec4left lg:col-span-9 bg-white p-7 rounded-md overflow-x-auto">
             <div className="h-80 mt-10 min-w-[500px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
@@ -470,7 +502,7 @@ export default function Reports() {
             </div>
           </div>
           <div className="sec5right">
-          <div className="header font-bold">
+            <div className="header font-bold">
               <h2>Top Products</h2>
             </div>
             <div className="overflow-x-auto mt-5">
@@ -492,7 +524,7 @@ export default function Reports() {
                         <td className="">
                           <div className="flex items-center gap-2 ">
                             <div className="size-10 flex justify-center items-center text-white font-bold">
-                             <img src="/img/dashboard/11.png" alt="" />
+                              <img src="/img/dashboard/11.png" alt="" />
                             </div>
                             <p className="font-medium">{item.name}</p>
                           </div>
@@ -516,8 +548,107 @@ export default function Reports() {
           </div>
         </div>
         <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white *:p-7">
-          <div className="sec6left lg:col-span-9"></div>
-          <div className="sec6right lg:col-span-3"></div>
+          <div className="sec6left lg:col-span-9">
+            <div className="flex justify-between items-center">
+              <div className="l">
+                <h2 className="font-bold">Store Funnel</h2>
+                <div className="flex gap-5 items-center">
+                  <span className="text-a_general-80">
+                    Conversion Rate{" "}
+                    <span className="font-bold text-a_general-100">28%</span>
+                  </span>
+                  <span className="text-a_green-80 bg-a_green-30 px-2 py-1 rounded-md">
+                    4% Increase
+                  </span>
+                </div>
+              </div>
+              <div className="r ">
+                <label className="text-a_general-80" htmlFor="">
+                  Last 7 Days
+                </label>
+                <select className="" name="" id="">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+            <div className="h-96 mt-10">
+              <ResponsiveContainer>
+                <BarChart data={data2}>
+                  <CartesianGrid vertical={false} strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar
+                    barSize={80}
+                    className="rounded-2xl"
+                    dataKey="pv"
+                    fill="#1E5EFF"
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+          <div className="sec6right lg:col-span-3">
+            <div className="up font-bold">
+              <h2>Age Distribution</h2>
+            </div>
+            <div className="min h-56 mt-10">
+              <ResponsiveContainer>
+                <PieChart>
+                  <Pie
+                    data={data3}
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={80}
+                    fill="#82ca9d"
+                    label
+                  />
+                  <Tooltip></Tooltip>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="down">
+              <div className="up flex flex-col gap-3 border-b pb-5">
+                <div className="flex justify-between">
+                  <div className="flex gap-2 items-center text-a_general-80">
+                    <div className="size-5 bg-a_primary-100 rounded-md"></div>
+                    <p>0-18 years</p>
+                  </div>
+                  <p className="font-bold">50%</p>
+                </div>
+                <div className="flex justify-between">
+                  <div className="flex gap-2 items-center text-a_general-80">
+                    <div className="size-5 bg-a_yellow-80 rounded-md"></div>
+                    <p>18-30 years</p>
+                  </div>
+                  <p className="font-bold">30%</p>
+                </div>
+                <div className="flex justify-between">
+                  <div className="flex gap-2 items-center text-a_general-80">
+                    <div className="size-5 bg-a_yellow-101 rounded-md"></div>
+                    <p>30-40 years</p>
+                  </div>
+                  <p className="font-bold">10%</p>
+                </div>
+                <div className="flex justify-between">
+                  <div className="flex gap-2 items-center text-a_general-80">
+                    <div className="size-5 bg-a_green-101 rounded-md"></div>
+                    <p>Other</p>
+                  </div>
+                  <p className="font-bold">10%</p>
+                </div>
+              </div>
+              <div className="down">
+              <p className="text-a_primary-100 pt-5">Find out more</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
