@@ -105,6 +105,13 @@ export default function Reports() {
     //   value: 4800,
     // },
   ];
+  const table1 = [
+    { id: 1, name: "Lee Henry", Orders: 52, Spent: "$658" },
+    { id: 2, name: "Myrtie McBride", Orders: 52, Spent: "$658" },
+    { id: 3, name: "Tommy Walker", Orders: 52, Spent: "$658" },
+    { id: 4, name: "Lela Cannon", Orders: 52, Spent: "$658" },
+    { id: 5, name: "Jimmy Cook", Orders: 52, Spent: "$658" },
+  ];
   return (
     <div className="p-7">
       <div className="header flex justify-between">
@@ -331,17 +338,182 @@ export default function Reports() {
           </div>
         </div>
         <div className="sec4 grid grid-cols-1 lg:grid-cols-12 gap-3">
-          <div className="sec4left lg:col-span-9 bg-white p-7"></div>
-          <div className="sec4right lg:col-span-3 flex flex-col gap-3 *:bg-white *:p-7">
-            <div className="sec4rightup">
-              
+          <div className="sec4left lg:col-span-9 bg-white p-7 rounded-md">
+            <div className="h-80 mt-10 min-w-[500px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  width={500}
+                  height={300}
+                  data={data}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid vertical={false} strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar
+                    dataKey="pv"
+                    fill="#D7DBEC"
+                    activeBar={<Rectangle fill="pink" stroke="blue" />}
+                    barSize={15}
+                  />
+                  <Bar
+                    dataKey="uv"
+                    fill="#1E5EFF"
+                    activeBar={<Rectangle fill="gold" stroke="purple" />}
+                    barSize={15}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
-            <div className="sec4rightdown"></div>
+          </div>
+          <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white *:rounded-md ">
+            <div className="sec4rightup p-7 py-10">
+              <div className="flex flex-col gap-4">
+                <h2 className="font-bold">Visits by Device</h2>
+                <div className="flex flex-col gap-3">
+                  <div className="flex justify-between">
+                    <div className="flex gap-2 text-a_general-80">
+                      <i className="bi bi-phone"></i>
+                      <span>Mobile</span>
+                    </div>
+                    <span className="font-bold">62%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <div className="flex gap-2 text-a_general-80">
+                      <i className="bi bi-phone"></i>
+                      <span>Mobile</span>
+                    </div>
+                    <span className="font-bold">62%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <div className="flex gap-2 text-a_general-80">
+                      <i className="bi bi-phone"></i>
+                      <span>Mobile</span>
+                    </div>
+                    <span className="font-bold">62%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <div className="flex gap-2 text-a_general-80">
+                      <i className="bi bi-phone"></i>
+                      <span>Mobile</span>
+                    </div>
+                    <span className="font-bold">62%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="sec4rightdown flex flex-col gap-5 p-7">
+              <div className="font-bold">
+                <h3>Online Sessions</h3>
+              </div>
+              <div className="">
+                <div className="flex gap-2 items-center">
+                  <span className="font-bold">128</span>
+                  <i className="bi bi-arrow-up text-a_green-80 font-bold"></i>
+                </div>
+                <p className="text-a_general-80">Active Users</p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white *:p-7">
-          <div className="sec5left"></div>
-          <div className="sec5right"></div>
+          <div className="sec5left">
+            <div className="header font-bold">
+              <h2>Top Customers</h2>
+            </div>
+            <div className="overflow-x-auto mt-5">
+              <table className="w-full">
+                <thead>
+                  <tr className="*:px-6 *:py-3 text-a_general-80 border-b">
+                    <th>Name</th>
+                    <th>Orders</th>
+                    <th>Spent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {table1.map((item) => (
+                    <>
+                      <tr
+                        key={item.id}
+                        className="*:px-6 *:py-3 border-b text-nowrap text-sm"
+                      >
+                        <td className="">
+                          <div className="flex items-center gap-2 ">
+                            <div className="size-10 rounded-full bg-a_primary-100 flex justify-center items-center text-white font-bold">
+                              <span>{item.name[0]}</span>
+                            </div>
+                            <p className="font-medium">{item.name}</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="flex justify-center">
+                            <p>52</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="flex justify-center">
+                            <p>$969.37</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="sec5right">
+          <div className="header font-bold">
+              <h2>Top Products</h2>
+            </div>
+            <div className="overflow-x-auto mt-5">
+              <table className="w-full">
+                <thead>
+                  <tr className="*:px-6 *:py-3 text-a_general-80 border-b">
+                    <th>Name</th>
+                    <th>Clicks</th>
+                    <th>Units Sold</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {table1.map((item) => (
+                    <>
+                      <tr
+                        key={item.id}
+                        className="*:px-6 *:py-3 border-b text-nowrap text-sm"
+                      >
+                        <td className="">
+                          <div className="flex items-center gap-2 ">
+                            <div className="size-10 flex justify-center items-center text-white font-bold">
+                             <img src="/img/dashboard/11.png" alt="" />
+                            </div>
+                            <p className="font-medium">{item.name}</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="flex justify-center">
+                            <p>52</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="flex justify-center">
+                            <p>$969.37</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
         <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white *:p-7">
           <div className="sec6left lg:col-span-9"></div>
