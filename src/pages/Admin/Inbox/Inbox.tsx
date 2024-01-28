@@ -1,9 +1,18 @@
+import Button from "../../../components/module/Button/Button";
+
 export default function Inbox() {
   return (
-    <div>
-      <div className="text-9xl flex flex-1 justify-center text-center h-screen items-center bg-red-600">
-        orders
+    <>
+      <div className="p-10">
+        <Button
+          bg="bg-a_primary-100"
+          color="text-white"
+          hoverbg="hover:bg-white"
+          hovercolor="hover:text-a_primary-100"
+          size="sm"
+          icon="bi bi-alarm"
+        ></Button>
       </div>
-    </div>
+    </>
   );
 }
