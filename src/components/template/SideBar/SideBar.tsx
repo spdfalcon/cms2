@@ -1,82 +1,83 @@
 import {NavLink } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 export default function SideBar() {
+  const {t} = useTranslation()
   const items = [
     {
       id: 1,
       icon: "bi bi-house-door",
-      title: "Dashboard",
+      title: t('dashboard'),
       to: "dashboard",
       notif: 0,
     },
     {
       id: 2,
       icon: "bi bi-list-task",
-      title: "Orders",
+      title: t('orders'),
       to: "orders",
       notif: 16,
     },
     {
       id: 3,
       icon: "bi bi-ticket-perforated",
-      title: "Products",
+      title: t('products'),
       to: "products",
       notif: 0,
     },
     {
       id: 4,
       icon: "bi bi-folder",
-      title: "Categories",
+      title: t('categories'),
       to: "categories",
       notif: 0,
     },
     {
       id: 5,
       icon: "bi bi-people",
-      title: "Customers",
+      title: t('customers'),
       to: "customers",
       notif: 0,
     },
     {
       id: 6,
       icon: "bi bi-bar-chart-line",
-      title: "Reports",
+      title: t('reports'),
       to: "reports",
       notif: 0,
     },
-    { id: 7, icon: "bi bi-star", title: "Coupons", to: "coupons", notif: 0 },
+    { id: 7, icon: "bi bi-star", title: t('coupons'), to: "coupons", notif: 0 },
     {
       id: 8,
       icon: "bi bi-chat-left-text",
-      title: "Inbox",
+      title: t('inbox'),
       to: "inbox",
       notif: 0,
     },
     {
       id: 9,
       icon: "bi bi-question-circle",
-      title: "Knowledge Base",
+      title: t('knowledgebase'),
       to: "knowledgebase",
       notif: 0,
     },
     {
       id: 10,
       icon: "bi bi-award",
-      title: "Product Updates",
+      title: t('productupdates'),
       to: "productupdates",
       notif: 0,
     },
     {
       id: 11,
       icon: "bi bi-person",
-      title: "Personal Settings",
+      title: t('personalsettings'),
       to: "personalsettings",
       notif: 0,
     },
     {
       id: 12,
       icon: "bi bi-gear",
-      title: "Global Settings",
+      title: t('globalsettings'),
       to: "globalsettings",
       notif: 0,
     },
@@ -96,7 +97,7 @@ export default function SideBar() {
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span>{item.title}</span>
+              <span className="font-bold">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">
@@ -106,7 +107,7 @@ export default function SideBar() {
           </NavLink>
         ))}
         <div className="px-5 ">
-        <p className="text-a_general-60 text-xs">Other Information</p>
+        <p className="text-a_general-60 text-xs">{t('otherinformation')}</p>
         </div>
         {items.slice(8,10).map((item) => (
           <NavLink
@@ -120,7 +121,7 @@ export default function SideBar() {
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span>{item.title}</span>
+              <span className="font-bold">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">
@@ -130,7 +131,7 @@ export default function SideBar() {
           </NavLink>
         ))}
         <div className="px-5 ">
-        <p className="text-a_general-60 text-xs">Settings</p>
+        <p className="text-a_general-60 text-xs">{t('settings')}</p>
         </div>
         {items.slice(10,12).map((item) => (
           <NavLink
@@ -144,7 +145,7 @@ export default function SideBar() {
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span>{item.title}</span>
+              <span className="font-bold">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">

@@ -1,0 +1,16 @@
+﻿@font-face {
+  font-family: "IRANSansBlack";
+  src: url(../fonts/woff/IRANSansWeb_Black.woff);
+}
+@font-face {
+  font-family: "IRANSansBold";
+  src: url(../fonts/woff/IRANSansWeb_Bold.woff);
+}
+@font-face {
+  font-family: "IRANSansMedium";
+  src: url(../fonts/woff/IRANSansWeb_Medium.woff);
+}
+@font-face {
+  font-family: "IRANSansNormal";
+  src: url(../fonts/woff/IRANSansWeb.woff);
+}

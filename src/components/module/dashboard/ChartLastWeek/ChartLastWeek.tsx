@@ -7,7 +7,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import generatedatecustom from "../../../../../hooks/generateDate";
+import { useTranslation } from "react-i18next";
 export default function ChartLastWeek() {
+  const {t} = useTranslation()
   const data = [
     {
       name: generatedatecustom(6),
@@ -56,14 +58,14 @@ export default function ChartLastWeek() {
     <>
       <div className=" h-96 md:min-h-72 lg:h-[469px]  flex flex-col">
         <div className="flex flex-col gap-4 border-b pb-4 mb-4">
-          <p className="font-bold text-a_general-100">Last 7 Days Sales</p>
+          <p className="font-bold text-a_general-100">{t('last7dayssales')}</p>
           <div className="">
             <p className="text-xl font-bold">1,259</p>
-            <p className="text-a_general-80 text-sm">Items Sold</p>
+            <p className="text-a_general-80 text-sm">{t('itemssold')}</p>
           </div>
           <div className="">
             <p className="text-xl font-bold">1,259</p>
-            <p className="text-a_general-80 text-sm">Items Sold</p>
+            <p className="text-a_general-80 text-sm">{t('revenue')}</p>
           </div>
         </div>
         <ResponsiveContainer width="100%" height="100%">

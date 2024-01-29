@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
 import ChartLastWeek from "../../../components/module/dashboard/ChartLastWeek/ChartLastWeek";
@@ -7,13 +8,14 @@ import RecentTransactions from "../../../components/template/RecentTransactions/
 import TopProductsbox from "../../../components/template/TopProductsbox/TopProductsbox";
 
 export default function Dashboard() {
+  const {t} = useTranslation()
   return (
     <>
       <div className="  px-10 py-[30px] flex flex-col gap-y-10">
         {/* s header */}
-        <Headerofpages title="Dashboard">
+        <Headerofpages title={t('dashboard')}>
           <Button type="Primary" icon="bi bi-gear" size="md">
-            Manage
+            {t('manage')}
           </Button>
         </Headerofpages>
         {/* e header */}

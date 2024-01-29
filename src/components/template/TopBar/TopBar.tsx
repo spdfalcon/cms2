@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import i18next from "i18next";
 export default function TopBar() {
   const [lang, setLang] = useState({
     flag: "/img/topbar/UK.png",
@@ -8,9 +8,14 @@ export default function TopBar() {
   const [isShowLangModal, setIsShowLangModal] = useState(false);
   return (
     <>
-    {/* back modal */}
-    <div onClick={()=>setIsShowLangModal(false)} className={`z-50 absolute  ${isShowLangModal ? 'block' : 'hidden'} w-full h-screen bg-a_general-50/0 top-[68px]`}></div>
-    {/* back modal */}
+      {/* back modal */}
+      <div
+        onClick={() => setIsShowLangModal(false)}
+        className={` absolute  ${
+          isShowLangModal ? "block" : "hidden"
+        } w-full h-screen bg-a_general-50/0 top-[68px]`}
+      ></div>
+      {/* back modal */}
 
       <div className="shadow-md h-[68px] px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 hidden lg:flex">
         <div className="left flex items-center gap-10">
@@ -45,7 +50,11 @@ export default function TopBar() {
             >
               <img className="w-10 h-[27px]" src={lang.flag} alt="" />
               <span>{lang.name}</span>
-              <i className={`duration-300 bi bi-chevron-down ${isShowLangModal ? 'rotate-180' : ''}`}></i>
+              <i
+                className={`duration-300 bi bi-chevron-down ${
+                  isShowLangModal ? "rotate-180" : ""
+                }`}
+              ></i>
             </div>
 
             <div
@@ -55,7 +64,11 @@ export default function TopBar() {
             >
               <p>Select Language </p>
               <span className="block w-full h-px bg-a_general-50"></span>
-              <div className={`flex flex-col gap-6 duration-300 ${isShowLangModal ? 'translate-y-0' : '-translate-y-56'}`}>
+              <div
+                className={`flex flex-col gap-6 duration-300 ${
+                  isShowLangModal ? "translate-y-0" : "-translate-y-56"
+                }`}
+              >
                 <div
                   onClick={() => {
                     setLang({
@@ -63,6 +76,8 @@ export default function TopBar() {
                       name: "English",
                     });
                     setIsShowLangModal(false);
+                    document.body.dir = "ltr";
+                    i18next.changeLanguage('en')
                   }}
                   className="flex items-center justify-between cursor-pointer"
                 >
@@ -80,9 +95,11 @@ export default function TopBar() {
                   onClick={() => {
                     setLang({
                       flag: "/img/topbar/iran.png",
-                      name: "Iran",
+                      name: "فارسی",
                     });
                     setIsShowLangModal(false);
+                    document.body.dir = "rtl";
+                    i18next.changeLanguage('fa')
                   }}
                   className="flex items-center justify-between cursor-pointer"
                 >
@@ -92,7 +109,7 @@ export default function TopBar() {
                       src={`/img/topbar/iran.png`}
                       alt=""
                     />
-                    <span>Iran</span>
+                    <span>فارسی</span>
                   </div>
                   {lang.name === "Iran" && (
                     <div>

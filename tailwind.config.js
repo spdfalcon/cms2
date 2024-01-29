@@ -67,6 +67,12 @@ export default {
           40: '#FFF4C9',
           30: '#FFF9E1',
         },
+      },
+      fontFamily: {
+        'iransansblack': 'IRANSansBlack',
+        'iransansbold': 'IRANSansBold',
+        'iransansmedium': 'IRANSansMedium',
+        'iransansnormal': 'IRANSansNormal',
       }
     },
 
