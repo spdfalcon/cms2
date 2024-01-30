@@ -1,34 +1,36 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  const {t} = useTranslation()
   return (
     <div className="flex h-screen text-center">
       <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold text-[32px]">Sign in</h2>
+          <h2 className="text-a_general-100 font-bold text-[32px]">{t('signin')}</h2>
           <div className="">
-            <span className="text-a_general-80">New to Our Product?</span>{" "}
+            <span className="text-a_general-80">{t('newtoourproduct')}</span>{" "}
             <Link className="text-a_primary-100" to={"/signup"}>
-              Create an Account
+              {t('createanaccount')}
             </Link>
           </div>
 
           <div className="mt-10 flex flex-col gap-6">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-sm text-a_general-80">Email</label>
+              <label htmlFor="email" className="text-sm text-a_general-80">{t('email')}</label>
               <input
                 className="border p-2 rounded focus:outline-none"
-                placeholder="Enter Email Address"
+                placeholder={t('enteremailaddress')}
                 type="text"
                 name=""
                 id="email"
               />
             </div>
             <div className="flex flex-col text-left">
-              <label htmlFor="password" className="text-sm text-a_general-80">Password</label>
+              <label htmlFor="password" className="text-sm text-a_general-80">{t('password')}</label>
               <input
                 className="border p-2 rounded focus:outline-none"
-                placeholder="Enter Password"
+                placeholder={t('enterpassword')}
                 type="text"
                 name=""
                 id="password"
@@ -36,23 +38,23 @@ export default function Login() {
               <div className="flex mt-4 gap-2">
                 <input className="" type="checkbox" name="" id="check" />
                 <label className="text-a_general-80" htmlFor="check">
-                  Keep me signed in
+                  {t('keepmesignedin')}
                 </label>
               </div>
             </div>
             <div>
               <Link to={'/admin/dashboard'} className="block p-3 w-full rounded bg-a_primary-100 text-white ">
-                Go To Account
+                {t('signin')}
               </Link>
             </div>
             <div className="text-sm">
               <Link className="text-a_primary-100" to={"/resetpassword"}>
-                Forgot your password?
+                {t('forgotyourpassword')}
               </Link>
             </div>
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-sm text-a_general-80">Or sign in using:</p>
+              <p className="text-sm text-a_general-80">{t('orsigninusing')}</p>
             </div>
             <Link
               to={""}

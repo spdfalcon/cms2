@@ -32,8 +32,36 @@ const en = {
   totalsessions:'Total Sessions',
   //end Dashboard
 
+  // Sign in
+  signin:'Sign in',
+  newtoourproduct:'New to Our Product',
+  createanaccount:'Create an Account',
+  email:'Email',
+  enteremailaddress:'Enter Email Address',
+  password:'Password',
+  enterpassword:'Enter Password',
+  keepmesignedin:'Keep me signed in',
+  createaccount:'Create Account',
+  forgotyourpassword:'Forgot your password?',
+  orsigninusing:'Or sign in using:',
 
+  // Sign in
 
+  // sign up
+  haveanaccount:'Have an Account?',
+  createpassword:'Create Password',
+  bycreatingaccountyouagreetoour:'By creating account, you agree to our',
+  termsofservice:'Terms of Service',
+
+  // sign up
+
+  // reset password
+  passwordreset:'Password Reset',
+  wewillhelpyouresetyourpassword:'We Will Help You Reset your Password',
+  resetpassword:'Reset Password',
+  rememberedyourpassword:'Remembered your Password?',
+  backtosignin:'Back to Sign In',
+  // reset password
 
 
 

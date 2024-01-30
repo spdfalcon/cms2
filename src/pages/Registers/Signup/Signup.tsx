@@ -1,34 +1,36 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function Signup() {
+  const {t} = useTranslation()
   return (
     <div className="flex h-screen text-center">
       <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold text-[32px]">Create an Account</h2>
+          <h2 className="text-a_general-100 font-bold text-[32px]">{t('createanaccount')}</h2>
           <div className="">
-            <span className="text-a_general-80 ">Have an Account?</span>
+            <span className="text-a_general-80 ">{t('haveanaccount')}</span>
             <Link className="text-a_primary-100" to={"/"}>
-            Sign In
+            {t('signin')}
             </Link>
           </div>
 
           <div className="mt-10 flex flex-col gap-6">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-sm text-a_general-80">Email</label>
+              <label htmlFor="email" className="text-sm text-a_general-80">{t('email')}</label>
               <input
                 className="border p-2 rounded focus:outline-none"
-                placeholder="Enter Email Address"
+                placeholder={t('enteremailaddress')}
                 type="text"
                 name=""
                 id="email"
               />
             </div>
             <div className="flex flex-col text-left">
-              <label htmlFor="password" className="text-sm text-a_general-80">Password</label>
+              <label htmlFor="password" className="text-sm text-a_general-80">{t('password')}</label>
               <input
                 className="border p-2 rounded focus:outline-none"
-                placeholder="Create Password"
+                placeholder={t('enterpassword')}
                 type="text"
                 name=""
                 id="password"
@@ -37,18 +39,18 @@ export default function Signup() {
             </div>
             <div>
               <button className="p-3 w-full rounded bg-a_primary-100 text-white ">
-                Create Account
+                {t('createaccount')}
               </button>
             </div>
             <div className="text-sm">
-              <p className="text-sm text-a_general-80">By creating account, you agree to our</p>
+              <p className="text-sm text-a_general-80">{t('bycreatingaccountyouagreetoour')}</p>
               <Link className="text-a_primary-100" to={""}>
-              Terms of Service
+              {t('termsofservice')}
               </Link>
             </div>
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-sm text-a_general-80">Or create an account using:</p>
+              <p className="text-sm text-a_general-80">{t('orsigninusing')}</p>
             </div>
             <Link
               to={""}

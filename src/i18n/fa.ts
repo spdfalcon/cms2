@@ -45,6 +45,37 @@ const fa = {
 
   // tables header
   // dashboard
+
+  // Sign in
+  signin:'ورود',
+  newtoourproduct:'جدید در محصول ما',
+  createanaccount:'یک حساب کاربری ایجاد کنید',
+  email:'ایمیل',
+  enteremailaddress:'آدرس ایمیل را وارد کن',
+  password:'کلمه عبور',
+  enterpassword:'رمز عبور را وارد کنید',
+  keepmesignedin:'مرا به خاطر بسپار',
+  createaccount:'ایجاد حساب کاربری',
+  forgotyourpassword:'رمز عبور خود را فراموش کرده اید؟',
+  orsigninusing:'یا با استفاده از:',
+
+  // Sign in
+
+  // sign up
+  haveanaccount:'حساب کاربری دارید؟',
+  createpassword:'رمز عبور ایجاد کنید',
+  bycreatingaccountyouagreetoour:'با ایجاد حساب شما شزایط را پذیرفته اید',
+  termsofservice:'شرایط استفاده از خدمات',
+
+  // sign up
+
+  // reset password
+  passwordreset:'تنظیم مجدد رمز عبور',
+  wewillhelpyouresetyourpassword:'ما به شما کمک می کنیم رمز عبور خود را بازنشانی کنید',
+  resetpassword:'بازنشانی رمز عبور',
+  rememberedyourpassword:'رمز عبور خود را به خاطر دارید؟',
+  backtosignin:'بازگشت به صفحه ی ورود',
+  // reset password
 };
 
 export default fa;
