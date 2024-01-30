@@ -15,6 +15,7 @@ export default function Dashboard() {
     {id:3 , amount:'10.540' , title:t('activesessions'),Percent:'22.45%',icon:'bi bi-chevron-up'},
     {id:4 , amount:'10.540' , title:t('totalsessions'),Percent:'22.45%',icon:'bi bi-chevron-up'},
   ]
+  
   return (
     <>
       <div className="  px-10 py-[30px] flex flex-col gap-y-10">

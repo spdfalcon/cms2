@@ -82,8 +82,9 @@ export default function SideBar() {
       notif: 0,
     },
   ];
+  
   return (
-    <div className="h-screen bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
+    <div  className="h-screen bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
       <div className="flex flex-col gap-2">
         {items.slice(0,8).map((item) => (
           <NavLink

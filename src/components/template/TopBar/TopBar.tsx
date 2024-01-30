@@ -19,10 +19,10 @@ export default function TopBar() {
       ></div>
       {/* back modal */}
 
-      <div className="shadow-md h-[68px] px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 hidden lg:flex">
-        <div className="left flex items-center gap-10">
-          <img src="/img/topbar/logo.png" alt="Logo" />
-          <div className="flex gap-3 items-center">
+      <div className="shadow-md h-[68px] px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 flex">
+        <div className="left flex items-center gap-10 ">
+          <img className="hidden md:flex" src="/img/topbar/logo.png" alt="Logo" />
+          <div className="md:flex gap-3 items-center hidden">
             <label
               htmlFor="search"
               className="bi bi-search text-a_general-70"
@@ -48,10 +48,10 @@ export default function TopBar() {
           <div className="relative">
             <div
               onClick={() => setIsShowLangModal((last) => !last)}
-              className=" flex items-center gap-2 cursor-pointer text-a_general-80 font-semibold w-32"
+              className=" flex items-center gap-2 cursor-pointer text-a_general-80 font-semibold md:w-32"
             >
               <img className="w-10 h-[27px]" src={lang.flag} alt="" />
-              <span>{lang.name}</span>
+              <span className="hidden md:flex">{lang.name}</span>
               <i
                 className={`duration-300 bi bi-chevron-down ${
                   isShowLangModal ? "rotate-180" : ""
@@ -125,7 +125,7 @@ export default function TopBar() {
           {/* end div header */}
           <div className="flex items-center gap-2">
             <img src="/img/topbar/avatar.png" alt="" />
-            <span className="text-a_general-80">mohammadreza</span>
+            <span className="text-a_general-80 hidden md:block">mohammadreza</span>
           </div>
         </div>
       </div>
