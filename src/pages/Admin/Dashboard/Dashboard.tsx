@@ -9,6 +9,12 @@ import TopProductsbox from "../../../components/template/TopProductsbox/TopProdu
 
 export default function Dashboard() {
   const {t} = useTranslation()
+  const boxrange = [
+    {id:1 , amount:'10.540' , title:t('orders'),Percent:'22.45%',icon:'bi bi-chevron-up'},
+    {id:2 , amount:'10.540' , title:t('totalrevenue'),Percent:'22.45%',icon:'bi bi-chevron-up'},
+    {id:3 , amount:'10.540' , title:t('activesessions'),Percent:'22.45%',icon:'bi bi-chevron-up'},
+    {id:4 , amount:'10.540' , title:t('totalsessions'),Percent:'22.45%',icon:'bi bi-chevron-up'},
+  ]
   return (
     <>
       <div className="  px-10 py-[30px] flex flex-col gap-y-10">
@@ -21,10 +27,9 @@ export default function Dashboard() {
         {/* e header */}
         {/* s dashboard boxs */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x">
-          {Array(4)
-            .fill(0)
-            .map((item, index) => (
-              <DashboardCard key={index}></DashboardCard>
+          {boxrange
+            ?.map((item) => (
+              <DashboardCard Percent={item.Percent} amount={item.amount} icon={item.icon} title={item.title} key={item.id}></DashboardCard>
             ))}
         </div>
         {/* e dashboard boxs */}

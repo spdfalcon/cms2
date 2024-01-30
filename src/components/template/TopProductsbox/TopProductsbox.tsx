@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export default function TopProductsbox() {
+  const {t} = useTranslation()
     const TopProductsbyUnitsSold = [
         {
           id:1,
@@ -38,13 +41,13 @@ export default function TopProductsbox() {
       ];
   return (
     <div className="left p-7 bg-white rounded-lg overflow-x-auto">
-        <h3 className="font-bold">Recent Transactions</h3>
+        <h3 className="font-bold">{t('topproductsbyunitssold')}</h3>
         <table className="w-full min-w-96">
           <thead className="">
             <tr className="text-a_general-80 text-sm border-b grid grid-cols-3 py-3">
-              <th>Name</th>
-              <th>Price</th>
-              <th>Units Sold</th>
+              <th>{t('name')}</th>
+              <th>{t('price')}</th>
+              <th>{t('unitssold')}</th>
             </tr>
           </thead>
           <tbody className="">

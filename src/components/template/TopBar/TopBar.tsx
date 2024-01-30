@@ -1,11 +1,13 @@
 import { useState } from "react";
 import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 export default function TopBar() {
   const [lang, setLang] = useState({
     flag: "/img/topbar/UK.png",
     name: "English",
   });
   const [isShowLangModal, setIsShowLangModal] = useState(false);
+  const {t} = useTranslation()
   return (
     <>
       {/* back modal */}
@@ -27,7 +29,7 @@ export default function TopBar() {
             ></label>
             <input
               className="text-sm p-2 outline-none"
-              placeholder="Search..."
+              placeholder={`${t('search')}...`}
               type="search"
               name=""
               id="search"

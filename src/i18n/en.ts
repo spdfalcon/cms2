@@ -1,4 +1,8 @@
 const en = {
+  //topbar 
+  search:'Search',
+  //topbar 
+
   //start sidebar
   dashboard: "Dashboard",
   orders: "Orders",
@@ -21,7 +25,31 @@ const en = {
   last7dayssales:'Last 7 Days Sales',
   itemssold:'Items Sold',
   revenue:'Revenue',
+  recenttransactions:'Recent Transactions',
+  topproductsbyunitssold:"Top Products by Units Sold",
+  totalrevenue:'Total Revenue',
+  activesessions:'Active Sessions',
+  totalsessions:'Total Sessions',
   //end Dashboard
+
+
+
+
+
+
+  // tables header 
+  // dashboard
+  name:"Name",
+  date:'Date',
+  amount:'Amount',
+  status:'Status',
+  price:'Price',
+  unitssold:'Units Sold',
+  paid:'Paid',
+  pending:'Pending',
+
+  // tables header 
+  // dashboard
 };
 
 export default en;
