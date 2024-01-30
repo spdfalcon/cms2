@@ -83,7 +83,7 @@ export default function SideBar() {
     },
   ];
   return (
-    <div className="h-screen w-64 bg-a_general-30 top-[68px] p-4 border-r">
+    <div className="h-screen bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
       <div className="flex flex-col gap-2">
         {items.slice(0,8).map((item) => (
           <NavLink
@@ -97,17 +97,17 @@ export default function SideBar() {
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold">{item.title}</span>
+              <span className="font-bold hidden md:flex">{item.title}</span>
             </div>
             {item.notif ? (
-              <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">
+              <div className="text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100 hidden md:flex">
                 {item.notif}
               </div>
             ) : null}
           </NavLink>
         ))}
         <div className="px-5 ">
-        <p className="text-a_general-60 text-xs">{t('otherinformation')}</p>
+        <p className="text-a_general-60 text-xs hidden md:flex">{t('otherinformation')}</p>
         </div>
         {items.slice(8,10).map((item) => (
           <NavLink
@@ -121,7 +121,7 @@ export default function SideBar() {
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold">{item.title}</span>
+              <span className="font-bold hidden md:flex">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">
@@ -131,7 +131,7 @@ export default function SideBar() {
           </NavLink>
         ))}
         <div className="px-5 ">
-        <p className="text-a_general-60 text-xs">{t('settings')}</p>
+        <p className="text-a_general-60 text-xs hidden md:flex">{t('settings')}</p>
         </div>
         {items.slice(10,12).map((item) => (
           <NavLink
@@ -145,7 +145,7 @@ export default function SideBar() {
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold">{item.title}</span>
+              <span className="font-bold hidden md:flex">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">
