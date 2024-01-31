@@ -36,7 +36,7 @@ export default function TopBar() {
             />
           </div>
         </div>
-        <div className="right flex gap-5 items-center">
+        <div className="right flex gap-2 items-center">
           <i className="bi bi-chat-left-text text-xl"></i>
           <div className="relative">
             <span className="w-[14px] h-[14px] flex justify-center items-center rounded-full bg-blue-700 absolute top-0 -right-1 text-xs text-white ">
@@ -125,7 +125,7 @@ export default function TopBar() {
           {/* end div header */}
           <div className="flex items-center gap-2">
             <img src="/img/topbar/avatar.png" alt="" />
-            <span className="text-a_general-80 hidden md:block">mohammadreza</span>
+            <span className="text-a_general-80 hidden md:block text-sm">mohammadreza</span>
           </div>
         </div>
       </div>

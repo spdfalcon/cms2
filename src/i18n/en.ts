@@ -78,6 +78,21 @@ const en = {
 
   // tables header 
   // dashboard
+
+  // orders
+  export:'Export',
+  addorder:'Add Order',
+  results:'Results',
+  customer:'Customer',
+  paymentstatus:'Payment status',
+  orderstatus:'Order Status',
+  total:'Total',
+  filter:'Filter',
+  ready:'ready',
+  shipped:'shipped',
+  received:'received',
+
+  // orders
 };
 
 export default en;
