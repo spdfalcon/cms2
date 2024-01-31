@@ -1,38 +1,41 @@
 import { Link } from "react-router-dom";
+import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
+import Button from "../../../../components/module/Button/Button";
+import { useTranslation } from "react-i18next";
 
 export default function Addcustomer() {
+  const { t } = useTranslation();
   return (
     <>
       <div className="px-10 py-8">
-        <div className="header flex items-center justify-between">
-          <div className="r">
-            <Link className="text-a_general-60 flex gap-2 text-sm" to={""}>
-              <i className="bi bi-arrow-left"></i>
-              <span>Back</span>
-            </Link>
-            <p className="font-bold">Add Customer</p>
-          </div>
-          <div className="l flex gap-2">
-            <button className="px-6 py-1 bg-white text-a_primary-100 rounded-md border">
-              Cancel
-            </button>
-            <button className="px-6 py-1 bg-a_primary-100 text-white rounded-md border">
-              Save
-            </button>
-          </div>
+        <div className="header">
+          <Headerofpages
+            to={"/admin/customers"}
+            back={true}
+            title={t("addcustomer")}
+          >
+            <div className="flex gap-3 flex-col items-end lg:flex-row">
+              <Button type="White" size="sm">
+                {t("cancel")}
+              </Button>
+              <Button type="Primary" size="sm">
+                {t("save")}
+              </Button>
+            </div>
+          </Headerofpages>
         </div>
         <div className="main bg-white p-7 flex flex-col mt-10 rounded-md">
           <div className="sec1 flex flex-col gap-3 border-b pb-10">
             <div className="headersec">
-              <h2 className="font-bold">Customer Information</h2>
+              <h2 className="font-bold">{t("customerinformation")}</h2>
               <h3 className="text-a_general-80">
-                Most important information about the customer
+                {t("mostimportantinformationaboutthecustomer")}
               </h3>
             </div>
             <div className="mainsec1 grid grid-cols-1 md:grid-cols-2 gap-5 gap-y-8 ">
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                  First Name
+                  {t("firstname")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -43,7 +46,7 @@ export default function Addcustomer() {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                  Last Name
+                  {t("lastname")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -54,7 +57,7 @@ export default function Addcustomer() {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                  Email Address
+                  {t("emailaddress")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -65,7 +68,7 @@ export default function Addcustomer() {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                  Phone Number
+                  {t("phonenumber")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -78,15 +81,15 @@ export default function Addcustomer() {
           </div>
           <div className="sec2 pb-10 border-b">
             <div className="headersec">
-              <h2 className="font-bold">Customer Address</h2>
+              <h2 className="font-bold">{t("customeraddress")}</h2>
               <h3 className="text-a_general-80">
-                Shipping address information
+                {t("shippingaddressinformation")}
               </h3>
             </div>
             <div className="mainsec1 grid grid-cols-1 md:grid-cols-2 gap-5 gap-y-8 mt-5">
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                Address
+                  {t("address")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -97,7 +100,7 @@ export default function Addcustomer() {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                Apartment
+                  {t("apartment")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -108,7 +111,7 @@ export default function Addcustomer() {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                City
+                  {t("city")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -120,7 +123,7 @@ export default function Addcustomer() {
               <div className="grid grid-cols-2 *:flex *:flex-col gap-5 items-center">
                 <div className="flex flex-col">
                   <label className="text-a_general-80" htmlFor="">
-                  Country
+                    {t("country")}
                   </label>
                   <input
                     className="border rounded-md p-1"
@@ -131,7 +134,7 @@ export default function Addcustomer() {
                 </div>
                 <div>
                   <label className="text-a_general-80" htmlFor="">
-                  Postal Code
+                    {t("postalcode")}
                   </label>
                   <input
                     className="border rounded-md p-1"
@@ -143,7 +146,7 @@ export default function Addcustomer() {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-a_general-80" htmlFor="">
-                Phone
+                  {t("phone")}
                 </label>
                 <input
                   className="border rounded-md p-1"
@@ -156,27 +159,22 @@ export default function Addcustomer() {
           </div>
           <div className="sec3 mt-5">
             <div className="headersec">
-              <h2 className="font-bold">Customer Notes</h2>
+              <h2 className="font-bold">{t("customernotes")}</h2>
               <h3 className="text-a_general-80">
-              Add notes about customer
+                {t("addnotesaboutcustomer")}
               </h3>
             </div>
             <div className="mainsec3 flex flex-col mt-5">
               <label className="text-a_general-80" htmlFor="">
-              Notes
+                {t("notes")}
               </label>
-              <textarea placeholder="Add notes about custom" className="border p-2 rounded-md" name="" id=""></textarea>
+              <textarea
+                placeholder={t("addnotesaboutcustomer")}
+                className="border p-2 rounded-md"
+                name=""
+                id=""
+              ></textarea>
             </div>
-          </div>
-        </div>
-        <div className="footer flex justify-end py-5">
-          <div className="l flex gap-2">
-            <button className="px-6 py-1 bg-white text-a_primary-100 rounded-md border">
-              Cancel
-            </button>
-            <button className="px-6 py-1 bg-a_primary-100 text-white rounded-md border">
-              Save
-            </button>
           </div>
         </div>
       </div>

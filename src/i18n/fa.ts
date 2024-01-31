@@ -158,6 +158,35 @@ const fa = {
   addcustomer:'مشتری اضافه کنید',
   location:'محل',
   spent:'میزان خرید',
+
+  // addCustomer
+  customerinformation:"اطلاعات مشتری",
+  mostimportantinformationaboutthecustomer:"مهمترین اطلاعات در مورد مشتری",
+  firstname:"نام",
+  lastname:"نام خانوادگی",
+  emailaddress:"آدرس ایمیل",
+  phonenumber:"شماره موبایل",
+  customeraddress:"آدرس مشتری ",
+  shippingaddressinformation:"اطلاعات آدرس حمل و نقل",
+  address:"آدرس",
+  city:"شهر",
+  phone:"شماره تماس",
+  apartment:"آپارتمان",
+  choose:"انتخاب کنید",
+  postalcode:"کد پستی",
+  customernotes:"یادداشت های مشتری",
+  addnotesaboutcustomer:"یادداشت هایی در مورد مشتری اضافه کنید",
+  notes:"یادداشت",
+  // addCustomer
+
+  // editcustome
+  order: "سفارش",
+  customerfor: "مشتری برای",
+  years: "سال",
+  customerorders: "سفارشات مشتری",
+  overview: "بررسی اجمالی",
+  deletecustomer: "حذف مشتری",
+  // editcustome
   //Customer
 };
 
