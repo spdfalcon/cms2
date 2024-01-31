@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 interface HeaderofpagesProps {
@@ -13,6 +14,7 @@ const Headerofpages: React.FC<HeaderofpagesProps> = ({
   back,
   to,
 }) => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex justify-between items-center">
@@ -23,14 +25,12 @@ const Headerofpages: React.FC<HeaderofpagesProps> = ({
               to={to}
             >
               <i className="bi bi-arrow-left"></i>
-              <span>Back</span>
+              <span>{t("back")}</span>
             </Link>
           ) : null}
           <h2 className="md:text-2xl font-bold">{title}</h2>
         </div>
-        <div className={`r flex gap-4`}>
-            {children}
-        </div>
+        <div className={`r flex gap-4`}>{children}</div>
       </div>
     </>
   );
