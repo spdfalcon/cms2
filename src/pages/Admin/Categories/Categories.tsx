@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
+import Button from "../../../components/module/Button/Button";
+import { useTranslation } from "react-i18next";
 
 export default function Categories() {
   const categories = [
@@ -13,18 +16,19 @@ export default function Categories() {
     { id: 8, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
     { id: 9, pic: "/img/dashboard/11.png", title: "Men Clothes", count: "24" },
   ];
+  const {t} = useTranslation()
   return (
     <div className="py-8 px-10">
       {/* header */}
-      <div className="header flex justify-between items-center">
-        <h2 className="font-bold">Categories</h2>
-        <Link
-          className="flex items-center bg-a_primary-100 px-3 py-1 rounded-md text-white"
-          to={"/admin/categories/addcategory"}
-        >
-          <i className="bi bi-plus"></i>
-          <p>Add category</p>
+      
+      <div>
+      <Headerofpages title={t('categories')}>
+        <Link to={'/admin/categories/addcategory'}>
+          <Button type="Primary" icon="bi bi-plus-lg" size="md">
+            {t('addcategory')}
+          </Button>
         </Link>
+        </Headerofpages>
       </div>
       {/* header */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5">

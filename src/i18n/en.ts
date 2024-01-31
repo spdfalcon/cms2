@@ -142,6 +142,22 @@ const en = {
   back:'Back',
   // addproduct
   // products
+
+
+  // categories
+  addcategory:'Add Category',
+  // add categories
+  womenclothes:'Women Clothes',
+  categoryvisibility:'Category Visibility',
+  visibleonsite:'Visible on site',
+  categoryinfo:'Category Info',
+  // add categories
+  // categories
+  //Customer
+  addcustomer:'Add Customer',
+  location:'Location',
+  spent:'Spent',
+  //Customer
 };
 
 export default en;

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import EmpityOrder from "../../../components/template/EmpityOrder/EmpityOrder";
+import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
+import Button from "../../../components/module/Button/Button";
+import { useTranslation } from "react-i18next";
 
 export default function Customers() {
   const recentTransactions: any = [
@@ -41,32 +44,27 @@ export default function Customers() {
     },
   ];
   const [allchecked, setAllchecked] = useState(false);
+  const { t } = useTranslation();
   return (
     <div className="px-10 py-[30px] flex flex-col gap-y-10">
-      <div className="">
-        {/* s header */}
-        <div className="header flex justify-between">
-          <h2 className="text-a_general-100 text-2xl font-bold">Customers</h2>
-          <div className="flex gap-4">
-            <button className="px-5 py-2 flex gap-2 items-center bg-white text-a_primary-100 rounded border">
-              <p>Export</p>
-            </button>
-            <Link
-              to={"addcustomer"}
-              className="px-5 py-2 flex gap-2 items-center text-white bg-a_primary-100 rounded border"
-            >
-              <i className="bi bi-plus-lg"></i>
-              <p>Add Customer</p>
-            </Link>
-          </div>
-        </div>
+      <div className="header">
+        <Headerofpages title={t("customers")}>
+          <Button size="sm" type="White">
+            {t("export")}
+          </Button>
+          <Link to={"addcustomer"}>
+            <Button icon="bi bi-plus-lg" size="sm" type="Primary">
+              {t("addcustomer")}
+            </Button>
+          </Link>
+        </Headerofpages>
       </div>
       {recentTransactions.length ? (
         <div className="bg-white py-8 px-7 rounded-lg">
           <div className="header flex justify-between">
             <div className="left flex gap-4">
               <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
-                <span>Filter</span>
+                <span>{t('filter')}</span>
                 <i className="bi bi-chevron-down"></i>
               </div>
               <div className="l border max-w-[350px] h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
@@ -75,7 +73,7 @@ export default function Customers() {
                   className="bi bi-search absolute left-4"
                 ></label>
                 <input
-                  placeholder="Search..."
+                  placeholder={`${t('search')}...`}
                   className="w-full h-full ps-14 text-a_general-90 outline-none"
                   type="search"
                   name=""
@@ -93,53 +91,24 @@ export default function Customers() {
             </div>
           </div>
           <div className="tablee p-7 bg-white rounded-lg">
-            <h3 className="font-bold">Recent Transactions</h3>
             <div className="w-full overflow-x-auto">
               <table className="w-full">
                 <thead className="">
-                  <tr className="text-a_general-80 text-sm border-b *:px-6 *:text-nowrap *:py-3">
-                    <th className="">
-                      <input
-                        onChange={(e) => setAllchecked(e.target.checked)}
-                        className="me-2"
-                        type="checkbox"
-                        name=""
-                        id="headerchecked"
-                      />
-                      <label htmlFor="headerchecked" className="">
-                      Name
-                      </label>
-                    </th>
-                    <th>Location</th>
-                    <th>Orders</th>
-                    <th>Spent</th>
-                    <th>edit</th>
+                  <tr className="text-a_general-80 text-sm border-b *:px-6 *:text-nowrap *:py-3 ">
+                    <th className="text-start">{t("name")}</th>
+                    <th className="text-start">{t("location")}</th>
+                    <th className="text-start">{t("orders")}</th>
+                    <th className="text-start">{t("spent")}</th>
+                    <th className="text-center">{t("edit")}</th>
                   </tr>
                 </thead>
                 <tbody className=" mt-5">
                   {recentTransactions.map((item: any) => (
-                    <tr
-                      key={item.id}
-                      className="*:px-6 *:py-3 *:text-nowrap"
-                    >
-                      <td className="text-a_general-100 font-medium text-sm flex items-center gap-2">
-                        {allchecked ? (
-                          <input
-                            className="me-2 "
-                            type="checkbox"
-                            name=""
-                            id={`checkbox${item.id}`}
-                            checked
-                          />
-                        ) : (
-                          <input
-                            className="me-2 "
-                            type="checkbox"
-                            name=""
-                            id={`checkbox${item.id}`}
-                          />
-                        )}
-                        <div className="size-8 flex justify-center items-center uppercase bg-a_general-60 rounded-full font-bold text-white">{item.name[0]}</div>
+                    <tr key={item.id} className="*:px-6 *:py-3 *:text-nowrap">
+                      <td className="text-a_general-100 font-medium text-sm  flex items-center gap-2">
+                        <div className="size-8 flex justify-center items-center uppercase bg-a_general-60 rounded-full font-bold text-white">
+                          {item.name[0]}
+                        </div>
                         <label htmlFor={`checkbox${item.id}`} className="">
                           {item.name}
                         </label>
@@ -194,7 +163,7 @@ export default function Customers() {
               <i className="bi bi-arrow-right cursor-pointer"></i>
             </div>
             <div className="r">
-              <p>{recentTransactions.length} Results</p>
+              <p>{recentTransactions.length} {t('results')}</p>
             </div>
           </div>
         </div>
