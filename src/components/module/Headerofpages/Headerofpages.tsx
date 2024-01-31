@@ -26,7 +26,7 @@ const Headerofpages: React.FC<HeaderofpagesProps> = ({
               <span>Back</span>
             </Link>
           ) : null}
-          <h2 className="text-2xl font-bold">{title}</h2>
+          <h2 className="md:text-2xl font-bold">{title}</h2>
         </div>
         <div className={`r flex gap-4`}>
             {children}

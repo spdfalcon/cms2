@@ -61,11 +61,11 @@ export default function Orders() {
           {/* s header */}
           <div>
             <Headerofpages title={t("orders")}>
-              <div className="flex gap-3 items-center">
-                <Button type="Primary" size="md">
+              <div className="flex gap-3 flex-col items-end lg:flex-row">
+                <Button type="Primary" size="sm">
                   {t("export")}
                 </Button>
-                <Button type="Primary" icon="bi bi-plus-lg" size="md">
+                <Button type="Primary" icon="bi bi-plus-lg" size="sm">
                   {t("addorder")}
                 </Button>
               </div>
@@ -103,11 +103,11 @@ export default function Orders() {
                 </div>
               </div>
             </div>
-            <div className="overflow-x-auto w-96 sm:w-[450px] md:w-[600px] lg:w-full">
+            <div className="overflow-x-auto w-72 sm:w-[450px] md:w-[500px] lg:w-[700px] xl:w-full">
               <div className="tablee p-7 bg-white rounded-lg ">
                 <table className="w-full">
                   <thead className="">
-                    <tr className="text-a_general-80 text-sm border-b *:px-6 *:py-3 *:text-start">
+                    <tr className="text-a_general-80 text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
                       <th>{t("orders")}</th>
                       <th>{t("date")}</th>
                       <th>{t("customer")}</th>
@@ -118,7 +118,7 @@ export default function Orders() {
                   </thead>
                   <tbody className=" mt-5">
                     {recentTransactions.map((item: any) => (
-                      <tr key={item.id} className="*:px-6 *:py-3">
+                      <tr key={item.id} className="*:px-6 *:py-3 *:text-nowrap">
                         <td className="text-a_general-100 font-medium text-sm">
                           {item.order}
                         </td>

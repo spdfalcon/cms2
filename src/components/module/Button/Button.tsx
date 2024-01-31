@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({icon, size, type , children }) => {
           } rounded-md border`}
         >
           {icon ? <i className={`${icon}`}></i> : null}
-          <p>{children}</p>
+          <p className="text-sm md:text-base">{children}</p>
         </button>
       </div>
     </>

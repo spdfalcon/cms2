@@ -93,6 +93,13 @@ const en = {
   received:'received',
 
   // orders
+
+  // products
+  inventory:'Inventory',
+  color:'Color',
+  rating:'Rating',
+  edit:'Edit',
+  // products
 };
 
 export default en;

@@ -87,10 +87,18 @@ const fa = {
   orderstatus: "وضعیت سفارش",
   total: "جمع",
   filter: "فیلتر کنید",
-  ready:'آماده',
-  shipped:'حمل می شود',
-  received:'اخذ شده',
+  ready: "آماده",
+  shipped: "حمل می شود",
+  received: "اخذ شده",
   // orders
+
+  // products
+  inventory: "فهرست",
+  color: "رنگ",
+  rating: "رتبه بندی",
+  edit:'ویرایش',
+
+  // products
 };
 
 export default fa;
