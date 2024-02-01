@@ -8,7 +8,7 @@ export default function Coupons() {
   const couponsTable = [
     {
       id: 1,
-      Name: { up: `${t('summerdiscount')}10% ${t('off')}`, down: "Summer2020" },
+      Name: { up: `${t("summerdiscount")}10% ${t("off")}`, down: "Summer2020" },
       usage: "15 times",
       status: t("active"),
       date: "May 5, 2020 - May 15, 2020",
@@ -22,7 +22,7 @@ export default function Coupons() {
     },
     {
       id: 3,
-      Name: { up: `${t('summerdiscount')}10% ${t('off')}`, down: "Summer2020" },
+      Name: { up: `${t("summerdiscount")}10% ${t("off")}`, down: "Summer2020" },
       usage: "15 times",
       status: t("active"),
       date: "May 5, 2020 - May 15, 2020",
@@ -40,9 +40,11 @@ export default function Coupons() {
       <div className="p-7 flex flex-col">
         <div className="header">
           <Headerofpages title={t("coupons")}>
-            <Button type="Primary" icon="bi bi-plus-lg" size="md">
-              {t("createcoupon")}
-            </Button>
+            <Link to={'Createcoupon'}>
+              <Button type="Primary" icon="bi bi-plus-lg" size="md">
+                {t("createcoupon")}
+              </Button>
+            </Link>
           </Headerofpages>
         </div>
         <div className="w-full flex justify-center">
@@ -86,7 +88,6 @@ export default function Coupons() {
                   <div className="right text-a_primary-100  flex gap-2">
                     <Button type="White" size="sm" icon="bi bi-pencil"></Button>
                     <Button type="White" size="sm" icon="bi bi-trash"></Button>
-                    
                   </div>
                 </div>
               </div>
@@ -95,7 +96,9 @@ export default function Coupons() {
               <table className="w-full">
                 <thead>
                   <tr className="*:px-6 *:py-3  text-a_general-80 border-b">
-                    <th className="text-left rtl:text-right">{t("couponname")}</th>
+                    <th className="text-left rtl:text-right">
+                      {t("couponname")}
+                    </th>
                     <th className="text-left rtl:text-right">{t("usage")}</th>
                     <th>{t("status")}</th>
                     <th className="text-left rtl:text-right">{t("date")}</th>

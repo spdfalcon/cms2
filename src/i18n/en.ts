@@ -226,6 +226,27 @@ const en = {
   summerdiscount: "Summer discount",
   freeshippingonallitems: "Free shipping on all items",
   off: "off",
+  // Create Coupon
+  couponinformation:"Coupon Information",
+  codewillbeusedbyusersincheckout:"Code will be used by users in checkout",
+  couponcode:"Coupon Code",
+  shipfree:"Shipfree",
+  freeshipping:"Free Shipping",
+  coupontype:"Coupon Type",
+  typeofcouponyouwanttocreate:"Type of coupon you want to create",
+  fixeddiscount:"Fixed Discount",
+  percentagediscount:"Percentage Discount",
+  pricediscount:"Price Discount",
+  discountvalue:"Discount Value",
+  appliesto:"Applies to",
+  duration:"Duration",
+  setduration:"Set Duration",
+  usagelimits:"Usage Limits",
+  amountofuses:"Amount of uses",
+  dontsetduration:"Don't set duration",
+  dontlimitamoutofuses:"Don't limit amout of uses",
+
+  // Create Coupon
   //Coupon
 };
 
