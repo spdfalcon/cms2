@@ -220,6 +220,19 @@ const fa = {
   findoutmore:'اطلاعات بیشتر',
 
   // reports
+  //Coupon
+  createcoupon:'ساخت کوپن جدید',
+  allcoupons:'همه کوپن ها',
+  activecoupons:'کوپن های فعال',
+  expiredcoupons:'کوپن های منقضی شده',
+  couponname:'نام کوپن',
+  usage:'استفاده',
+  active:'فعال',
+  expired:'منقضی شده',
+  summerdiscount:'تخفیف تابستانی',
+  freeshippingonallitems:'حمل و نقل رایگان در همه موارد',
+  off:"تخفیف"
+  //Coupon
 };
 
 export default fa;
