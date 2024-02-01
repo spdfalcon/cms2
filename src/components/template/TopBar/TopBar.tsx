@@ -3,8 +3,8 @@ import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 export default function TopBar() {
   const [lang, setLang] = useState({
-    flag: "/img/topbar/UK.png",
-    name: "English",
+    flag: localStorage.getItem('lang') ==='fa' ? "/img/topbar/iran.png" : '/img/topbar/UK.png',
+    name: localStorage.getItem('lang') ==='fa' ? "فارسی" : 'English',
   });
   const [isShowLangModal, setIsShowLangModal] = useState(false);
   const {t} = useTranslation()
@@ -80,6 +80,7 @@ export default function TopBar() {
                     setIsShowLangModal(false);
                     document.body.dir = "ltr";
                     i18next.changeLanguage('en')
+                    localStorage.setItem('lang' , 'en')
                   }}
                   className="flex items-center justify-between cursor-pointer"
                 >
@@ -102,6 +103,7 @@ export default function TopBar() {
                     setIsShowLangModal(false);
                     document.body.dir = "rtl";
                     i18next.changeLanguage('fa')
+                    localStorage.setItem('lang' , 'fa')
                   }}
                   className="flex items-center justify-between cursor-pointer"
                 >

@@ -183,6 +183,37 @@ const en = {
   deletecustomer: "Delete Customer",
   // editcustome
   //Customer
+  // reports
+  customergrowth:'Customer Growth',
+  returningcustomers:'Returning customers',
+  newcustomers:'New customers',
+  existingusers:'Existing Users',
+  newusers:'New Users',
+  totalvisits:'Total Visits',
+  uniquevisits:'Unique Visits',
+  salesgoal:'Sales Goal',
+  conversionrate:'Conversion Rate',
+  averageordervalue:'Average Order Value',
+  thismonth:'This Month',
+  previousmonth:'Previous Month',
+  soldfor:'Sold for',
+  monthgoal:'Month goal',
+  left:'Left',
+  cart:'Cart',
+  checkout:'Checkout',
+  purchase:'Purchase',
+  customerdemographics:'Customer Demographics',
+  visitsbydevice:'Visits by Device',
+  onlinesessions:'Online Sessions',
+  activeusers:'Active Users',
+  topcustomers:'Top Customers',
+  topproducts:'Top Products',
+  clicks:'Clicks',
+  storefunnel:'Store Funnel',
+  increase:'Increase',
+  agedistribution:'Age Distribution',
+  findoutmore:'Find out more',
+  // reports
 };
 
 export default en;

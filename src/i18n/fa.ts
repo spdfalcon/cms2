@@ -188,6 +188,38 @@ const fa = {
   deletecustomer: "حذف مشتری",
   // editcustome
   //Customer
+  // reports
+  customergrowth:'رشد مشتری',
+  returningcustomers:'مشتریان بازگشتی',
+  newcustomers:'مشتریان جدید',
+  existingusers:'کاربران موجود',
+  newusers:'کاربران جدید',
+  totalvisits:'مجموع بازدیدها',
+  uniquevisits:'بازدیدهای بی نظیر',
+  salesgoal:'هدف فروش',
+  conversionrate:'نرخ تبدیل',
+  averageordervalue:'میانگین ارزش سفارش',
+  thismonth:'این ماه',
+  previousmonth:'ماه گذشته',
+  soldfor:'فروخته شده برای',
+  monthgoal:'هدف ماه',
+  left:'ترک کرده',
+  cart:'سبد خرید',
+  checkout:'وارسی',
+  purchase:'خرید',
+  customerdemographics:'جمعیت شناسی مشتری',
+  visitsbydevice:'بازدیدها بر اساس دستگاه',
+  onlinesessions:'جلسات آنلاین',
+  activeusers:'کاربران فعال',
+  topcustomers:'مشتریان برتر',
+  topproducts:'محصولات برتر',
+  clicks:'کلیک ها',
+  storefunnel:'قیف فروشگاهی',
+  increase:'افزایش',
+  agedistribution:'توزیع سنی',
+  findoutmore:'اطلاعات بیشتر',
+
+  // reports
 };
 
 export default fa;

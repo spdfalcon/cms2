@@ -15,6 +15,9 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
+import { useTranslation } from "react-i18next";
+import Button from "../../../components/module/Button/Button";
 
 export default function Reports() {
   const data = [
@@ -144,32 +147,26 @@ export default function Reports() {
     { name: "Group C", value: 300 },
     { name: "Group D", value: 200 },
   ];
+  const {t} = useTranslation()
   return (
     <div className="p-7">
-      <div className="header flex justify-between">
-        <h2 className="text-a_general-100 text-2xl font-bold">Reports</h2>
-        <div className="">
-          <Link
-            to={"addcustomer"}
-            className="px-5 py-2 flex gap-2 items-center text-white bg-a_primary-100 rounded border"
-          >
-            <i className="bi bi-download"></i>
-            <p>Export Report</p>
-          </Link>
-        </div>
+      <div className="header">
+        <Headerofpages title={t('reports')}>
+        <Button type="Primary" icon="bi bi-download" size="sm">{t('export')}</Button>
+        </Headerofpages>
       </div>
       <div className="mainReports mt-10 grid grid-cols-1 gap-3">
         <div className="sec1 bg-white p-7 rounded-md overflow-x-auto">
           <div className="min-w-[500px]">
-            <h2 className="font-bold">Customer Growth</h2>
+            <h2 className="font-bold">{t('customergrowth')}</h2>
             <div className="mt-5 flex gap-5">
               <div className="flex gap-2 items-center text-a_general-80">
                 <div className="size-5 bg-a_general-50"></div>
-                <p>Returning customers</p>
+                <p>{t('returningcustomers')}</p>
               </div>
               <div className="flex gap-2 items-center text-a_general-80">
                 <div className="size-5 bg-a_primary-100"></div>
-                <p>Returning customers</p>
+                <p>{t('newcustomers')}</p>
               </div>
             </div>
           </div>
@@ -210,7 +207,7 @@ export default function Reports() {
         <div className="sec2 bg-white p-7 rounded-md md:divide-x grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 *:px-5 *:items-center *:flex *:flex-col *:gap-1 gap-5">
           <div className="">
             <div>
-              <p className="text-a_general-80">Existing Users</p>
+              <p className="text-a_general-80">{t('existingusers')}</p>
               <p className="font-bold">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
@@ -220,7 +217,7 @@ export default function Reports() {
           </div>
           <div className="">
             <div>
-              <p className="text-a_general-80">Existing Users</p>
+              <p className="text-a_general-80">{t('newusers')}</p>
               <p className="font-bold">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
@@ -230,7 +227,7 @@ export default function Reports() {
           </div>
           <div className="">
             <div>
-              <p className="text-a_general-80">Existing Users</p>
+              <p className="text-a_general-80">{t('totalvisits')}</p>
               <p className="font-bold">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
@@ -240,7 +237,7 @@ export default function Reports() {
           </div>
           <div className="">
             <div>
-              <p className="text-a_general-80">Existing Users</p>
+              <p className="text-a_general-80">{t('uniquevisits')}</p>
               <p className="font-bold">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
@@ -252,7 +249,7 @@ export default function Reports() {
         <div className="sec3 grid grid-cols-1 lg:grid-cols-12 *:bg-white *:p-7 *:rounded-md gap-3">
           <div className="sec3left lg:col-span-3">
             <div className="font-bold">
-              <p>Sales Goal</p>
+              <p>{t('salesgoal')}</p>
             </div>
             <div className="h-52">
               <ResponsiveContainer>
@@ -280,22 +277,22 @@ export default function Reports() {
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex justify-between">
-                <span className="text-a_general-80">Sold for:</span>
+                <span className="text-a_general-80">{t('soldfor')}:</span>
                 <span className="font-bold">$15.000</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">Month goal:</span>
+                <span className="text-a_general-80">{t('monthgoal')}:</span>
                 <span className="font-bold">$20.000</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">Left:</span>
+                <span className="text-a_general-80">{t('left')}:</span>
                 <span className="font-bold">$5.000</span>
               </div>
             </div>
           </div>
           <div className="sec3left lg:col-span-3">
             <div className="font-bold">
-              <p>Conversion Rate</p>
+              <p>{t('conversionrate')}</p>
             </div>
             <div className="h-52">
               <ResponsiveContainer>
@@ -323,29 +320,29 @@ export default function Reports() {
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex justify-between">
-                <span className="text-a_general-80">Cart:</span>
+                <span className="text-a_general-80">{t('cart')}:</span>
                 <span className="font-bold">35%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">Checkout:</span>
+                <span className="text-a_general-80">{t('checkout')}:</span>
                 <span className="font-bold">29%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">Purchase:</span>
+                <span className="text-a_general-80">{t('purchase')}:</span>
                 <span className="font-bold">25%</span>
               </div>
             </div>
           </div>
           <div className="sec3right lg:col-span-6 flex flex-col justify-between overflow-x-auto">
             <div className="flex flex-col gap-2">
-              <p className="font-bold">Conversion Rate</p>
+              <p className="font-bold">{t('conversionrate')}</p>
               <div className="flex gap-4">
-                <span>
-                  <span className="text-a_general-80">This Month</span>{" "}
+                <span className="flex gap-2">
+                  <span className="text-a_general-80">{t('thismonth')}</span>
                   <span className="font-bold">$48.90</span>
                 </span>
-                <span>
-                  <span className="text-a_general-80">This Month</span>{" "}
+                <span className="flex gap-2">
+                  <span className="text-a_general-80">{t('previousmonth')}</span>
                   <span className="font-bold">$48.90</span>
                 </span>
               </div>
@@ -408,7 +405,7 @@ export default function Reports() {
           <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white *:rounded-md ">
             <div className="sec4rightup p-7 py-10">
               <div className="flex flex-col gap-4">
-                <h2 className="font-bold">Visits by Device</h2>
+                <h2 className="font-bold">{t('visitsbydevice')}</h2>
                 <div className="flex flex-col gap-3">
                   <div className="flex justify-between">
                     <div className="flex gap-2 text-a_general-80">
@@ -443,14 +440,14 @@ export default function Reports() {
             </div>
             <div className="sec4rightdown flex flex-col gap-5 p-7">
               <div className="font-bold">
-                <h3>Online Sessions</h3>
+                <h3>{t('onlinesessions')}</h3>
               </div>
               <div className="">
                 <div className="flex gap-2 items-center">
                   <span className="font-bold">128</span>
                   <i className="bi bi-arrow-up text-a_green-80 font-bold"></i>
                 </div>
-                <p className="text-a_general-80">Active Users</p>
+                <p className="text-a_general-80">{t('activeusers')}</p>
               </div>
             </div>
           </div>
@@ -458,15 +455,15 @@ export default function Reports() {
         <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white *:p-7">
           <div className="sec5left">
             <div className="header font-bold">
-              <h2>Top Customers</h2>
+              <h2>{t('topcustomers')}</h2>
             </div>
             <div className="overflow-x-auto mt-5">
               <table className="w-full">
                 <thead>
                   <tr className="*:px-6 *:py-3 text-a_general-80 border-b">
-                    <th>Name</th>
-                    <th>Orders</th>
-                    <th>Spent</th>
+                    <th>{t('name')}</th>
+                    <th>{t('orders')}</th>
+                    <th>{t('spent')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -503,15 +500,15 @@ export default function Reports() {
           </div>
           <div className="sec5right">
             <div className="header font-bold">
-              <h2>Top Products</h2>
+              <h2>{t('topproducts')}</h2>
             </div>
             <div className="overflow-x-auto mt-5">
               <table className="w-full">
                 <thead>
                   <tr className="*:px-6 *:py-3 text-a_general-80 border-b">
-                    <th>Name</th>
-                    <th>Clicks</th>
-                    <th>Units Sold</th>
+                    <th>{t('name')}</th>
+                    <th>{t('clicks')}</th>
+                    <th>{t('unitssold')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -551,14 +548,14 @@ export default function Reports() {
           <div className="sec6left lg:col-span-9">
             <div className="flex justify-between items-center">
               <div className="l">
-                <h2 className="font-bold">Store Funnel</h2>
+                <h2 className="font-bold">{t('unitssold')}</h2>
                 <div className="flex gap-5 items-center">
                   <span className="text-a_general-80">
-                    Conversion Rate{" "}
+                    {t('conversionrate')}
                     <span className="font-bold text-a_general-100">28%</span>
                   </span>
                   <span className="text-a_green-80 bg-a_green-30 px-2 py-1 rounded-md">
-                    4% Increase
+                    4% {t('increase')}
                   </span>
                 </div>
               </div>
@@ -593,7 +590,7 @@ export default function Reports() {
           </div>
           <div className="sec6right lg:col-span-3">
             <div className="up font-bold">
-              <h2>Age Distribution</h2>
+              <h2>{t('agedistribution')}</h2>
             </div>
             <div className="min h-56 mt-10">
               <ResponsiveContainer>
@@ -645,7 +642,7 @@ export default function Reports() {
                 </div>
               </div>
               <div className="down">
-              <p className="text-a_primary-100 pt-5">Find out more</p>
+              <p className="text-a_primary-100 pt-5">{t('findoutmore')}</p>
               </div>
             </div>
           </div>
