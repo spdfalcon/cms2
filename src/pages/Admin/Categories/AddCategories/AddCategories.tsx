@@ -45,7 +45,7 @@ export default function AddCategories() {
               <span className="text-a_general-60">{products.length}</span>
             </div>
             <div className="mt-5 flex flex-col gap-3">
-              {products.map((item) => (
+              {products.map(() => (
                 <div className="rounded-md px-5 py-4 border flex items-center gap-4 justify-between">
                   <div className="left flex items-center gap-2">
                     <i className="bi bi-three-dots-vertical text-a_general-60"></i>

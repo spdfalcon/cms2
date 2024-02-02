@@ -1,4 +1,3 @@
-import { useState } from "react";
 import EmpityOrder from "../../../components/template/EmpityOrder/EmpityOrder";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
@@ -53,7 +52,6 @@ export default function Orders() {
       total: "$49.90",
     },
   ];
-  const [allchecked, setAllchecked] = useState(false);
   return (
     <>
       <div className="px-10 py-[30px] flex flex-col gap-y-10">

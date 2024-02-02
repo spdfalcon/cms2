@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import EmpityOrder from "../../../components/template/EmpityOrder/EmpityOrder";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
@@ -58,7 +57,6 @@ export default function Products() {
       total: "$49.90",
     },
   ];
-  const [allchecked, setAllchecked] = useState(false);
   const location = useLocation();
   const { t } = useTranslation();
   return (

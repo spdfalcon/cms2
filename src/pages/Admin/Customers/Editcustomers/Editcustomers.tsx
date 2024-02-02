@@ -1,10 +1,8 @@
-import { Link, useParams } from "react-router-dom";
 import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
 import Button from "../../../../components/module/Button/Button";
 import { useTranslation } from "react-i18next";
 
 export default function Editcustomers() {
-  const { editcustomers } = useParams();
   const customerorder = [
     {
       id: 1,

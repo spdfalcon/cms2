@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Headerofpages from '../../../../components/module/Headerofpages/Headerofpages'
 import Button from '../../../../components/module/Button/Button'

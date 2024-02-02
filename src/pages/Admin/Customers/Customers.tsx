@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import EmpityOrder from "../../../components/template/EmpityOrder/EmpityOrder";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
@@ -43,7 +42,6 @@ export default function Customers() {
       Spent: "$256",
     },
   ];
-  const [allchecked, setAllchecked] = useState(false);
   const { t } = useTranslation();
   return (
     <div className="px-10 py-[30px] flex flex-col gap-y-10">

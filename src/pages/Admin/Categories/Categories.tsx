@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
 import Button from "../../../components/module/Button/Button";
