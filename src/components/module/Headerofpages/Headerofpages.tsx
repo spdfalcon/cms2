@@ -21,7 +21,7 @@ const Headerofpages: React.FC<HeaderofpagesProps> = ({
         <div className={`l`}>
           {back ? (
             <Link
-              className="flex items-center gap-2 text-a_general-80 text-sm"
+              className="flex items-center gap-2 text-a_general-80 text-xs md:text-sm"
               to={to}
             >
               <i className="bi bi-arrow-left"></i>

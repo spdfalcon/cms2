@@ -73,39 +73,32 @@ export default function Orders() {
         {recentTransactions.length ? (
           <div className="bg-white py-8 px-7 rounded-lg">
             <div className="header flex justify-between">
-              <div className="left flex gap-4">
-                <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
+              <div className="left flex gap-4 flex-col md:flex-row">
+                <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer text-xs md:text-base">
                   <span>{t("filter")}</span>
                   <i className="bi bi-chevron-down"></i>
                 </div>
                 <div className="l border max-w-[350px] h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
                   <label
                     htmlFor="searchorder"
-                    className="bi bi-search absolute left-4"
+                    className="bi bi-search absolute left-4 text-xs md:text-base"
                   ></label>
                   <input
                     placeholder={`${t("search")}...`}
-                    className="w-full h-full ltr:ps-14 rtl:ps-2 text-a_general-90 outline-none"
+                    className="w-full h-full ltr:ps-14 rtl:ps-2 text-a_general-90 outline-none text-xs md:text-base"
                     type="search"
                     name=""
                     id="searchorder"
                   />
                 </div>
               </div>
-              <div className="right text-a_primary-100  flex gap-2">
-                <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                  <i className="bi bi-pencil"></i>
-                </div>
-                <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                  <i className="bi bi-trash"></i>
-                </div>
-              </div>
+              
             </div>
-            <div className="overflow-x-auto w-72 sm:w-[450px] md:w-[500px] lg:w-[700px] xl:w-full">
+            <div className="overflow-x-auto w-40 sm:w-[450px] md:w-[500px] lg:w-[700px] xl:w-full">
               <div className="tablee p-7 bg-white rounded-lg ">
                 <table className="w-full">
                   <thead className="">
-                    <tr className="text-a_general-80 text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
+                    <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
                       <th>{t("orders")}</th>
                       <th>{t("date")}</th>
                       <th>{t("customer")}</th>
@@ -117,16 +110,16 @@ export default function Orders() {
                   <tbody className=" mt-5">
                     {recentTransactions.map((item: any) => (
                       <tr key={item.id} className="*:px-6 *:py-3 *:text-nowrap">
-                        <td className="text-a_general-100 font-medium text-sm">
+                        <td className="text-a_general-100 font-medium text-xs md:text-sm">
                           {item.order}
                         </td>
-                        <td className="text-a_general-100 text-sm">
+                        <td className="text-a_general-100 text-xs md:text-sm">
                           {item.date}
                         </td>
-                        <td className="text-a_general-100 text-sm">
+                        <td className="text-a_general-100 text-xs md:text-sm">
                           {item.customer}
                         </td>
-                        <td className="">
+                        <td className="text-xs md:text-sm">
                           <span
                             className={`px-4 py-1 rounded-md ${
                               item.paymentstatus === "Paid" || item.paymentstatus === 'پرداخت شده'
@@ -137,7 +130,7 @@ export default function Orders() {
                             {item.paymentstatus}
                           </span>
                         </td>
-                        <td className="">
+                        <td className="text-xs md:text-sm">
                           <span
                             className={`px-4 py-1 rounded-md text-white ${
                               item.orderstatus === "ready" || item.orderstatus === 'آماده'
@@ -150,7 +143,7 @@ export default function Orders() {
                             {item.orderstatus}
                           </span>
                         </td>
-                        <td className="text-a_general-100 text-sm">
+                        <td className="text-a_general-100 text-xs md:text-sm">
                           {item.total}
                         </td>
                       </tr>

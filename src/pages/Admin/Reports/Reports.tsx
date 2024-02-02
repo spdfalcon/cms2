@@ -470,7 +470,7 @@ export default function Reports() {
                     <>
                       <tr
                         key={item.id}
-                        className="*:px-6 *:py-3 border-b text-nowrap text-sm"
+                        className="*:px-6 *:py-3 border-b text-nowrap text-xs md:text-sm"
                       >
                         <td className="">
                           <div className="flex items-center gap-2 ">
@@ -515,7 +515,7 @@ export default function Reports() {
                     <>
                       <tr
                         key={item.id}
-                        className="*:px-6 *:py-3 border-b text-nowrap text-sm"
+                        className="*:px-6 *:py-3 border-b text-nowrap text-xs md:text-sm"
                       >
                         <td className="">
                           <div className="flex items-center gap-2 ">

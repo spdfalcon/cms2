@@ -7,21 +7,21 @@ export default function ResetPassword() {
     <div className="flex h-screen text-center">
       <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold text-[32px]">
+          <h2 className="text-a_general-100 font-bold md:text-[32px] text-base ">
           {t('passwordreset')}
           </h2>
-          <div className="">
-            <span className="text-a_general-80 ">{t('wewillhelpyouresetyourpassword')}</span>
+          <div className="md:mt-5">
+            <span className="text-a_general-80 text-sm md:text-base">{t('wewillhelpyouresetyourpassword')}</span>
             
           </div>
 
           <div className="mt-10 flex flex-col gap-6">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-sm text-a_general-80">
+              <label htmlFor="email" className="text-xs md:text-sm text-a_general-80">
                 {t('email')}
               </label>
               <input
-                className="border p-2 rounded focus:outline-none"
+                className="border p-2 rounded focus:outline-none text-xs md:text-base"
                 placeholder={t('enteremailaddress')}
                 type="text"
                 name=""
@@ -29,14 +29,14 @@ export default function ResetPassword() {
               />
             </div>
             <div>
-              <Link to={'/confirmemail'} className="block p-3 w-full rounded bg-a_primary-100 text-white ">
+              <Link to={'/confirmemail'} className="block p-3 w-full rounded bg-a_primary-100 text-white text-sm md:text-base">
               {t('resetpassword')}
               </Link>
             </div>
            
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-sm text-a_general-80">
+              <p className="text-xs md:text-sm text-a_general-80">
               {t('rememberedyourpassword')}
               </p>
             </div>
@@ -44,7 +44,7 @@ export default function ResetPassword() {
               to={"/"}
               className="flex justify-center gap-2 border rounded py-3"
             >
-              <p className="text-a_primary-100">{t('backtosignin')}</p>
+              <p className="text-a_primary-100 text-sm md:text-base">{t('backtosignin')}</p>
             </Link>
           </div>
         </form>

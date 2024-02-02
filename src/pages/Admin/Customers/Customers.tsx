@@ -92,7 +92,7 @@ export default function Customers() {
             <div className="w-full overflow-x-auto">
               <table className="w-full">
                 <thead className="">
-                  <tr className="text-a_general-80 text-sm border-b *:px-6 *:text-nowrap *:py-3 ">
+                  <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:text-nowrap *:py-3 ">
                     <th className="text-start">{t("name")}</th>
                     <th className="text-start">{t("location")}</th>
                     <th className="text-start">{t("orders")}</th>
@@ -103,7 +103,7 @@ export default function Customers() {
                 <tbody className=" mt-5">
                   {recentTransactions.map((item: any) => (
                     <tr key={item.id} className="*:px-6 *:py-3 *:text-nowrap">
-                      <td className="text-a_general-100 font-medium text-sm  flex items-center gap-2">
+                      <td className="text-a_general-100 font-medium text-xs md:text-sm  flex items-center gap-2">
                         <div className="size-8 flex justify-center items-center uppercase bg-a_general-60 rounded-full font-bold text-white">
                           {item.name[0]}
                         </div>
@@ -111,10 +111,10 @@ export default function Customers() {
                           {item.name}
                         </label>
                       </td>
-                      <td className="text-a_general-100 text-sm">
+                      <td className="text-a_general-100 text-xs md:text-sm">
                         {item.Location}
                       </td>
-                      <td className="text-a_general-100 text-sm">
+                      <td className="text-a_general-100 text-xs md:text-sm">
                         {item.Orders}
                       </td>
                       <td className="">

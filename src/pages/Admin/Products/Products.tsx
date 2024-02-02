@@ -113,7 +113,7 @@ export default function Products() {
                   <div className="relative overflow-x-auto">
                     <table className="w-full">
                       <thead className="">
-                        <tr className="text-a_general-80 text-sm border-b *:px-6 *:py-3 *:text-nowrap *:text-start">
+                        <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-nowrap *:text-start">
                           <th>{t('products')}</th>
                           <th>{t('inventory')}</th>
                           <th>{t('color')}</th>
@@ -128,7 +128,7 @@ export default function Products() {
                             key={item.id}
                             className="*:px-6 *:py-3 *:text-nowrap *:text-start"
                           >
-                            <td className="text-a_general-100 font-medium text-sm flex items-center gap-2">
+                            <td className="text-a_general-100 font-medium text-xs md:text-sm flex items-center gap-2">
                               <img src={item.pic} alt="" />
                               <label
                                 htmlFor={`checkbox${item.id}`}
@@ -137,10 +137,10 @@ export default function Products() {
                                 {item.Product}
                               </label>
                             </td>
-                            <td className="text-a_general-100 text-sm">
+                            <td className="text-a_general-100 text-xs md:text-sm">
                               {item.Inventory}
                             </td>
-                            <td className="text-a_general-100 text-sm">
+                            <td className="text-a_general-100 text-xs md:text-sm">
                               {item.Color}
                             </td>
                             <td className="">

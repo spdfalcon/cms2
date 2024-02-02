@@ -24,7 +24,7 @@ export default function Addproduct() {
           <div className="py-10 border-b">
             <h2 className="font-bold">{t('information')}</h2>
             <div className="mt-5 flex flex-col gap-2">
-              <p className="text-a_general-80 text-sm">{t('productname')}</p>
+              <p className="text-a_general-80 text-xs md:text-sm">{t('productname')}</p>
               <input
                 className="border w-full outline-none px-4 py-2 rounded-md"
                 placeholder={t('summertshirt')}
@@ -34,7 +34,7 @@ export default function Addproduct() {
               />
             </div>
             <div className="mt-5 flex flex-col gap-2">
-              <p className="text-a_general-80 text-sm">{t('productdescription')}</p>
+              <p className="text-a_general-80 text-xs md:text-sm">{t('productdescription')}</p>
               <textarea
                 className="border w-full outline-none px-4 py-2 rounded-md h-24"
                 placeholder={t('productdescription')}
@@ -68,7 +68,7 @@ export default function Addproduct() {
                         d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                       />
                     </svg>
-                    <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    <p className="mb-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
                       <span className="font-semibold">{t('addfile')}</span>
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -86,7 +86,7 @@ export default function Addproduct() {
             <h2 className="font-bold">{t('price')}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 text-sm">{t('productprice')}</p>
+                <p className="text-a_general-80 text-xs md:text-sm">{t('productprice')}</p>
                 <input
                   className="border w-full outline-none px-4 py-2 rounded-md"
                   placeholder={t('enterprice')}
@@ -96,7 +96,7 @@ export default function Addproduct() {
                 />
               </div>
               <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 text-sm">{t('discountprice')}</p>
+                <p className="text-a_general-80 text-xs md:text-sm">{t('discountprice')}</p>
                 <input
                   className="border w-full outline-none px-4 py-2 rounded-md"
                   placeholder={t('priceatdiscount')}
@@ -152,7 +152,7 @@ export default function Addproduct() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 text-sm">{t('size')}</p>
+                <p className="text-a_general-80 text-xs md:text-sm">{t('size')}</p>
                 <div>
                   <select className="w-full h-10 border px-2" name="" id="">
                     <option value="1">1</option>
@@ -163,7 +163,7 @@ export default function Addproduct() {
                 </div>
               </div>
               <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 text-sm">{t('value')}</p>
+                <p className="text-a_general-80 text-xs md:text-sm">{t('value')}</p>
                 <div className="w-full h-10 border px-2 py-1 flex items-center justify-start gap-2">
                   <div className="bg-a_general-50 px-2 gap-3 text-a_general-80 flex justify-between rounded-md ">
                     <span>S</span>
@@ -192,7 +192,7 @@ export default function Addproduct() {
             <h2 className="font-bold">{t('shipping')}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 text-sm">{t('weight')}</p>
+                <p className="text-a_general-80 text-xs md:text-sm">{t('weight')}</p>
                 <input
                   className="border w-full outline-none px-4 py-2 rounded-md"
                   placeholder={t('enterweight')}
@@ -202,7 +202,7 @@ export default function Addproduct() {
                 />
               </div>
               <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 text-sm">{t('country')}</p>
+                <p className="text-a_general-80 text-xs md:text-sm">{t('country')}</p>
                 <div>
                   <select className="w-full h-10 border px-2" name="" id="">
                     <option value="1">1</option>

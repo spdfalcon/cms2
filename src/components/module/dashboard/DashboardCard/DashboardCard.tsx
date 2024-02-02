@@ -16,15 +16,15 @@ const DashboardCard: React.FC<DashboardCardprop> = ({
     <>
       <div className="bg-white rounded py-7 pr-11 pl-7 mt-6 flex justify-between  gap-12 items-center ">
         <div className="left">
-          <p className="text-a_general-100 text-xl font-bold">{amount}</p>
-          <p className="text-a_general-80 text-sm">{title}</p>
-          <div className="flex gap-2 mt-3 text-a_green-101 text-sm">
+          <p className="text-a_general-100 md:text-xl font-bold">{amount}</p>
+          <p className="text-a_general-80 text-xs md:text-sm">{title}</p>
+          <div className="flex gap-2 mt-3 text-a_green-101 text-xs md:text-sm">
             <p>{Percent}</p>
-            <i className={icon}></i>
+            <i className={`${icon}`}></i>
           </div>
         </div>
         <div className="right ">
-          <div className="size-14 bg-a_primary-30 rounded-full flex justify-center items-center text-2xl text-a_primary-100">
+          <div className="md:size-14 size-10 bg-a_primary-30 rounded-full flex justify-center items-center md:text-2xl text-a_primary-100">
             <i className="bi bi-currency-dollar"></i>
           </div>
         </div>

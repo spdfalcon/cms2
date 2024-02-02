@@ -58,20 +58,20 @@ export default function ChartLastWeek() {
     <>
       <div className=" h-96 md:min-h-72 lg:h-[469px]  flex flex-col">
         <div className="flex flex-col gap-4 border-b pb-4 mb-4">
-          <p className="font-bold text-a_general-100">{t('last7dayssales')}</p>
+          <p className="font-bold text-sm text-a_general-100">{t('last7dayssales')}</p>
           <div className="">
-            <p className="text-xl font-bold">1,259</p>
-            <p className="text-a_general-80 text-sm">{t('itemssold')}</p>
+            <p className="md:text-xl font-bold text-sm">1,259</p>
+            <p className="text-a_general-80 text-xs md:text-sm">{t('itemssold')}</p>
           </div>
           <div className="">
-            <p className="text-xl font-bold">1,259</p>
-            <p className="text-a_general-80 text-sm">{t('revenue')}</p>
+            <p className="md:text-xl font-bold text-sm">1,259</p>
+            <p className="text-a_general-80 text-xs md:text-sm">{t('revenue')}</p>
           </div>
         </div>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data}>
-            <XAxis dataKey="name"></XAxis>
-            <YAxis></YAxis>
+          <BarChart  data={data}>
+            <XAxis tick={{ fontSize: 14 }} tickMargin={document.body.dir === 'rtl' ? 10 : 0} dataKey="name"></XAxis>
+            <YAxis tick={{ fontSize: 14 }} tickMargin={document.body.dir === 'rtl' ? 40 : 0} ></YAxis>
             <Tooltip></Tooltip>
             <Bar barSize={15} dataKey="uv" fill="#1FD286" />
           </BarChart>

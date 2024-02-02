@@ -91,8 +91,8 @@ export default function SideBar() {
             key={item.id}
             className={({ isActive }) =>
               isActive
-                ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-sm  rounded-md  text-a_general-80"
+                ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
+                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80"
             }
             to={item.to}
           >
@@ -115,8 +115,8 @@ export default function SideBar() {
             key={item.id}
             className={({ isActive }) =>
               isActive
-                ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-sm  rounded-md  text-a_general-80"
+                ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
+                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80"
             }
             to={item.to}
           >
@@ -139,8 +139,8 @@ export default function SideBar() {
             key={item.id}
             className={({ isActive }) =>
               isActive
-                ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-sm  rounded-md  text-a_general-80"
+                ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
+                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80"
             }
             to={item.to}
           >

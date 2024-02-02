@@ -41,10 +41,10 @@ export default function TopProductsbox() {
       ];
   return (
     <div className="left p-7 bg-white rounded-lg overflow-x-auto">
-        <h3 className="font-bold">{t('topproductsbyunitssold')}</h3>
+        <h3 className="font-bold text-sm md:text-base">{t('topproductsbyunitssold')}</h3>
         <table className="w-full min-w-96">
           <thead className="">
-            <tr className="text-a_general-80 text-sm border-b *:text-nowrap *:px-6 *:py-3">
+            <tr className="text-a_general-80 text-xs md:text-sm border-b *:text-nowrap *:px-6 *:py-3">
               <th>{t('name')}</th>
               <th>{t('price')}</th>
               <th>{t('unitssold')}</th>
@@ -52,13 +52,13 @@ export default function TopProductsbox() {
           </thead>
           <tbody className="">
             {TopProductsbyUnitsSold.map((item) => (
-              <tr key={item.id} className="text-center *:text-nowrap *:px-6 *:py-3">
-                <td className="text-a_general-100 font-medium text-sm flex gap-5 items-center mt-2 ">
+              <tr key={item.id} className="text-center *:text-nowrap *:px-6 *:py-3 ">
+                <td className="text-a_general-100 font-medium text-xs md:text-sm flex gap-5 items-center mt-2 ">
                   <img src={item.pic} alt="" />
                   <span className="">{item.name}</span>
                 </td>
-                <td className="text-a_general-100 text-sm mt-2">{item.price}</td>
-                <td className="text-a_general-100 text-sm mt-2">{item.unitssold}</td>
+                <td className="text-a_general-100 text-xs md:text-sm mt-2">{item.price}</td>
+                <td className="text-a_general-100 text-xs md:text-sm mt-2">{item.unitssold}</td>
                 
               </tr>
             ))}

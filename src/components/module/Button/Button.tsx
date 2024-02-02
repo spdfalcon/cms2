@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({icon, size, type , children }) => {
       <div className="">
         <button
           className={` flex justify-center items-center gap-1 duration-300 ${
-            size === "sm" ? "text-sm" : "text-base"
+            size === "sm" ? "text-xs md:text-sm" : "text-base"
           } ${
             size === "sm" && !icon
               ? "px-5 py-2"
@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({icon, size, type , children }) => {
           } rounded-md border`}
         >
           {icon ? <i className={`${icon}`}></i> : null}
-          <p className="text-sm md:text-base">{children}</p>
+          <p className="text-xs md:text-sm md:text-base">{children}</p>
         </button>
       </div>
     </>

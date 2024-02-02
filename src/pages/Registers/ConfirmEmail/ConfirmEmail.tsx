@@ -5,7 +5,7 @@ export default function ConfirmEmail() {
     <div className="flex h-screen text-center">
       <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold text-[32px]">
+          <h2 className="text-a_general-100 font-bold md:text-[32px] text-base ">
             Confirm Email
           </h2>
           <div className="">
@@ -15,7 +15,7 @@ export default function ConfirmEmail() {
           </div>
           <div className="mt-10 flex flex-col gap-6">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-sm text-a_general-80">
+              <label htmlFor="email" className="text-xs md:text-sm text-a_general-80">
                 Confirmation Code
               </label>
               <input
@@ -33,7 +33,7 @@ export default function ConfirmEmail() {
             </div>
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-sm text-a_general-80">
+              <p className="text-xs md:text-sm text-a_general-80">
                 Haven’t received your code?
               </p>
             </div>

@@ -72,8 +72,8 @@ export default function Chartorder() {
               <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis tick={{ fontSize: 14 }} tickMargin={document.body.dir === 'rtl' ? 10 : 0} dataKey="name" />
+          <YAxis tick={{ fontSize: 14 }} tickMargin={document.body.dir === 'rtl' ? 40 : 0}/>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Area

@@ -78,7 +78,7 @@ export default function Editcustomers() {
                 </div>
                 <div className="r flex flex-col gap-3">
                   <h3 className="font-bold">Lenora Robinson</h3>
-                  <div className="text-a_general-60 text-sm">
+                  <div className="text-a_general-60 text-xs md:text-sm">
                     <p>Ireland</p>
                     <p>5 {t('order')}</p>
                     <p>{t('customerfor')} 2 {t('years')}</p>
@@ -110,7 +110,7 @@ export default function Editcustomers() {
           </div>
           <div className="down overflow-x-auto">
             <table className="w-full">
-              <thead className=" text-sm text-a_general-60">
+              <thead className=" text-xs md:text-sm text-a_general-60">
                 <tr className="*:text-nowrap *:px-6 *:py-3 border-b-2">
                   <th className="">{t('orders')}</th>
                   <th className="">{t('date')}</th>
@@ -118,7 +118,7 @@ export default function Editcustomers() {
                   <th className="">{t('price')}</th>
                 </tr>
               </thead>
-              <tbody className="text-sm">
+              <tbody className="text-xs md:text-sm">
                 {customerorder.map((item) => (
                   <tr
                     key={item.id}
@@ -153,23 +153,23 @@ export default function Editcustomers() {
               <button className="text-a_primary-100">{t('edit')}</button>
             </div>
             <div className="sec2 flex flex-col gap-1">
-              <h4 className="text-sm text-a_general-60">{t('address')}</h4>
-              <p className="w-40 text-sm text-a_general-80">
+              <h4 className="text-xs md:text-sm text-a_general-60">{t('address')}</h4>
+              <p className="w-40 text-xs md:text-sm text-a_general-80">
                 831 Wilhelmine Glen 40583-2293 South Lelastad Ireland
               </p>
             </div>
             <div className="sec3">
-              <h4 className="text-sm text-a_general-60">{t('emailaddress')}</h4>
-              <p className="w-40 text-sm text-a_general-80">
+              <h4 className="text-xs md:text-sm text-a_general-60">{t('emailaddress')}</h4>
+              <p className="w-40 text-xs md:text-sm text-a_general-80">
                 lenora_rob@yahoo.com
               </p>
             </div>
             <div className="sec4 border-b pb-5">
-              <h4 className="text-sm text-a_general-60">{t('phone')}</h4>
-              <p className="w-40 text-sm text-a_general-80">636-458-4820</p>
+              <h4 className="text-xs md:text-sm text-a_general-60">{t('phone')}</h4>
+              <p className="w-40 text-xs md:text-sm text-a_general-80">636-458-4820</p>
             </div>
             <div className="sec5">
-              <p className="text-sm text-a_red-101 font-bold">
+              <p className="text-xs md:text-sm text-a_red-101 font-bold">
                 {t('deletecustomer')}
               </p>
             </div>
@@ -177,7 +177,7 @@ export default function Editcustomers() {
           <div className="down flex flex-col gap-4">
             <h3 className="font-bold">{t('tags')}</h3>
             <div className="flex flex-col gap-2">
-              <label className="text-sm text-a_general-60" htmlFor="">
+              <label className="text-xs md:text-sm text-a_general-60" htmlFor="">
                 {t('addtags')}
               </label>
               <input
@@ -189,7 +189,7 @@ export default function Editcustomers() {
               />
             </div>
             <div className="flex gap-2 flex-wrap">
-              <div className="text-sm text-a_general-80 bg-a_general-50 rounded p-1 flex items-center gap-2">
+              <div className="text-xs md:text-sm text-a_general-80 bg-a_general-50 rounded p-1 flex items-center gap-2">
                 <span>{t('vipcustomer')}</span>
                 <i className="bi bi-x"></i>
               </div>

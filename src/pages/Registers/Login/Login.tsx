@@ -7,19 +7,19 @@ export default function Login() {
     <div className="flex h-screen text-center">
       <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold text-[32px]">{t('signin')}</h2>
-          <div className="">
-            <span className="text-a_general-80">{t('newtoourproduct')}</span>{" "}
-            <Link className="text-a_primary-100" to={"/signup"}>
+          <h2 className="text-a_general-100 font-bold md:md:text-[32px] text-base ">{t('signin')}</h2>
+          <div className="md:mt-5">
+            <span className="text-a_general-80 text-xs md:text-sm md:text-base">{t('newtoourproduct')}</span>{" "}
+            <Link className="text-a_primary-100 text-xs" to={"/signup"}>
               {t('createanaccount')}
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-col gap-6">
+          <div className=" mt-5 md:mt-10 flex flex-col md:gap-6 gap-3">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-sm text-a_general-80">{t('email')}</label>
+              <label htmlFor="email" className="text-xs md:text-xs md:text-sm text-a_general-80">{t('email')}</label>
               <input
-                className="border p-2 rounded focus:outline-none"
+                className="border p-2 rounded focus:outline-none text-xs md:text-base"
                 placeholder={t('enteremailaddress')}
                 type="text"
                 name=""
@@ -27,9 +27,9 @@ export default function Login() {
               />
             </div>
             <div className="flex flex-col text-left">
-              <label htmlFor="password" className="text-sm text-a_general-80">{t('password')}</label>
+              <label htmlFor="password" className="md:text-xs md:text-sm text-xs text-a_general-80">{t('password')}</label>
               <input
-                className="border p-2 rounded focus:outline-none"
+                className="border p-2 rounded focus:outline-none text-xs md:text-base"
                 placeholder={t('enterpassword')}
                 type="text"
                 name=""
@@ -37,38 +37,38 @@ export default function Login() {
               />
               <div className="flex mt-4 gap-2">
                 <input className="" type="checkbox" name="" id="check" />
-                <label className="text-a_general-80" htmlFor="check">
+                <label className="text-a_general-80 text-xs md:text-base" htmlFor="check">
                   {t('keepmesignedin')}
                 </label>
               </div>
             </div>
             <div>
-              <Link to={'/admin/dashboard'} className="block p-3 w-full rounded bg-a_primary-100 text-white ">
+              <Link to={'/admin/dashboard'} className="block p-3 w-full rounded bg-a_primary-100 text-white text-xs md:text-sm">
                 {t('signin')}
               </Link>
             </div>
-            <div className="text-sm">
+            <div className="text-xs md:text-sm">
               <Link className="text-a_primary-100" to={"/resetpassword"}>
                 {t('forgotyourpassword')}
               </Link>
             </div>
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-sm text-a_general-80">{t('orsigninusing')}</p>
+              <p className="text-xs md:text-sm text-a_general-80">{t('orsigninusing')}</p>
             </div>
             <Link
               to={""}
               className="flex justify-center gap-2 border rounded py-3"
             >
               <img src="/img/media/Google.png" alt="" />
-              <p className="text-a_primary-100">Continue with Google</p>
+              <p className="text-a_primary-100 text-sm md:text-base">Continue with Google</p>
             </Link>
             <Link
               to={""}
               className="flex justify-center gap-2 border rounded py-3"
             >
               <img src="/img/media/Facebook.png" alt="" />
-              <p className="text-a_primary-100">Continue with Google</p>
+              <p className="text-a_primary-100 text-sm md:text-base">Continue with Google</p>
             </Link>
           </div>
         </form>
