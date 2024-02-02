@@ -231,7 +231,29 @@ const fa = {
   expired:'منقضی شده',
   summerdiscount:'تخفیف تابستانی',
   freeshippingonallitems:'حمل و نقل رایگان در همه موارد',
-  off:"تخفیف"
+  off:"تخفیف",
+
+  // Create Coupon
+  couponinformation:"اطلاعات کوپن",
+  codewillbeusedbyusersincheckout:"کد توسط کاربران در پرداخت استفاده خواهد شد",
+  couponcode:"کد کوپن",
+  shipfree:"ارسال رایگان",
+  freeshipping:"ارسال رایگان",
+  coupontype:"نوع کوپن",
+  typeofcouponyouwanttocreate:"نوع کوپنی که می خواهید ایجاد کنید",
+  fixeddiscount:"تخفیف ثابت",
+  percentagediscount:"درصد تخفیف",
+  pricediscount:"تخفیف قیمت",
+  discountvalue:"ارزش تخفیف",
+  appliesto:"اعمال می شود",
+  duration:"مدت زمان",
+  setduration:"مدت زمان را تنظیم کنید",
+  usagelimits:"محدودیت های استفاده",
+  amountofuses:"مقدار استفاده",
+  dontsetduration:"مدت زمان را تعیین نکنید",
+  dontlimitamoutofuses:"میزان استفاده را محدود نکنید",
+
+  // Create Coupon
   //Coupon
 };
 

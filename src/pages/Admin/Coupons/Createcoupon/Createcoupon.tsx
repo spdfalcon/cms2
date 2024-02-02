@@ -71,21 +71,30 @@ export default function Createcoupon() {
         <div className='maindown'>
             <div className='maindownup grid grid-cols-1 md:grid-cols-2 mt-5 gap-5'>
                 <div className='flex flex-col gap-2'>
-                    <label className='text-a_general-80 text-sm' htmlFor="createcouponcouponcode">{t('couponcode')}</label>
-                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('shipfree')} 20`} type="text" name="" id="createcouponcouponcode" />
+                    <label className=' text-a_general-80 text-sm' htmlFor="createcoupondiscountvalue">{t('discountvalue')}</label>
+                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('amount')}`} type="text" name="" id="createcoupondiscountvalue" />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className='text-a_general-80 text-sm' htmlFor="createcouponcouponname">{t('couponname')}</label>
-                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('freeshipping')}`} type="text" name="" id="createcouponcouponname" />
+                    <label className=' text-a_general-80 text-sm' htmlFor="createcouponappliesto">{t('appliesto')}</label>
+                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('choose')}`} type="text" name="" id="createcouponappliesto" />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className='text-a_general-80 text-sm' htmlFor="createcouponcouponcode">{t('couponcode')}</label>
-                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('shipfree')} 20`} type="text" name="" id="createcouponcouponcode" />
+                    <label className=' text-a_general-80 text-sm' htmlFor="createcouponduration">{t('duration')}</label>
+                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('setduration')}`} type="text" name="" id="createcouponduration" />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className='text-a_general-80 text-sm' htmlFor="createcouponcouponname">{t('couponname')}</label>
-                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('freeshipping')}`} type="text" name="" id="createcouponcouponname" />
+                    <label className=' text-a_general-80 text-sm' htmlFor="createcouponusagelimits">{t('usagelimits')}</label>
+                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('amountofuses')}`} type="text" name="" id="createcouponusagelimits" />
                 </div>
+                <div className='flex gap-2  items-center'>
+                    <input className='border outline-none py-1 px-3 rounded-md w' type="checkbox" name="" id="createcoupondontsetduration" />
+                    <label className='font-bold text-sm' htmlFor="createcoupondontsetduration">{t('dontsetduration')}</label>
+                </div>
+                <div className='flex gap-2  items-center'>
+                    <input className='border outline-none py-1 px-3 rounded-md w' type="checkbox" name="" id="createcoupondontlimitamoutofuses" />
+                    <label className='font-bold text-sm' htmlFor="createcoupondontlimitamoutofuses">{t('dontlimitamoutofuses')}</label>
+                </div>
+                
             </div>
         </div>
       </div>
