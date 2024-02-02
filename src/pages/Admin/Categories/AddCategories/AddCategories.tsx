@@ -21,7 +21,7 @@ export default function AddCategories() {
   const {t} = useTranslation()
   return (
     <div>
-      <div className="px-10 py-9 ">
+      <div className=" py-9 ">
         <div className="header">
           <Headerofpages
             to={"/admin/categories"}

@@ -9,7 +9,7 @@ export default function Admin() {
       <TopBar></TopBar>
       <div className="flex ">
         <SideBar></SideBar>
-        <div className="flex-1">
+        <div className="flex-1 container">
           <Outlet></Outlet>
         </div>
       </div>

@@ -44,7 +44,7 @@ export default function Customers() {
   ];
   const { t } = useTranslation();
   return (
-    <div className="px-10 py-[30px] flex flex-col gap-y-10">
+    <div className=" py-[30px] flex flex-col gap-y-10">
       <div className="header">
         <Headerofpages title={t("customers")}>
           <Button size="sm" type="White">

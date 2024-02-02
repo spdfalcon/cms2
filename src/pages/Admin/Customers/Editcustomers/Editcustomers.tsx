@@ -49,7 +49,7 @@ export default function Editcustomers() {
   ];
   const{t} = useTranslation()
   return (
-    <div className="px-10 py-8">
+    <div className=" py-8">
       <div className="header">
           <Headerofpages
             to={"/admin/customers"}

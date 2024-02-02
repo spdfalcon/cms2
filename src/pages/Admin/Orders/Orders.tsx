@@ -54,7 +54,7 @@ export default function Orders() {
   ];
   return (
     <>
-      <div className="px-10 py-[30px] flex flex-col gap-y-10">
+      <div className=" py-[30px] flex flex-col gap-y-10">
         <div className="">
           {/* s header */}
           <div>

@@ -3,11 +3,14 @@ import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 export default function TopBar() {
   const [lang, setLang] = useState({
-    flag: localStorage.getItem('lang') ==='fa' ? "/img/topbar/iran.png" : '/img/topbar/UK.png',
-    name: localStorage.getItem('lang') ==='fa' ? "فارسی" : 'English',
+    flag:
+      localStorage.getItem("lang") === "fa"
+        ? "/img/topbar/iran.png"
+        : "/img/topbar/UK.png",
+    name: localStorage.getItem("lang") === "fa" ? "فارسی" : "English",
   });
   const [isShowLangModal, setIsShowLangModal] = useState(false);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <>
       {/* back modal */}
@@ -19,24 +22,28 @@ export default function TopBar() {
       ></div>
       {/* back modal */}
 
-      <div className="shadow-md h-[68px] px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 flex">
-        <div className="left flex items-center gap-10 ">
-          <img className="hidden md:flex" src="/img/topbar/logo.png" alt="Logo" />
-          <div className="md:flex gap-3 items-center hidden">
+      <div className="shadow-md h-[68px] px-3 md:px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 flex">
+        <div className="left items-center gap-10 hidden md:flex">
+          <img
+            className=""
+            src="/img/topbar/logo.png"
+            alt="Logo"
+          />
+          <div className="flex gap-3 items-center hidden">
             <label
               htmlFor="search"
               className="bi bi-search text-a_general-70"
             ></label>
             <input
               className="text-sm p-2 outline-none"
-              placeholder={`${t('search')}...`}
+              placeholder={`${t("search")}...`}
               type="search"
               name=""
               id="search"
             />
           </div>
         </div>
-        <div className="right flex gap-2 items-center">
+        <div className="right flex gap-4 items-center">
           <i className="bi bi-chat-left-text text-xl"></i>
           <div className="relative">
             <span className="w-[14px] h-[14px] flex justify-center items-center rounded-full bg-blue-700 absolute top-0 -right-1 text-xs text-white ">
@@ -79,8 +86,8 @@ export default function TopBar() {
                     });
                     setIsShowLangModal(false);
                     document.body.dir = "ltr";
-                    i18next.changeLanguage('en')
-                    localStorage.setItem('lang' , 'en')
+                    i18next.changeLanguage("en");
+                    localStorage.setItem("lang", "en");
                   }}
                   className="flex items-center justify-between cursor-pointer"
                 >
@@ -102,8 +109,8 @@ export default function TopBar() {
                     });
                     setIsShowLangModal(false);
                     document.body.dir = "rtl";
-                    i18next.changeLanguage('fa')
-                    localStorage.setItem('lang' , 'fa')
+                    i18next.changeLanguage("fa");
+                    localStorage.setItem("lang", "fa");
                   }}
                   className="flex items-center justify-between cursor-pointer"
                 >
@@ -127,7 +134,9 @@ export default function TopBar() {
           {/* end div header */}
           <div className="flex items-center gap-2">
             <img src="/img/topbar/avatar.png" alt="" />
-            <span className="text-a_general-80 hidden md:block text-sm">mohammadreza</span>
+            <span className="text-a_general-80 hidden md:block text-sm">
+              mohammadreza
+            </span>
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ export default function Categories() {
   ];
   const {t} = useTranslation()
   return (
-    <div className="py-8 px-10">
+    <div className="py-8">
       {/* header */}
       
       <div>

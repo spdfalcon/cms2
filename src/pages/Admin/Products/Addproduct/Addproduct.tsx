@@ -5,7 +5,7 @@ import Button from "../../../../components/module/Button/Button";
 export default function Addproduct() {
   const {t} = useTranslation()
   return (
-    <div className="w-full h-44 py-8 px-10">
+    <div className="w-full h-44 py-8">
       
       <div className="header">
         <Headerofpages to={"/admin/products"} back={true} title={t('addproduct')}>

@@ -63,7 +63,7 @@ export default function Products() {
     <>
       {location.pathname === "/admin/products" ? (
         <>
-          <div className="px-10 py-[30px] flex flex-col gap-y-10">
+          <div className=" py-[30px] flex flex-col gap-y-10">
             <div className="">
               <div className="header">
                 <Headerofpages title={t("products")}>

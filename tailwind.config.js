@@ -75,7 +75,9 @@ export default {
         'iransansnormal': 'IRANSansNormal',
       }
     },
-
+    container:{
+      center:true
+    }
   },
   plugins: [],
 }
