@@ -29,7 +29,7 @@ export default function TopBar() {
             src="/img/topbar/logo.png"
             alt="Logo"
           />
-          <div className="flex gap-3 items-center hidden">
+          <div className="md:flex gap-3 items-center hidden">
             <label
               htmlFor="search"
               className="bi bi-search text-a_general-70"
