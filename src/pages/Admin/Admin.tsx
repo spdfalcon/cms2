@@ -26,7 +26,7 @@ const Admin: React.FC = () => {
         
         <div
           className={`z-20 mt-20 duration-300 absolute top-0 md:hidden  h-screen ${
-            isShowHamberMenu ? "w-1/3 left-0" : "w-0 -left-20"
+            isShowHamberMenu ? "w-1/3 ltr:left-0 rtl:right-0" : "w-0 ltr:-left-20 rtl:-right-20"
           }`}
         >
           <SideBar

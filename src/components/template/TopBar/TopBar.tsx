@@ -50,8 +50,8 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
         <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : '-rotate-45 -translate-y-1'}`}></span>
         </div>
         <div className="right flex gap-4 items-center">
-          <i className="bi bi-chat-left-text text-xl"></i>
-          <div className="relative">
+          <i className="bi bi-chat-left-text text-xl hidden md:flex"></i>
+          <div className="relative hidden md:flex">
             <span className="w-[14px] h-[14px] flex justify-center items-center rounded-full bg-blue-700 absolute top-0 -right-1 text-xs text-white ">
               5
             </span>
@@ -140,7 +140,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
           {/* end div header */}
           <div className="flex items-center gap-2">
             <img src="/img/topbar/avatar.png" alt="" />
-            <span className="text-a_general-80 hidden md:block text-sm">
+            <span className="text-a_general-80  text-sm">
               mohammadreza
             </span>
           </div>
