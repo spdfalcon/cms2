@@ -1,7 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-export default function TopBar() {
+interface OtherComponentProps {
+  isShowHamberMenu: boolean;
+  setIsShowHamberMenu: Function
+}
+const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamberMenu}) => {
+  
   const [lang, setLang] = useState({
     flag:
       localStorage.getItem("lang") === "fa"
@@ -24,11 +29,7 @@ export default function TopBar() {
 
       <div className="shadow-md h-[68px] px-3 md:px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 flex">
         <div className="left items-center gap-10 hidden md:flex">
-          <img
-            className=""
-            src="/img/topbar/logo.png"
-            alt="Logo"
-          />
+          <img className="" src="/img/topbar/logo.png" alt="Logo" />
           <div className="md:flex gap-3 items-center hidden">
             <label
               htmlFor="search"
@@ -42,6 +43,11 @@ export default function TopBar() {
               id="search"
             />
           </div>
+        </div>
+        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className="flex flex-col gap-1.5 md:hidden">
+        <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : 'rotate-45 translate-y-1'}`}></span>
+        <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? 'block' : 'hidden'}`}></span>
+        <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : '-rotate-45 -translate-y-1'}`}></span>
         </div>
         <div className="right flex gap-4 items-center">
           <i className="bi bi-chat-left-text text-xl"></i>
@@ -142,4 +148,6 @@ export default function TopBar() {
       </div>
     </>
   );
-}
+};
+
+export default TopBar

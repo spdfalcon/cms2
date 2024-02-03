@@ -1,93 +1,101 @@
-import {NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-export default function SideBar() {
-  const {t} = useTranslation()
+import React from "react";
+interface OtherComponentProps {
+  isShowHamberMenu: boolean;
+  setIsShowHamberMenu: Function;
+}
+const SideBar: React.FC<OtherComponentProps> = ({
+  setIsShowHamberMenu,
+}) => {
+  const { t } = useTranslation();
   const items = [
     {
       id: 1,
       icon: "bi bi-house-door",
-      title: t('dashboard'),
+      title: t("dashboard"),
       to: "dashboard",
       notif: 0,
     },
     {
       id: 2,
       icon: "bi bi-list-task",
-      title: t('orders'),
+      title: t("orders"),
       to: "orders",
       notif: 16,
     },
     {
       id: 3,
       icon: "bi bi-ticket-perforated",
-      title: t('products'),
+      title: t("products"),
       to: "products",
       notif: 0,
     },
     {
       id: 4,
       icon: "bi bi-folder",
-      title: t('categories'),
+      title: t("categories"),
       to: "categories",
       notif: 0,
     },
     {
       id: 5,
       icon: "bi bi-people",
-      title: t('customers'),
+      title: t("customers"),
       to: "customers",
       notif: 0,
     },
     {
       id: 6,
       icon: "bi bi-bar-chart-line",
-      title: t('reports'),
+      title: t("reports"),
       to: "reports",
       notif: 0,
     },
-    { id: 7, icon: "bi bi-star", title: t('coupons'), to: "coupons", notif: 0 },
+    { id: 7, icon: "bi bi-star", title: t("coupons"), to: "coupons", notif: 0 },
     {
       id: 8,
       icon: "bi bi-chat-left-text",
-      title: t('inbox'),
+      title: t("inbox"),
       to: "inbox",
       notif: 0,
     },
     {
       id: 9,
       icon: "bi bi-question-circle",
-      title: t('knowledgebase'),
+      title: t("knowledgebase"),
       to: "knowledgebase",
       notif: 0,
     },
     {
       id: 10,
       icon: "bi bi-award",
-      title: t('productupdates'),
+      title: t("productupdates"),
       to: "productupdates",
       notif: 0,
     },
     {
       id: 11,
       icon: "bi bi-person",
-      title: t('personalsettings'),
+      title: t("personalsettings"),
       to: "personalsettings",
       notif: 0,
     },
     {
       id: 12,
       icon: "bi bi-gear",
-      title: t('globalsettings'),
+      title: t("globalsettings"),
       to: "globalsettings",
       notif: 0,
     },
   ];
-  
+
   return (
-    <div  className="h-screen bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
+    <div className="h-screen bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
       <div className="flex flex-col gap-2">
-        {items.slice(0,8).map((item) => (
+        {items.slice(0, 8).map((item) => (
           <NavLink
+            onClick={() => setIsShowHamberMenu((last: any) => !last)}
             key={item.id}
             className={({ isActive }) =>
               isActive
@@ -108,10 +116,13 @@ export default function SideBar() {
           </NavLink>
         ))}
         <div className="px-5 ">
-        <p className="text-a_general-60 text-xs hidden md:flex">{t('otherinformation')}</p>
+          <p className="text-a_general-60 text-xs hidden md:flex">
+            {t("otherinformation")}
+          </p>
         </div>
-        {items.slice(8,10).map((item) => (
+        {items.slice(8, 10).map((item) => (
           <NavLink
+            onClick={() => setIsShowHamberMenu((last: any) => !last)}
             key={item.id}
             className={({ isActive }) =>
               isActive
@@ -132,10 +143,13 @@ export default function SideBar() {
           </NavLink>
         ))}
         <div className="px-5 ">
-        <p className="text-a_general-60 text-xs hidden md:flex">{t('settings')}</p>
+          <p className="text-a_general-60 text-xs hidden md:flex">
+            {t("settings")}
+          </p>
         </div>
-        {items.slice(10,12).map((item) => (
+        {items.slice(10, 12).map((item) => (
           <NavLink
+            onClick={() => setIsShowHamberMenu((last: any) => !last)}
             key={item.id}
             className={({ isActive }) =>
               isActive
@@ -158,4 +172,7 @@ export default function SideBar() {
       </div>
     </div>
   );
-}
+};
+
+
+export default SideBar
