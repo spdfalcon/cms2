@@ -44,7 +44,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
             />
           </div>
         </div>
-        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className="flex flex-col gap-1.5 md:hidden">
+        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className="cursor-pointer flex flex-col gap-1.5 md:hidden">
         <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : 'rotate-45 translate-y-1'}`}></span>
         <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? 'block' : 'hidden'}`}></span>
         <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : '-rotate-45 -translate-y-1'}`}></span>
