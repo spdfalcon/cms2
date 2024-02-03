@@ -5,6 +5,7 @@ import React, { useState } from "react";
 
 const Admin: React.FC = () => {
   const [isShowHamberMenu, setIsShowHamberMenu] = useState(false);
+  
   return (
     <>
       <div className="relative">
@@ -19,7 +20,7 @@ const Admin: React.FC = () => {
               setIsShowHamberMenu={setIsShowHamberMenu}
             ></SideBar>
           </div>
-          <div className="flex-1 container">
+          <div className="flex-1 container px-5">
             <Outlet></Outlet>
           </div>
         </div>

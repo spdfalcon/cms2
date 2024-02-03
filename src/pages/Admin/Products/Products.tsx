@@ -79,120 +79,114 @@ export default function Products() {
               </div>
             </div>
             {recentTransactions.length ? (
-              <div className="bg-white py-8 px-7 rounded-lg">
-                <div className="header flex justify-between">
-                  <div className="left flex gap-4">
-                    <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
-                      <span>{t('filter')}</span>
-                      <i className="bi bi-chevron-down"></i>
-                    </div>
-                    <div className="l border max-w-[350px] h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
-                      <label
-                        htmlFor="searchorder"
-                        className="bi bi-search absolute left-4"
-                      ></label>
-                      <input
-                        placeholder={`${t('search')}...`}
-                        className="w-full h-full ps-14 text-a_general-90 outline-none"
-                        type="search"
-                        name=""
-                        id="searchorder"
-                      />
-                    </div>
-                  </div>
-                  <div className="right text-a_primary-100  flex gap-2">
-                    <button className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                      <i className="bi bi-pencil"></i>
-                    </button>
-                    <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                      <i className="bi bi-trash"></i>
+              <div className="grid grid-cols-1">
+                <div className="bg-white py-8 px-7 rounded-lg overflow-x-auto">
+                  <div className="header flex justify-between">
+                    <div className="left flex gap-4">
+                      <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
+                        <span>{t("filter")}</span>
+                        <i className="bi bi-chevron-down"></i>
+                      </div>
+                      <div className="l border max-w-[350px] h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
+                        <label
+                          htmlFor="searchorder"
+                          className="bi bi-search absolute left-4"
+                        ></label>
+                        <input
+                          placeholder={`${t("search")}...`}
+                          className="w-full h-full ps-14 text-a_general-90 outline-none"
+                          type="search"
+                          name=""
+                          id="searchorder"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="tablee p-7 bg-white rounded-lg">
-                  <div className="relative overflow-x-auto">
-                    <table className="w-full">
-                      <thead className="">
-                        <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-nowrap *:text-start">
-                          <th>{t('products')}</th>
-                          <th>{t('inventory')}</th>
-                          <th>{t('color')}</th>
-                          <th>{t('price')}</th>
-                          <th>{t('rating')}</th>
-                          <th>{t('edit')}</th>
-                        </tr>
-                      </thead>
-                      <tbody className="mt-5">
-                        {recentTransactions.map((item: any) => (
-                          <tr
-                            key={item.id}
-                            className="*:px-6 *:py-3 *:text-nowrap *:text-start"
-                          >
-                            <td className="text-a_general-100 font-medium text-xs md:text-sm flex items-center gap-2">
-                              <img src={item.pic} alt="" />
-                              <label
-                                htmlFor={`checkbox${item.id}`}
-                                className=""
-                              >
-                                {item.Product}
-                              </label>
-                            </td>
-                            <td className="text-a_general-100 text-xs md:text-sm">
-                              {item.Inventory}
-                            </td>
-                            <td className="text-a_general-100 text-xs md:text-sm">
-                              {item.Color}
-                            </td>
-                            <td className="">
-                              <span
-                                className={`px-4 py-1 rounded-md ${
-                                  item.paymentstatus === "Paid"
-                                    ? "bg-a_green-101/20  text-a_green-101"
-                                    : "bg-a_general-80/15 text-a_general-80"
-                                }`}
-                              >
-                                {item.Price}
-                              </span>
-                            </td>
-                            <td className="">
-                              <span className={`px-4 py-1 rounded-md`}>
-                                {item.Rating}
-                              </span>
-                            </td>
-                            <td>
-                              <div className="right text-a_primary-100  flex gap-2 justify-center">
-                                <Link
-                                  to={`${item.id}`}
-                                  className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300"
-                                >
-                                  <i className="bi bi-pencil"></i>
-                                </Link>
-                                <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                                  <i className="bi bi-trash"></i>
-                                </div>
-                              </div>
-                            </td>
+                  <div className="tablee p-7 bg-white rounded-lg">
+                    <div className="relative">
+                      <table className="w-full">
+                        <thead className="">
+                          <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-nowrap *:text-start">
+                            <th>{t("products")}</th>
+                            <th>{t("inventory")}</th>
+                            <th>{t("color")}</th>
+                            <th>{t("price")}</th>
+                            <th>{t("rating")}</th>
+                            <th>{t("edit")}</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody className="mt-5">
+                          {recentTransactions.map((item: any) => (
+                            <tr
+                              key={item.id}
+                              className="*:px-6 *:py-3 *:text-nowrap *:text-start"
+                            >
+                              <td className="text-a_general-100 font-medium text-xs md:text-sm flex items-center gap-2">
+                                <img src={item.pic} alt="" />
+                                <label
+                                  htmlFor={`checkbox${item.id}`}
+                                  className=""
+                                >
+                                  {item.Product}
+                                </label>
+                              </td>
+                              <td className="text-a_general-100 text-xs md:text-sm">
+                                {item.Inventory}
+                              </td>
+                              <td className="text-a_general-100 text-xs md:text-sm">
+                                {item.Color}
+                              </td>
+                              <td className="">
+                                <span
+                                  className={`px-4 py-1 rounded-md ${
+                                    item.paymentstatus === "Paid"
+                                      ? "bg-a_green-101/20  text-a_green-101"
+                                      : "bg-a_general-80/15 text-a_general-80"
+                                  }`}
+                                >
+                                  {item.Price}
+                                </span>
+                              </td>
+                              <td className="">
+                                <span className={`px-4 py-1 rounded-md`}>
+                                  {item.Rating}
+                                </span>
+                              </td>
+                              <td>
+                                <div className="right text-a_primary-100  flex gap-2 justify-center">
+                                  <Link
+                                    to={`${item.id}`}
+                                    className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300"
+                                  >
+                                    <i className="bi bi-pencil"></i>
+                                  </Link>
+                                  <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
+                                    <i className="bi bi-trash"></i>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                </div>
-                <div className="flex down justify-between text-a_general-70">
-                  <div className="l flex gap-2 items-center">
-                    <i className="bi bi-arrow-left cursor-pointer"></i>
-                    <ul className="flex *:flex *:justify-center *:items-center gap-2 *:size-7 *:rounded *:cursor-pointer">
-                      <li>1</li>
-                      <li className="bg-a_primary-30">2</li>
-                      <li>3</li>
-                      <li>4</li>
-                      <li>5</li>
-                      <li>6</li>
-                    </ul>
-                    <i className="bi bi-arrow-right cursor-pointer"></i>
-                  </div>
-                  <div className="r">
-                    <p>274 {t('results')}</p>
+                  <div className="flex down justify-between text-a_general-70">
+                    <div className="l flex gap-2 items-center">
+                      <i className="bi bi-arrow-left cursor-pointer"></i>
+                      <ul className="flex *:flex *:justify-center *:items-center gap-2 *:size-7 *:rounded *:cursor-pointer">
+                        <li>1</li>
+                        <li className="bg-a_primary-30">2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                      </ul>
+                      <i className="bi bi-arrow-right cursor-pointer"></i>
+                    </div>
+                    <div className="r">
+                      <p>274 {t("results")}</p>
+                    </div>
                   </div>
                 </div>
               </div>

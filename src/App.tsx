@@ -11,6 +11,8 @@ function App() {
       i18next.changeLanguage(lang);
       if (lang === "fa"){
         document.body.dir = "rtl";
+      }else{
+        document.body.dir = "ltr";
       }
     } else {
       localStorage.setItem("lang", "fa");
