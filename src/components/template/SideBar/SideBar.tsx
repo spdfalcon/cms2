@@ -91,7 +91,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
   ];
 
   return (
-    <div className="h-screen bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
+    <div className=" bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
       <div className="flex flex-col gap-2">
         {items.slice(0, 8).map((item) => (
           <NavLink
@@ -106,17 +106,17 @@ const SideBar: React.FC<OtherComponentProps> = ({
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold hidden md:flex">{item.title}</span>
+              <span className="font-bold flex">{item.title}</span>
             </div>
             {item.notif ? (
-              <div className="text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100 hidden md:flex">
+              <div className="text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100 flex">
                 {item.notif}
               </div>
             ) : null}
           </NavLink>
         ))}
         <div className="px-5 ">
-          <p className="text-a_general-60 text-xs hidden md:flex">
+          <p className="text-a_general-60 text-xs">
             {t("otherinformation")}
           </p>
         </div>
@@ -133,7 +133,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold hidden md:flex">{item.title}</span>
+              <span className="font-bold">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">
@@ -143,7 +143,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
           </NavLink>
         ))}
         <div className="px-5 ">
-          <p className="text-a_general-60 text-xs hidden md:flex">
+          <p className="text-a_general-60 text-xs">
             {t("settings")}
           </p>
         </div>
@@ -160,7 +160,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold hidden md:flex">{item.title}</span>
+              <span className="font-bold">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">

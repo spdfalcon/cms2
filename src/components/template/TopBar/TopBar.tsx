@@ -27,7 +27,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
       ></div>
       {/* back modal */}
 
-      <div className="shadow-md h-[68px] px-3 md:px-7 py-3 bg-white sticky top-0 justify-between items-center z-10 flex">
+      <div className="shadow-md h-[68px] px-3 md:px-7 py-3 bg-white sticky top-0 justify-between items-center z-30 flex">
         <div className="left items-center gap-10 hidden md:flex">
           <img className="" src="/img/topbar/logo.png" alt="Logo" />
           <div className="md:flex gap-3 items-center hidden">
@@ -44,7 +44,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
             />
           </div>
         </div>
-        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className="cursor-pointer flex flex-col gap-1.5 md:hidden">
+        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className="cursor-pointer flex flex-col gap-1.5 md:hidden px-2 py-2">
         <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : 'rotate-45 translate-y-1'}`}></span>
         <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? 'block' : 'hidden'}`}></span>
         <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : '-rotate-45 -translate-y-1'}`}></span>

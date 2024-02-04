@@ -26,8 +26,8 @@ const Admin: React.FC = () => {
         </div>
         
         <div
-          className={`z-20 mt-20 duration-300 absolute top-0 md:hidden  h-screen ${
-            isShowHamberMenu ? "w-1/3 ltr:left-0 rtl:right-0" : "w-0 ltr:-left-20 rtl:-right-20"
+          className={`z-20 mt-20 duration-300 absolute top-0 md:hidden  ${
+            isShowHamberMenu ? "w-48 ltr:left-0 rtl:right-0" : "w-0 ltr:-left-40 rtl:-right-40"
           }`}
         >
           <SideBar
@@ -35,7 +35,7 @@ const Admin: React.FC = () => {
             setIsShowHamberMenu={setIsShowHamberMenu}
           ></SideBar>
         </div>
-        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className={`md:hidden z-10 mt-20 duration-300 absolute top-0 h-screen bg-a_general-30/50 ${isShowHamberMenu ? 'w-full' : 'w-0'}`}></div>
+        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className={`md:hidden z-10 mt-20 duration-300 absolute top-0 h-full bg-a_general-30/50 ${isShowHamberMenu ? 'w-full' : 'w-0'}`}></div>
       </div>
     </>
   );
