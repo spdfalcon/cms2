@@ -69,10 +69,10 @@ export default {
         },
       },
       fontFamily: {
-        'iransansblack': 'IRANSansBlack',
-        'iransansbold': 'IRANSansBold',
-        'iransansmedium': 'IRANSansMedium',
-        'iransansnormal': 'IRANSansNormal',
+        'iransans-900': 'IRANSansBlack',
+        'iransans-700': 'IRANSansBold',
+        'iransans-500': 'IRANSansMedium',
+        'iransans-400': 'IRANSansNormal',
       }
     },
     container:{

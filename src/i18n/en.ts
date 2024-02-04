@@ -62,7 +62,14 @@ const en = {
   rememberedyourpassword: "Remembered your Password?",
   backtosignin: "Back to Sign In",
   // reset password
-
+  //Confirm Email
+  confirmemail: "Confirm Email",
+  checkyouremailandenterconfirmationcode: "Check Your Email and Enter Confirmation Code",
+  confirmationcode: "Confirmation Code",
+  entercode: "Enter Code",
+  haventreceivedyourcode: "Haven’t received your code?",
+  resendcode: "Resend Code",
+  //Confirm Email
   // tables header
   // dashboard
   name: "Name",
@@ -227,24 +234,24 @@ const en = {
   freeshippingonallitems: "Free shipping on all items",
   off: "off",
   // Create Coupon
-  couponinformation:"Coupon Information",
-  codewillbeusedbyusersincheckout:"Code will be used by users in checkout",
-  couponcode:"Coupon Code",
-  shipfree:"Shipfree",
-  freeshipping:"Free Shipping",
-  coupontype:"Coupon Type",
-  typeofcouponyouwanttocreate:"Type of coupon you want to create",
-  fixeddiscount:"Fixed Discount",
-  percentagediscount:"Percentage Discount",
-  pricediscount:"Price Discount",
-  discountvalue:"Discount Value",
-  appliesto:"Applies to",
-  duration:"Duration",
-  setduration:"Set Duration",
-  usagelimits:"Usage Limits",
-  amountofuses:"Amount of uses",
-  dontsetduration:"Don't set duration",
-  dontlimitamoutofuses:"Don't limit amout of uses",
+  couponinformation: "Coupon Information",
+  codewillbeusedbyusersincheckout: "Code will be used by users in checkout",
+  couponcode: "Coupon Code",
+  shipfree: "Shipfree",
+  freeshipping: "Free Shipping",
+  coupontype: "Coupon Type",
+  typeofcouponyouwanttocreate: "Type of coupon you want to create",
+  fixeddiscount: "Fixed Discount",
+  percentagediscount: "Percentage Discount",
+  pricediscount: "Price Discount",
+  discountvalue: "Discount Value",
+  appliesto: "Applies to",
+  duration: "Duration",
+  setduration: "Set Duration",
+  usagelimits: "Usage Limits",
+  amountofuses: "Amount of uses",
+  dontsetduration: "Don't set duration",
+  dontlimitamoutofuses: "Don't limit amout of uses",
 
   // Create Coupon
   //Coupon

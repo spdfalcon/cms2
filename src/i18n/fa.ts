@@ -78,6 +78,15 @@ const fa = {
   backtosignin: "بازگشت به صفحه ی ورود",
   // reset password
 
+  //Confirm Email
+  confirmemail: "تایید ایمیل",
+  checkyouremailandenterconfirmationcode: "ایمیل خود را بررسی کنید و کد تایید را وارد کنید",
+  confirmationcode: "کد تایید",
+  entercode: "کد را وارد کنید",
+  haventreceivedyourcode: "کد خود را دریافت نکرده اید؟",
+  resendcode: "دوباره کد را ارسال کنید",
+  //Confirm Email
+
   // orders
   export: "دریافت خروجی",
   addorder: "سفارش اضافه کنید",
