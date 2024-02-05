@@ -9,15 +9,25 @@ function App() {
     const lang = localStorage.getItem("lang");
     if (lang) {
       i18next.changeLanguage(lang);
-      if (lang === "fa"){
+      if (lang === "fa") {
         document.body.dir = "rtl";
-      }else{
+      } else {
         document.body.dir = "ltr";
       }
     } else {
       localStorage.setItem("lang", "fa");
       i18next.changeLanguage("fa");
       document.body.dir = "rtl";
+    }
+    // dark
+    if (
+      !localStorage.getItem("dark") ||
+      localStorage.getItem("dark") == "false"
+    ) {
+      localStorage.setItem("dark", "false");
+      document.documentElement.classList.remove("dark");
+    } else if (localStorage.getItem("dark") === "true") {
+      document.documentElement.classList.add("dark");
     }
   }, []);
   return (

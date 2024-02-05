@@ -5,19 +5,19 @@ export default function ResetPassword() {
   const {t} = useTranslation()
   return (
     <div className="flex h-screen text-center">
-      <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
+      <div className="m-auto bg-white dark:bg-a_general-90 px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold md:text-[32px] text-base ">
+          <h2 className="text-a_general-100 dark:text-white font-bold dark:text-white rtl:font-iransans-700 md:text-[32px] text-base ">
           {t('passwordreset')}
           </h2>
           <div className="md:mt-5">
-            <span className="text-a_general-80 text-sm md:text-base">{t('wewillhelpyouresetyourpassword')}</span>
+            <span className="text-a_general-80 dark:text-a_general-40 text-sm md:text-base">{t('wewillhelpyouresetyourpassword')}</span>
             
           </div>
 
           <div className="mt-10 flex flex-col gap-6">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-xs md:text-sm text-a_general-80">
+              <label htmlFor="email" className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40">
                 {t('email')}
               </label>
               <input
@@ -36,7 +36,7 @@ export default function ResetPassword() {
            
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-xs md:text-sm text-a_general-80">
+              <p className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40">
               {t('rememberedyourpassword')}
               </p>
             </div>

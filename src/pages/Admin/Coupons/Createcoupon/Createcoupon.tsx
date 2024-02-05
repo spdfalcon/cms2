@@ -12,27 +12,27 @@ export default function Createcoupon() {
             <Button type='Primary' size='sm'>{t('cancel')}</Button>
         </Headerofpages>
       </div>
-      <div className='main bg-white p-8 rounded-md mt-10'>
+      <div className='main bg-white dark:bg-a_general-90 p-8 rounded-md mt-10'>
         <div className='mainup border-b pb-10'>
             <div className='mainupup'>
-                <h2 className='font-bold'>{t('couponinformation')}</h2>
-                <h2 className='text-a_general-80'>{t('codewillbeusedbyusersincheckout')}</h2>
+                <h2 className='font-bold dark:text-white rtl:font-iransans-700'>{t('couponinformation')}</h2>
+                <h2 className='text-a_general-80 dark:text-a_general-40'>{t('codewillbeusedbyusersincheckout')}</h2>
             </div>
             <div className='mainupdown grid grid-cols-1 md:grid-cols-2 mt-5 gap-5'>
                 <div className='flex flex-col gap-2'>
-                    <label className='text-a_general-80 text-xs md:text-sm' htmlFor="createcouponcouponcode">{t('couponcode')}</label>
+                    <label className='text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcouponcouponcode">{t('couponcode')}</label>
                     <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('shipfree')} 20`} type="text" name="" id="createcouponcouponcode" />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className='text-a_general-80 text-xs md:text-sm' htmlFor="createcouponcouponname">{t('couponname')}</label>
+                    <label className='text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcouponcouponname">{t('couponname')}</label>
                     <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('freeshipping')}`} type="text" name="" id="createcouponcouponname" />
                 </div>
             </div>
         </div>
         <div className='mainmid py-5'>
             <div className='mainmidup'>
-                <h2 className='font-bold'>{t('coupontype')}</h2>
-                <p className='text-a_general-80 text-xs md:text-sm'>{t('typeofcouponyouwanttocreate')}</p>
+                <h2 className='font-bold dark:text-white rtl:font-iransans-700'>{t('coupontype')}</h2>
+                <p className='text-a_general-80 dark:text-a_general-40 text-xs md:text-sm'>{t('typeofcouponyouwanttocreate')}</p>
             </div>
             <div className='mainmiddown mt-5'>
                 <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
@@ -70,28 +70,28 @@ export default function Createcoupon() {
         <div className='maindown'>
             <div className='maindownup grid grid-cols-1 md:grid-cols-2 mt-5 gap-5'>
                 <div className='flex flex-col gap-2'>
-                    <label className=' text-a_general-80 text-xs md:text-sm' htmlFor="createcoupondiscountvalue">{t('discountvalue')}</label>
+                    <label className=' text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcoupondiscountvalue">{t('discountvalue')}</label>
                     <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('amount')}`} type="text" name="" id="createcoupondiscountvalue" />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className=' text-a_general-80 text-xs md:text-sm' htmlFor="createcouponappliesto">{t('appliesto')}</label>
+                    <label className=' text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcouponappliesto">{t('appliesto')}</label>
                     <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('choose')}`} type="text" name="" id="createcouponappliesto" />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className=' text-a_general-80 text-xs md:text-sm' htmlFor="createcouponduration">{t('duration')}</label>
+                    <label className=' text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcouponduration">{t('duration')}</label>
                     <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('setduration')}`} type="text" name="" id="createcouponduration" />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label className=' text-a_general-80 text-xs md:text-sm' htmlFor="createcouponusagelimits">{t('usagelimits')}</label>
+                    <label className=' text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcouponusagelimits">{t('usagelimits')}</label>
                     <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('amountofuses')}`} type="text" name="" id="createcouponusagelimits" />
                 </div>
                 <div className='flex gap-2  items-center'>
                     <input className='border outline-none py-1 px-3 rounded-md w' type="checkbox" name="" id="createcoupondontsetduration" />
-                    <label className='font-bold text-xs md:text-sm' htmlFor="createcoupondontsetduration">{t('dontsetduration')}</label>
+                    <label className='font-bold dark:text-white rtl:font-iransans-700 text-xs md:text-sm' htmlFor="createcoupondontsetduration">{t('dontsetduration')}</label>
                 </div>
                 <div className='flex gap-2  items-center'>
                     <input className='border outline-none py-1 px-3 rounded-md w' type="checkbox" name="" id="createcoupondontlimitamoutofuses" />
-                    <label className='font-bold text-xs md:text-sm' htmlFor="createcoupondontlimitamoutofuses">{t('dontlimitamoutofuses')}</label>
+                    <label className='font-bold dark:text-white rtl:font-iransans-700 text-xs md:text-sm' htmlFor="createcoupondontlimitamoutofuses">{t('dontlimitamoutofuses')}</label>
                 </div>
                 
             </div>

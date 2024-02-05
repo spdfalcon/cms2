@@ -34,7 +34,7 @@ export default function Categories() {
         {categories.map((item) => (
           <div
             key={item.id}
-            className=" flex flex-col gap-3 pb-3 bg-white rounded-md overflow-hidden group "
+            className=" flex flex-col gap-3 pb-3 bg-white dark:bg-a_general-90 rounded-md overflow-hidden group "
           >
             <div className="relative flex justify-center">
               <img
@@ -44,14 +44,14 @@ export default function Categories() {
 
               />
               <Link className="group-hover:bg-a_general-70/40 hidden group-hover:flex w-full h-full justify-center items-center z-50 text-white absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2" to={`${item.id}`}>
-                <span className="px-3 bg-white rounded text-a_primary-100 flex gap-2">
+                <span className="px-3 bg-white dark:bg-a_general-90 rounded text-a_primary-100 flex gap-2">
               <i className="bi bi-pencil"></i>
                   <span>Edit</span>
                 </span>
               </Link>
             </div>
             <div className="px-3">
-              <p className="font-bold">Men Clothes</p>
+              <p className="font-bold dark:text-white rtl:font-iransans-700">Men Clothes</p>
               <span className="text-a_general-60">24 items</span>
             </div>
           </div>

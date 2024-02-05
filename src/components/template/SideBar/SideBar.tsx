@@ -91,7 +91,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
   ];
 
   return (
-    <div className=" bg-a_general-30 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
+    <div className=" bg-a_general-30 dark:bg-a_general-80 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l">
       <div className="flex flex-col gap-2">
         {items.slice(0, 8).map((item) => (
           <NavLink
@@ -100,13 +100,13 @@ const SideBar: React.FC<OtherComponentProps> = ({
             className={({ isActive }) =>
               isActive
                 ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80"
+                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
             }
             to={item.to}
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold flex">{item.title}</span>
+              <span className="font-bold dark:text-white rtl:font-iransans-700 flex">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100 flex">
@@ -127,13 +127,13 @@ const SideBar: React.FC<OtherComponentProps> = ({
             className={({ isActive }) =>
               isActive
                 ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80"
+                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
             }
             to={item.to}
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold">{item.title}</span>
+              <span className="font-bold dark:text-white rtl:font-iransans-700">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">
@@ -154,13 +154,13 @@ const SideBar: React.FC<OtherComponentProps> = ({
             className={({ isActive }) =>
               isActive
                 ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80"
+                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
             }
             to={item.to}
           >
             <div className="flex items-center gap-3">
               <i className={`${item.icon} text-xl`}></i>{" "}
-              <span className="font-bold">{item.title}</span>
+              <span className="font-bold dark:text-white rtl:font-iransans-700">{item.title}</span>
             </div>
             {item.notif ? (
               <div className="flex text-white justify-center items-center w-8 h-5 rounded-full bg-a_general-100">

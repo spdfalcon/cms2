@@ -5,11 +5,11 @@ export default function Signup() {
   const {t} = useTranslation()
   return (
     <div className="flex h-screen text-center">
-      <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
+      <div className="m-auto bg-white dark:bg-a_general-90 px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold md:text-[32px] text-base ">{t('createanaccount')}</h2>
+          <h2 className="text-a_general-100 dark:text-white font-bold dark:text-white rtl:font-iransans-700 md:text-[32px] text-base ">{t('createanaccount')}</h2>
           <div className="md:mt-5">
-            <span className="text-a_general-80 text-sm md:text-base">{t('haveanaccount')}</span>
+            <span className="text-a_general-80 dark:text-a_general-40 text-sm md:text-base">{t('haveanaccount')}</span>
             <Link className="text-a_primary-100 text-sm md:text-base" to={"/"}>
             {t('signin')}
             </Link>
@@ -17,7 +17,7 @@ export default function Signup() {
 
           <div className="mt-10 flex flex-col gap-6">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-xs md:text-sm text-a_general-80">{t('email')}</label>
+              <label htmlFor="email" className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40">{t('email')}</label>
               <input
                 className="border p-2 rounded focus:outline-none text-xs md:text-base"
                 placeholder={t('enteremailaddress')}
@@ -27,7 +27,7 @@ export default function Signup() {
               />
             </div>
             <div className="flex flex-col text-left">
-              <label htmlFor="password" className="text-xs md:text-sm text-a_general-80">{t('password')}</label>
+              <label htmlFor="password" className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40">{t('password')}</label>
               <input
                 className="border p-2 rounded focus:outline-none text-xs md:text-base"
                 placeholder={t('enterpassword')}
@@ -43,14 +43,14 @@ export default function Signup() {
               </button>
             </div>
             <div className="text-xs md:text-sm">
-              <p className="text-xs md:text-sm text-a_general-80">{t('bycreatingaccountyouagreetoour')}</p>
+              <p className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40">{t('bycreatingaccountyouagreetoour')}</p>
               <Link className="text-a_primary-100" to={""}>
               {t('termsofservice')}
               </Link>
             </div>
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-xs md:text-sm text-a_general-80">{t('orsigninusing')}</p>
+              <p className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40">{t('orsigninusing')}</p>
             </div>
             <Link
               to={""}

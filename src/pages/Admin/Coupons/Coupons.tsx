@@ -48,10 +48,10 @@ export default function Coupons() {
           </Headerofpages>
         </div>
         <div className="w-full flex justify-center">
-          <div className="bg-white p-7 rounded-md w-52 sm:w-96 mt-10 md:w-[510px] lg:w-[760px] xl:w-full overflow-x-auto">
+          <div className="bg-white dark:bg-a_general-90 p-7 rounded-md w-52 sm:w-96 mt-10 md:w-[510px] lg:w-[760px] xl:w-full overflow-x-auto">
             <div className="toptable">
               <div className="toptabletop border-b ">
-                <ul className="flex gap-5 text-a_general-80 *:py-2">
+                <ul className="flex gap-5 text-a_general-80 dark:text-a_general-40 *:py-2">
                   <li className="border-b border-a_primary-100 text-a_primary-100">
                     {t("allcoupons")}
                   </li>
@@ -62,7 +62,7 @@ export default function Coupons() {
               <div className="toptabledouwn mt-5 flex justify-between">
                 <div className="toptabledouwnleft flex gap-3 items-center">
                   <select
-                    className="px-3 py-2 border rounded-md outline-none text-a_general-80"
+                    className="px-3 py-2 border rounded-md outline-none text-a_general-80 dark:text-a_general-40"
                     name=""
                     id=""
                   >
@@ -73,7 +73,7 @@ export default function Coupons() {
                   <div className="border overflow-hidden rounded-md flex items-center gap-2 relative">
                     <label
                       htmlFor="searchcoupons"
-                      className="bi bi-search absolute left-2 cursor-text text-a_general-80"
+                      className="bi bi-search absolute left-2 cursor-text text-a_general-80 dark:text-a_general-40"
                     ></label>
                     <input
                       placeholder={`${t("search")}...`}
@@ -95,7 +95,7 @@ export default function Coupons() {
             <div className="table w-full">
               <table className="w-full">
                 <thead>
-                  <tr className="*:px-6 *:py-3  text-a_general-80 border-b">
+                  <tr className="*:px-6 *:py-3  text-a_general-80 dark:text-a_general-40 border-b">
                     <th className="text-left rtl:text-right">
                       {t("couponname")}
                     </th>
@@ -123,8 +123,8 @@ export default function Coupons() {
                             )}
                           </div>
                           <div className="r text-nowrap">
-                            <p className="font-bold">{item.Name.up}</p>
-                            <p className="text-a_general-80">
+                            <p className="font-bold dark:text-white rtl:font-iransans-700">{item.Name.up}</p>
+                            <p className="text-a_general-80 dark:text-a_general-40">
                               {item.Name.down}
                             </p>
                           </div>
@@ -138,7 +138,7 @@ export default function Coupons() {
                           className={`rounded-md py-1  flex justify-center items-center ${
                             item.status === t("active")
                               ? "text-a_green-101 bg-a_green-40"
-                              : "text-a_general-80 bg-a_general-40"
+                              : "text-a_general-80 dark:text-a_general-40 bg-a_general-40"
                           } `}
                         >
                           {item.status}

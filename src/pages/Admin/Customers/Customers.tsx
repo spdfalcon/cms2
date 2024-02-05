@@ -58,7 +58,7 @@ export default function Customers() {
         </Headerofpages>
       </div>
       {recentTransactions.length ? (
-        <div className="bg-white py-8 px-7 rounded-lg">
+        <div className="bg-white dark:bg-a_general-90 py-8 px-7 rounded-lg">
           <div className="header flex justify-between">
             <div className="left flex gap-4">
               <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
@@ -88,11 +88,11 @@ export default function Customers() {
               </div>
             </div>
           </div>
-          <div className="tablee p-7 bg-white rounded-lg">
+          <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg">
             <div className="w-full overflow-x-auto">
               <table className="w-full">
                 <thead className="">
-                  <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:text-nowrap *:py-3 ">
+                  <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:text-nowrap *:py-3 ">
                     <th className="text-start">{t("name")}</th>
                     <th className="text-start">{t("location")}</th>
                     <th className="text-start">{t("orders")}</th>
@@ -103,18 +103,18 @@ export default function Customers() {
                 <tbody className=" mt-5">
                   {recentTransactions.map((item: any) => (
                     <tr key={item.id} className="*:px-6 *:py-3 *:text-nowrap">
-                      <td className="text-a_general-100 font-medium text-xs md:text-sm  flex items-center gap-2">
-                        <div className="size-8 flex justify-center items-center uppercase bg-a_general-60 rounded-full font-bold text-white">
+                      <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm  flex items-center gap-2">
+                        <div className="size-8 flex justify-center items-center uppercase bg-a_general-60 rounded-full font-bold dark:text-white rtl:font-iransans-700 text-white">
                           {item.name[0]}
                         </div>
                         <label htmlFor={`checkbox${item.id}`} className="">
                           {item.name}
                         </label>
                       </td>
-                      <td className="text-a_general-100 text-xs md:text-sm">
+                      <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
                         {item.Location}
                       </td>
-                      <td className="text-a_general-100 text-xs md:text-sm">
+                      <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
                         {item.Orders}
                       </td>
                       <td className="">
@@ -122,7 +122,7 @@ export default function Customers() {
                           className={`px-4 py-1 rounded-md ${
                             item.paymentstatus === "Paid"
                               ? "bg-a_green-101/20  text-a_green-101"
-                              : "bg-a_general-80/15 text-a_general-80"
+                              : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
                           }`}
                         >
                           {item.Spent}

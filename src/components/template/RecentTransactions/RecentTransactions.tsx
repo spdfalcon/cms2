@@ -41,11 +41,11 @@ export default function RecentTransactions() {
   ];
   return (
     <>
-      <div className="left p-7 bg-white rounded-lg overflow-x-auto">
-        <h3 className="font-bold text-sm md:text-base">{t('recenttransactions')}</h3>
+      <div className="left p-7 bg-white dark:bg-a_general-90 rounded-lg overflow-x-auto">
+        <h3 className="font-bold dark:text-white dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t('recenttransactions')}</h3>
         <table className="w-full min-w-96">
           <thead className="">
-            <tr className="text-a_general-80 text-xs md:text-sm border-b grid grid-cols-4 py-3 *:text-nowrap">
+            <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b grid grid-cols-4 py-3 *:text-nowrap">
               <th>{t('name')}</th>
               <th>{t('date')}</th>
               <th>{t('amount')}</th>
@@ -55,17 +55,17 @@ export default function RecentTransactions() {
           <tbody className="flex flex-col gap-5 mt-5">
             {recentTransactions.map((item) => (
               <tr key={item.id} className="grid grid-cols-4  *:text-nowrap text-xs">
-                <td className="text-a_general-100 font-medium text-xs md:text-sm">
+                <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm">
                   {item.name}
                 </td>
-                <td className="text-a_general-100 text-xs md:text-sm">{item.date}</td>
-                <td className="text-a_general-100 text-xs md:text-sm">{item.amount}</td>
+                <td className="text-a_general-100 dark:text-white text-xs md:text-sm">{item.date}</td>
+                <td className="text-a_general-100 dark:text-white text-xs md:text-sm">{item.amount}</td>
                 <td className="">
                   <span
                     className={`px-4 py-1 rounded-md ${
                       item.status === "Paid" || item.status === 'پرداخت شده'
                         ? "bg-a_green-101/20  text-a_green-101"
-                        : "bg-a_general-80/15 text-a_general-80"
+                        : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
                     }`}
                   >
                     {item.status}

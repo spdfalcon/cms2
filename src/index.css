@@ -5,9 +5,9 @@
 
 @layer base {
     input{
-        @apply outline-none text-xs md:text-base 
+        @apply outline-none text-xs md:text-base dark:bg-a_general-50
     }
     textarea{
-        @apply outline-none text-xs md:text-base
+        @apply outline-none text-xs md:text-base dark:bg-a_general-50 resize-none
     }
 }

@@ -80,7 +80,7 @@ export default function Products() {
             </div>
             {recentTransactions.length ? (
               <div className="grid grid-cols-1">
-                <div className="bg-white py-8 px-7 rounded-lg overflow-x-auto">
+                <div className="bg-white dark:bg-a_general-90 py-8 px-7 rounded-lg overflow-x-auto">
                   <div className="header flex justify-between">
                     <div className="left flex gap-4">
                       <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
@@ -102,11 +102,11 @@ export default function Products() {
                       </div>
                     </div>
                   </div>
-                  <div className="tablee p-7 bg-white rounded-lg">
+                  <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg">
                     <div className="relative">
                       <table className="w-full">
                         <thead className="">
-                          <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-nowrap *:text-start">
+                          <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-nowrap *:text-start">
                             <th>{t("products")}</th>
                             <th>{t("inventory")}</th>
                             <th>{t("color")}</th>
@@ -121,7 +121,7 @@ export default function Products() {
                               key={item.id}
                               className="*:px-6 *:py-3 *:text-nowrap *:text-start"
                             >
-                              <td className="text-a_general-100 font-medium text-xs md:text-sm flex items-center gap-2">
+                              <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm flex items-center gap-2">
                                 <img src={item.pic} alt="" />
                                 <label
                                   htmlFor={`checkbox${item.id}`}
@@ -130,10 +130,10 @@ export default function Products() {
                                   {item.Product}
                                 </label>
                               </td>
-                              <td className="text-a_general-100 text-xs md:text-sm">
+                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
                                 {item.Inventory}
                               </td>
-                              <td className="text-a_general-100 text-xs md:text-sm">
+                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
                                 {item.Color}
                               </td>
                               <td className="">
@@ -141,7 +141,7 @@ export default function Products() {
                                   className={`px-4 py-1 rounded-md ${
                                     item.paymentstatus === "Paid"
                                       ? "bg-a_green-101/20  text-a_green-101"
-                                      : "bg-a_general-80/15 text-a_general-80"
+                                      : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
                                   }`}
                                 >
                                   {item.Price}

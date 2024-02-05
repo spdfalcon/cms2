@@ -39,9 +39,9 @@ export default function AddCategories() {
           </Headerofpages>
         </div>
         <div className="mt-8 *:rounded-md *:p-7 grid grid-cols-1 xl:grid-cols-12 gap-4">
-          <div className="l xl:col-span-8 bg-white">
+          <div className="l xl:col-span-8 bg-white dark:bg-a_general-90">
             <div className="flex gap-2">
-              <p className="font-bold">{t('products')}</p>
+              <p className="font-bold dark:text-white rtl:font-iransans-700">{t('products')}</p>
               <span className="text-a_general-60">{products.length}</span>
             </div>
             <div className="mt-5 flex flex-col gap-3">
@@ -67,9 +67,9 @@ export default function AddCategories() {
               </Link>
             </div>
           </div>
-          <div className="r *:bg-white *:p-5 *:rounded-md xl:col-span-4 flex flex-col gap-5">
+          <div className="r *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:p-5 *:rounded-md xl:col-span-4 flex flex-col gap-5">
             <div className="flex flex-col gap-5">
-              <h3 className="font-bold">{t('categoryvisibility')}</h3>
+              <h3 className="font-bold dark:text-white rtl:font-iransans-700">{t('categoryvisibility')}</h3>
               <div>
                 <div className="flex gap-3">
                   <input
@@ -82,7 +82,7 @@ export default function AddCategories() {
                     className={`flex justify-end px-1 items-center relative w-11  h-6 rounded-full bg-a_primary-100`}
                     htmlFor="radioproduct"
                   >
-                    <span className="absolute size-4 rounded-full bg-white "></span>
+                    <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90 "></span>
                   </label>
                   <span>{t('visibleonsite')}</span>
                 </div>
@@ -90,7 +90,7 @@ export default function AddCategories() {
             </div>
             <div className="flex flex-col gap-4">
               <div>
-                <h3 className="font-bold">{t('categoryinfo')}</h3>
+                <h3 className="font-bold dark:text-white rtl:font-iransans-700">{t('categoryinfo')}</h3>
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-a_general-60" htmlFor="">

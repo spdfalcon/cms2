@@ -155,15 +155,15 @@ export default function Reports() {
         </Headerofpages>
       </div>
       <div className="mainReports mt-10 grid grid-cols-1 gap-3">
-        <div className="sec1 bg-white p-7 rounded-md overflow-x-auto">
+        <div className="sec1 bg-white dark:bg-a_general-90 p-7 rounded-md overflow-x-auto">
           <div className="min-w-[500px]">
-            <h2 className="font-bold">{t('customergrowth')}</h2>
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700">{t('customergrowth')}</h2>
             <div className="mt-5 flex gap-5">
-              <div className="flex gap-2 items-center text-a_general-80">
+              <div className="flex gap-2 items-center text-a_general-80 dark:text-a_general-40">
                 <div className="size-5 bg-a_general-50"></div>
                 <p>{t('returningcustomers')}</p>
               </div>
-              <div className="flex gap-2 items-center text-a_general-80">
+              <div className="flex gap-2 items-center text-a_general-80 dark:text-a_general-40">
                 <div className="size-5 bg-a_primary-100"></div>
                 <p>{t('newcustomers')}</p>
               </div>
@@ -203,11 +203,11 @@ export default function Reports() {
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="sec2 bg-white p-7 rounded-md md:divide-x grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 *:px-5 *:items-center *:flex *:flex-col *:gap-1 gap-5">
+        <div className="sec2 bg-white dark:bg-a_general-90 p-7 rounded-md md:divide-x grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 *:px-5 *:items-center *:flex *:flex-col *:gap-1 gap-5">
           <div className="">
             <div>
-              <p className="text-a_general-80">{t('existingusers')}</p>
-              <p className="font-bold">5.653</p>
+              <p className="text-a_general-80 dark:text-a_general-40">{t('existingusers')}</p>
+              <p className="font-bold dark:text-white rtl:font-iransans-700">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
               <p>22.45%</p>
@@ -216,8 +216,8 @@ export default function Reports() {
           </div>
           <div className="">
             <div>
-              <p className="text-a_general-80">{t('newusers')}</p>
-              <p className="font-bold">5.653</p>
+              <p className="text-a_general-80 dark:text-a_general-40">{t('newusers')}</p>
+              <p className="font-bold dark:text-white rtl:font-iransans-700">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
               <p>22.45%</p>
@@ -226,8 +226,8 @@ export default function Reports() {
           </div>
           <div className="">
             <div>
-              <p className="text-a_general-80">{t('totalvisits')}</p>
-              <p className="font-bold">5.653</p>
+              <p className="text-a_general-80 dark:text-a_general-40">{t('totalvisits')}</p>
+              <p className="font-bold dark:text-white rtl:font-iransans-700">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
               <p>22.45%</p>
@@ -236,8 +236,8 @@ export default function Reports() {
           </div>
           <div className="">
             <div>
-              <p className="text-a_general-80">{t('uniquevisits')}</p>
-              <p className="font-bold">5.653</p>
+              <p className="text-a_general-80 dark:text-a_general-40">{t('uniquevisits')}</p>
+              <p className="font-bold dark:text-white rtl:font-iransans-700">5.653</p>
             </div>
             <div className="flex gap-3 items-center text-a_green-101">
               <p>22.45%</p>
@@ -245,9 +245,9 @@ export default function Reports() {
             </div>
           </div>
         </div>
-        <div className="sec3 grid grid-cols-1 lg:grid-cols-12 *:bg-white *:p-7 *:rounded-md gap-3">
+        <div className="sec3 grid grid-cols-1 lg:grid-cols-12 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:p-7 *:rounded-md gap-3">
           <div className="sec3left lg:col-span-3">
-            <div className="font-bold">
+            <div className="font-bold dark:text-white rtl:font-iransans-700">
               <p>{t('salesgoal')}</p>
             </div>
             <div className="h-52">
@@ -266,7 +266,7 @@ export default function Reports() {
                     endAngle={-159}
                   >
                     <Label
-                      className="text-3xl font-bold text-a_general-100"
+                      className="text-3xl font-bold dark:text-white rtl:font-iransans-700 text-a_general-100 dark:text-white"
                       value={"75%"}
                       position={"center"}
                     ></Label>
@@ -276,21 +276,21 @@ export default function Reports() {
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex justify-between">
-                <span className="text-a_general-80">{t('soldfor')}:</span>
-                <span className="font-bold">$15.000</span>
+                <span className="text-a_general-80 dark:text-a_general-40">{t('soldfor')}:</span>
+                <span className="font-bold dark:text-white rtl:font-iransans-700">$15.000</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">{t('monthgoal')}:</span>
-                <span className="font-bold">$20.000</span>
+                <span className="text-a_general-80 dark:text-a_general-40">{t('monthgoal')}:</span>
+                <span className="font-bold dark:text-white rtl:font-iransans-700">$20.000</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">{t('left')}:</span>
-                <span className="font-bold">$5.000</span>
+                <span className="text-a_general-80 dark:text-a_general-40">{t('left')}:</span>
+                <span className="font-bold dark:text-white rtl:font-iransans-700">$5.000</span>
               </div>
             </div>
           </div>
           <div className="sec3left lg:col-span-3">
-            <div className="font-bold">
+            <div className="font-bold dark:text-white rtl:font-iransans-700">
               <p>{t('conversionrate')}</p>
             </div>
             <div className="h-52">
@@ -309,7 +309,7 @@ export default function Reports() {
                     endAngle={0}
                   >
                     <Label
-                      className="text-3xl font-bold text-a_general-100"
+                      className="text-3xl font-bold dark:text-white rtl:font-iransans-700 text-a_general-100 dark:text-white"
                       value={"25%"}
                       position={"center"}
                     ></Label>
@@ -319,30 +319,30 @@ export default function Reports() {
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex justify-between">
-                <span className="text-a_general-80">{t('cart')}:</span>
-                <span className="font-bold">35%</span>
+                <span className="text-a_general-80 dark:text-a_general-40">{t('cart')}:</span>
+                <span className="font-bold dark:text-white rtl:font-iransans-700">35%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">{t('checkout')}:</span>
-                <span className="font-bold">29%</span>
+                <span className="text-a_general-80 dark:text-a_general-40">{t('checkout')}:</span>
+                <span className="font-bold dark:text-white rtl:font-iransans-700">29%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-a_general-80">{t('purchase')}:</span>
-                <span className="font-bold">25%</span>
+                <span className="text-a_general-80 dark:text-a_general-40">{t('purchase')}:</span>
+                <span className="font-bold dark:text-white rtl:font-iransans-700">25%</span>
               </div>
             </div>
           </div>
           <div className="sec3right lg:col-span-6 flex flex-col justify-between overflow-x-auto">
             <div className="flex flex-col gap-2">
-              <p className="font-bold">{t('conversionrate')}</p>
+              <p className="font-bold dark:text-white rtl:font-iransans-700">{t('conversionrate')}</p>
               <div className="flex gap-4">
                 <span className="flex gap-2">
-                  <span className="text-a_general-80">{t('thismonth')}</span>
-                  <span className="font-bold">$48.90</span>
+                  <span className="text-a_general-80 dark:text-a_general-40">{t('thismonth')}</span>
+                  <span className="font-bold dark:text-white rtl:font-iransans-700">$48.90</span>
                 </span>
                 <span className="flex gap-2">
-                  <span className="text-a_general-80">{t('previousmonth')}</span>
-                  <span className="font-bold">$48.90</span>
+                  <span className="text-a_general-80 dark:text-a_general-40">{t('previousmonth')}</span>
+                  <span className="font-bold dark:text-white rtl:font-iransans-700">$48.90</span>
                 </span>
               </div>
             </div>
@@ -366,7 +366,7 @@ export default function Reports() {
           </div>
         </div>
         <div className="sec4 grid grid-cols-1 lg:grid-cols-12 gap-3">
-          <div className="sec4left lg:col-span-9 bg-white p-7 rounded-md overflow-x-auto">
+          <div className="sec4left lg:col-span-9 bg-white dark:bg-a_general-90 p-7 rounded-md overflow-x-auto">
             <div className="h-80 mt-10 min-w-[500px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
@@ -401,65 +401,65 @@ export default function Reports() {
               </ResponsiveContainer>
             </div>
           </div>
-          <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white *:rounded-md ">
+          <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:rounded-md ">
             <div className="sec4rightup p-7 py-10">
               <div className="flex flex-col gap-4">
-                <h2 className="font-bold">{t('visitsbydevice')}</h2>
+                <h2 className="font-bold dark:text-white rtl:font-iransans-700">{t('visitsbydevice')}</h2>
                 <div className="flex flex-col gap-3">
                   <div className="flex justify-between">
-                    <div className="flex gap-2 text-a_general-80">
+                    <div className="flex gap-2 text-a_general-80 dark:text-a_general-40">
                       <i className="bi bi-phone"></i>
                       <span>Mobile</span>
                     </div>
-                    <span className="font-bold">62%</span>
+                    <span className="font-bold dark:text-white rtl:font-iransans-700">62%</span>
                   </div>
                   <div className="flex justify-between">
-                    <div className="flex gap-2 text-a_general-80">
+                    <div className="flex gap-2 text-a_general-80 dark:text-a_general-40">
                       <i className="bi bi-phone"></i>
                       <span>Mobile</span>
                     </div>
-                    <span className="font-bold">62%</span>
+                    <span className="font-bold dark:text-white rtl:font-iransans-700">62%</span>
                   </div>
                   <div className="flex justify-between">
-                    <div className="flex gap-2 text-a_general-80">
+                    <div className="flex gap-2 text-a_general-80 dark:text-a_general-40">
                       <i className="bi bi-phone"></i>
                       <span>Mobile</span>
                     </div>
-                    <span className="font-bold">62%</span>
+                    <span className="font-bold dark:text-white rtl:font-iransans-700">62%</span>
                   </div>
                   <div className="flex justify-between">
-                    <div className="flex gap-2 text-a_general-80">
+                    <div className="flex gap-2 text-a_general-80 dark:text-a_general-40">
                       <i className="bi bi-phone"></i>
                       <span>Mobile</span>
                     </div>
-                    <span className="font-bold">62%</span>
+                    <span className="font-bold dark:text-white rtl:font-iransans-700">62%</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className="sec4rightdown flex flex-col gap-5 p-7">
-              <div className="font-bold">
+              <div className="font-bold dark:text-white rtl:font-iransans-700">
                 <h3>{t('onlinesessions')}</h3>
               </div>
               <div className="">
                 <div className="flex gap-2 items-center">
-                  <span className="font-bold">128</span>
-                  <i className="bi bi-arrow-up text-a_green-80 font-bold"></i>
+                  <span className="font-bold dark:text-white rtl:font-iransans-700">128</span>
+                  <i className="bi bi-arrow-up text-a_green-80 font-bold dark:text-white rtl:font-iransans-700"></i>
                 </div>
-                <p className="text-a_general-80">{t('activeusers')}</p>
+                <p className="text-a_general-80 dark:text-a_general-40">{t('activeusers')}</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white *:p-7">
+        <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:p-7">
           <div className="sec5left">
-            <div className="header font-bold">
+            <div className="header font-bold dark:text-white rtl:font-iransans-700">
               <h2>{t('topcustomers')}</h2>
             </div>
             <div className="overflow-x-auto mt-5">
               <table className="w-full">
                 <thead>
-                  <tr className="*:px-6 *:py-3 text-a_general-80 border-b">
+                  <tr className="*:px-6 *:py-3 text-a_general-80 dark:text-a_general-40 border-b">
                     <th>{t('name')}</th>
                     <th>{t('orders')}</th>
                     <th>{t('spent')}</th>
@@ -474,7 +474,7 @@ export default function Reports() {
                       >
                         <td className="">
                           <div className="flex items-center gap-2 ">
-                            <div className="size-10 rounded-full bg-a_primary-100 flex justify-center items-center text-white font-bold">
+                            <div className="size-10 rounded-full bg-a_primary-100 flex justify-center items-center text-white font-bold dark:text-white rtl:font-iransans-700">
                               <span>{item.name[0]}</span>
                             </div>
                             <p className="font-medium">{item.name}</p>
@@ -498,13 +498,13 @@ export default function Reports() {
             </div>
           </div>
           <div className="sec5right">
-            <div className="header font-bold">
+            <div className="header font-bold dark:text-white rtl:font-iransans-700">
               <h2>{t('topproducts')}</h2>
             </div>
             <div className="overflow-x-auto mt-5">
               <table className="w-full">
                 <thead>
-                  <tr className="*:px-6 *:py-3 text-a_general-80 border-b">
+                  <tr className="*:px-6 *:py-3 text-a_general-80 dark:text-a_general-40 border-b">
                     <th>{t('name')}</th>
                     <th>{t('clicks')}</th>
                     <th>{t('unitssold')}</th>
@@ -519,7 +519,7 @@ export default function Reports() {
                       >
                         <td className="">
                           <div className="flex items-center gap-2 ">
-                            <div className="size-10 flex justify-center items-center text-white font-bold">
+                            <div className="size-10 flex justify-center items-center text-white font-bold dark:text-white rtl:font-iransans-700">
                               <img src="/img/dashboard/11.png" alt="" />
                             </div>
                             <p className="font-medium">{item.name}</p>
@@ -543,15 +543,15 @@ export default function Reports() {
             </div>
           </div>
         </div>
-        <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white *:p-7">
+        <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:p-7">
           <div className="sec6left lg:col-span-9">
             <div className="flex justify-between items-center">
               <div className="l">
-                <h2 className="font-bold">{t('unitssold')}</h2>
+                <h2 className="font-bold dark:text-white rtl:font-iransans-700">{t('unitssold')}</h2>
                 <div className="flex gap-5 items-center">
-                  <span className="text-a_general-80">
+                  <span className="text-a_general-80 dark:text-a_general-40">
                     {t('conversionrate')}
-                    <span className="font-bold text-a_general-100">28%</span>
+                    <span className="font-bold dark:text-white rtl:font-iransans-700 text-a_general-100 dark:text-white">28%</span>
                   </span>
                   <span className="text-a_green-80 bg-a_green-30 px-2 py-1 rounded-md">
                     4% {t('increase')}
@@ -559,7 +559,7 @@ export default function Reports() {
                 </div>
               </div>
               <div className="r ">
-                <label className="text-a_general-80" htmlFor="">
+                <label className="text-a_general-80 dark:text-a_general-40" htmlFor="">
                   Last 7 Days
                 </label>
                 <select className="" name="" id="">
@@ -588,7 +588,7 @@ export default function Reports() {
             </div>
           </div>
           <div className="sec6right lg:col-span-3">
-            <div className="up font-bold">
+            <div className="up font-bold dark:text-white rtl:font-iransans-700">
               <h2>{t('agedistribution')}</h2>
             </div>
             <div className="min h-56 mt-10">
@@ -612,32 +612,32 @@ export default function Reports() {
             <div className="down">
               <div className="up flex flex-col gap-3 border-b pb-5">
                 <div className="flex justify-between">
-                  <div className="flex gap-2 items-center text-a_general-80">
+                  <div className="flex gap-2 items-center text-a_general-80 dark:text-a_general-40">
                     <div className="size-5 bg-a_primary-100 rounded-md"></div>
                     <p>0-18 years</p>
                   </div>
-                  <p className="font-bold">50%</p>
+                  <p className="font-bold dark:text-white rtl:font-iransans-700">50%</p>
                 </div>
                 <div className="flex justify-between">
-                  <div className="flex gap-2 items-center text-a_general-80">
+                  <div className="flex gap-2 items-center text-a_general-80 dark:text-a_general-40">
                     <div className="size-5 bg-a_yellow-80 rounded-md"></div>
                     <p>18-30 years</p>
                   </div>
-                  <p className="font-bold">30%</p>
+                  <p className="font-bold dark:text-white rtl:font-iransans-700">30%</p>
                 </div>
                 <div className="flex justify-between">
-                  <div className="flex gap-2 items-center text-a_general-80">
+                  <div className="flex gap-2 items-center text-a_general-80 dark:text-a_general-40">
                     <div className="size-5 bg-a_yellow-101 rounded-md"></div>
                     <p>30-40 years</p>
                   </div>
-                  <p className="font-bold">10%</p>
+                  <p className="font-bold dark:text-white rtl:font-iransans-700">10%</p>
                 </div>
                 <div className="flex justify-between">
-                  <div className="flex gap-2 items-center text-a_general-80">
+                  <div className="flex gap-2 items-center text-a_general-80 dark:text-a_general-40">
                     <div className="size-5 bg-a_green-101 rounded-md"></div>
                     <p>Other</p>
                   </div>
-                  <p className="font-bold">10%</p>
+                  <p className="font-bold dark:text-white rtl:font-iransans-700">10%</p>
                 </div>
               </div>
               <div className="down">

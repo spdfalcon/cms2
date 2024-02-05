@@ -23,15 +23,15 @@ export default function Addproduct() {
         </Headerofpages>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
-        <div className="l  xl:col-span-8 px-10 py-2 bg-white mt-10 rounded-md">
+        <div className="l  xl:col-span-8 px-10 py-2 bg-white dark:bg-a_general-90 mt-10 rounded-md">
           <div className="py-10 border-b">
-            <h2 className="font-bold text-sm md:text-base">
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
               {t("information")}
             </h2>
             <div className="mt-5 flex flex-col gap-2">
               <label
                 htmlFor="addproductproductname"
-                className="text-a_general-80 text-xs md:text-sm"
+                className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
               >
                 {t("productname")}
               </label>
@@ -46,7 +46,7 @@ export default function Addproduct() {
             <div className="mt-5 flex flex-col gap-2">
               <label
                 htmlFor="addproductproductdescription"
-                className="text-a_general-80 text-xs md:text-sm"
+                className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
               >
                 {t("productdescription")}
               </label>
@@ -59,7 +59,7 @@ export default function Addproduct() {
             </div>
           </div>
           <div className="py-10 border-b">
-            <h2 className="font-bold text-sm md:text-base">{t("images")}</h2>
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("images")}</h2>
             <div className="mt-5">
               {/* input file */}
               <div className="file flex items-center justify-center w-full">
@@ -98,12 +98,12 @@ export default function Addproduct() {
           </div>
           {/* price */}
           <div className="py-5 border-b">
-            <h2 className="font-bold text-sm md:text-base">{t("price")}</h2>
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("price")}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
                 <label
                   htmlFor="addproductproductprice"
-                  className="text-a_general-80 text-xs md:text-sm"
+                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                 >
                   {t("productprice")}
                 </label>
@@ -118,7 +118,7 @@ export default function Addproduct() {
               <div className="mt-5 flex flex-col gap-2">
                 <label
                   htmlFor="addproductdiscountprice"
-                  className="text-a_general-80 text-xs md:text-sm "
+                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm "
                 >
                   {t("discountprice")}
                 </label>
@@ -131,7 +131,7 @@ export default function Addproduct() {
                 />
               </div>
             </div>
-            <div className="mt-5 flex items-center gap-3 text-a_general-80">
+            <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
               <div className="">
                 <input
@@ -144,7 +144,7 @@ export default function Addproduct() {
                   className={`flex justify-start px-1 items-center relative w-11  h-6 rounded-full bg-a_general-50`}
                   htmlFor="radioprice"
                 >
-                  <span className="absolute size-4 rounded-full bg-white "></span>
+                  <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90 "></span>
                 </label>
               </div>
               {/* radio */}
@@ -155,10 +155,10 @@ export default function Addproduct() {
 
           {/* Different Options */}
           <div className="mt-10 border-b py-5">
-            <h2 className="font-bold text-sm md:text-base">
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
               {t("differentoptions")}
             </h2>
-            <div className="mt-5 flex items-center gap-3 text-a_general-80">
+            <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
               <div className="">
                 <input
@@ -171,7 +171,7 @@ export default function Addproduct() {
                   className={`flex justify-end px-1 items-center relative w-11  h-6 rounded-full bg-a_primary-100`}
                   htmlFor="radioprice"
                 >
-                  <span className="absolute size-4 rounded-full bg-white"></span>
+                  <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90"></span>
                 </label>
               </div>
               {/* radio */}
@@ -181,7 +181,7 @@ export default function Addproduct() {
               <div className="mt-5 flex flex-col gap-2">
                 <label
                   htmlFor="addproductsize"
-                  className="text-a_general-80 text-xs md:text-sm"
+                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                 >
                   {t("size")}
                 </label>
@@ -199,23 +199,23 @@ export default function Addproduct() {
                 </div>
               </div>
               <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 text-xs md:text-sm">
+                <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
                   {t("value")}
                 </p>
                 <div className="w-full h-10 border px-2 py-1 flex items-center justify-start gap-2">
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 flex justify-between rounded-md text-xs md:text-base">
+                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>S</span>
                     <i className="bi bi-x"></i>
                   </div>
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 flex justify-between rounded-md text-xs md:text-base">
+                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>M</span>
                     <i className="bi bi-x"></i>
                   </div>
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 flex justify-between rounded-md text-xs md:text-base">
+                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>L</span>
                     <i className="bi bi-x"></i>
                   </div>
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 flex justify-between rounded-md text-xs md:text-base">
+                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>XL</span>
                     <i className="bi bi-x"></i>
                   </div>
@@ -229,12 +229,12 @@ export default function Addproduct() {
           </button>
 
           <div className="py-5 border-b">
-            <h2 className="font-bold text-sm md:text-base">{t("shipping")}</h2>
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("shipping")}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
                 <label
                   htmlFor="addproductweight"
-                  className="text-a_general-80 text-xs md:text-sm"
+                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                 >
                   {t("weight")}
                 </label>
@@ -249,7 +249,7 @@ export default function Addproduct() {
               <div className="mt-5 flex flex-col gap-2">
                 <label
                   htmlFor="addproductcountry"
-                  className="text-a_general-80 text-xs md:text-sm"
+                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                 >
                   {t("country")}
                 </label>
@@ -267,7 +267,7 @@ export default function Addproduct() {
                 </div>
               </div>
             </div>
-            <div className="mt-5 flex items-center gap-3 text-a_general-80">
+            <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
               <div className="">
                 <input
@@ -280,7 +280,7 @@ export default function Addproduct() {
                   className={`flex justify-start px-1 items-center relative w-11  h-6 rounded-full bg-a_general-50`}
                   htmlFor="radioprice"
                 >
-                  <span className="absolute size-4 rounded-full bg-white "></span>
+                  <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90 "></span>
                 </label>
               </div>
               {/* radio */}
@@ -290,12 +290,12 @@ export default function Addproduct() {
           </div>
         </div>
 
-        <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white *:p-7 *:rounded-md">
+        <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white dark:*:bg-a_general-70  dark:bg-a_general-90  *:p-7 *:rounded-md">
           <div className="section1">
-            <h3 className="font-bold text-sm md:text-base">
+            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
               {t("categories")}
             </h3>
-            <div className="flex gap-2 mt-3 items-center rounded ">
+            <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
                 type="checkbox"
@@ -304,7 +304,7 @@ export default function Addproduct() {
               />
               <label htmlFor="checkboxCategories1">{t("women")}</label>
             </div>
-            <div className="flex gap-2 mt-3 items-center rounded ">
+            <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
                 type="checkbox"
@@ -313,7 +313,7 @@ export default function Addproduct() {
               />
               <label htmlFor="checkboxCategories1">{t("men")}</label>
             </div>
-            <div className="flex gap-2 mt-3 items-center rounded ">
+            <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
                 type="checkbox"
@@ -322,7 +322,7 @@ export default function Addproduct() {
               />
               <label htmlFor="checkboxCategories1">{t("tshirt")}</label>
             </div>
-            <div className="flex gap-2 mt-3 items-center rounded ">
+            <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
                 type="checkbox"
@@ -331,19 +331,11 @@ export default function Addproduct() {
               />
               <label htmlFor="checkboxCategories1">{t("hoodie")}</label>
             </div>
-            <div className="flex gap-2 mt-3 items-center rounded ">
-              <input
-                className=""
-                type="checkbox"
-                name=""
-                id="checkboxCategories1"
-              />
-              <label htmlFor="checkboxCategories1">{t("hoodie")}</label>
-            </div>
+            
             <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
           </div>
           <div className="section2 flex flex-col gap-4">
-            <h3 className="font-bold text-sm md:text-base">{t("tags")}</h3>
+            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("tags")}</h3>
             <div className="flex flex-col gap-2">
               <label className="text-a_general-60" htmlFor="inputTags">
                 {t("addtags")}
@@ -357,22 +349,22 @@ export default function Addproduct() {
               />
             </div>
             <div className="flex justify-start gap-3 flex-wrap">
-              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 flex items-center">
+              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
                 <p>{t("tshirt")}</p>
                 <i className="bi bi-x"></i>
               </div>
-              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 flex items-center">
+              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
                 <p>{t("tshirt")}</p>
                 <i className="bi bi-x"></i>
               </div>
-              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 flex items-center">
+              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
                 <p>{t("tshirt")}</p>
                 <i className="bi bi-x"></i>
               </div>
             </div>
           </div>
           <div className="section3 flex flex-col gap-4">
-            <h3 className="font-bold text-sm md:text-base">
+            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
               {t("seosettings")}
             </h3>
             <div className="flex flex-col gap-2">

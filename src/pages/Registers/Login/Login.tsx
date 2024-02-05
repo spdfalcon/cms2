@@ -5,11 +5,11 @@ export default function Login() {
   const {t} = useTranslation()
   return (
     <div className="flex h-screen text-center">
-      <div className="m-auto bg-white px-[60px] py-9 rounded w-[540px]">
+      <div className="m-auto bg-white dark:bg-a_general-90 px-[60px] py-9 rounded w-[540px]">
         <form className="">
-          <h2 className="text-a_general-100 font-bold md:md:text-[32px] text-base ">{t('signin')}</h2>
+          <h2 className="text-a_general-100 dark:text-white font-bold dark:text-white rtl:font-iransans-700 md:md:text-[32px] text-base ">{t('signin')}</h2>
           <div className="md:mt-5">
-            <span className="text-a_general-80 text-xs md:text-sm md:text-base">{t('newtoourproduct')}</span>{" "}
+            <span className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm md:text-base">{t('newtoourproduct')}</span>{" "}
             <Link className="text-a_primary-100 text-xs" to={"/signup"}>
               {t('createanaccount')}
             </Link>
@@ -17,7 +17,7 @@ export default function Login() {
 
           <div className=" mt-5 md:mt-10 flex flex-col md:gap-6 gap-3">
             <div className="flex flex-col text-left">
-              <label htmlFor="email" className="text-xs md:text-xs md:text-sm text-a_general-80">{t('email')}</label>
+              <label htmlFor="email" className="text-xs md:text-xs md:text-sm text-a_general-80 dark:text-a_general-40">{t('email')}</label>
               <input
                 className="border p-2 rounded focus:outline-none text-xs md:text-base"
                 placeholder={t('enteremailaddress')}
@@ -27,7 +27,7 @@ export default function Login() {
               />
             </div>
             <div className="flex flex-col text-left">
-              <label htmlFor="password" className="md:text-xs md:text-sm text-xs text-a_general-80">{t('password')}</label>
+              <label htmlFor="password" className="md:text-xs md:text-sm text-xs text-a_general-80 dark:text-a_general-40">{t('password')}</label>
               <input
                 className="border p-2 rounded focus:outline-none text-xs md:text-base"
                 placeholder={t('enterpassword')}
@@ -37,7 +37,7 @@ export default function Login() {
               />
               <div className="flex mt-4 gap-2">
                 <input className="" type="checkbox" name="" id="check" />
-                <label className="text-a_general-80 text-xs md:text-base" htmlFor="check">
+                <label className="text-a_general-80 dark:text-a_general-40 text-xs md:text-base" htmlFor="check">
                   {t('keepmesignedin')}
                 </label>
               </div>
@@ -54,7 +54,7 @@ export default function Login() {
             </div>
             <div className="w-full h-px bg-a_general-50"></div>
             <div>
-              <p className="text-xs md:text-sm text-a_general-80">{t('orsigninusing')}</p>
+              <p className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40">{t('orsigninusing')}</p>
             </div>
             <Link
               to={""}

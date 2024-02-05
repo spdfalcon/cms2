@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 interface OtherComponentProps {
   isShowHamberMenu: boolean;
-  setIsShowHamberMenu: Function
+  setIsShowHamberMenu: Function;
 }
-const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamberMenu}) => {
-  
+const TopBar: React.FC<OtherComponentProps> = ({
+  isShowHamberMenu,
+  setIsShowHamberMenu,
+}) => {
   const [lang, setLang] = useState({
     flag:
       localStorage.getItem("lang") === "fa"
@@ -16,6 +18,24 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
   });
   const [isShowLangModal, setIsShowLangModal] = useState(false);
   const { t } = useTranslation();
+  const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem("dark") === "false") {
+      setIsDark(false);
+    } else if (localStorage.getItem("dark") === "true") {
+      setIsDark(true);
+    }
+  }, []);
+  const darkHandler = () => {
+    setIsDark((last) => !last);
+    if(!isDark){
+      localStorage.setItem('dark' , 'true')
+      document.documentElement.classList.add('dark')
+    }else{
+      localStorage.setItem('dark' , 'false')
+      document.documentElement.classList.remove('dark')
+    }
+  };
   return (
     <>
       {/* back modal */}
@@ -27,7 +47,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
       ></div>
       {/* back modal */}
 
-      <div className="shadow-md h-[68px] px-3 md:px-7 py-3 bg-white sticky top-0 justify-between items-center z-30 flex">
+      <div className="shadow-md h-[68px] px-3 md:px-7 py-3 bg-white dark:bg-a_general-90 sticky top-0 justify-between items-center z-30 flex">
         <div className="left items-center gap-10 hidden md:flex">
           <img className="" src="/img/topbar/logo.png" alt="Logo" />
           <div className="md:flex gap-3 items-center hidden">
@@ -36,7 +56,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
               className="bi bi-search text-a_general-70"
             ></label>
             <input
-              className="text-sm p-2 outline-none"
+              className="text-sm p-2 outline-none rounded-md"
               placeholder={`${t("search")}...`}
               type="search"
               name=""
@@ -44,24 +64,51 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
             />
           </div>
         </div>
-        <div onClick={()=>setIsShowHamberMenu((last:any)=>!last)} className="cursor-pointer flex flex-col gap-1.5 md:hidden px-2 py-2">
-        <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : 'rotate-45 translate-y-1'}`}></span>
-        <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? 'block' : 'hidden'}`}></span>
-        <span className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${!isShowHamberMenu ? '' : '-rotate-45 -translate-y-1'}`}></span>
+        <div className="flex items-center gap-5">
+          <div
+            onClick={() => setIsShowHamberMenu((last: any) => !last)}
+            className="cursor-pointer flex flex-col gap-1.5 md:hidden px-2 py-2"
+          >
+            <span
+              className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${
+                !isShowHamberMenu ? "" : "rotate-45 translate-y-1"
+              }`}
+            ></span>
+            <span
+              className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${
+                !isShowHamberMenu ? "block" : "hidden"
+              }`}
+            ></span>
+            <span
+              className={`block w-5 h-0.5 rounded-full bg-a_primary-100 duration-300 ${
+                !isShowHamberMenu ? "" : "-rotate-45 -translate-y-1"
+              }`}
+            ></span>
+          </div>
+          <div
+            onClick={darkHandler}
+            className=" size-7 bg-a_general-40 flex justify-center items-center rounded-md hover:bg-a_general-50 duration-300 cursor-pointer"
+          >
+            {isDark ? (
+              <i className="bi bi-moon-stars"></i>
+            ) : (
+              <i className="bi bi-brightness-high"></i>
+            )}
+          </div>
         </div>
         <div className="right flex gap-4 items-center">
-          <i className="bi bi-chat-left-text text-xl hidden md:flex"></i>
+          <i className="bi bi-chat-left-text text-xl hidden md:flex dark:text-white"></i>
           <div className="relative hidden md:flex">
             <span className="w-[14px] h-[14px] flex justify-center items-center rounded-full bg-blue-700 absolute top-0 -right-1 text-xs text-white ">
               5
             </span>
-            <i className="bi bi-bell text-xl"></i>
+            <i className="bi bi-bell text-xl dark:text-white"></i>
           </div>
           {/* div header */}
           <div className="relative">
             <div
               onClick={() => setIsShowLangModal((last) => !last)}
-              className=" flex items-center gap-2 cursor-pointer text-a_general-80 font-semibold md:w-32"
+              className=" flex items-center gap-2 cursor-pointer text-a_general-80 dark:text-a_general-40 font-semibold md:w-32"
             >
               <img className="w-10 h-[27px]" src={lang.flag} alt="" />
               <span className="hidden md:flex">{lang.name}</span>
@@ -75,9 +122,9 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
             <div
               className={`absolute h-44 flex duration-300 ${
                 isShowLangModal ? "" : "-translate-y-56 opacity-0 h-0"
-              } flex-col gap-4 px-5 py-4 text-sm w-64 top-12 left-1/2 -translate-x-1/2 bg-white rounded-xl`}
+              } flex-col gap-4 px-5 py-4 text-sm w-64 top-12 left-1/2 -translate-x-1/2 bg-white dark:bg-a_general-90 rounded-xl`}
             >
-              <p>Select Language </p>
+              <p className="dark:text-white">Select Language </p>
               <span className="block w-full h-px bg-a_general-50"></span>
               <div
                 className={`flex flex-col gap-6 duration-300 ${
@@ -95,11 +142,11 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
                     i18next.changeLanguage("en");
                     localStorage.setItem("lang", "en");
                   }}
-                  className="flex items-center justify-between cursor-pointer"
+                  className="flex items-center justify-between "
                 >
-                  <div className="flex gap-3 items-center">
+                  <div className="flex gap-3 items-center cursor-pointer">
                     <img src={`/img/topbar/UK.png`} alt="" />
-                    <span>English</span>
+                    <span className="dark:text-white">English</span>
                   </div>
                   {lang.name === "English" && (
                     <div>
@@ -126,7 +173,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
                       src={`/img/topbar/iran.png`}
                       alt=""
                     />
-                    <span>فارسی</span>
+                    <span className="dark:text-white">فارسی</span>
                   </div>
                   {lang.name === "Iran" && (
                     <div>
@@ -140,9 +187,7 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
           {/* end div header */}
           <div className="flex items-center gap-2">
             <img src="/img/topbar/avatar.png" alt="" />
-            <span className="text-a_general-80  text-sm">
-              mohammadreza
-            </span>
+            <span className="text-a_general-80 dark:text-a_general-40  text-sm">mohammadreza</span>
           </div>
         </div>
       </div>
@@ -150,4 +195,4 @@ const TopBar:React.FC<OtherComponentProps>= ({isShowHamberMenu , setIsShowHamber
   );
 };
 
-export default TopBar
+export default TopBar;

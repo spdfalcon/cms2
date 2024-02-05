@@ -67,17 +67,17 @@ export default function Editcustomers() {
           </Headerofpages>
         </div>
       <div className="main  p-7 mt-10 grid grid-cols-1 gap-5 xl:grid-cols-12 border-b">
-        <div className="l lg:col-span-8 *:p-7 *:rounded-md *:bg-white grid grid-cols-1 gap-5">
+        <div className="l lg:col-span-8 *:p-7 *:rounded-md *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 grid grid-cols-1 gap-5">
           <div className="up ">
             <div className="up flex justify-between border-b pb-10">
               <div className="l flex items-center gap-5">
                 <div className="l">
-                  <div className="size-[72px] rounded-full bg-a_general-60 flex justify-center items-center text-white text-3xl font-bold">
+                  <div className="size-[72px] rounded-full bg-a_general-60 flex justify-center items-center text-white text-3xl font-bold dark:text-white rtl:font-iransans-700">
                     L
                   </div>
                 </div>
                 <div className="r flex flex-col gap-3">
-                  <h3 className="font-bold">Lenora Robinson</h3>
+                  <h3 className="font-bold dark:text-white rtl:font-iransans-700">Lenora Robinson</h3>
                   <div className="text-a_general-60 text-xs md:text-sm">
                     <p>Ireland</p>
                     <p>5 {t('order')}</p>
@@ -94,7 +94,7 @@ export default function Editcustomers() {
               </div>
             </div>
             <div className="down py-5 flex flex-col gap-4">
-              <h3 className="font-bold">{t('customernotes')}</h3>
+              <h3 className="font-bold dark:text-white rtl:font-iransans-700">{t('customernotes')}</h3>
               <div>
                 <label className="text-a_general-60" htmlFor="">
                   {t('notes')}
@@ -146,36 +146,36 @@ export default function Editcustomers() {
             </table>
           </div>
         </div>
-        <div className="r lg:col-span-4 *:p-7 *:bg-white flex flex-col gap-5">
+        <div className="r lg:col-span-4 *:p-7 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 flex flex-col gap-5">
           <div className="top flex flex-col gap-3">
             <div className="sec1 flex justify-between">
-              <h2 className="font-bold">{t('overview')}</h2>
+              <h2 className="font-bold dark:text-white rtl:font-iransans-700">{t('overview')}</h2>
               <button className="text-a_primary-100">{t('edit')}</button>
             </div>
             <div className="sec2 flex flex-col gap-1">
               <h4 className="text-xs md:text-sm text-a_general-60">{t('address')}</h4>
-              <p className="w-40 text-xs md:text-sm text-a_general-80">
+              <p className="w-40 text-xs md:text-sm text-a_general-80 dark:text-a_general-40">
                 831 Wilhelmine Glen 40583-2293 South Lelastad Ireland
               </p>
             </div>
             <div className="sec3">
               <h4 className="text-xs md:text-sm text-a_general-60">{t('emailaddress')}</h4>
-              <p className="w-40 text-xs md:text-sm text-a_general-80">
+              <p className="w-40 text-xs md:text-sm text-a_general-80 dark:text-a_general-40">
                 lenora_rob@yahoo.com
               </p>
             </div>
             <div className="sec4 border-b pb-5">
               <h4 className="text-xs md:text-sm text-a_general-60">{t('phone')}</h4>
-              <p className="w-40 text-xs md:text-sm text-a_general-80">636-458-4820</p>
+              <p className="w-40 text-xs md:text-sm text-a_general-80 dark:text-a_general-40">636-458-4820</p>
             </div>
             <div className="sec5">
-              <p className="text-xs md:text-sm text-a_red-101 font-bold">
+              <p className="text-xs md:text-sm text-a_red-101 font-bold dark:text-white rtl:font-iransans-700">
                 {t('deletecustomer')}
               </p>
             </div>
           </div>
           <div className="down flex flex-col gap-4">
-            <h3 className="font-bold">{t('tags')}</h3>
+            <h3 className="font-bold dark:text-white rtl:font-iransans-700">{t('tags')}</h3>
             <div className="flex flex-col gap-2">
               <label className="text-xs md:text-sm text-a_general-60" htmlFor="">
                 {t('addtags')}
@@ -189,7 +189,7 @@ export default function Editcustomers() {
               />
             </div>
             <div className="flex gap-2 flex-wrap">
-              <div className="text-xs md:text-sm text-a_general-80 bg-a_general-50 rounded p-1 flex items-center gap-2">
+              <div className="text-xs md:text-sm text-a_general-80 dark:text-a_general-40 bg-a_general-50 rounded p-1 flex items-center gap-2">
                 <span>{t('vipcustomer')}</span>
                 <i className="bi bi-x"></i>
               </div>

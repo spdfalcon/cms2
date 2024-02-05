@@ -43,15 +43,15 @@ const Button: React.FC<ButtonProps> = ({icon, size, type , children }) => {
               : null
           } ${
             type === "Primary"
-              ? "text-white bg-a_primary-100 hover:text-a_primary-100 hover:bg-white"
+              ? "text-white bg-a_primary-100 hover:text-a_primary-100 hover:bg-white dark:bg-a_general-90"
               : type === "Secondary"
               ? "text-a_primary-100 bg-a_primary-40 hover:text-a_primary-40 hover:bg-a_primary-100"
               : type === "Destructive"
-              ? "text-white bg-a_red-101 hover:bg-white hover:text-a_red-101"
+              ? "text-white bg-a_red-101 hover:bg-white dark:bg-a_general-90 hover:text-a_red-101"
               : type === "Destructive Secondary"
               ? "text-a_red-101 bg-a_red-30 hover:text-a_red-30 hover:bg-a_red-101"
               : type === "White"
-              ? "bg-white text-a_primary-100 hover:bg-a_primary-100 hover:text-white"
+              ? "bg-white dark:bg-a_general-90 text-a_primary-100 hover:bg-a_primary-100 hover:text-white"
               : null
           } rounded-md border`}
         >

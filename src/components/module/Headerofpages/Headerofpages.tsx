@@ -21,14 +21,14 @@ const Headerofpages: React.FC<HeaderofpagesProps> = ({
         <div className={`l`}>
           {back ? (
             <Link
-              className="flex items-center gap-2 text-a_general-80 text-xs md:text-sm"
+              className="flex items-center gap-2 text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
               to={to}
             >
               <i className="bi bi-arrow-left"></i>
               <span>{t("back")}</span>
             </Link>
           ) : null}
-          <h2 className="md:text-2xl font-bold">{title}</h2>
+          <h2 className="md:text-2xl font-bold dark:text-white  rtl:font-iransans-700 dark:text-white">{title}</h2>
         </div>
         <div className={`r flex gap-4`}>{children}</div>
       </div>

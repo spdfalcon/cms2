@@ -72,7 +72,7 @@ export default function Orders() {
         </div>
         {recentTransactions.length ? (
           <div className="grid grid-cols-1">
-          <div className="bg-white py-8 px-3 md:px-7 rounded-lg">
+          <div className="bg-white dark:bg-a_general-90 py-8 px-3 md:px-7 rounded-lg">
             <div className="header flex justify-between">
               <div className="left flex gap-4 flex-col md:flex-row">
                 <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer text-xs md:text-base">
@@ -96,10 +96,10 @@ export default function Orders() {
             </div>
             <div className="grid grid-cols-1">
               <div className="overflow-x-auto">
-                <div className="tablee p-7 bg-white rounded-lg ">
+                <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg ">
                   <table className="w-full">
                     <thead className="">
-                      <tr className="text-a_general-80 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
+                      <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
                         <th>{t("orders")}</th>
                         <th>{t("date")}</th>
                         <th>{t("customer")}</th>
@@ -114,13 +114,13 @@ export default function Orders() {
                           key={item.id}
                           className="*:px-6 *:py-3 *:text-nowrap"
                         >
-                          <td className="text-a_general-100 font-medium text-xs md:text-sm">
+                          <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm">
                             {item.order}
                           </td>
-                          <td className="text-a_general-100 text-xs md:text-sm">
+                          <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
                             {item.date}
                           </td>
-                          <td className="text-a_general-100 text-xs md:text-sm">
+                          <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
                             {item.customer}
                           </td>
                           <td className="text-xs md:text-sm">
@@ -129,7 +129,7 @@ export default function Orders() {
                                 item.paymentstatus === "Paid" ||
                                 item.paymentstatus === "پرداخت شده"
                                   ? "bg-a_green-101/20  text-a_green-101"
-                                  : "bg-a_general-80/15 text-a_general-80"
+                                  : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
                               }`}
                             >
                               {item.paymentstatus}
@@ -150,7 +150,7 @@ export default function Orders() {
                               {item.orderstatus}
                             </span>
                           </td>
-                          <td className="text-a_general-100 text-xs md:text-sm">
+                          <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
                             {item.total}
                           </td>
                         </tr>

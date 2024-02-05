@@ -1,11 +1,11 @@
 export default function EmpityOrder() {
   return (
     <>
-      <div className="flex justify-center items-center py-10 bg-white rounded-md">
+      <div className="flex justify-center items-center py-10 bg-white dark:bg-a_general-90 rounded-md">
         <div className="text-center flex flex-col items-center gap-4">
           <img src="/img/order/empity.png" />
-          <h2 className="font-bold">No Orders Yet</h2>
-          <p className="text-a_general-80">
+          <h2 className="font-bold dark:text-white rtl:font-iransans-700">No Orders Yet</h2>
+          <p className="text-a_general-80 dark:text-a_general-40">
             All the upcoming orders from your store will be visible in this
             page. You can add orders by yourself if you sell offline.{" "}
           </p>

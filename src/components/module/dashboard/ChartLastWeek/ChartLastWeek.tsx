@@ -58,14 +58,14 @@ export default function ChartLastWeek() {
     <>
       <div className=" h-96 md:min-h-72 lg:h-[469px]  flex flex-col">
         <div className="flex flex-col gap-4 border-b pb-4 mb-4">
-          <p className="font-bold text-sm text-a_general-100">{t('last7dayssales')}</p>
+          <p className="font-bold dark:text-white rtl:font-iransans-700 text-sm text-a_general-100 dark:text-white">{t('last7dayssales')}</p>
           <div className="">
-            <p className="md:text-xl font-bold text-sm">1,259</p>
-            <p className="text-a_general-80 text-xs md:text-sm">{t('itemssold')}</p>
+            <p className="md:text-xl font-bold dark:text-white rtl:font-iransans-700 text-sm">1,259</p>
+            <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">{t('itemssold')}</p>
           </div>
           <div className="">
-            <p className="md:text-xl font-bold text-sm">1,259</p>
-            <p className="text-a_general-80 text-xs md:text-sm">{t('revenue')}</p>
+            <p className="md:text-xl font-bold dark:text-white rtl:font-iransans-700 text-sm">1,259</p>
+            <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">{t('revenue')}</p>
           </div>
         </div>
         <ResponsiveContainer width="100%" height="100%">

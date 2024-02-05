@@ -27,7 +27,7 @@ export default function Dashboard() {
         </Headerofpages>
         {/* e header */}
         {/* s dashboard boxs */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
           {boxrange
             ?.map((item) => (
               <DashboardCard Percent={item.Percent} amount={item.amount} icon={item.icon} title={item.title} key={item.id}></DashboardCard>
@@ -35,7 +35,7 @@ export default function Dashboard() {
         </div>
         {/* e dashboard boxs */}
         {/* s charts */}
-        <div className="grid grid-cols-12 *:col-span-12 *:lg:col-span-6 *:p-7 *:bg-white gap-5 *:rounded-md">
+        <div className="grid grid-cols-12 *:col-span-12 *:lg:col-span-6 *:p-7 dark:bg-a_general-90 gap-5 *:rounded-md">
           {/* s chart order over time */}
           <div className=" xl:col-span-9">
             <Chartorder></Chartorder>
