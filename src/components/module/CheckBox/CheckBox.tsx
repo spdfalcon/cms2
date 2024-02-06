@@ -4,7 +4,7 @@ interface CheckBoxprops {
   setIsChecked:Dispatch<SetStateAction<boolean>>
   ischecked?:boolean
 }
-const CheckBox: React.FC<CheckBoxprops> = ({ forid , setIsChecked , ischecked}) => {
+const CheckBox: React.FC<CheckBoxprops> = ({ forid , setIsChecked }) => {
     
   return (
     <>
