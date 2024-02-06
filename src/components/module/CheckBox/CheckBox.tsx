@@ -2,8 +2,9 @@ import React, { Dispatch, SetStateAction } from "react";
 interface CheckBoxprops {
   forid?: string;
   setIsChecked:Dispatch<SetStateAction<boolean>>
+  ischecked?:boolean
 }
-const CheckBox: React.FC<CheckBoxprops> = ({ forid , setIsChecked }) => {
+const CheckBox: React.FC<CheckBoxprops> = ({ forid , setIsChecked , ischecked}) => {
     
   return (
     <>
