@@ -1,6 +1,10 @@
 const fa = {
   //topbar
   search: "جستجو",
+  manageaccount:"مدیریت حساب",
+  changepassword:"رمز عبور را تغییر دهید",
+  activitylog :"گزارش فعالیت",
+  logout :"خروج",
   //topbar
   //start sidebar
   dashboard: "میز کار",

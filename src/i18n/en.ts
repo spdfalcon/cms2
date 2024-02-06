@@ -1,6 +1,10 @@
 const en = {
   //topbar
   search: "Search",
+  manageaccount:"Manage Account",
+  changepassword:"Change Password",
+  activitylog :"Activity Log",
+  logout :"Log out",
   //topbar
 
   //start sidebar
