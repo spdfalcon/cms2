@@ -8,31 +8,33 @@ export default function Createcoupon() {
     <div className='p-8'>
       <div className='header '>
         <Headerofpages title={t('createcoupon')} back={true} to={'/admin/coupons'}>
+            <div className='flex flex-col md:flex-row justify-center items-center gap-2 text-nowrap'>
             <Button type='White' size='sm'>{t('save')}</Button>
             <Button type='Primary' size='sm'>{t('cancel')}</Button>
+            </div>
         </Headerofpages>
       </div>
       <div className='main bg-white dark:bg-a_general-90 p-8 rounded-md mt-10'>
         <div className='mainup border-b pb-10'>
             <div className='mainupup'>
-                <h2 className='font-bold dark:text-white rtl:font-iransans-700'>{t('couponinformation')}</h2>
-                <h2 className='text-a_general-80 dark:text-a_general-40'>{t('codewillbeusedbyusersincheckout')}</h2>
+                <h2 className='font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base'>{t('couponinformation')}</h2>
+                <h3 className='text-xs md:text-base text-a_general-80 dark:text-a_general-40'>{t('codewillbeusedbyusersincheckout')}</h3>
             </div>
             <div className='mainupdown grid grid-cols-1 md:grid-cols-2 mt-5 gap-5'>
                 <div className='flex flex-col gap-2'>
                     <label className='text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcouponcouponcode">{t('couponcode')}</label>
-                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('shipfree')} 20`} type="text" name="" id="createcouponcouponcode" />
+                    <input className='text-xs md:text-base border outline-none py-1 px-3 rounded-md w' placeholder={`${t('shipfree')} 20`} type="text" name="" id="createcouponcouponcode" />
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='text-a_general-80 dark:text-a_general-40 text-xs md:text-sm' htmlFor="createcouponcouponname">{t('couponname')}</label>
-                    <input className='border outline-none py-1 px-3 rounded-md w' placeholder={`${t('freeshipping')}`} type="text" name="" id="createcouponcouponname" />
+                    <input className='text-xs md:text-base border outline-none py-1 px-3 rounded-md w' placeholder={`${t('freeshipping')}`} type="text" name="" id="createcouponcouponname" />
                 </div>
             </div>
         </div>
         <div className='mainmid py-5'>
             <div className='mainmidup'>
-                <h2 className='font-bold dark:text-white rtl:font-iransans-700'>{t('coupontype')}</h2>
-                <p className='text-a_general-80 dark:text-a_general-40 text-xs md:text-sm'>{t('typeofcouponyouwanttocreate')}</p>
+                <h2 className='text-sm md:text-base font-bold dark:text-white rtl:font-iransans-700'>{t('coupontype')}</h2>
+                <p className=' text-a_general-80 dark:text-a_general-40 text-xs md:text-sm'>{t('typeofcouponyouwanttocreate')}</p>
             </div>
             <div className='mainmiddown mt-5'>
                 <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>

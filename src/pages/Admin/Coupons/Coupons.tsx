@@ -50,7 +50,7 @@ export default function Coupons() {
         <div className="w-full flex justify-center">
           <div className="bg-white dark:bg-a_general-90 p-7 rounded-md w-52 sm:w-96 mt-10 md:w-[510px] lg:w-[760px] xl:w-full overflow-x-auto">
             <div className="toptable">
-              <div className="toptabletop border-b ">
+              <div className="toptabletop border-b text-nowrap text-xs md:text-base ">
                 <ul className="flex gap-5 text-a_general-80 dark:text-a_general-40 *:py-2">
                   <li className="border-b border-a_primary-100 text-a_primary-100">
                     {t("allcoupons")}
@@ -62,7 +62,7 @@ export default function Coupons() {
               <div className="toptabledouwn mt-5 flex justify-between">
                 <div className="toptabledouwnleft flex gap-3 items-center">
                   <select
-                    className="px-3 py-2 border rounded-md outline-none text-a_general-80 dark:text-a_general-40"
+                    className="px-3 py-2 border rounded-md outline-none text-a_general-80 dark:text-a_general-40 text-xs md:text-base"
                     name=""
                     id=""
                   >
@@ -77,7 +77,7 @@ export default function Coupons() {
                     ></label>
                     <input
                       placeholder={`${t("search")}...`}
-                      className="outline-none w-full h-full px-10 py-2"
+                      className="outline-none w-full h-full px-10 py-2 text-xs md:text-base"
                       type="text"
                       name=""
                       id="searchcoupons"
@@ -95,8 +95,8 @@ export default function Coupons() {
             <div className="table w-full">
               <table className="w-full">
                 <thead>
-                  <tr className="*:px-6 *:py-3  text-a_general-80 dark:text-a_general-40 border-b">
-                    <th className="text-left rtl:text-right">
+                  <tr className="*:px-6 *:py-3  text-a_general-80 dark:text-a_general-40 border-b text-sm">
+                    <th className="text-left rtl:text-right ">
                       {t("couponname")}
                     </th>
                     <th className="text-left rtl:text-right">{t("usage")}</th>
@@ -106,9 +106,9 @@ export default function Coupons() {
                 </thead>
                 <tbody>
                   {couponsTable.map((item) => (
-                    <tr key={item.id} className="*:px-6 *:py-3">
+                    <tr key={item.id} className="*:px-6 *:py-3 text-xs">
                       <td className="">
-                        <div className="flex gap-3 flex items-center">
+                        <div className="gap-3 flex items-center">
                           <div
                             className={`l size-10 rounded-md ${
                               item.Name.up !== t("freeshippingonallitems")
@@ -166,7 +166,7 @@ export default function Coupons() {
                   </ul>
                   <i className="bi bi-arrow-right cursor-pointer"></i>
                 </div>
-                <div className="r">
+                <div className="r text-xs md:text-base">
                   <p>5 {t("results")}</p>
                 </div>
               </div>

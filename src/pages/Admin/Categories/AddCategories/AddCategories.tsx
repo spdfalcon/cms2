@@ -47,7 +47,7 @@ export default function AddCategories() {
             <div className="mt-5 flex flex-col gap-3">
               {products.map(() => (
                 <div className="rounded-md px-5 py-4 border flex items-center gap-4 justify-between">
-                  <div className="left flex items-center gap-2">
+                  <div className="left flex items-center gap-2 text-xs md:text-base">
                     <i className="bi bi-three-dots-vertical text-a_general-60"></i>
                     <img src="/img/dashboard/11.png" alt="" />
                     <p>Women Striped T-Shirt</p>
@@ -84,7 +84,7 @@ export default function AddCategories() {
                   >
                     <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90 "></span>
                   </label>
-                  <span>{t('visibleonsite')}</span>
+                  <span className="text-xs md:text-base">{t('visibleonsite')}</span>
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function AddCategories() {
                 <h3 className="font-bold dark:text-white rtl:font-iransans-700">{t('categoryinfo')}</h3>
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-a_general-60" htmlFor="">
+                <label className="text-a_general-60 text-xs md:text-base" htmlFor="">
                   {t('name')}
                 </label>
                 <input
@@ -108,13 +108,13 @@ export default function AddCategories() {
                   className="flex flex-col gap-2 cursor-pointer"
                   htmlFor="productfile"
                 >
-                  <p className="text-a_general-60">{t('images')}</p>
+                  <p className="text-a_general-60 text-xs md:text-base">{t('images')}</p>
                   <div className="border-2 border-dashed h-44 flex justify-center items-center">
                     <div className="flex flex-col items-center gap-3">
-                      <div className="border px-4 py-1 rounded-md text-a_primary-100">
+                      <div className="border px-4 py-1 rounded-md text-a_primary-100 text-sm md:text-base">
                         {t('addfile')}
                       </div>
-                      <p className="text-a_general-60">
+                      <p className="text-a_general-60 text-xs md:text-base">
                         {t('ordraganddropfiles')}
                       </p>
                     </div>

@@ -47,6 +47,7 @@ export default function Customers() {
     <div className=" py-[30px] flex flex-col gap-y-10">
       <div className="header">
         <Headerofpages title={t("customers")}>
+          <div className="flex flex-col md:flex-row gap-2 items-center justify-center ">
           <Button size="sm" type="White">
             {t("export")}
           </Button>
@@ -55,10 +56,11 @@ export default function Customers() {
               {t("addcustomer")}
             </Button>
           </Link>
+          </div>
         </Headerofpages>
       </div>
       {recentTransactions.length ? (
-        <div className="bg-white dark:bg-a_general-90 py-8 px-7 rounded-lg">
+        <div className="bg-white dark:bg-a_general-90 py-8 px-7 rounded-lg grid grid-cols-1 overflow-x-auto">
           <div className="header flex justify-between">
             <div className="left flex gap-4">
               <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
@@ -79,17 +81,9 @@ export default function Customers() {
                 />
               </div>
             </div>
-            <div className="right text-a_primary-100  flex gap-2">
-              <button className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                <i className="bi bi-pencil"></i>
-              </button>
-              <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                <i className="bi bi-trash"></i>
-              </div>
-            </div>
           </div>
           <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg">
-            <div className="w-full overflow-x-auto">
+            <div className="w-full">
               <table className="w-full">
                 <thead className="">
                   <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:text-nowrap *:py-3 ">
@@ -147,7 +141,7 @@ export default function Customers() {
               </table>
             </div>
           </div>
-          <div className="flex down justify-between text-a_general-70">
+          <div className="flex down justify-between items-center gap-2 text-a_general-70">
             <div className="l flex gap-2 items-center">
               <i className="bi bi-arrow-left cursor-pointer"></i>
               <ul className="flex *:flex *:justify-center *:items-center gap-2 *:size-7 *:rounded *:cursor-pointer">
@@ -160,7 +154,7 @@ export default function Customers() {
               </ul>
               <i className="bi bi-arrow-right cursor-pointer"></i>
             </div>
-            <div className="r">
+            <div className="r text-nowrap text-xs md:text-base">
               <p>{recentTransactions.length} {t('results')}</p>
             </div>
           </div>
