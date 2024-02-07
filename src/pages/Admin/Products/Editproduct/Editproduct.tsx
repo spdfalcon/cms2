@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
 import Button from "../../../../components/module/Button/Button";
 import { useTranslation } from "react-i18next";
@@ -6,59 +6,59 @@ import { useState } from "react";
 import CheckBox from "../../../../components/module/CheckBox/CheckBox";
 
 export default function Editproduct() {
-  const productid:any = useParams().editproductid
-  const recentTransactions = [
-    {
-      id: 1,
-      pic: "/img/dashboard/11.png",
-      Product: "Jessica S.",
-      Inventory: "96 in stock",
-      Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
-      total: "$49.90",
-    },
-    {
-      id: 2,
-      pic: "/img/dashboard/12.png",
-      Product: "Andrew S.",
-      Inventory: "23.05.2020",
-      Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
-      total: "$49.90",
-    },
-    {
-      id: 3,
-      pic: "/img/dashboard/13.png",
-      Product: "Kevin S.",
-      Inventory: "23.05.2020",
-      Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
-      total: "$49.90",
-    },
-    {
-      id: 4,
-      pic: "/img/dashboard/14.png",
-      Product: "Jack S.",
-      Inventory: "22.05.2020",
-      Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
-      total: "$49.90",
-    },
-    {
-      id: 5,
-      pic: "/img/dashboard/15.png",
-      Product: "Arthur S.",
-      Inventory: "22.05.2020",
-      Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
-      total: "$49.90",
-    },
-  ];
+  // const productid:any = useParams().editproductid
+  // const recentTransactions = [
+  //   {
+  //     id: 1,
+  //     pic: "/img/dashboard/11.png",
+  //     Product: "Jessica S.",
+  //     Inventory: "96 in stock",
+  //     Color: "red",
+  //     Price: "$256",
+  //     Rating: "5.0 (32 Votes)",
+  //     total: "$49.90",
+  //   },
+  //   {
+  //     id: 2,
+  //     pic: "/img/dashboard/12.png",
+  //     Product: "Andrew S.",
+  //     Inventory: "23.05.2020",
+  //     Color: "red",
+  //     Price: "$256",
+  //     Rating: "5.0 (32 Votes)",
+  //     total: "$49.90",
+  //   },
+  //   {
+  //     id: 3,
+  //     pic: "/img/dashboard/13.png",
+  //     Product: "Kevin S.",
+  //     Inventory: "23.05.2020",
+  //     Color: "red",
+  //     Price: "$256",
+  //     Rating: "5.0 (32 Votes)",
+  //     total: "$49.90",
+  //   },
+  //   {
+  //     id: 4,
+  //     pic: "/img/dashboard/14.png",
+  //     Product: "Jack S.",
+  //     Inventory: "22.05.2020",
+  //     Color: "red",
+  //     Price: "$256",
+  //     Rating: "5.0 (32 Votes)",
+  //     total: "$49.90",
+  //   },
+  //   {
+  //     id: 5,
+  //     pic: "/img/dashboard/15.png",
+  //     Product: "Arthur S.",
+  //     Inventory: "22.05.2020",
+  //     Color: "red",
+  //     Price: "$256",
+  //     Rating: "5.0 (32 Votes)",
+  //     total: "$49.90",
+  //   },
+  // ];
   // const thisProduct = recentTransactions.filter((item)=>item.id == productid)
   const { t } = useTranslation();
   const [iseditproductaddtaxforthisproduct , setIseditproductaddtaxforthisproduct] =useState(false)
