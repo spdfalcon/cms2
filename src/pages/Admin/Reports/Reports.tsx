@@ -272,7 +272,7 @@ export default function Reports() {
             </div>
           </div>
         </div>
-        <div className="sec3 grid grid-cols-1 lg:grid-cols-12 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:p-7 *:rounded-md gap-3">
+        <div className="sec3 grid grid-cols-1 lg:grid-cols-12 *:bg-white  *:dark:bg-a_general-90 *:p-7 *:rounded-md gap-3">
           <div className="sec3left lg:col-span-3">
             <div className="font-bold dark:text-white rtl:font-iransans-700">
               <p>{t("salesgoal")}</p>
@@ -476,7 +476,7 @@ export default function Reports() {
               </ResponsiveContainer>
             </div>
           </div>
-          <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:rounded-md ">
+          <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white dark:*:bg-a_general-70 *:dark:bg-a_general-90 *:rounded-md ">
             <div className="sec4rightup p-7 py-10">
               <div className="flex flex-col gap-4">
                 <h2 className="font-bold dark:text-white rtl:font-iransans-700">
@@ -540,7 +540,7 @@ export default function Reports() {
             </div>
           </div>
         </div>
-        <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:p-7">
+        <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white dark:*:bg-a_general-70 *:dark:bg-a_general-90 *:p-7 *:rounded-md">
           <div className="sec5left">
             <div className="header font-bold dark:text-white rtl:font-iransans-700">
               <h2>{t("topcustomers")}</h2>
@@ -632,7 +632,7 @@ export default function Reports() {
             </div>
           </div>
         </div>
-        <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white dark:*:bg-a_general-70 dark:bg-a_general-90 *:p-7">
+        <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white dark:*:bg-a_general-70 *:dark:bg-a_general-90 *:p-7 *:rounded-md">
           <div className="sec6left lg:col-span-9">
             <div className="flex justify-between items-center">
               <div className="l">
@@ -651,14 +651,14 @@ export default function Reports() {
                   </span>
                 </div>
               </div>
-              <div className="r">
+              <div className="r flex gap-2">
                 <label
                   className="text-a_general-80 dark:text-a_general-40"
                   htmlFor=""
                 >
                   Last 7 Days
                 </label>
-                <select className="" name="" id="">
+                <select className="dark:bg-a_general-60 rounded-md" name="" id="">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>

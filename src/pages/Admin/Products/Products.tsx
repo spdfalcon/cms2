@@ -72,7 +72,7 @@ export default function Products() {
                   </Button>
                   <Link to={"addproduct"}>
                     <Button icon="bi bi-plus-lg" size="sm" type="Primary">
-                      {t("addorder")}
+                      {t("addproduct")}
                     </Button>
                   </Link>
                 </Headerofpages>

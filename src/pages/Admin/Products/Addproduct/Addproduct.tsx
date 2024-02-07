@@ -1,8 +1,13 @@
 import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
+import CheckBox from "../../../../components/module/CheckBox/CheckBox";
+import { useState } from "react";
 
 export default function Addproduct() {
+  const [isaddproductaddtaxforthisproduct , setIsaddproductaddtaxforthisproduct] =useState(false)
+  const [isaddproductthisisdigitalitem , setIsaddproductthisisdigitalitem] =useState(false)
+  const [isaddproductthisproducthasmultipleoptions , setIsaddproductthisproducthasmultipleoptions] =useState(false)
   const { t } = useTranslation();
   return (
     <div className="w-full h-44 py-8">
@@ -133,22 +138,9 @@ export default function Addproduct() {
             </div>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <div className="">
-                <input
-                  className="hidden"
-                  type="radio"
-                  name=""
-                  id="radioprice"
-                />
-                <label
-                  className={`flex justify-start px-1 items-center relative w-11  h-6 rounded-full bg-a_general-50`}
-                  htmlFor="radioprice"
-                >
-                  <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90 "></span>
-                </label>
-              </div>
+              <CheckBox setIsChecked={setIsaddproductaddtaxforthisproduct} forid="addproductaddtaxforthisproduct"></CheckBox>
               {/* radio */}
-              <span className="">{t("addtaxforthisproduct")}</span>
+              <label htmlFor="addproductaddtaxforthisproduct" className="">{t("addtaxforthisproduct")}</label>
             </div>
             {/* price */}
           </div>
@@ -160,22 +152,10 @@ export default function Addproduct() {
             </h2>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <div className="">
-                <input
-                  className="hidden"
-                  type="radio"
-                  name=""
-                  id="radioprice"
-                />
-                <label
-                  className={`flex justify-end px-1 items-center relative w-11  h-6 rounded-full bg-a_primary-100`}
-                  htmlFor="radioprice"
-                >
-                  <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90"></span>
-                </label>
-              </div>
+              <CheckBox setIsChecked={setIsaddproductthisproducthasmultipleoptions} forid="addproductthisproducthasmultipleoptions"></CheckBox>
               {/* radio */}
-              <span className="">{t("thisproducthasmultipleoptions")}</span>
+              <label htmlFor="addproductthisproducthasmultipleoptions" className="">{t("thisproducthasmultipleoptions")}</label>
+              {/* radio */}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
@@ -187,7 +167,7 @@ export default function Addproduct() {
                 </label>
                 <div>
                   <select
-                    className="w-full h-10 border px-2"
+                    className="w-full h-10 border px-2 dark:bg-a_general-60 rounded-md"
                     name=""
                     id="addproductsize"
                   >
@@ -202,20 +182,20 @@ export default function Addproduct() {
                 <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
                   {t("value")}
                 </p>
-                <div className="w-full h-10 border px-2 py-1 flex items-center justify-start gap-2">
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                <div className="w-full h-10 border px-2 py-1 flex items-center justify-start gap-2 ">
+                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>S</span>
                     <i className="bi bi-x"></i>
                   </div>
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>M</span>
                     <i className="bi bi-x"></i>
                   </div>
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>L</span>
                     <i className="bi bi-x"></i>
                   </div>
-                  <div className="bg-a_general-50 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
                     <span>XL</span>
                     <i className="bi bi-x"></i>
                   </div>
@@ -255,7 +235,7 @@ export default function Addproduct() {
                 </label>
                 <div>
                   <select
-                    className="w-full h-10 border px-2"
+                    className="w-full h-10 border px-2 dark:bg-a_general-60"
                     name=""
                     id="addproductcountry"
                   >
@@ -269,20 +249,9 @@ export default function Addproduct() {
             </div>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <div className="">
-                <input
-                  className="hidden"
-                  type="radio"
-                  name=""
-                  id="radioprice"
-                />
-                <label
-                  className={`flex justify-start px-1 items-center relative w-11  h-6 rounded-full bg-a_general-50`}
-                  htmlFor="radioprice"
-                >
-                  <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90 "></span>
-                </label>
-              </div>
+              <CheckBox setIsChecked={setIsaddproductthisisdigitalitem} forid="addproductthisisdigitalitem"></CheckBox>
+              {/* radio */}
+              <label htmlFor="addproductthisisdigitalitem" className="">{t("thisisdigitalitem")}</label>
               {/* radio */}
               <span className="">{t("thisisdigitalitem")}</span>
             </div>
@@ -349,15 +318,15 @@ export default function Addproduct() {
               />
             </div>
             <div className="flex justify-start gap-3 flex-wrap">
-              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
+              <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
                 <p>{t("tshirt")}</p>
                 <i className="bi bi-x"></i>
               </div>
-              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
+              <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
                 <p>{t("tshirt")}</p>
                 <i className="bi bi-x"></i>
               </div>
-              <div className="px-2 py-1 bg-a_general-50 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
+              <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
                 <p>{t("tshirt")}</p>
                 <i className="bi bi-x"></i>
               </div>

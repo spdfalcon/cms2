@@ -62,7 +62,7 @@ export default function Coupons() {
               <div className="toptabledouwn mt-5 flex justify-between">
                 <div className="toptabledouwnleft flex gap-3 items-center">
                   <select
-                    className="px-3 py-2 border rounded-md outline-none text-a_general-80 dark:text-a_general-40 text-xs md:text-base"
+                    className="px-3 py-2 border rounded-md outline-none text-a_general-80 dark:text-a_general-40 text-xs md:text-base dark:bg-a_general-60"
                     name=""
                     id=""
                   >
@@ -138,7 +138,7 @@ export default function Coupons() {
                           className={`rounded-md py-1  flex justify-center items-center ${
                             item.status === t("active")
                               ? "text-a_green-101 bg-a_green-40"
-                              : "text-a_general-80 dark:text-a_general-40 bg-a_general-40"
+                              : "text-a_general-80 bg-a_general-40"
                           } `}
                         >
                           {item.status}
