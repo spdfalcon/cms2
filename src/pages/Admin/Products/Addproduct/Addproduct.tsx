@@ -138,7 +138,7 @@ export default function Addproduct() {
             </div>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <CheckBox setIsChecked={setIsaddproductaddtaxforthisproduct} forid="addproductaddtaxforthisproduct"></CheckBox>
+              <CheckBox ischecked={isaddproductaddtaxforthisproduct} setIsChecked={setIsaddproductaddtaxforthisproduct} forid="addproductaddtaxforthisproduct"></CheckBox>
               {/* radio */}
               <label htmlFor="addproductaddtaxforthisproduct" className="">{t("addtaxforthisproduct")}</label>
             </div>
@@ -152,7 +152,7 @@ export default function Addproduct() {
             </h2>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <CheckBox setIsChecked={setIsaddproductthisproducthasmultipleoptions} forid="addproductthisproducthasmultipleoptions"></CheckBox>
+              <CheckBox ischecked={isaddproductthisproducthasmultipleoptions} setIsChecked={setIsaddproductthisproducthasmultipleoptions} forid="addproductthisproducthasmultipleoptions"></CheckBox>
               {/* radio */}
               <label htmlFor="addproductthisproducthasmultipleoptions" className="">{t("thisproducthasmultipleoptions")}</label>
               {/* radio */}
@@ -249,7 +249,7 @@ export default function Addproduct() {
             </div>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <CheckBox setIsChecked={setIsaddproductthisisdigitalitem} forid="addproductthisisdigitalitem"></CheckBox>
+              <CheckBox ischecked={isaddproductthisisdigitalitem} setIsChecked={setIsaddproductthisisdigitalitem} forid="addproductthisisdigitalitem"></CheckBox>
               {/* radio */}
               <label htmlFor="addproductthisisdigitalitem" className="">{t("thisisdigitalitem")}</label>
               {/* radio */}
