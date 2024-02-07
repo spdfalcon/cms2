@@ -48,7 +48,7 @@ const TopBar: React.FC<OtherComponentProps> = ({
       ></div>
       {/* back modal */}
 
-      <div className="shadow-md h-[68px] px-3 md:px-7 py-3 bg-white dark:bg-a_general-90 sticky top-0 justify-between items-center z-30 flex">
+      <div className="fixed w-full shadow-md h-[68px] px-3 md:px-7 py-3 bg-white dark:bg-a_general-90  top-0 justify-between items-center z-30 flex">
         <div className="left items-center gap-10 hidden md:flex">
           <img className="" src="/img/topbar/logo.png" alt="Logo" />
           <div className="lg:flex gap-3 items-center hidden">

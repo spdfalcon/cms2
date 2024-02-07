@@ -40,28 +40,28 @@ export default function Createcoupon() {
                 <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
                     <li>
                         <input className='hidden peer' type="radio" name="Coupon Type" id="createcouponfixeddiscount" />
-                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 cursor-pointer' htmlFor="createcouponfixeddiscount">
+                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 dark:hover:bg-a_general-70 cursor-pointer' htmlFor="createcouponfixeddiscount">
                         <i className="bi bi-cash"></i>
                         <p>{t('fixeddiscount')}</p>
                         </label>
                     </li>
                     <li>
                         <input className='hidden peer' type="radio" name="Coupon Type" id="createcouponpercentagediscount" />
-                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 cursor-pointer' htmlFor="createcouponpercentagediscount">
+                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 dark:hover:bg-a_general-70 cursor-pointer' htmlFor="createcouponpercentagediscount">
                         <i className="bi bi-basket3"></i>
                         <p>{t('percentagediscount')}</p>
                         </label>
                     </li>
                     <li>
                         <input className='hidden peer' type="radio" name="Coupon Type" id="createcouponfreeshipping" />
-                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 cursor-pointer' htmlFor="createcouponfreeshipping">
+                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 dark:hover:bg-a_general-70 cursor-pointer' htmlFor="createcouponfreeshipping">
                         <i className="bi bi-truck"></i>
                         <p>{t('freeshipping')}</p>
                         </label>
                     </li>
                     <li>
                         <input className='hidden peer' type="radio" name="Coupon Type" id="createcouponpricediscount" />
-                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 cursor-pointer' htmlFor="createcouponpricediscount">
+                        <label className='flex flex-col justify-center items-center rounded-md px-7 py-6  peer-checked:border-2 peer-checked:border-a_primary-100 peer-checked:text-a_primary-100 border hover:bg-slate-50 dark:hover:bg-a_general-70 cursor-pointer' htmlFor="createcouponpricediscount">
                         <i className="bi bi-ticket"></i>
                         <p>{t('pricediscount')}</p>
                         </label>

@@ -148,7 +148,7 @@ export default function Reports() {
   ];
   const { t } = useTranslation();
   return (
-    <div className="p-7">
+    <div className="">
       <div className="header">
         <Headerofpages title={t("reports")}>
           <Button type="Primary" icon="bi bi-download" size="sm">
@@ -476,7 +476,7 @@ export default function Reports() {
               </ResponsiveContainer>
             </div>
           </div>
-          <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white dark:*:bg-a_general-70 *:dark:bg-a_general-90 *:rounded-md ">
+          <div className="sec4right lg:col-span-3 flex flex-col gap-3 gap-y-5 *:bg-white dark:*:bg-a_general-90 *:dark:bg-a_general-90 *:rounded-md ">
             <div className="sec4rightup p-7 py-10">
               <div className="flex flex-col gap-4">
                 <h2 className="font-bold dark:text-white rtl:font-iransans-700">
@@ -540,7 +540,7 @@ export default function Reports() {
             </div>
           </div>
         </div>
-        <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white dark:*:bg-a_general-70 *:dark:bg-a_general-90 *:p-7 *:rounded-md">
+        <div className="sec5 grid grid-cols-1 lg:grid-cols-2 gap-3 *:bg-white *:dark:bg-a_general-90 *:p-7 *:rounded-md">
           <div className="sec5left">
             <div className="header font-bold dark:text-white rtl:font-iransans-700">
               <h2>{t("topcustomers")}</h2>
@@ -632,9 +632,9 @@ export default function Reports() {
             </div>
           </div>
         </div>
-        <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white dark:*:bg-a_general-70 *:dark:bg-a_general-90 *:p-7 *:rounded-md">
+        <div className="sec6 grid grid-cols-1 lg:grid-cols-12 gap-3 *:bg-white *:dark:bg-a_general-90 *:p-7 *:rounded-md">
           <div className="sec6left lg:col-span-9">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col gap-y-4 md:flex-row justify-between items-center">
               <div className="l">
                 <h2 className="font-bold dark:text-white rtl:font-iransans-700">
                   {t("unitssold")}
@@ -681,7 +681,7 @@ export default function Reports() {
                   <Tooltip />
                   <Legend />
                   <Bar
-                    barSize={80}
+                    barSize={60}
                     className="rounded-2xl"
                     dataKey="pv"
                     fill="#1E5EFF"

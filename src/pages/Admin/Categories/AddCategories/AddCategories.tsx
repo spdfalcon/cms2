@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
 import Button from "../../../../components/module/Button/Button";
 import { useTranslation } from "react-i18next";
+import CheckBox from "../../../../components/module/CheckBox/CheckBox";
+import { useState } from "react";
 
 export default function AddCategories() {
   const products = [
@@ -19,6 +21,7 @@ export default function AddCategories() {
     { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
   ];
   const {t} = useTranslation()
+  const [ischeckedaddcategoriesvisibleonsite , setIscheckedaddcategoriesvisibleonsite] = useState(false)
   return (
     <div>
       <div className=" py-9 ">
@@ -72,19 +75,8 @@ export default function AddCategories() {
               <h3 className="font-bold dark:text-white rtl:font-iransans-700">{t('categoryvisibility')}</h3>
               <div>
                 <div className="flex gap-3">
-                  <input
-                    className="hidden"
-                    type="radio"
-                    name=""
-                    id="radioproduct"
-                  />
-                  <label
-                    className={`flex justify-end px-1 items-center relative w-11  h-6 rounded-full bg-a_primary-100`}
-                    htmlFor="radioproduct"
-                  >
-                    <span className="absolute size-4 rounded-full bg-white dark:bg-a_general-90 "></span>
-                  </label>
-                  <span className="text-xs md:text-base">{t('visibleonsite')}</span>
+                  <CheckBox setIsChecked={setIscheckedaddcategoriesvisibleonsite} ischecked={ischeckedaddcategoriesvisibleonsite} forid="addcategoriesvisibleonsite"></CheckBox>
+                  <label htmlFor="addcategoriesvisibleonsite" className="text-xs md:text-base">{t('visibleonsite')}</label>
                 </div>
               </div>
             </div>
