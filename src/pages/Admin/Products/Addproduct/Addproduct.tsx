@@ -73,21 +73,7 @@ export default function Addproduct() {
                   className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                 >
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <svg
-                      className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 20 16"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                      />
-                    </svg>
+                    <i className="bi bi-cloud-arrow-up text-4xl mb-4 text-gray-500 dark:text-gray-400"></i>
                     <p className="mb-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
                       <span className="font-semibold">{t("addfile")}</span>
                     </p>
@@ -253,7 +239,6 @@ export default function Addproduct() {
               {/* radio */}
               <label htmlFor="addproductthisisdigitalitem" className="">{t("thisisdigitalitem")}</label>
               {/* radio */}
-              <span className="">{t("thisisdigitalitem")}</span>
             </div>
             {/* price */}
           </div>
@@ -267,38 +252,38 @@ export default function Addproduct() {
             <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
-                type="checkbox"
-                name=""
-                id="checkboxCategories1"
+                type="radio"
+                name="checkboxCategories"
+                id="checkboxCategorieswomen"
               />
-              <label htmlFor="checkboxCategories1">{t("women")}</label>
+              <label htmlFor="checkboxCategorieswomen">{t("women")}</label>
             </div>
             <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
-                type="checkbox"
-                name=""
-                id="checkboxCategories1"
+                type="radio"
+                name="checkboxCategories"
+                id="checkboxCategoriesmen"
               />
-              <label htmlFor="checkboxCategories1">{t("men")}</label>
+              <label htmlFor="checkboxCategoriesmen">{t("men")}</label>
             </div>
             <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
-                type="checkbox"
-                name=""
-                id="checkboxCategories1"
+                type="radio"
+                name="checkboxCategories"
+                id="checkboxCategoriestshirt"
               />
-              <label htmlFor="checkboxCategories1">{t("tshirt")}</label>
+              <label htmlFor="checkboxCategoriestshirt">{t("tshirt")}</label>
             </div>
             <div className="flex gap-2 mt-3 items-center dark:text-white ">
               <input
                 className=""
-                type="checkbox"
-                name=""
-                id="checkboxCategories1"
+                type="radio"
+                name="checkboxCategories"
+                id="checkboxCategorieshoodie"
               />
-              <label htmlFor="checkboxCategories1">{t("hoodie")}</label>
+              <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
             </div>
             
             <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
@@ -337,24 +322,24 @@ export default function Addproduct() {
               {t("seosettings")}
             </h3>
             <div className="flex flex-col gap-2">
-              <label className="text-a_general-60" htmlFor="inputTags">
+              <label className="text-a_general-60" htmlFor="seosettingtitle">
                 {t("title")}
               </label>
               <input
                 className="border px-3 py-2 rounded-md outline-none"
                 type="text"
                 name=""
-                id="inputTags"
+                id="seosettingtitle"
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-a_general-60" htmlFor="inputTags">
+              <label className="text-a_general-60" htmlFor="seoswttingdescription">
                 {t("description")}
               </label>
               <textarea
                 className="border px-3 py-2 rounded-md outline-none"
                 name=""
-                id="inputTags"
+                id="seoswttingdescription"
               />
             </div>
           </div>

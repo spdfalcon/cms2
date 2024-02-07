@@ -7,18 +7,18 @@ import { useState } from "react";
 
 export default function AddCategories() {
   const products = [
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
-    { pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:1, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:2, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:3, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:4, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:5, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:6, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:7, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:8, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:9, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:10, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:11, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
+    {id:12, pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
   ];
   const {t} = useTranslation()
   const [ischeckedaddcategoriesvisibleonsite , setIscheckedaddcategoriesvisibleonsite] = useState(false)
@@ -48,8 +48,8 @@ export default function AddCategories() {
               <span className="text-a_general-60">{products.length}</span>
             </div>
             <div className="mt-5 flex flex-col gap-3">
-              {products.map(() => (
-                <div className="rounded-md px-5 py-4 border flex items-center gap-4 justify-between">
+              {products.map((item) => (
+                <div key={item.id} className="rounded-md px-5 py-4 border flex items-center gap-4 justify-between">
                   <div className="left flex items-center gap-2 text-xs md:text-base">
                     <i className="bi bi-three-dots-vertical text-a_general-60"></i>
                     <img src="/img/dashboard/11.png" alt="" />

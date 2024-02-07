@@ -110,6 +110,8 @@ const fa = {
   color: "رنگ",
   rating: "رتبه بندی",
   edit: "ویرایش",
+  editproduct:'ویرایش محصول',
+
 
   // addproduct
   addproduct: "افزودن محصول",

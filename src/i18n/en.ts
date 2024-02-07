@@ -108,6 +108,7 @@ const en = {
   color: "Color",
   rating: "Rating",
   edit: "Edit",
+  editproduct:'Edit product',
   // addproduct
   addproduct: "Add Product",
   cancel: "Cancel",
