@@ -59,7 +59,7 @@ export default function Editproduct() {
       total: "$49.90",
     },
   ];
-  const thisProduct = recentTransactions.filter((item)=>item.id == productid)
+  // const thisProduct = recentTransactions.filter((item)=>item.id == productid)
   const { t } = useTranslation();
   const [iseditproductaddtaxforthisproduct , setIseditproductaddtaxforthisproduct] =useState(false)
   const [iseditproductthisisdigitalitem , setIseditproductthisisdigitalitem] =useState(false)
