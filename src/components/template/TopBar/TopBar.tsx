@@ -233,16 +233,16 @@ const TopBar: React.FC<OtherComponentProps> = ({
         </div>
       </div>
       {/*  */}
+      {/*  */}
       <div
         onClick={() => {
           setIsShowUserDropDown(false)
           setIsShowLangModal(false)
         }}
-        className={`absolute w-full h-full bg-black/0 z-10 ${
+        className={`absolute w-full h-full bg-black/0 z-30 ${
           isShowUserDropDown ? "block" : "hidden"
         }`}
       ></div>
-      {/*  */}
     </>
   );
 };
