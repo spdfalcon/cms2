@@ -1,7 +1,6 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
+import { useTranslation } from "react-i18next";
 interface filter {
-  setIsShowFilter: Dispatch<SetStateAction<boolean>>;
-  isShowFilter?: boolean;
   filter?: {
     id: number;
     name: string;
@@ -11,14 +10,16 @@ interface filter {
 }
 
 const Filter: React.FC<filter> = ({
-  setIsShowFilter,
-  isShowFilter,
   filter,
   setNameFilter,
+  nameFilter
 }) => {
+  const {t} = useTranslation()
+  const [isShowFilter, setIsShowFilter] = useState(false);
+  
   return (
     <>
-      <div className="mt-10 relative z-10 text-sm md:text-base">
+      <div className=" relative z-10 text-sm md:text-base">
         <div
           onClick={() => setIsShowFilter((last) => !last)}
           className=" cursor-pointer duration-300 bg-white dark:bg-a_general-60 border w-32 px-3 py-1 rounded-md inline-flex gap-2 items-center justify-between"
@@ -28,12 +29,12 @@ const Filter: React.FC<filter> = ({
               isShowFilter ? "rotate-180" : "rotate-0"
             }`}
           ></i>
-          <button className="">filter</button>
+          <button className="">{t(`${nameFilter}`)}</button>
         </div>
         <ul
-          className={`duration-300 absolute rtl:right-5 ltr:left-5 top-10 flex flex-col bg-white dark:bg-a_general-60 rounded-md divide-y gap-y-1 px-2 *:py-1 overflow-y-hidden ${
+          className={` duration-300 absolute rtl:right-5 ltr:left-5 top-10 flex flex-col bg-white dark:bg-a_general-60 rounded-md divide-y gap-y-1 *:py-1 overflow-y-hidden ${
             isShowFilter
-              ? `${
+              ? `border ${
                   filter?.length === 3
                     ? "h-32"
                     : filter?.length === 4
@@ -51,7 +52,7 @@ const Filter: React.FC<filter> = ({
         >
           {filter?.map((item) => (
             <li
-              className="cursor-pointer duration-300"
+              className="cursor-pointer duration-300 hover:bg-a_general-50 px-2"
               onClick={() => {
                 setIsShowFilter(false);
                 setNameFilter(item.name);
@@ -63,6 +64,12 @@ const Filter: React.FC<filter> = ({
           ))}
         </ul>
       </div>
+      {
+        isShowFilter ? (
+          <div onClick={()=>setIsShowFilter(false)} className="absolute bg-black/0 w-full top-0 left-0 h-screen"></div>
+        ) : null
+      }
+
     </>
   );
 };

@@ -2,6 +2,8 @@ import EmpityOrder from "../../../components/template/EmpityOrder/EmpityOrder";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
+import Filter from "../../../components/module/Filter/Filter";
+import { useState } from "react";
 
 export default function Orders() {
   const { t } = useTranslation();
@@ -11,47 +13,111 @@ export default function Orders() {
       order: "Jessica S.",
       date: "24.05.2020",
       customer: "$124.97",
-      paymentstatus: t("paid"),
-      orderstatus: t("ready"),
-      total: "$49.90",
+      paymentstatus: "paid",
+      orderstatus: "ready",
+      total: 54.90,
     },
     {
       id: 2,
       order: "Andrew S.",
       date: "23.05.2020",
       customer: "$55.42",
-      paymentstatus: t("pending"),
-      orderstatus: t("ready"),
-      total: "$49.90",
+      paymentstatus: "pending",
+      orderstatus: "ready",
+      total: 21.90,
     },
     {
       id: 3,
       order: "Kevin S.",
       date: "23.05.2020",
       customer: "$89.90",
-      paymentstatus: t("paid"),
-      orderstatus: t("ready"),
-      total: "$49.90",
+      paymentstatus: "paid",
+      orderstatus: "ready",
+      total: 89.90,
     },
     {
       id: 4,
       order: "Jack S.",
       date: "22.05.2020",
       customer: "$144.94",
-      paymentstatus: t("pending"),
-      orderstatus: t("shipped"),
-      total: "$49.90",
+      paymentstatus: "pending",
+      orderstatus: "shipped",
+      total: 79.90,
     },
     {
       id: 5,
       order: "Arthur S.",
       date: "22.05.2020",
       customer: "$70.52",
-      paymentstatus: t("paid"),
-      orderstatus: t("received"),
-      total: "$49.90",
+      paymentstatus: "paid",
+      orderstatus: "received",
+      total: 49.90,
     },
   ];
+  const [orders , setOrders] = useState([...recentTransactions]) 
+  const [nameFilter , setNameFilter] = useState(t('filter'))
+  const filters = [
+    { id: 8, name: t("all") },
+    { id: 1, name: t('paid')},
+    { id: 2, name: t("pending") },
+    { id: 3, name: t("ready") },
+    { id: 4, name: t("shipped") },
+    { id: 5, name: t("received") },
+    { id: 6, name: t("date") },
+    { id: 7, name: t("total") },
+  ];
+  const filterHandler = (e:any)=>{
+    // if(e.target.innerHTML === t('filter')){
+    //   return null
+    // }else if(e.target.innerHTML === t('paid')){
+    //   const neworder = [...recentTransactions].filter(item=>item.paymentstatus === 'paid')
+    //   setOrders(neworder) 
+    // }else if(e.target.innerHTML === t('pending')){
+    //   const neworder = [...recentTransactions].filter(item=>item.paymentstatus === 'pending')
+    //   setOrders(neworder) 
+    // }
+    switch(e.target.innerHTML){
+      case t('paid'):{
+        const newOrder = [...recentTransactions].filter((item=>item.paymentstatus === 'paid'))
+        setOrders(newOrder)
+        break
+      }
+      case t('pending'):{
+        const newOrder = [...recentTransactions].filter((item=>item.paymentstatus === 'pending'))
+        setOrders(newOrder)
+        break
+      }
+      case t('ready'):{
+        const newOrder = [...recentTransactions].filter((item=>item.orderstatus === 'ready'))
+        setOrders(newOrder)
+        break
+      }
+      case t('shipped'):{
+        const newOrder = [...recentTransactions].filter((item=>item.orderstatus === 'shipped'))
+        setOrders(newOrder)
+        break
+      }
+      case t('received'):{
+        const newOrder = [...recentTransactions].filter((item=>item.orderstatus === 'received'))
+        setOrders(newOrder)
+        break
+      }
+      case t('total'):{
+        const newOrder = [...recentTransactions].sort((a,b)=>b.total-a.total)
+        setOrders(newOrder)
+        break
+      }
+      case t('date'):{
+        const newOrder = [...recentTransactions].sort((a,b)=>b.date-a.date)
+        setOrders(newOrder)
+        break
+      }
+      case t('all'):{
+        setOrders(recentTransactions)
+        break
+      }
+    }
+  }
   return (
     <>
       <div className=" py-[30px] flex flex-col gap-y-10">
@@ -70,14 +136,13 @@ export default function Orders() {
             </Headerofpages>
           </div>
         </div>
-        {recentTransactions.length ? (
+        {orders.length ? (
           <div className="grid grid-cols-1">
           <div className="bg-white dark:bg-a_general-90 py-8 px-3 md:px-7 rounded-lg">
             <div className="header flex justify-between">
               <div className="left flex gap-4 flex-col md:flex-row">
-                <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer text-xs md:text-base">
-                  <span>{t("filter")}</span>
-                  <i className="bi bi-chevron-down"></i>
+                <div onClick={filterHandler}>
+                <Filter nameFilter={nameFilter} setNameFilter={setNameFilter} filter={filters}></Filter>
                 </div>
                 <div className="l border h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
                   <label
@@ -109,7 +174,7 @@ export default function Orders() {
                       </tr>
                     </thead>
                     <tbody className=" mt-5">
-                      {recentTransactions.map((item: any) => (
+                      {orders.map((item: any) => (
                         <tr
                           key={item.id}
                           className="*:px-6 *:py-3 *:text-nowrap"
@@ -126,28 +191,25 @@ export default function Orders() {
                           <td className="text-xs md:text-sm">
                             <span
                               className={`px-4 py-1 rounded-md ${
-                                item.paymentstatus === "Paid" ||
-                                item.paymentstatus === "پرداخت شده"
+                                t(`${item.paymentstatus}`) === t('paid')
                                   ? "bg-a_green-101/20  text-a_green-101"
                                   : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
                               }`}
                             >
-                              {item.paymentstatus}
+                              {t(`${item.paymentstatus}`)}
                             </span>
                           </td>
                           <td className="text-xs md:text-sm">
                             <span
                               className={`px-4 py-1 rounded-md text-white ${
-                                item.orderstatus === "ready" ||
-                                item.orderstatus === "آماده"
+                                t(`${item.orderstatus}`) === t("ready")
                                   ? "bg-a_yellow-101"
-                                  : item.orderstatus === "shipped" ||
-                                    item.orderstatus === "حمل می شود"
+                                  : t(`${item.orderstatus}`) === t("shipped")
                                   ? "bg-a_general-80 "
                                   : "bg-a_primary-100"
                               }`}
                             >
-                              {item.orderstatus}
+                              {t(`${item.orderstatus}`)}
                             </span>
                           </td>
                           <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
