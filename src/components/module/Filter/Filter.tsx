@@ -29,23 +29,24 @@ const Filter: React.FC<filter> = ({
               isShowFilter ? "rotate-180" : "rotate-0"
             }`}
           ></i>
-          <button className="">{t(`${nameFilter}`)}</button>
+          <button className="text-nowrap">{t(`${nameFilter}`)}</button>
         </div>
         <ul
-          className={` duration-300 absolute rtl:right-5 ltr:left-5 top-10 flex flex-col bg-white dark:bg-a_general-60 rounded-md divide-y gap-y-1 *:py-1 overflow-y-hidden ${
+          className={` duration-300 absolute rtl:right-5 ltr:left-5 top-10 flex flex-col bg-white dark:bg-a_general-60 rounded-md divide-y gap-y-1 *:py-1 overflow-y-hidden text-nowrap ${
             isShowFilter
               ? `border ${
                   filter?.length === 3
                     ? "h-32"
                     : filter?.length === 4
                     ? "h-40"
-                    : filter?.length === 5
-                    ? "h-48"
-                    : filter?.length === 6
-                    ? "h-56"
-                    : filter?.length === 7
-                    ? "h-64"
-                    : ""
+                    // : filter?.length === 5
+                    // ? "h-48"
+                    // : filter?.length === 6
+                    // ? "h-56"
+                    // : filter?.length === 7
+                    // ? "h-64"
+                    // : ""
+                    :'h-36 overflow-y-scroll'
                 }`
               : "h-0"
           }`}
