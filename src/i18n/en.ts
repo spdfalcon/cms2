@@ -1,4 +1,5 @@
 const en = {
+  all:'All',
   //topbar
   search: "Search",
   manageaccount:"Manage Account",

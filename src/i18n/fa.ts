@@ -1,4 +1,5 @@
 const fa = {
+  all:'همه',
   //topbar
   search: "جستجو",
   manageaccount:"مدیریت حساب",

@@ -3,6 +3,8 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
+import Filter from "../../../components/module/Filter/Filter";
+import { useState } from "react";
 
 export default function Products() {
   const recentTransactions: any = [
@@ -12,8 +14,8 @@ export default function Products() {
       Product: "Jessica S.",
       Inventory: "96 in stock",
       Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
+      Price: 556,
+      Rating: 4.5,
       total: "$49.90",
     },
     {
@@ -22,8 +24,8 @@ export default function Products() {
       Product: "Andrew S.",
       Inventory: "23.05.2020",
       Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
+      Price: 256,
+      Rating: 5,
       total: "$49.90",
     },
     {
@@ -32,8 +34,8 @@ export default function Products() {
       Product: "Kevin S.",
       Inventory: "23.05.2020",
       Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
+      Price: 156,
+      Rating: 3,
       total: "$49.90",
     },
     {
@@ -42,8 +44,8 @@ export default function Products() {
       Product: "Jack S.",
       Inventory: "22.05.2020",
       Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
+      Price: 56,
+      Rating: 4.5,
       total: "$49.90",
     },
     {
@@ -52,13 +54,42 @@ export default function Products() {
       Product: "Arthur S.",
       Inventory: "22.05.2020",
       Color: "red",
-      Price: "$256",
-      Rating: "5.0 (32 Votes)",
+      Price: 26,
+      Rating: 4.5,
       total: "$49.90",
     },
   ];
   const location = useLocation();
   const { t } = useTranslation();
+  const [orders, setOrders] = useState([...recentTransactions]);
+  const [nameFilter, setNameFilter] = useState(t("filter"));
+  const filters = [
+    { id: 8, name: t("all") },
+    { id: 1, name: t("rating") },
+    { id: 7, name: t("price") },
+  ];
+  const filterHandler = (e: any) => {
+    switch (e.target.innerHTML) {
+      case t("price"): {
+        const newOrder = [...recentTransactions].sort(
+          (a, b) => b.Price - a.Price
+        );
+        setOrders(newOrder);
+        break;
+      }
+      case t("rating"): {
+        const newOrder = [...recentTransactions].sort(
+          (a, b) => b.Rating - a.Rating
+        );
+        setOrders(newOrder);
+        break;
+      }
+      case t("all"): {
+        setOrders(recentTransactions);
+        break;
+      }
+    }
+  };
   return (
     <>
       {location.pathname === "/admin/products" ? (
@@ -78,14 +109,21 @@ export default function Products() {
                 </Headerofpages>
               </div>
             </div>
-            {recentTransactions.length ? (
+            {orders.length ? (
               <div className="grid grid-cols-1">
                 <div className="bg-white dark:bg-a_general-90 py-8 px-7 rounded-lg overflow-x-auto">
                   <div className="header flex justify-between">
                     <div className="left flex gap-4">
-                      <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
+                      {/* <div className="l border w-44 h-9 rounded-md flex justify-between items-center py-2 px-4 text-a_general-60 cursor-pointer">
                         <span>{t("filter")}</span>
                         <i className="bi bi-chevron-down"></i>
+                      </div> */}
+                      <div onClick={filterHandler}>
+                        <Filter
+                          nameFilter={nameFilter}
+                          setNameFilter={setNameFilter}
+                          filter={filters}
+                        ></Filter>
                       </div>
                       <div className="l border max-w-[350px] h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
                         <label
@@ -116,7 +154,7 @@ export default function Products() {
                           </tr>
                         </thead>
                         <tbody className="mt-5">
-                          {recentTransactions.map((item: any) => (
+                          {orders.map((item: any) => (
                             <tr
                               key={item.id}
                               className="*:px-6 *:py-3 *:text-nowrap *:text-start"
@@ -154,15 +192,18 @@ export default function Products() {
                               </td>
                               <td>
                                 <div className="right text-a_primary-100  flex gap-2 justify-center">
-                                  <Link
-                                    to={`${item.id}`}
-                                    className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300"
-                                  >
-                                    <i className="bi bi-pencil"></i>
+                                  <Link to={`${item.id}`}>
+                                    <Button
+                                      type="White"
+                                      size="sm"
+                                      icon="bi bi-pencil"
+                                    ></Button>
                                   </Link>
-                                  <div className="border size-9 flex cursor-pointer justify-center items-center rounded-md hover:bg-a_primary-100 hover:text-white duration-300">
-                                    <i className="bi bi-trash"></i>
-                                  </div>
+                                  <Button
+                                    type="White"
+                                    size="sm"
+                                    icon="bi bi-trash"
+                                  ></Button>
                                 </div>
                               </td>
                             </tr>

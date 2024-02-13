@@ -67,15 +67,6 @@ export default function Orders() {
     { id: 7, name: t("total") },
   ];
   const filterHandler = (e:any)=>{
-    // if(e.target.innerHTML === t('filter')){
-    //   return null
-    // }else if(e.target.innerHTML === t('paid')){
-    //   const neworder = [...recentTransactions].filter(item=>item.paymentstatus === 'paid')
-    //   setOrders(neworder) 
-    // }else if(e.target.innerHTML === t('pending')){
-    //   const neworder = [...recentTransactions].filter(item=>item.paymentstatus === 'pending')
-    //   setOrders(neworder) 
-    // }
     switch(e.target.innerHTML){
       case t('paid'):{
         const newOrder = [...recentTransactions].filter((item=>item.paymentstatus === 'paid'))
