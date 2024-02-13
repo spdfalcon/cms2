@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
 import Filter from "../../../components/module/Filter/Filter";
 import { useState } from "react";
+import Pagination from "../../../components/module/Pagination/Pagination";
 
 export default function Orders() {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ export default function Orders() {
       customer: "$124.97",
       paymentstatus: "paid",
       orderstatus: "ready",
-      total: 54.90,
+      total: 54.9,
     },
     {
       id: 2,
@@ -24,7 +25,7 @@ export default function Orders() {
       customer: "$55.42",
       paymentstatus: "pending",
       orderstatus: "ready",
-      total: 21.90,
+      total: 21.9,
     },
     {
       id: 3,
@@ -33,7 +34,7 @@ export default function Orders() {
       customer: "$89.90",
       paymentstatus: "paid",
       orderstatus: "ready",
-      total: 89.90,
+      total: 89.9,
     },
     {
       id: 4,
@@ -42,7 +43,7 @@ export default function Orders() {
       customer: "$144.94",
       paymentstatus: "pending",
       orderstatus: "shipped",
-      total: 79.90,
+      total: 79.9,
     },
     {
       id: 5,
@@ -51,14 +52,14 @@ export default function Orders() {
       customer: "$70.52",
       paymentstatus: "paid",
       orderstatus: "received",
-      total: 49.90,
+      total: 49.9,
     },
   ];
-  const [orders , setOrders] = useState([...recentTransactions]) 
-  const [nameFilter , setNameFilter] = useState(t('filter'))
+  const [orders, setOrders] = useState([...recentTransactions]);
+  const [nameFilter, setNameFilter] = useState(t("filter"));
   const filters = [
     { id: 8, name: t("all") },
-    { id: 1, name: t('paid')},
+    { id: 1, name: t("paid") },
     { id: 2, name: t("pending") },
     { id: 3, name: t("ready") },
     { id: 4, name: t("shipped") },
@@ -66,49 +67,65 @@ export default function Orders() {
     { id: 6, name: t("date") },
     { id: 7, name: t("total") },
   ];
-  const filterHandler = (e:any)=>{
-    switch(e.target.innerHTML){
-      case t('paid'):{
-        const newOrder = [...recentTransactions].filter((item=>item.paymentstatus === 'paid'))
-        setOrders(newOrder)
-        break
+  const filterHandler = (e: any) => {
+    switch (e.target.innerHTML) {
+      case t("paid"): {
+        const newOrder = [...recentTransactions].filter(
+          (item) => item.paymentstatus === "paid"
+        );
+        setOrders(newOrder);
+        break;
       }
-      case t('pending'):{
-        const newOrder = [...recentTransactions].filter((item=>item.paymentstatus === 'pending'))
-        setOrders(newOrder)
-        break
+      case t("pending"): {
+        const newOrder = [...recentTransactions].filter(
+          (item) => item.paymentstatus === "pending"
+        );
+        setOrders(newOrder);
+        break;
       }
-      case t('ready'):{
-        const newOrder = [...recentTransactions].filter((item=>item.orderstatus === 'ready'))
-        setOrders(newOrder)
-        break
+      case t("ready"): {
+        const newOrder = [...recentTransactions].filter(
+          (item) => item.orderstatus === "ready"
+        );
+        setOrders(newOrder);
+        break;
       }
-      case t('shipped'):{
-        const newOrder = [...recentTransactions].filter((item=>item.orderstatus === 'shipped'))
-        setOrders(newOrder)
-        break
+      case t("shipped"): {
+        const newOrder = [...recentTransactions].filter(
+          (item) => item.orderstatus === "shipped"
+        );
+        setOrders(newOrder);
+        break;
       }
-      case t('received'):{
-        const newOrder = [...recentTransactions].filter((item=>item.orderstatus === 'received'))
-        setOrders(newOrder)
-        break
+      case t("received"): {
+        const newOrder = [...recentTransactions].filter(
+          (item) => item.orderstatus === "received"
+        );
+        setOrders(newOrder);
+        break;
       }
-      case t('total'):{
-        const newOrder = [...recentTransactions].sort((a,b)=>b.total-a.total)
-        setOrders(newOrder)
-        break
+      case t("total"): {
+        const newOrder = [...recentTransactions].sort(
+          (a, b) => b.total - a.total
+        );
+        setOrders(newOrder);
+        break;
       }
-      case t('date'):{
-        const newOrder = [...recentTransactions].sort((a,b)=>b.date-a.date)
-        setOrders(newOrder)
-        break
+      case t("date"): {
+        const newOrder = [...recentTransactions].sort(
+          (a, b) => b.date - a.date
+        );
+        setOrders(newOrder);
+        break;
       }
-      case t('all'):{
-        setOrders(recentTransactions)
-        break
+      case t("all"): {
+        setOrders(recentTransactions);
+        break;
       }
     }
-  }
+  };
+  const paginationInPage = 4;
+  const [page, setPage] = useState(1);
   return (
     <>
       <div className=" py-[30px] flex flex-col gap-y-10">
@@ -129,108 +146,112 @@ export default function Orders() {
         </div>
         {orders.length ? (
           <div className="grid grid-cols-1">
-          <div className="bg-white dark:bg-a_general-90 py-8 px-3 md:px-7 rounded-lg">
-            <div className="header flex justify-between">
-              <div className="left flex gap-4 flex-col md:flex-row">
-                <div onClick={filterHandler}>
-                <Filter nameFilter={nameFilter} setNameFilter={setNameFilter} filter={filters}></Filter>
-                </div>
-                <div className="l border h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
-                  <label
-                    htmlFor="searchorder"
-                    className="bi bi-search absolute left-4 text-xs md:text-base"
-                  ></label>
-                  <input
-                    placeholder={`${t("search")}...`}
-                    className="w-full h-full ltr:ps-14 rtl:ps-2 text-a_general-90 outline-none text-xs md:text-base"
-                    type="search"
-                    name=""
-                    id="searchorder"
-                  />
+            <div className="bg-white dark:bg-a_general-90 py-8 px-3 md:px-7 rounded-lg">
+              <div className="header flex justify-between">
+                <div className="left flex gap-4 flex-col md:flex-row">
+                  <div onClick={filterHandler}>
+                    <Filter
+                      nameFilter={nameFilter}
+                      setNameFilter={setNameFilter}
+                      filter={filters}
+                    ></Filter>
+                  </div>
+                  <div className="l border h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
+                    <label
+                      htmlFor="searchorder"
+                      className="bi bi-search absolute left-4 text-xs md:text-base"
+                    ></label>
+                    <input
+                      placeholder={`${t("search")}...`}
+                      className="w-full h-full ltr:ps-14 rtl:ps-2 text-a_general-90 outline-none text-xs md:text-base"
+                      type="search"
+                      name=""
+                      id="searchorder"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="grid grid-cols-1">
-              <div className="overflow-x-auto">
-                <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg ">
-                  <table className="w-full">
-                    <thead className="">
-                      <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
-                        <th>{t("orders")}</th>
-                        <th>{t("date")}</th>
-                        <th>{t("customer")}</th>
-                        <th>{t("paymentstatus")}</th>
-                        <th>{t("orderstatus")}</th>
-                        <th>{t("total")}</th>
-                      </tr>
-                    </thead>
-                    <tbody className=" mt-5">
-                      {orders.map((item: any) => (
-                        <tr
-                          key={item.id}
-                          className="*:px-6 *:py-3 *:text-nowrap"
-                        >
-                          <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm">
-                            {item.order}
-                          </td>
-                          <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                            {item.date}
-                          </td>
-                          <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                            {item.customer}
-                          </td>
-                          <td className="text-xs md:text-sm">
-                            <span
-                              className={`px-4 py-1 rounded-md ${
-                                t(`${item.paymentstatus}`) === t('paid')
-                                  ? "bg-a_green-101/20  text-a_green-101"
-                                  : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
-                              }`}
-                            >
-                              {t(`${item.paymentstatus}`)}
-                            </span>
-                          </td>
-                          <td className="text-xs md:text-sm">
-                            <span
-                              className={`px-4 py-1 rounded-md text-white ${
-                                t(`${item.orderstatus}`) === t("ready")
-                                  ? "bg-a_yellow-101"
-                                  : t(`${item.orderstatus}`) === t("shipped")
-                                  ? "bg-a_general-80 "
-                                  : "bg-a_primary-100"
-                              }`}
-                            >
-                              {t(`${item.orderstatus}`)}
-                            </span>
-                          </td>
-                          <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                            {item.total}
-                          </td>
+              <div className="grid grid-cols-1">
+                <div className="overflow-x-auto">
+                  <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg ">
+                    <table className="w-full">
+                      <thead className="">
+                        <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
+                          <th>{t("orders")}</th>
+                          <th>{t("date")}</th>
+                          <th>{t("customer")}</th>
+                          <th>{t("paymentstatus")}</th>
+                          <th>{t("orderstatus")}</th>
+                          <th>{t("total")}</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <div className="flex down justify-between text-a_general-70">
-                  <div className="l flex gap-2 items-center">
-                    <i className="bi bi-arrow-left cursor-pointer"></i>
-                    <ul className="flex *:flex *:justify-center *:items-center gap-2 *:size-4 md:*:size-7 *:rounded *:cursor-pointer text-xs md:text-base">
-                      <li>1</li>
-                      <li className="bg-a_primary-30">2</li>
-                      <li>3</li>
-                      <li>4</li>
-                      <li>5</li>
-                      <li>6</li>
-                    </ul>
-                    <i className="bi bi-arrow-right cursor-pointer"></i>
+                      </thead>
+                      <tbody className=" mt-5">
+                        {orders
+                          .slice(
+                            paginationInPage * page - paginationInPage,
+                            paginationInPage * page
+                          )
+                          .map((item: any) => (
+                            <tr
+                              key={item.id}
+                              className="*:px-6 *:py-3 *:text-nowrap"
+                            >
+                              <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm">
+                                {item.order}
+                              </td>
+                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
+                                {item.date}
+                              </td>
+                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
+                                {item.customer}
+                              </td>
+                              <td className="text-xs md:text-sm">
+                                <span
+                                  className={`px-4 py-1 rounded-md ${
+                                    t(`${item.paymentstatus}`) === t("paid")
+                                      ? "bg-a_green-101/20  text-a_green-101"
+                                      : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
+                                  }`}
+                                >
+                                  {t(`${item.paymentstatus}`)}
+                                </span>
+                              </td>
+                              <td className="text-xs md:text-sm">
+                                <span
+                                  className={`px-4 py-1 rounded-md text-white ${
+                                    t(`${item.orderstatus}`) === t("ready")
+                                      ? "bg-a_yellow-101"
+                                      : t(`${item.orderstatus}`) ===
+                                        t("shipped")
+                                      ? "bg-a_general-80 "
+                                      : "bg-a_primary-100"
+                                  }`}
+                                >
+                                  {t(`${item.orderstatus}`)}
+                                </span>
+                              </td>
+                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
+                                {item.total}
+                              </td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
                   </div>
-                  <div className="r text-xs md:text-base">
-                    <p>274 {t("results")}</p>
+                  <div className="flex down justify-between items-center text-a_general-70">
+                    <Pagination
+                      all={orders.length}
+                      inpage={paginationInPage}
+                      setPage={setPage}
+                      page={page}
+                    ></Pagination>
+                    <div className="r text-xs md:text-base">
+                      <p>274 {t("results")}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
         ) : (
           <EmpityOrder></EmpityOrder>
