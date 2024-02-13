@@ -3,15 +3,24 @@ import Headerofpages from "../../../components/module/Headerofpages/Headerofpage
 import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
 import Filter from "../../../components/module/Filter/Filter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "../../../components/module/Pagination/Pagination";
 
 export default function Orders() {
+  const [searchValue , setSearchValue] = useState('')
+  useEffect(()=>{
+    const neworder = [...recentTransactions].filter(item=>item.order.toLowerCase().includes(searchValue.toLowerCase())) 
+    if(searchValue){
+      setOrders(neworder)
+    }else{
+      setOrders(recentTransactions)
+    }
+  },[searchValue])
   const { t } = useTranslation();
   const recentTransactions: any = [
     {
       id: 1,
-      order: "Jessica S.",
+      order: "Jessica",
       date: "24.05.2020",
       customer: "$124.97",
       paymentstatus: "paid",
@@ -20,7 +29,7 @@ export default function Orders() {
     },
     {
       id: 2,
-      order: "Andrew S.",
+      order: "Andrew",
       date: "23.05.2020",
       customer: "$55.42",
       paymentstatus: "pending",
@@ -29,7 +38,7 @@ export default function Orders() {
     },
     {
       id: 3,
-      order: "Kevin S.",
+      order: "Kevin",
       date: "23.05.2020",
       customer: "$89.90",
       paymentstatus: "paid",
@@ -38,7 +47,7 @@ export default function Orders() {
     },
     {
       id: 4,
-      order: "Jack S.",
+      order: "Jack",
       date: "22.05.2020",
       customer: "$144.94",
       paymentstatus: "pending",
@@ -47,7 +56,7 @@ export default function Orders() {
     },
     {
       id: 5,
-      order: "Arthur S.",
+      order: "Arthur",
       date: "22.05.2020",
       customer: "$70.52",
       paymentstatus: "paid",
@@ -144,7 +153,7 @@ export default function Orders() {
             </Headerofpages>
           </div>
         </div>
-        {orders.length ? (
+        
           <div className="grid grid-cols-1">
             <div className="bg-white dark:bg-a_general-90 py-8 px-3 md:px-7 rounded-lg">
               <div className="header flex justify-between">
@@ -162,6 +171,8 @@ export default function Orders() {
                       className="bi bi-search absolute left-4 text-xs md:text-base"
                     ></label>
                     <input
+                      onChange={(e)=>setSearchValue(e.target.value)}
+                      value={searchValue}
                       placeholder={`${t("search")}...`}
                       className="w-full h-full ltr:ps-14 rtl:ps-2 text-a_general-90 outline-none text-xs md:text-base"
                       type="search"
@@ -246,16 +257,13 @@ export default function Orders() {
                       page={page}
                     ></Pagination>
                     <div className="r text-xs md:text-base">
-                      <p>274 {t("results")}</p>
+                      <p>{orders.length} {t("results")}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        ) : (
-          <EmpityOrder></EmpityOrder>
-        )}
       </div>
     </>
   );
