@@ -20,7 +20,7 @@ const Pagination: React.FC<paginationprop> = ({
               setPage((priv) => priv - 1);
             }
           }}
-          className="bi bi-chevron-right hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white bg-white size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ltr:rotate-180"
+          className="bi bi-chevron-right hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white bg-white size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ltr:rotate-180 border"
         ></i>
         <ul className="flex gap-1 md:gap-2">
           {Array(Math.ceil(all / inpage))
@@ -30,7 +30,7 @@ const Pagination: React.FC<paginationprop> = ({
               <div className="hidden">{item}</div>
                 <li
                   onClick={() => setPage(index + 1)}
-                  className={`hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white bg-white size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ${
+                  className={`hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white border size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ${
                     page === index + 1 && "bg-a_primary-70 text-white"
                   }`}
                   key={index}
@@ -46,7 +46,7 @@ const Pagination: React.FC<paginationprop> = ({
               setPage((priv) => priv + 1);
             }
           }}
-          className="bi bi-chevron-left hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white bg-white size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ltr:rotate-180"
+          className="bi bi-chevron-left hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white bg-white size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ltr:rotate-180 border"
         ></i>
       </div>
     </div>
