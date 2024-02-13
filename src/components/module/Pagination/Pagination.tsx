@@ -26,15 +26,18 @@ const Pagination: React.FC<paginationprop> = ({
           {Array(Math.ceil(all / inpage))
             .fill(0)
             .map((item, index) => (
-              <li
-                onClick={() => setPage(index + 1)}
-                className={`hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white bg-white size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ${
-                  page === index + 1 && "bg-a_primary-60"
-                }`}
-                key={index}
-              >
-                {index + 1}
-              </li>
+              <>
+              <div className="hidden">{item}</div>
+                <li
+                  onClick={() => setPage(index + 1)}
+                  className={`hover:bg-a_primary-100 duration-300 hover:text-white dark:hover:text-white bg-white size-5 md:size-7 cursor-pointer text-xs md:text-base rounded-md flex justify-center items-center dark:text-a_general-90 ${
+                    page === index + 1 && "bg-a_primary-70 text-white"
+                  }`}
+                  key={index}
+                >
+                  {index + 1}
+                </li>
+              </>
             ))}
         </ul>
         <i
