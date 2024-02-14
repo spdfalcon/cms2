@@ -1,4 +1,3 @@
-import EmpityOrder from "../../../components/template/EmpityOrder/EmpityOrder";
 import Headerofpages from "../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
