@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, Navigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import Button from "../../../components/module/Button/Button";
 export default function Signup() {
   const { t } = useTranslation();
   const [emailInput, setEmailInput] = useState("");
@@ -24,7 +23,11 @@ export default function Signup() {
           res.json().then((data) => {
             console.log(data.message);
 
-            !data.message ? <Navigate to={"/confirmemail"}></Navigate> : null;
+            !data.message ? (
+              <Navigate to={"/confirmemail"}></Navigate>
+            ) : (
+              toast.error(t("youremailisnotvalid"))
+            );
           })
         );
   };
