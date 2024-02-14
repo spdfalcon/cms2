@@ -1,6 +1,10 @@
 const fa = {
-  all:'همه',
+  // alerts
+  pleaseenteryouremail:'لطفا ایمیل خود را وارد کنید',
+  youremailisnotvalid:'ایمیل شما صحیح نیست',
+  // alerts
   //topbar
+  all:'همه',
   search: "جستجو",
   manageaccount:"مدیریت حساب",
   changepassword:"رمز عبور را تغییر دهید",
@@ -69,7 +73,7 @@ const fa = {
   // sign up
   haveanaccount: "حساب کاربری دارید؟",
   createpassword: "رمز عبور ایجاد کنید",
-  bycreatingaccountyouagreetoour: "با ایجاد حساب شما شزایط را پذیرفته اید",
+  bycreatingaccountyouagreetoour: "با ایجاد حساب شما شرایط را پذیرفته اید",
   termsofservice: "شرایط استفاده از خدمات",
 
   // sign up

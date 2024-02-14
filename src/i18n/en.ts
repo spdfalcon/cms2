@@ -1,6 +1,10 @@
 const en = {
-  all:'All',
+  // alerts
+  pleaseenteryouremail:'please enter your Email',
+  youremailisnotvalid:'Your email is not valid',
+  // alerts
   //topbar
+  all:'All',
   search: "Search",
   manageaccount:"Manage Account",
   changepassword:"Change Password",
