@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 export default function Signup() {
   const { t } = useTranslation();
   const [emailInput, setEmailInput] = useState("");
   const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/g;
   const [isTrueRegexEmail, setIsTrueRegexEmail] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     setIsTrueRegexEmail(regexEmail.test(emailInput));
   }, [emailInput]);
@@ -19,17 +20,13 @@ export default function Signup() {
       : fetch("https://lovelcode.iwebdev.ir/API/emailcode", {
           method: "POST",
           body: JSON.stringify({ email: emailInput }),
-        }).then((res) =>
-          res.json().then((data) => {
-            console.log(data.message);
-
-            !data.message ? (
-              <Navigate to={"/confirmemail"}></Navigate>
-            ) : (
-              toast.error(t("youremailisnotvalid"))
-            );
-          })
-        );
+        }).then((res) => {
+          console.log(res.status);
+          
+          res.status === 200
+            ? navigate("/confirmemail")
+            : res.status === 500 ? toast.error(t("aservererrorhasoccurred")) : null
+        });
   };
   return (
     <div className="flex h-screen text-center">

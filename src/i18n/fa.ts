@@ -2,6 +2,7 @@ const fa = {
   // alerts
   pleaseenteryouremail:'لطفا ایمیل خود را وارد کنید',
   youremailisnotvalid:'ایمیل شما صحیح نیست',
+  aservererrorhasoccurred:'خطای سرور رخ داده',
   // alerts
   //topbar
   all:'همه',

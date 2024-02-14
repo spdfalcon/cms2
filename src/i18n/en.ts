@@ -2,6 +2,7 @@ const en = {
   // alerts
   pleaseenteryouremail:'please enter your Email',
   youremailisnotvalid:'Your email is not valid',
+  aservererrorhasoccurred:'A server error has occurred',
   // alerts
   //topbar
   all:'All',
