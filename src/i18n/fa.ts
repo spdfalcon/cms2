@@ -3,6 +3,13 @@ const fa = {
   pleaseenteryouremail:'لطفا ایمیل خود را وارد کنید',
   youremailisnotvalid:'ایمیل شما صحیح نیست',
   aservererrorhasoccurred:'خطای سرور رخ داده',
+  pleaseentertheproductname:'لطفا نام محصول را وارد کنید',
+  pleaseentertheproductdescription:'لطفا توضیحات محصول را وارد کنید', 
+  Pleaseuploadtheimageoftheproduct:'لطفا تصویر محصول را آپلود کنید', 
+  Pleaseenterthepriceoftheproduct:'لطفا قیمت محصول را وارد نمایید', 
+  Pleaseenterthediscountedprice:'لطفا قیمت با تخفیف را وارد کنید', 
+  Pleaseentertheproductcolor:'لطفا رنگ محصول را وارد کنید', 
+
   // alerts
   //topbar
   all:'همه',

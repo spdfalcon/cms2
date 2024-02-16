@@ -4,6 +4,7 @@ import Button from "../../../../components/module/Button/Button";
 import CheckBox from "../../../../components/module/CheckBox/CheckBox";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Addproduct() {
   const [
@@ -21,400 +22,474 @@ export default function Addproduct() {
   const {
     register,
     handleSubmit,
+    watch,
     getValues,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: "پالتو",
-      desc: "مخصوص استایل کلاسیک",
-      category: "men",
-      price: 2600000,
-      discountPrice: 2100000,
+      name: "",
+      desc: "",
+      category: "",
+      price: null,
+      discountPrice: null,
       color: "black",
+      hasTax: false,
       tags: ["مجلسی"],
       sizes: ["L", "XL"],
-      images: ["1.png"],
+      images: [],
     },
   });
-  const formSubmit = ()=>{
-
-  }
-  console.log(errors);
-  
+  const allValue = getValues();
+  const watchValue = watch();
+  const formSubmit = () => {
+    console.log(allValue);
+  };
+  const errorsHandler = () => {
+    console.log(errors);
+    if (errors.name?.message) {
+      toast.error(t("pleaseentertheproductname"));
+    } else if (errors.desc?.message) {
+      toast.error(t("pleaseentertheproductdescription"));
+    } else if (errors.images?.message) {
+      toast.error(t("Pleaseuploadtheimageoftheproduct"));
+    } else if (errors.price?.message) {
+      toast.error(t("Pleaseenterthepriceoftheproduct"));
+    } else if (errors.discountPrice?.message) {
+      toast.error(t("Pleaseenterthediscountedprice"));
+    } else if (errors.color?.message) {
+      toast.error(t("Pleaseentertheproductcolor"));
+    }
+  };
   // form
   return (
-    <form onSubmit={handleSubmit(formSubmit)} className="w-full h-44 py-8">
-      <div className="header">
-        <Headerofpages
-          to={"/admin/products"}
-          back={true}
-          title={t("addproduct")}
-        >
-          <div className="flex gap-3 flex-col items-end lg:flex-row">
-            <Button submitType="reset" type="White" size="sm">
-              {t("cancel")}
-            </Button>
-              <Button submitType="submit" type="Primary" size="sm">
-                {t("save")}
+    <>
+      <form onSubmit={handleSubmit(formSubmit)} className="w-full h-44 py-8">
+        <div className="header">
+          <Headerofpages
+            to={"/admin/products"}
+            back={true}
+            title={t("addproduct")}
+          >
+            <div className="flex gap-3 flex-col items-end lg:flex-row">
+              <Button submitType="reset" type="White" size="sm">
+                {t("cancel")}
               </Button>
-          </div>
-        </Headerofpages>
-      </div>
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
-        <div className="l  xl:col-span-8 px-10 py-2 bg-white dark:bg-a_general-90 mt-10 rounded-md">
-          <div className="py-10 border-b">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("information")}
-            </h2>
-            <div className="mt-5 flex flex-col gap-2">
-              <label
-                htmlFor="addproductproductname"
-                className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
-              >
-                {t("productname")}
-              </label>
-              <input
-                {...register("name", {
-                  required: "خالی است",
-                  minLength: {
-                    value: 10,
-                    message: "کمتر از 10 تا است",
-                  },
-                })}
-                className="border w-full outline-none px-4 py-2 rounded-md text-sm md:text-base"
-                placeholder={t("summertshirt")}
-                type="text"
-                id="addproductproductname"
-              />
-            </div>
-            <div className="mt-5 flex flex-col gap-2">
-              <label
-                htmlFor="addproductproductdescription"
-                className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
-              >
-                {t("productdescription")}
-              </label>
-              <textarea
-                className="border w-full outline-none px-4 py-2 rounded-md h-24 text-sm md:text-base"
-                placeholder={t("productdescription")}
-                id="addproductproductdescription"
-              />
-            </div>
-          </div>
-          <div className="py-10 border-b">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("images")}
-            </h2>
-            <div className="mt-5">
-              {/* input file */}
-              <div className="file flex items-center justify-center w-full">
-                <label
-                  htmlFor="dropzone-file"
-                  className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                >
-                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <i className="bi bi-cloud-arrow-up text-4xl mb-4 text-gray-500 dark:text-gray-400"></i>
-                    <p className="mb-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
-                      <span className="font-semibold">{t("addfile")}</span>
-                    </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      {t("ordraganddropfiles")}
-                    </p>
-                  </div>
-                  <input id="dropzone-file" type="file" className="hidden" />
-                </label>
+              <div onClick={errorsHandler}>
+                <Button submitType="submit" type="Primary" size="sm">
+                  {t("save")}
+                </Button>
               </div>
-              {/* input file */}
             </div>
-          </div>
-          {/* price */}
-          <div className="py-5 border-b">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("price")}
-            </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
+          </Headerofpages>
+        </div>
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
+          <div className="l  xl:col-span-8 px-10 py-2 bg-white dark:bg-a_general-90 mt-10 rounded-md">
+            <div className="py-10 border-b">
+              <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("information")}
+              </h2>
               <div className="mt-5 flex flex-col gap-2">
                 <label
-                  htmlFor="addproductproductprice"
+                  htmlFor="addproductproductname"
                   className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                 >
-                  {t("productprice")}
+                  {t("productname")}
                 </label>
+
                 <input
-                  className="border w-full outline-none px-4 py-2 rounded-md text-sm md:text-base"
-                  placeholder={t("enterprice")}
+                  {...register("name", {
+                    required: t("pleaseentertheproductname"),
+                  })}
+                  className={`border w-full outline-none px-4 py-2 rounded-md text-sm md:text-base ${
+                    errors.name?.message ? "border-red-400" : ""
+                  }`}
+                  placeholder={t("summertshirt")}
                   type="text"
-                  name=""
-                  id="addproductproductprice"
+                  id="addproductproductname"
                 />
               </div>
               <div className="mt-5 flex flex-col gap-2">
                 <label
-                  htmlFor="addproductdiscountprice"
-                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm "
+                  htmlFor="addproductproductdescription"
+                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                 >
-                  {t("discountprice")}
+                  {t("productdescription")}
                 </label>
-                <input
-                  className="border w-full outline-none px-4 py-2 rounded-md"
-                  placeholder={t("priceatdiscount")}
-                  type="text"
-                  name=""
-                  id="addproductdiscountprice"
+                <textarea
+                  {...register("desc", {
+                    required: t("pleaseentertheproductdescription"),
+                  })}
+                  className={`border w-full outline-none px-4 py-2 rounded-md h-24 text-sm md:text-base ${
+                    errors.desc?.message ? "border-red-400" : ""
+                  }`}
+                  placeholder={t("productdescription")}
+                  id="addproductproductdescription"
                 />
               </div>
             </div>
-            <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-              {/* radio */}
-              <CheckBox
-                ischecked={isaddproductaddtaxforthisproduct}
-                setIsChecked={setIsaddproductaddtaxforthisproduct}
-                forid="addproductaddtaxforthisproduct"
-              ></CheckBox>
-              {/* radio */}
-              <label htmlFor="addproductaddtaxforthisproduct" className="">
-                {t("addtaxforthisproduct")}
-              </label>
+            <div className="py-10 border-b">
+              <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("images")}
+              </h2>
+              <div className="mt-5">
+                {/* input file */}
+                <div className="file flex items-center justify-center w-full">
+                  <label
+                    htmlFor="dropzone-file"
+                    className={`flex flex-col items-center justify-center w-full h-64 border-2  ${
+                      errors.images?.message ? "border-red-400" : ""
+                    } border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600`}
+                  >
+                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                      <i className="bi bi-cloud-arrow-up text-4xl mb-4 text-gray-500 dark:text-gray-400"></i>
+                      <p className="mb-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                        <span className="font-semibold">{t("addfile")}</span>
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        {t("ordraganddropfiles")}
+                      </p>
+                    </div>
+                    {watchValue.images ? (
+                      <div className="flex flex-wrap gap-5 *:border *:p-1 *:rounded-md">
+                        {[...allValue.images].map((item: any, index) => (
+                          <p key={index}>{item.name}</p>
+                        ))}
+                      </div>
+                    ) : null}
+                    <input
+                      {...register("images", {
+                        required: t("Pleaseuploadtheimageoftheproduct"),
+                      })}
+                      id="dropzone-file"
+                      type="file"
+                      multiple
+                      className="hidden"
+                    />
+                  </label>
+                </div>
+                {/* input file */}
+              </div>
             </div>
             {/* price */}
-          </div>
-
-          {/* Different Options */}
-          <div className="mt-10 border-b py-5">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("differentoptions")}
-            </h2>
-            <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-              {/* radio */}
-              <CheckBox
-                ischecked={isaddproductthisproducthasmultipleoptions}
-                setIsChecked={setIsaddproductthisproducthasmultipleoptions}
-                forid="addproductthisproducthasmultipleoptions"
-              ></CheckBox>
-              {/* radio */}
-              <label
-                htmlFor="addproductthisproducthasmultipleoptions"
-                className=""
-              >
-                {t("thisproducthasmultipleoptions")}
-              </label>
-              {/* radio */}
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
-              <div className="mt-5 flex flex-col gap-2">
-                <label
-                  htmlFor="addproductsize"
-                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
-                >
-                  {t("size")}
-                </label>
-                <div>
-                  <select
-                    className="w-full h-10 border px-2 dark:bg-a_general-60 rounded-md"
-                    name=""
-                    id="addproductsize"
+            <div className="py-5 border-b">
+              <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("price")}
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
+                <div className="mt-5 flex flex-col gap-2">
+                  <label
+                    htmlFor="addproductproductprice"
+                    className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                   >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                  </select>
+                    {t("productprice")}
+                  </label>
+                  <input
+                    {...register("price", {
+                      required: t("Pleaseenterthepriceoftheproduct"),
+                    })}
+                    className={`border w-full outline-none px-4 py-2 rounded-md text-sm md:text-base ${
+                      errors.price?.message ? "border-red-400" : ""
+                    }`}
+                    placeholder={t("enterprice")}
+                    type="text"
+                    id="addproductproductprice"
+                  />
+                </div>
+                <div className="mt-5 flex flex-col gap-2">
+                  <label
+                    htmlFor="addproductdiscountprice"
+                    className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm "
+                  >
+                    {t("discountprice")}
+                  </label>
+                  <input
+                    {...register("discountPrice", {
+                      required: t("Pleaseenterthediscountedprice"),
+                    })}
+                    className={`border w-full outline-none px-4 py-2 rounded-md ${
+                      errors.discountPrice?.message ? "border-red-400" : ""
+                    }`}
+                    placeholder={t("priceatdiscount")}
+                    type="text"
+                    id="addproductdiscountprice"
+                  />
                 </div>
               </div>
-              <div className="mt-5 flex flex-col gap-2">
-                <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
-                  {t("value")}
-                </p>
-                <div className="w-full h-10 border px-2 py-1 flex items-center justify-start gap-2 ">
-                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                    <span>S</span>
-                    <i className="bi bi-x"></i>
+              <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
+                {/* radio */}
+                <CheckBox
+                  ischecked={isaddproductaddtaxforthisproduct}
+                  setIsChecked={setIsaddproductaddtaxforthisproduct}
+                  forid="addproductaddtaxforthisproduct"
+                ></CheckBox>
+                <label htmlFor="addproductaddtaxforthisproduct" className="">
+                  {t("addtaxforthisproduct")}
+                </label>
+                <input 
+                {...register('hasTax')}
+                className="" type="checkbox" id="tax" />
+                {/* radio */}
+              </div>
+              {/* price */}
+            </div>
+
+            {/* Different Options */}
+            <div className="mt-10 border-b py-5">
+              <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("differentoptions")}
+              </h2>
+              <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
+                {/* radio */}
+                <CheckBox
+                  ischecked={isaddproductthisproducthasmultipleoptions}
+                  setIsChecked={setIsaddproductthisproducthasmultipleoptions}
+                  forid="addproductthisproducthasmultipleoptions"
+                ></CheckBox>
+                {/* radio */}
+                <label
+                  htmlFor="addproductthisproducthasmultipleoptions"
+                  className=""
+                >
+                  {t("thisproducthasmultipleoptions")}
+                </label>
+                {/* radio */}
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
+                <div className="mt-5 flex flex-col gap-2">
+                  <label
+                    htmlFor="addproductsize"
+                    className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
+                  >
+                    {t("size")}
+                  </label>
+                  <div>
+                    <select
+                      className="w-full h-10 border px-2 dark:bg-a_general-60 rounded-md"
+                      name=""
+                      id="addproductsize"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
                   </div>
-                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                    <span>M</span>
-                    <i className="bi bi-x"></i>
+                  <div className="mt-5 flex flex-col gap-2">
+                    <label
+                      htmlFor="addproductcolor"
+                      className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
+                    >
+                      {t("color")}
+                    </label>
+                    <input
+                      {...register("color", {
+                        required: t("Pleaseentertheproductcolor"),
+                      })}
+                      className={`border w-full outline-none px-4 py-2 rounded-md text-sm md:text-base ${
+                        errors.color?.message ? "border-red-400" : ""
+                      }`}
+                      placeholder={t("enterprice")}
+                      type="text"
+                      id="addproductcolor"
+                    />
                   </div>
-                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                    <span>L</span>
-                    <i className="bi bi-x"></i>
-                  </div>
-                  <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                    <span>XL</span>
-                    <i className="bi bi-x"></i>
+                </div>
+                <div className="mt-5 flex flex-col gap-2">
+                  <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
+                    {t("value")}
+                  </p>
+                  <div className="w-full h-10 border px-2 py-1 flex items-center justify-start gap-2 ">
+                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                      <span>S</span>
+                      <i className="bi bi-x"></i>
+                    </div>
+                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                      <span>M</span>
+                      <i className="bi bi-x"></i>
+                    </div>
+                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                      <span>L</span>
+                      <i className="bi bi-x"></i>
+                    </div>
+                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
+                      <span>XL</span>
+                      <i className="bi bi-x"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          {/* Different Options */}
-          <button className="text-a_primary-100 mt-5 border-b py-3 w-full text-left">
-            {t("addmore")}
-          </button>
+            {/* Different Options */}
+            <button className="text-a_primary-100 mt-5 border-b py-3 w-full text-left">
+              {t("addmore")}
+            </button>
 
-          <div className="py-5 border-b">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("shipping")}
-            </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
-              <div className="mt-5 flex flex-col gap-2">
-                <label
-                  htmlFor="addproductweight"
-                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
-                >
-                  {t("weight")}
+            <div className="py-5 border-b">
+              <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("shipping")}
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
+                <div className="mt-5 flex flex-col gap-2">
+                  <label
+                    htmlFor="addproductweight"
+                    className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
+                  >
+                    {t("weight")}
+                  </label>
+                  <input
+                    className="border w-full outline-none px-4 py-2 rounded-md"
+                    placeholder={t("enterweight")}
+                    type="text"
+                    name=""
+                    id="addproductweight"
+                  />
+                </div>
+                <div className="mt-5 flex flex-col gap-2">
+                  <label
+                    htmlFor="addproductcountry"
+                    className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
+                  >
+                    {t("country")}
+                  </label>
+                  <div>
+                    <select
+                      className="w-full h-10 border px-2 dark:bg-a_general-60"
+                      name=""
+                      id="addproductcountry"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
+                {/* radio */}
+                <CheckBox
+                  ischecked={isaddproductthisisdigitalitem}
+                  setIsChecked={setIsaddproductthisisdigitalitem}
+                  forid="addproductthisisdigitalitem"
+                ></CheckBox>
+                {/* radio */}
+                <label htmlFor="addproductthisisdigitalitem" className="">
+                  {t("thisisdigitalitem")}
+                </label>
+                {/* radio */}
+              </div>
+              {/* price */}
+            </div>
+          </div>
+
+          <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white dark:*:bg-a_general-70  dark:bg-a_general-90  *:p-7 *:rounded-md">
+            <div className="section1">
+              <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("categories")}
+              </h3>
+              <div className="flex gap-2 mt-3 items-center dark:text-white ">
+                <input
+                  className=""
+                  type="radio"
+                  name="checkboxCategories"
+                  id="checkboxCategorieswomen"
+                />
+                <label htmlFor="checkboxCategorieswomen">{t("women")}</label>
+              </div>
+              <div className="flex gap-2 mt-3 items-center dark:text-white ">
+                <input
+                  className=""
+                  type="radio"
+                  name="checkboxCategories"
+                  id="checkboxCategoriesmen"
+                />
+                <label htmlFor="checkboxCategoriesmen">{t("men")}</label>
+              </div>
+              <div className="flex gap-2 mt-3 items-center dark:text-white ">
+                <input
+                  className=""
+                  type="radio"
+                  name="checkboxCategories"
+                  id="checkboxCategoriestshirt"
+                />
+                <label htmlFor="checkboxCategoriestshirt">{t("tshirt")}</label>
+              </div>
+              <div className="flex gap-2 mt-3 items-center dark:text-white ">
+                <input
+                  className=""
+                  type="radio"
+                  name="checkboxCategories"
+                  id="checkboxCategorieshoodie"
+                />
+                <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
+              </div>
+
+              <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
+            </div>
+            <div className="section2 flex flex-col gap-4">
+              <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("tags")}
+              </h3>
+              <div className="flex flex-col gap-2">
+                <label className="text-a_general-60" htmlFor="inputTags">
+                  {t("addtags")}
                 </label>
                 <input
-                  className="border w-full outline-none px-4 py-2 rounded-md"
-                  placeholder={t("enterweight")}
+                  className="border px-3 py-2 rounded-md outline-none"
+                  placeholder={t("entertagname")}
                   type="text"
                   name=""
-                  id="addproductweight"
+                  id="inputTags"
                 />
               </div>
-              <div className="mt-5 flex flex-col gap-2">
-                <label
-                  htmlFor="addproductcountry"
-                  className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
-                >
-                  {t("country")}
-                </label>
-                <div>
-                  <select
-                    className="w-full h-10 border px-2 dark:bg-a_general-60"
-                    name=""
-                    id="addproductcountry"
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                  </select>
+              <div className="flex justify-start gap-3 flex-wrap">
+                <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
+                  <p>{t("tshirt")}</p>
+                  <i className="bi bi-x"></i>
+                </div>
+                <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
+                  <p>{t("tshirt")}</p>
+                  <i className="bi bi-x"></i>
+                </div>
+                <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
+                  <p>{t("tshirt")}</p>
+                  <i className="bi bi-x"></i>
                 </div>
               </div>
             </div>
-            <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-              {/* radio */}
-              <CheckBox
-                ischecked={isaddproductthisisdigitalitem}
-                setIsChecked={setIsaddproductthisisdigitalitem}
-                forid="addproductthisisdigitalitem"
-              ></CheckBox>
-              {/* radio */}
-              <label htmlFor="addproductthisisdigitalitem" className="">
-                {t("thisisdigitalitem")}
-              </label>
-              {/* radio */}
-            </div>
-            {/* price */}
-          </div>
-        </div>
-
-        <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white dark:*:bg-a_general-70  dark:bg-a_general-90  *:p-7 *:rounded-md">
-          <div className="section1">
-            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("categories")}
-            </h3>
-            <div className="flex gap-2 mt-3 items-center dark:text-white ">
-              <input
-                className=""
-                type="radio"
-                name="checkboxCategories"
-                id="checkboxCategorieswomen"
-              />
-              <label htmlFor="checkboxCategorieswomen">{t("women")}</label>
-            </div>
-            <div className="flex gap-2 mt-3 items-center dark:text-white ">
-              <input
-                className=""
-                type="radio"
-                name="checkboxCategories"
-                id="checkboxCategoriesmen"
-              />
-              <label htmlFor="checkboxCategoriesmen">{t("men")}</label>
-            </div>
-            <div className="flex gap-2 mt-3 items-center dark:text-white ">
-              <input
-                className=""
-                type="radio"
-                name="checkboxCategories"
-                id="checkboxCategoriestshirt"
-              />
-              <label htmlFor="checkboxCategoriestshirt">{t("tshirt")}</label>
-            </div>
-            <div className="flex gap-2 mt-3 items-center dark:text-white ">
-              <input
-                className=""
-                type="radio"
-                name="checkboxCategories"
-                id="checkboxCategorieshoodie"
-              />
-              <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
-            </div>
-
-            <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
-          </div>
-          <div className="section2 flex flex-col gap-4">
-            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("tags")}
-            </h3>
-            <div className="flex flex-col gap-2">
-              <label className="text-a_general-60" htmlFor="inputTags">
-                {t("addtags")}
-              </label>
-              <input
-                className="border px-3 py-2 rounded-md outline-none"
-                placeholder={t("entertagname")}
-                type="text"
-                name=""
-                id="inputTags"
-              />
-            </div>
-            <div className="flex justify-start gap-3 flex-wrap">
-              <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
-                <p>{t("tshirt")}</p>
-                <i className="bi bi-x"></i>
+            <div className="section3 flex flex-col gap-4">
+              <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+                {t("seosettings")}
+              </h3>
+              <div className="flex flex-col gap-2">
+                <label className="text-a_general-60" htmlFor="seosettingtitle">
+                  {t("title")}
+                </label>
+                <input
+                  className="border px-3 py-2 rounded-md outline-none"
+                  type="text"
+                  name=""
+                  id="seosettingtitle"
+                />
               </div>
-              <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
-                <p>{t("tshirt")}</p>
-                <i className="bi bi-x"></i>
+              <div className="flex flex-col gap-2">
+                <label
+                  className="text-a_general-60"
+                  htmlFor="seoswttingdescription"
+                >
+                  {t("description")}
+                </label>
+                <textarea
+                  className="border px-3 py-2 rounded-md outline-none"
+                  name=""
+                  id="seoswttingdescription"
+                />
               </div>
-              <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
-                <p>{t("tshirt")}</p>
-                <i className="bi bi-x"></i>
-              </div>
-            </div>
-          </div>
-          <div className="section3 flex flex-col gap-4">
-            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
-              {t("seosettings")}
-            </h3>
-            <div className="flex flex-col gap-2">
-              <label className="text-a_general-60" htmlFor="seosettingtitle">
-                {t("title")}
-              </label>
-              <input
-                className="border px-3 py-2 rounded-md outline-none"
-                type="text"
-                name=""
-                id="seosettingtitle"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label
-                className="text-a_general-60"
-                htmlFor="seoswttingdescription"
-              >
-                {t("description")}
-              </label>
-              <textarea
-                className="border px-3 py-2 rounded-md outline-none"
-                name=""
-                id="seoswttingdescription"
-              />
             </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+      <ToastContainer></ToastContainer>
+    </>
   );
 }

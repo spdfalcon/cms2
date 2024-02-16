@@ -3,6 +3,13 @@ const en = {
   pleaseenteryouremail:'please enter your Email',
   youremailisnotvalid:'Your email is not valid',
   aservererrorhasoccurred:'A server error has occurred',
+  pleaseentertheproductname:'Please enter the product name',
+  pleaseentertheproductdescription:'Please enter the product description',
+  Pleaseuploadtheimageoftheproduct:'Please upload the image of the product',
+  Pleaseenterthepriceoftheproduct:'Please enter the price of the product',
+  Pleaseenterthediscountedprice:'Please enter the discounted price',
+  Pleaseentertheproductcolor:'Please enter the product color',
+
   // alerts
   //topbar
   all:'All',
