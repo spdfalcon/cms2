@@ -9,12 +9,14 @@ interface ButtonProps {
     | "Destructive Secondary"
     | "White";
     children?:any
+    submitType?: 'button' | 'submit' | 'reset'  
 }
-const Button: React.FC<ButtonProps> = ({icon, size, type , children }) => {
+const Button: React.FC<ButtonProps> = ({icon, size, type , children , submitType }) => {
   return (
     <>
       <div className="">
         <button
+        type={submitType}
           className={`flex justify-center items-center duration-300 ${children && 'gap-1'} ${
             size === "sm" ? "text-xs md:text-sm" : "text-base"
           } ${

@@ -8,7 +8,7 @@ import Pagination from "../../../components/module/Pagination/Pagination";
 export default function Orders() {
   const [searchValue , setSearchValue] = useState('')
   useEffect(()=>{
-    const neworder = [...recentTransactions].filter(item=>item.order.toLowerCase().includes(searchValue.toLowerCase())) 
+    const neworder = [...recentTransactions].filter(item=>item.order.toLowerCase().includes(searchValue.toLowerCase()))
     if(searchValue){
       setOrders(neworder)
     }else{

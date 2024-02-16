@@ -3,14 +3,47 @@ import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
 import CheckBox from "../../../../components/module/CheckBox/CheckBox";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Addproduct() {
-  const [isaddproductaddtaxforthisproduct , setIsaddproductaddtaxforthisproduct] =useState(false)
-  const [isaddproductthisisdigitalitem , setIsaddproductthisisdigitalitem] =useState(false)
-  const [isaddproductthisproducthasmultipleoptions , setIsaddproductthisproducthasmultipleoptions] =useState(false)
+  const [
+    isaddproductaddtaxforthisproduct,
+    setIsaddproductaddtaxforthisproduct,
+  ] = useState(false);
+  const [isaddproductthisisdigitalitem, setIsaddproductthisisdigitalitem] =
+    useState(false);
+  const [
+    isaddproductthisproducthasmultipleoptions,
+    setIsaddproductthisproducthasmultipleoptions,
+  ] = useState(false);
   const { t } = useTranslation();
+  // form
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "پالتو",
+      desc: "مخصوص استایل کلاسیک",
+      category: "men",
+      price: 2600000,
+      discountPrice: 2100000,
+      color: "black",
+      tags: ["مجلسی"],
+      sizes: ["L", "XL"],
+      images: ["1.png"],
+    },
+  });
+  const formSubmit = ()=>{
+
+  }
+  console.log(errors);
+  
+  // form
   return (
-    <div className="w-full h-44 py-8">
+    <form onSubmit={handleSubmit(formSubmit)} className="w-full h-44 py-8">
       <div className="header">
         <Headerofpages
           to={"/admin/products"}
@@ -18,12 +51,12 @@ export default function Addproduct() {
           title={t("addproduct")}
         >
           <div className="flex gap-3 flex-col items-end lg:flex-row">
-            <Button type="White" size="sm">
+            <Button submitType="reset" type="White" size="sm">
               {t("cancel")}
             </Button>
-            <Button type="Primary" size="sm">
-              {t("save")}
-            </Button>
+              <Button submitType="submit" type="Primary" size="sm">
+                {t("save")}
+              </Button>
           </div>
         </Headerofpages>
       </div>
@@ -41,10 +74,16 @@ export default function Addproduct() {
                 {t("productname")}
               </label>
               <input
+                {...register("name", {
+                  required: "خالی است",
+                  minLength: {
+                    value: 10,
+                    message: "کمتر از 10 تا است",
+                  },
+                })}
                 className="border w-full outline-none px-4 py-2 rounded-md text-sm md:text-base"
                 placeholder={t("summertshirt")}
                 type="text"
-                name=""
                 id="addproductproductname"
               />
             </div>
@@ -58,13 +97,14 @@ export default function Addproduct() {
               <textarea
                 className="border w-full outline-none px-4 py-2 rounded-md h-24 text-sm md:text-base"
                 placeholder={t("productdescription")}
-                name=""
                 id="addproductproductdescription"
               />
             </div>
           </div>
           <div className="py-10 border-b">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("images")}</h2>
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+              {t("images")}
+            </h2>
             <div className="mt-5">
               {/* input file */}
               <div className="file flex items-center justify-center w-full">
@@ -89,7 +129,9 @@ export default function Addproduct() {
           </div>
           {/* price */}
           <div className="py-5 border-b">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("price")}</h2>
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+              {t("price")}
+            </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
                 <label
@@ -124,9 +166,15 @@ export default function Addproduct() {
             </div>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <CheckBox ischecked={isaddproductaddtaxforthisproduct} setIsChecked={setIsaddproductaddtaxforthisproduct} forid="addproductaddtaxforthisproduct"></CheckBox>
+              <CheckBox
+                ischecked={isaddproductaddtaxforthisproduct}
+                setIsChecked={setIsaddproductaddtaxforthisproduct}
+                forid="addproductaddtaxforthisproduct"
+              ></CheckBox>
               {/* radio */}
-              <label htmlFor="addproductaddtaxforthisproduct" className="">{t("addtaxforthisproduct")}</label>
+              <label htmlFor="addproductaddtaxforthisproduct" className="">
+                {t("addtaxforthisproduct")}
+              </label>
             </div>
             {/* price */}
           </div>
@@ -138,9 +186,18 @@ export default function Addproduct() {
             </h2>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <CheckBox ischecked={isaddproductthisproducthasmultipleoptions} setIsChecked={setIsaddproductthisproducthasmultipleoptions} forid="addproductthisproducthasmultipleoptions"></CheckBox>
+              <CheckBox
+                ischecked={isaddproductthisproducthasmultipleoptions}
+                setIsChecked={setIsaddproductthisproducthasmultipleoptions}
+                forid="addproductthisproducthasmultipleoptions"
+              ></CheckBox>
               {/* radio */}
-              <label htmlFor="addproductthisproducthasmultipleoptions" className="">{t("thisproducthasmultipleoptions")}</label>
+              <label
+                htmlFor="addproductthisproducthasmultipleoptions"
+                className=""
+              >
+                {t("thisproducthasmultipleoptions")}
+              </label>
               {/* radio */}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
@@ -195,7 +252,9 @@ export default function Addproduct() {
           </button>
 
           <div className="py-5 border-b">
-            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("shipping")}</h2>
+            <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+              {t("shipping")}
+            </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
               <div className="mt-5 flex flex-col gap-2">
                 <label
@@ -235,9 +294,15 @@ export default function Addproduct() {
             </div>
             <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
               {/* radio */}
-              <CheckBox ischecked={isaddproductthisisdigitalitem} setIsChecked={setIsaddproductthisisdigitalitem} forid="addproductthisisdigitalitem"></CheckBox>
+              <CheckBox
+                ischecked={isaddproductthisisdigitalitem}
+                setIsChecked={setIsaddproductthisisdigitalitem}
+                forid="addproductthisisdigitalitem"
+              ></CheckBox>
               {/* radio */}
-              <label htmlFor="addproductthisisdigitalitem" className="">{t("thisisdigitalitem")}</label>
+              <label htmlFor="addproductthisisdigitalitem" className="">
+                {t("thisisdigitalitem")}
+              </label>
               {/* radio */}
             </div>
             {/* price */}
@@ -285,11 +350,13 @@ export default function Addproduct() {
               />
               <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
             </div>
-            
+
             <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
           </div>
           <div className="section2 flex flex-col gap-4">
-            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">{t("tags")}</h3>
+            <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
+              {t("tags")}
+            </h3>
             <div className="flex flex-col gap-2">
               <label className="text-a_general-60" htmlFor="inputTags">
                 {t("addtags")}
@@ -333,7 +400,10 @@ export default function Addproduct() {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-a_general-60" htmlFor="seoswttingdescription">
+              <label
+                className="text-a_general-60"
+                htmlFor="seoswttingdescription"
+              >
                 {t("description")}
               </label>
               <textarea
@@ -345,6 +415,6 @@ export default function Addproduct() {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
