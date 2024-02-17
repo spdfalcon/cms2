@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.8",
+    "@hookform/devtools": "^4.3.1",
     "@mui/x-data-grid": "^6.19.2",
     "bootstrap-icons": "^1.11.3",
     "formik": "^2.4.5",

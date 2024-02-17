@@ -2,26 +2,18 @@ import Headerofpages from "../../../../components/module/Headerofpages/Headerofp
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
 import CheckBox from "../../../../components/module/CheckBox/CheckBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
+import { DevTool } from "@hookform/devtools";
 
 export default function Addproduct() {
-  const [
-    isaddproductaddtaxforthisproduct,
-    setIsaddproductaddtaxforthisproduct,
-  ] = useState(false);
-  const [isaddproductthisisdigitalitem, setIsaddproductthisisdigitalitem] =
-    useState(false);
-  const [
-    isaddproductthisproducthasmultipleoptions,
-    setIsaddproductthisproducthasmultipleoptions,
-  ] = useState(false);
   const { t } = useTranslation();
   // form
   const {
     register,
     handleSubmit,
+    control,
     watch,
     getValues,
     formState: { errors },
@@ -35,12 +27,16 @@ export default function Addproduct() {
       color: "black",
       hasTax: false,
       tags: ["مجلسی"],
-      sizes: ["L", "XL"],
+      sizes: [],
       images: [],
+      count: null,
+      isDigital: false,
+      weight: null,
     },
   });
   const allValue = getValues();
   const watchValue = watch();
+
   const formSubmit = () => {
     console.log(allValue);
   };
@@ -217,17 +213,23 @@ export default function Addproduct() {
               </div>
               <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
                 {/* radio */}
-                <CheckBox
-                  ischecked={isaddproductaddtaxforthisproduct}
-                  setIsChecked={setIsaddproductaddtaxforthisproduct}
-                  forid="addproductaddtaxforthisproduct"
-                ></CheckBox>
-                <label htmlFor="addproductaddtaxforthisproduct" className="">
-                  {t("addtaxforthisproduct")}
-                </label>
-                <input 
-                {...register('hasTax')}
-                className="" type="checkbox" id="tax" />
+                <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
+                  {/* radio */}
+                  <input
+                    {...register("hasTax")}
+                    className="peer hidden"
+                    type="checkbox"
+                    id="tax"
+                  />
+                  <label
+                    className="duration-300 shadow-lg cursor-pointer w-12 h-6 bg-a_primary-40 rounded-full flex after:size-5 after:bg-white after:rounded-full items-center after:translate-x-0.5 peer-checked:after:translate-x-[26px] rtl:peer-checked:after:-translate-x-[26px] after:duration-300 peer-checked:bg-a_primary-100"
+                    htmlFor="tax"
+                  ></label>
+                  {/* radio */}
+                  <label htmlFor="tax" className="">
+                    {t("addtaxforthisproduct")}
+                  </label>
+                </div>
                 {/* radio */}
               </div>
               {/* price */}
@@ -238,41 +240,23 @@ export default function Addproduct() {
               <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("differentoptions")}
               </h2>
-              <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-                {/* radio */}
-                <CheckBox
-                  ischecked={isaddproductthisproducthasmultipleoptions}
-                  setIsChecked={setIsaddproductthisproducthasmultipleoptions}
-                  forid="addproductthisproducthasmultipleoptions"
-                ></CheckBox>
-                {/* radio */}
-                <label
-                  htmlFor="addproductthisproducthasmultipleoptions"
-                  className=""
-                >
-                  {t("thisproducthasmultipleoptions")}
-                </label>
-                {/* radio */}
-              </div>
+              <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40"></div>
               <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
                 <div className="mt-5 flex flex-col gap-2">
                   <label
-                    htmlFor="addproductsize"
+                    htmlFor="value"
                     className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                   >
-                    {t("size")}
+                    {t("value")}
                   </label>
                   <div>
-                    <select
+                    <input
+                      {...register("count")}
                       className="w-full h-10 border px-2 dark:bg-a_general-60 rounded-md"
-                      name=""
-                      id="addproductsize"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
+                      type="number"
+                      min={0}
+                      id="value"
+                    />
                   </div>
                   <div className="mt-5 flex flex-col gap-2">
                     <label
@@ -296,26 +280,28 @@ export default function Addproduct() {
                 </div>
                 <div className="mt-5 flex flex-col gap-2">
                   <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
-                    {t("value")}
+                    {t("size")}
                   </p>
-                  <div className="w-full h-10 border px-2 py-1 flex items-center justify-start gap-2 ">
-                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                      <span>S</span>
-                      <i className="bi bi-x"></i>
+                  <select
+                    multiple
+                    {...register("sizes")}
+                    className="w-full h-20 border px-2 py-1 flex items-center justify-start gap-2 "
+                  >
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="Xl">Xl</option>
+                    <option value="2Xl">2Xl</option>
+                    <option value="3Xl">3Xl</option>
+                  </select>
+                  {watchValue.sizes.map((item, index) => (
+                    <div
+                      key={index}
+                      className=" bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base"
+                    >
+                      <span>{item}</span>
                     </div>
-                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                      <span>M</span>
-                      <i className="bi bi-x"></i>
-                    </div>
-                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                      <span>L</span>
-                      <i className="bi bi-x"></i>
-                    </div>
-                    <div className="bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base">
-                      <span>XL</span>
-                      <i className="bi bi-x"></i>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -334,12 +320,13 @@ export default function Addproduct() {
                     htmlFor="addproductweight"
                     className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
                   >
-                    {t("weight")}
+                    {t("weight")} g
                   </label>
                   <input
+                    {...register("weight")}
                     className="border w-full outline-none px-4 py-2 rounded-md"
                     placeholder={t("enterweight")}
-                    type="text"
+                    type="number"
                     name=""
                     id="addproductweight"
                   />
@@ -367,13 +354,18 @@ export default function Addproduct() {
               </div>
               <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
                 {/* radio */}
-                <CheckBox
-                  ischecked={isaddproductthisisdigitalitem}
-                  setIsChecked={setIsaddproductthisisdigitalitem}
-                  forid="addproductthisisdigitalitem"
-                ></CheckBox>
+                <input
+                  {...register("isDigital")}
+                  className="peer hidden"
+                  type="checkbox"
+                  id="isDigital"
+                />
+                <label
+                  className="duration-300 shadow-lg cursor-pointer w-12 h-6 bg-a_primary-40 rounded-full flex after:size-5 after:bg-white after:rounded-full items-center after:translate-x-0.5 peer-checked:after:translate-x-[26px] rtl:peer-checked:after:-translate-x-[26px] after:duration-300 peer-checked:bg-a_primary-100"
+                  htmlFor="isDigital"
+                ></label>
                 {/* radio */}
-                <label htmlFor="addproductthisisdigitalitem" className="">
+                <label htmlFor="isDigital" className="">
                   {t("thisisdigitalitem")}
                 </label>
                 {/* radio */}
@@ -490,6 +482,7 @@ export default function Addproduct() {
         </div>
       </form>
       <ToastContainer></ToastContainer>
+      <DevTool control={control}></DevTool>
     </>
   );
 }
