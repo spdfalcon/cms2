@@ -1,8 +1,7 @@
 import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
-import CheckBox from "../../../../components/module/CheckBox/CheckBox";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { DevTool } from "@hookform/devtools";
