@@ -123,6 +123,7 @@ const en = {
   edit: "Edit",
   editproduct:'Edit product',
   // addproduct
+  add:'Add',
   addproduct: "Add Product",
   cancel: "Cancel",
   save: "Save",

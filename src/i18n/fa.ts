@@ -127,6 +127,7 @@ const fa = {
 
 
   // addproduct
+  add:'افزودن',
   addproduct: "افزودن محصول",
   cancel: "لغو کنید",
   save: "ذخیره کردن",

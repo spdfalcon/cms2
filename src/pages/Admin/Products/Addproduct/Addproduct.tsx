@@ -26,17 +26,18 @@ export default function Addproduct() {
       discountPrice: null,
       color: "black",
       hasTax: false,
-      tags: ["مجلسی"],
       sizes: [],
       images: [],
       count: null,
       isDigital: false,
       weight: null,
+      country: "",
     },
   });
   const allValue = getValues();
   const watchValue = watch();
-
+  const [tags, setTags]: any = useState([]);
+  const [inputTags, setInputTags] = useState("");
   const formSubmit = () => {
     console.log(allValue);
   };
@@ -327,7 +328,6 @@ export default function Addproduct() {
                     className="border w-full outline-none px-4 py-2 rounded-md"
                     placeholder={t("enterweight")}
                     type="number"
-                    name=""
                     id="addproductweight"
                   />
                 </div>
@@ -339,16 +339,12 @@ export default function Addproduct() {
                     {t("country")}
                   </label>
                   <div>
-                    <select
+                    <input
+                      {...register("country")}
                       className="w-full h-10 border px-2 dark:bg-a_general-60"
-                      name=""
+                      type="text"
                       id="addproductcountry"
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
+                    />
                   </div>
                 </div>
               </div>
@@ -381,10 +377,11 @@ export default function Addproduct() {
               </h3>
               <div className="flex gap-2 mt-3 items-center dark:text-white ">
                 <input
+                  {...register("category")}
                   className=""
                   type="radio"
-                  name="checkboxCategories"
                   id="checkboxCategorieswomen"
+                  value={t("women")}
                 />
                 <label htmlFor="checkboxCategorieswomen">{t("women")}</label>
               </div>
@@ -392,7 +389,8 @@ export default function Addproduct() {
                 <input
                   className=""
                   type="radio"
-                  name="checkboxCategories"
+                  {...register("category")}
+                  value={t("men")}
                   id="checkboxCategoriesmen"
                 />
                 <label htmlFor="checkboxCategoriesmen">{t("men")}</label>
@@ -401,7 +399,8 @@ export default function Addproduct() {
                 <input
                   className=""
                   type="radio"
-                  name="checkboxCategories"
+                  {...register("category")}
+                  value={t("tshirt")}
                   id="checkboxCategoriestshirt"
                 />
                 <label htmlFor="checkboxCategoriestshirt">{t("tshirt")}</label>
@@ -410,7 +409,8 @@ export default function Addproduct() {
                 <input
                   className=""
                   type="radio"
-                  name="checkboxCategories"
+                  {...register("category")}
+                  value={t("hoodie")}
                   id="checkboxCategorieshoodie"
                 />
                 <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
@@ -427,26 +427,46 @@ export default function Addproduct() {
                   {t("addtags")}
                 </label>
                 <input
+                  value={inputTags}
+                  onChange={(e) => setInputTags(e.target.value)}
                   className="border px-3 py-2 rounded-md outline-none"
                   placeholder={t("entertagname")}
                   type="text"
-                  name=""
                   id="inputTags"
                 />
+                <div
+                  onClick={() => {
+                    if (inputTags) {
+                      setTags((priv: any) => [...priv, inputTags]);
+                      setInputTags("");
+                    }
+                  }}
+                >
+                  <Button submitType="button" size="sm" type="White">
+                    {t("add")}
+                  </Button>
+                </div>
               </div>
               <div className="flex justify-start gap-3 flex-wrap">
-                <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
-                  <p>{t("tshirt")}</p>
-                  <i className="bi bi-x"></i>
-                </div>
-                <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
-                  <p>{t("tshirt")}</p>
-                  <i className="bi bi-x"></i>
-                </div>
-                <div className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center">
-                  <p>{t("tshirt")}</p>
-                  <i className="bi bi-x"></i>
-                </div>
+                {tags.map((item: any, index: any) => (
+                  <div
+                    key={index}
+                    className="px-2 py-1 bg-a_general-50 dark:bg-a_general-80 rounded-md text-a_general-80 dark:text-a_general-40 flex items-center"
+                  >
+                    <p>{item}</p>
+                    <i
+                      onClick={() => {
+                        // setTags((priv:any)=>priv.filter((item:any ,inx:any)=> inx !== index))
+                        setTags((priv: any) =>
+                          priv.filter(
+                            (item: any) => priv.indexOf(item) !== index
+                          )
+                        );
+                      }}
+                      className="bi bi-x"
+                    ></i>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="section3 flex flex-col gap-4">
