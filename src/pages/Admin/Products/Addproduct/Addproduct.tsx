@@ -1,7 +1,7 @@
 import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { DevTool } from "@hookform/devtools";
@@ -13,6 +13,7 @@ export default function Addproduct() {
     register,
     handleSubmit,
     control,
+    setValue,
     watch,
     getValues,
     formState: { errors },
@@ -21,15 +22,16 @@ export default function Addproduct() {
       name: "",
       desc: "",
       category: "",
-      price: null,
-      discountPrice: null,
+      price: 0,
+      discountPrice: 0,
       color: "black",
       hasTax: false,
       sizes: [],
+      tags: [],
       images: [],
-      count: null,
+      count: 0,
       isDigital: false,
-      weight: null,
+      weight: 0,
       country: "",
     },
   });
@@ -38,7 +40,27 @@ export default function Addproduct() {
   const [tags, setTags]: any = useState([]);
   const [inputTags, setInputTags] = useState("");
   const formSubmit = () => {
-    console.log(allValue);
+    console.log(typeof allValue.images);
+    // fetch("https://prime.liara.run/api/v1/products", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(
+    //     {
+    //       name:allValue.name,
+    //       desc:allValue.desc,
+    //       category:allValue.category,
+    //       price:allValue.price,
+    //       discountPrice:allValue.discountPrice,
+    //       color:allValue.color,
+    //       tags:allValue.tags,
+    //       count:allValue.count,
+    //       sizes:allValue.sizes,
+          // images:allValue.images
+    //   }
+    //   ),
+    // }).then((res) => console.log(res));
   };
   const errorsHandler = () => {
     console.log(errors);
@@ -50,12 +72,19 @@ export default function Addproduct() {
       toast.error(t("Pleaseuploadtheimageoftheproduct"));
     } else if (errors.price?.message) {
       toast.error(t("Pleaseenterthepriceoftheproduct"));
-    } else if (errors.discountPrice?.message) {
-      toast.error(t("Pleaseenterthediscountedprice"));
     } else if (errors.color?.message) {
       toast.error(t("Pleaseentertheproductcolor"));
+    } else if (errors.category?.message) {
+      toast.error(t("Pleaseenteracategory"));
+    } else if (errors.count?.message) {
+      toast.error(t("Pleaseentertheamount"));
+    } else if (errors.sizes?.message) {
+      toast.error(t("Pleaseenterthesize"));
     }
   };
+  useEffect(() => {
+    setValue("tags", tags);
+  }, [tags]);
   // form
   return (
     <>
@@ -182,6 +211,7 @@ export default function Addproduct() {
                   <input
                     {...register("price", {
                       required: t("Pleaseenterthepriceoftheproduct"),
+                      valueAsNumber: true,
                     })}
                     className={`border w-full outline-none px-4 py-2 rounded-md text-sm md:text-base ${
                       errors.price?.message ? "border-red-400" : ""
@@ -200,11 +230,9 @@ export default function Addproduct() {
                   </label>
                   <input
                     {...register("discountPrice", {
-                      required: t("Pleaseenterthediscountedprice"),
+                      valueAsNumber: true,
                     })}
-                    className={`border w-full outline-none px-4 py-2 rounded-md ${
-                      errors.discountPrice?.message ? "border-red-400" : ""
-                    }`}
+                    className={`border w-full outline-none px-4 py-2 rounded-md`}
                     placeholder={t("priceatdiscount")}
                     type="text"
                     id="addproductdiscountprice"
@@ -251,7 +279,10 @@ export default function Addproduct() {
                   </label>
                   <div>
                     <input
-                      {...register("count")}
+                      {...register("count", {
+                        required: t("Pleaseentertheamount"),
+                        valueAsNumber: true,
+                      })}
                       className="w-full h-10 border px-2 dark:bg-a_general-60 rounded-md"
                       type="number"
                       min={0}
@@ -284,7 +315,9 @@ export default function Addproduct() {
                   </p>
                   <select
                     multiple
-                    {...register("sizes")}
+                    {...register("sizes", {
+                      required: t("Pleaseenterthesize"),
+                    })}
                     className="w-full h-20 border px-2 py-1 flex items-center justify-start gap-2 "
                   >
                     <option value="S">S</option>
@@ -323,7 +356,9 @@ export default function Addproduct() {
                     {t("weight")} g
                   </label>
                   <input
-                    {...register("weight")}
+                    {...register("weight", {
+                      valueAsNumber: true,
+                    })}
                     className="border w-full outline-none px-4 py-2 rounded-md"
                     placeholder={t("enterweight")}
                     type="number"
@@ -376,7 +411,9 @@ export default function Addproduct() {
               </h3>
               <div className="flex gap-2 mt-3 items-center dark:text-white ">
                 <input
-                  {...register("category")}
+                  {...register("category", {
+                    required: t("Pleaseenteracategory"),
+                  })}
                   className=""
                   type="radio"
                   id="checkboxCategorieswomen"
@@ -388,7 +425,9 @@ export default function Addproduct() {
                 <input
                   className=""
                   type="radio"
-                  {...register("category")}
+                  {...register("category", {
+                    required: t("Pleaseenteracategory"),
+                  })}
                   value={t("men")}
                   id="checkboxCategoriesmen"
                 />
@@ -398,7 +437,9 @@ export default function Addproduct() {
                 <input
                   className=""
                   type="radio"
-                  {...register("category")}
+                  {...register("category", {
+                    required: t("Pleaseenteracategory"),
+                  })}
                   value={t("tshirt")}
                   id="checkboxCategoriestshirt"
                 />
@@ -408,7 +449,9 @@ export default function Addproduct() {
                 <input
                   className=""
                   type="radio"
-                  {...register("category")}
+                  {...register("category", {
+                    required: t("Pleaseenteracategory"),
+                  })}
                   value={t("hoodie")}
                   id="checkboxCategorieshoodie"
                 />

@@ -9,6 +9,9 @@ const en = {
   Pleaseenterthepriceoftheproduct:'Please enter the price of the product',
   Pleaseenterthediscountedprice:'Please enter the discounted price',
   Pleaseentertheproductcolor:'Please enter the product color',
+  Pleaseenteracategory:'Please enter a category',
+  Pleaseentertheamount:'Please enter the amount',
+  Pleaseenterthesize:'Please enter the size',
 
   // alerts
   //topbar

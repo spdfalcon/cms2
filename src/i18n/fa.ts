@@ -9,6 +9,9 @@ const fa = {
   Pleaseenterthepriceoftheproduct:'لطفا قیمت محصول را وارد نمایید', 
   Pleaseenterthediscountedprice:'لطفا قیمت با تخفیف را وارد کنید', 
   Pleaseentertheproductcolor:'لطفا رنگ محصول را وارد کنید', 
+  Pleaseenteracategory:'لطفا یک دسته بندی وارد کنید', 
+  Pleaseentertheamount:'لطفا مقدار را وارد کنید', 
+  Pleaseenterthesize:'لطفا سایز را وارد کنید', 
 
   // alerts
   //topbar
