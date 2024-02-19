@@ -12,6 +12,8 @@ const en = {
   Pleaseenteracategory:'Please enter a category',
   Pleaseentertheamount:'Please enter the amount',
   Pleaseenterthesize:'Please enter the size',
+  Productadded:'Product added',
+  correctrequestnotsent:'Correct request not sent',
 
   // alerts
   //topbar

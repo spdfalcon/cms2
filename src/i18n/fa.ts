@@ -12,6 +12,8 @@ const fa = {
   Pleaseenteracategory:'لطفا یک دسته بندی وارد کنید', 
   Pleaseentertheamount:'لطفا مقدار را وارد کنید', 
   Pleaseenterthesize:'لطفا سایز را وارد کنید', 
+  Productadded:'محصول افزوده شد', 
+  correctrequestnotsent:'درخواست صحیح ارسال نشده', 
 
   // alerts
   //topbar

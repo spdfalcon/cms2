@@ -15,6 +15,7 @@ export default function Addproduct() {
     control,
     setValue,
     watch,
+    reset,
     getValues,
     formState: { errors },
   } = useForm({
@@ -50,8 +51,8 @@ export default function Addproduct() {
       count: data.count,
       price: data.price,
       ...(data.discountPrice && { discountPrice: data.discountPrice }),
-      ...(data.hasTax && { hasTax: data.hasTax }),
-      ...(data.isDigital && { isDigital: data.isDigital }),
+      hasTax: data.hasTax,
+      isDigital: data.isDigital,
       tags: data.tags,
       sizes: data.sizes,
       images: [...data.images].map((item) => item.name),
@@ -64,7 +65,15 @@ export default function Addproduct() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newProduct),
-    }).then((res) => console.log(res));
+    }).then((res) => {
+      toast.warning(res.status);
+      if (res.status === 201) {
+        toast.success(t("Productadded"));
+        reset();
+      } else if (res.status === 400) {
+        toast.error(t("correctrequestnotsent"));
+      }
+    });
   };
   const errorsHandler = () => {
     console.log(errors);
