@@ -18,7 +18,6 @@ export default function Login() {
   // 
 
   
-  const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/g;
   const formsubmiting = (data: any) => {
     console.log(data);
   };
