@@ -44,11 +44,15 @@ export default function Addproduct() {
       name: data.name,
       desc: data.desc,
       category: data.category,
-      price: data.price,
-      discountPrice: data.discountPrice,
       color: data.color,
-      tags: data.tags,
+      ...(data.weight && { weight: data.weight }),
+      ...(data.country && { country: data.country }),
       count: data.count,
+      price: data.price,
+      ...(data.discountPrice && { discountPrice: data.discountPrice }),
+      ...(data.hasTax && { hasTax: data.hasTax }),
+      ...(data.isDigital && { isDigital: data.isDigital }),
+      tags: data.tags,
       sizes: data.sizes,
       images: [...data.images].map((item) => item.name),
     };
@@ -171,13 +175,6 @@ export default function Addproduct() {
                         {t("ordraganddropfiles")}
                       </p>
                     </div>
-                    {watchValue.images ? (
-                      <div className="flex flex-wrap gap-5 *:border *:p-1 *:rounded-md">
-                        {[...allValue.images].map((item: any, index) => (
-                          <p key={index}>{item.name}</p>
-                        ))}
-                      </div>
-                    ) : null}
                     <input
                       {...register("images")}
                       id="dropzone-file"
@@ -187,6 +184,18 @@ export default function Addproduct() {
                     />
                   </label>
                 </div>
+                {watchValue.images ? (
+                  <div className="grid grid-cols-6 mt-10">
+                    {[...allValue.images].map((item: any, index) => (
+                      <img
+                        key={index}
+                        className="h-32"
+                        src={URL.createObjectURL(item)}
+                        alt={item.name}
+                      />
+                    ))}
+                  </div>
+                ) : null}
                 {/* input file */}
               </div>
             </div>
