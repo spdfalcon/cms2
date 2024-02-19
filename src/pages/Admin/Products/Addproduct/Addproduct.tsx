@@ -22,16 +22,16 @@ export default function Addproduct() {
       name: "",
       desc: "",
       category: "",
-      price: 0,
-      discountPrice: 0,
+      price: "",
+      discountPrice: "",
       color: "black",
       hasTax: false,
       sizes: [],
       tags: [],
       images: [],
-      count: 0,
+      count: "",
       isDigital: false,
-      weight: 0,
+      weight: "",
       country: "",
     },
   });
@@ -39,28 +39,28 @@ export default function Addproduct() {
   const watchValue = watch();
   const [tags, setTags]: any = useState([]);
   const [inputTags, setInputTags] = useState("");
-  const formSubmit = () => {
-    console.log(typeof allValue.images);
-    // fetch("https://prime.liara.run/api/v1/products", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(
-    //     {
-    //       name:allValue.name,
-    //       desc:allValue.desc,
-    //       category:allValue.category,
-    //       price:allValue.price,
-    //       discountPrice:allValue.discountPrice,
-    //       color:allValue.color,
-    //       tags:allValue.tags,
-    //       count:allValue.count,
-    //       sizes:allValue.sizes,
-          // images:allValue.images
-    //   }
-    //   ),
-    // }).then((res) => console.log(res));
+  const formSubmit = (data: any) => {
+    const newProduct = {
+      name: data.name,
+      desc: data.desc,
+      category: data.category,
+      price: data.price,
+      discountPrice: data.discountPrice,
+      color: data.color,
+      tags: data.tags,
+      count: data.count,
+      sizes: data.sizes,
+      images: [...data.images].map((item) => item.name),
+    };
+    console.log(newProduct);
+
+    fetch("https://prime.liara.run/api/v1/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    }).then((res) => console.log(res));
   };
   const errorsHandler = () => {
     console.log(errors);
@@ -68,8 +68,6 @@ export default function Addproduct() {
       toast.error(t("pleaseentertheproductname"));
     } else if (errors.desc?.message) {
       toast.error(t("pleaseentertheproductdescription"));
-    } else if (errors.images?.message) {
-      toast.error(t("Pleaseuploadtheimageoftheproduct"));
     } else if (errors.price?.message) {
       toast.error(t("Pleaseenterthepriceoftheproduct"));
     } else if (errors.color?.message) {
@@ -161,9 +159,8 @@ export default function Addproduct() {
                 <div className="file flex items-center justify-center w-full">
                   <label
                     htmlFor="dropzone-file"
-                    className={`flex flex-col items-center justify-center w-full h-64 border-2  ${
-                      errors.images?.message ? "border-red-400" : ""
-                    } border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600`}
+                    className={`flex flex-col items-center justify-center w-full h-64 border-2
+                    border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600`}
                   >
                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                       <i className="bi bi-cloud-arrow-up text-4xl mb-4 text-gray-500 dark:text-gray-400"></i>
@@ -182,9 +179,7 @@ export default function Addproduct() {
                       </div>
                     ) : null}
                     <input
-                      {...register("images", {
-                        required: t("Pleaseuploadtheimageoftheproduct"),
-                      })}
+                      {...register("images")}
                       id="dropzone-file"
                       type="file"
                       multiple
