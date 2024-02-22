@@ -4,64 +4,23 @@ import Headerofpages from "../../../components/module/Headerofpages/Headerofpage
 import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
 import Filter from "../../../components/module/Filter/Filter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Products() {
-  const recentTransactions: any = [
-    {
-      id: 1,
-      pic: "/img/dashboard/11.png",
-      Product: "Jessica S.",
-      Inventory: "96 in stock",
-      Color: "red",
-      Price: 556,
-      Rating: 4.5,
-      total: "$49.90",
-    },
-    {
-      id: 2,
-      pic: "/img/dashboard/12.png",
-      Product: "Andrew S.",
-      Inventory: "23.05.2020",
-      Color: "red",
-      Price: 256,
-      Rating: 5,
-      total: "$49.90",
-    },
-    {
-      id: 3,
-      pic: "/img/dashboard/13.png",
-      Product: "Kevin S.",
-      Inventory: "23.05.2020",
-      Color: "red",
-      Price: 156,
-      Rating: 3,
-      total: "$49.90",
-    },
-    {
-      id: 4,
-      pic: "/img/dashboard/14.png",
-      Product: "Jack S.",
-      Inventory: "22.05.2020",
-      Color: "red",
-      Price: 56,
-      Rating: 4.5,
-      total: "$49.90",
-    },
-    {
-      id: 5,
-      pic: "/img/dashboard/15.png",
-      Product: "Arthur S.",
-      Inventory: "22.05.2020",
-      Color: "red",
-      Price: 26,
-      Rating: 4.5,
-      total: "$49.90",
-    },
-  ];
+  const [products, setProducts]: any = useState([]);
+  useEffect(() => {
+    fetch("https://prime.liara.run/api/v1/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data.data.items));
+  }, []);
+  
+  
   const location = useLocation();
   const { t } = useTranslation();
-  const [orders, setOrders] = useState([...recentTransactions]);
+  const [orders, setOrders] = useState([...products]);
+  useEffect(() => {
+    setOrders([...products]);
+  }, [products]);
   const [nameFilter, setNameFilter] = useState(t("filter"));
   const filters = [
     { id: 8, name: t("all") },
@@ -71,25 +30,22 @@ export default function Products() {
   const filterHandler = (e: any) => {
     switch (e.target.innerHTML) {
       case t("price"): {
-        const newOrder = [...recentTransactions].sort(
-          (a, b) => b.Price - a.Price
-        );
+        const newOrder = [...products].sort((a, b) => b.price - a.price);
         setOrders(newOrder);
         break;
       }
       case t("rating"): {
-        const newOrder = [...recentTransactions].sort(
-          (a, b) => b.Rating - a.Rating
-        );
+        const newOrder = [...products].sort((a, b) => b.rating - a.rating);
         setOrders(newOrder);
         break;
       }
       case t("all"): {
-        setOrders(recentTransactions);
+        setOrders(products);
         break;
       }
     }
   };
+
   return (
     <>
       {location.pathname === "/admin/products" ? (
@@ -154,25 +110,34 @@ export default function Products() {
                           </tr>
                         </thead>
                         <tbody className="mt-5">
-                          {orders.map((item: any) => (
+                          {orders?.map((item: any) => (
                             <tr
-                              key={item.id}
+                              key={item._id}
                               className="*:px-6 *:py-3 *:text-nowrap *:text-start"
                             >
                               <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm flex items-center gap-2">
-                                <img src={item.pic} alt="" />
+                                <img src={item.images} alt="" />
                                 <label
                                   htmlFor={`checkbox${item.id}`}
                                   className=""
                                 >
-                                  {item.Product}
+                                  {item.name}
                                 </label>
                               </td>
-                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                                {item.Inventory}
+                              <td className=" text-a_general-100 dark:text-white text-xs md:text-sm">
+                                <span className="rtl:flex ltr:hidden">
+                                  {new Date(item.createdAt).toLocaleDateString(
+                                    "fa"
+                                  )}
+                                </span>
+                                <span className="ltr:flex rtl:hidden">
+                                  {new Date(
+                                    item.createdAt
+                                  ).toLocaleDateString()}
+                                </span>
                               </td>
                               <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                                {item.Color}
+                                {item.color}
                               </td>
                               <td className="">
                                 <span
@@ -182,17 +147,17 @@ export default function Products() {
                                       : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
                                   }`}
                                 >
-                                  {item.Price}
+                                  {item.price.toLocaleString()} ريال
                                 </span>
                               </td>
                               <td className="">
                                 <span className={`px-4 py-1 rounded-md`}>
-                                  {item.Rating}
+                                  {item.rating ? item.rating : 0}
                                 </span>
                               </td>
                               <td>
                                 <div className="right text-a_primary-100  flex gap-2 justify-center">
-                                  <Link to={`${item.id}`}>
+                                  <Link to={`${item._id}`}>
                                     <Button
                                       type="White"
                                       size="sm"
