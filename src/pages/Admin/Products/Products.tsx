@@ -15,8 +15,9 @@ export default function Products() {
     fetch("https://prime.liara.run/api/v1/products")
       .then((res) => res.json())
       .then((data) => setProducts(data.data.items));
+      console.log('mohammad');
       
-  }, [isShow]);
+  },[]);
 
   const location = useLocation();
   const { t } = useTranslation();

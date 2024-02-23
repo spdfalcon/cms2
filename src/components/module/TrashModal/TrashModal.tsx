@@ -5,12 +5,12 @@ interface Trash {
   setIsShow: Dispatch<SetStateAction<boolean>>;
 }
 const TrashModal: React.FC<Trash> = ({ setIsShow, id }) => {
-  const TrashHandler = () => {
+  const TrashHandler = async () => {
     setIsShow(false);
-    fetch(`https://prime.liara.run/api/v1/products/${id}`, {
+   await fetch(`https://prime.liara.run/api/v1/products/${id}`, {
       method: "DELETE",
-    }).then(res=>console.log(res)
-    )
+    }).then((res) => console.log(res));
+      document.location.reload()
   };
   return (
     <>

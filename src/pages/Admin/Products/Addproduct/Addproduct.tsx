@@ -55,7 +55,7 @@ export default function Addproduct() {
       isDigital: data.isDigital,
       tags: data.tags,
       sizes: data.sizes,
-      images: [...data.images].map((item) => item.name),
+      // images: [...data.images].map((item) => item.name),
     };
     console.log(newProduct);
 
