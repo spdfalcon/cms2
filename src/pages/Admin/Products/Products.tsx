@@ -5,16 +5,19 @@ import { useTranslation } from "react-i18next";
 import Button from "../../../components/module/Button/Button";
 import Filter from "../../../components/module/Filter/Filter";
 import { useEffect, useState } from "react";
+import TrashModal from "../../../components/module/TrashModal/TrashModal";
 
 export default function Products() {
+  const [isShow, setIsShow] = useState(false);
+  const [id , setId]= useState(0)
   const [products, setProducts]: any = useState([]);
   useEffect(() => {
     fetch("https://prime.liara.run/api/v1/products")
       .then((res) => res.json())
       .then((data) => setProducts(data.data.items));
-  }, []);
-  
-  
+      
+  }, [isShow]);
+
   const location = useLocation();
   const { t } = useTranslation();
   const [orders, setOrders] = useState([...products]);
@@ -35,7 +38,7 @@ export default function Products() {
         break;
       }
       case t("rating"): {
-        const newOrder = [...products].sort((a, b) => b.rating - a.rating);
+        const newOrder = [...products].sort((a, b) => b?.rating - a?.rating);
         setOrders(newOrder);
         break;
       }
@@ -164,11 +167,16 @@ export default function Products() {
                                       icon="bi bi-pencil"
                                     ></Button>
                                   </Link>
-                                  <Button
-                                    type="White"
-                                    size="sm"
-                                    icon="bi bi-trash"
-                                  ></Button>
+                                  <div onClick={() => {
+                                    setIsShow(true)
+                                    setId(item._id)
+                                  }}>
+                                    <Button
+                                      type="White"
+                                      size="sm"
+                                      icon="bi bi-trash"
+                                    ></Button>
+                                  </div>
                                 </div>
                               </td>
                             </tr>
@@ -200,6 +208,11 @@ export default function Products() {
               <EmpityOrder></EmpityOrder>
             )}
           </div>
+          {isShow ? (
+            <TrashModal setIsShow={setIsShow} id={id}></TrashModal>
+          ) : (
+            ""
+          )}
         </>
       ) : (
         <>
