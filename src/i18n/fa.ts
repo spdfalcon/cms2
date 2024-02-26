@@ -15,6 +15,14 @@ const fa = {
   Productadded:'محصول افزوده شد', 
   correctrequestnotsent:'درخواست صحیح ارسال نشده', 
 
+  //trash modal 
+  areyousureyouwanttodeleteselecteditem:'آیا مطمئن هستید که می خواهید مورد انتخاب شده را حذف کنید؟',
+  delete:'حذف',
+  deleteitems:'حذف آیتم',
+
+
+  //trash modal 
+
   // alerts
   //topbar
   all:'همه',

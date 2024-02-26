@@ -14,6 +14,11 @@ const en = {
   Pleaseenterthesize:'Please enter the size',
   Productadded:'Product added',
   correctrequestnotsent:'Correct request not sent',
+  //trash modal 
+  areyousureyouwanttodeleteselecteditem:'Are you sure you want to delete selected item?',
+  delete:'Delete',
+  deleteitems:'Delete Items',
+  //trash modal 
 
   // alerts
   //topbar
