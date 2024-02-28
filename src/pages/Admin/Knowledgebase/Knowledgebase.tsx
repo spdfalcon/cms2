@@ -1,18 +1,13 @@
-import { useState } from "react";
-import TrashModal from "../../../components/module/TrashModal/TrashModal";
+import { useQuery } from "react-query";
+import apiRequests from "../../../configs/axios/apiRequests";
 
 export default function Knowledgebase() {
-  const [isShow , setIsShow] = useState(false)
+  const {data} = useQuery('Courses' , ()=>apiRequests.get('/products').then(res=>res.data.data.items))
+  console.log(data);
+  
   return (
     <div className="">
-      <button onClick={()=>setIsShow(true)} className="mt-52 ">clicl</button>
-      {
-        isShow ? (
-          <TrashModal setIsShow={setIsShow} id={1233456}></TrashModal>      
-        ) : (
-          ''
-        ) 
-      }
+      
     </div>
   );
 }

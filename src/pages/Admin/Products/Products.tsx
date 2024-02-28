@@ -6,19 +6,22 @@ import Button from "../../../components/module/Button/Button";
 import Filter from "../../../components/module/Filter/Filter";
 import { useEffect, useState } from "react";
 import TrashModal from "../../../components/module/TrashModal/TrashModal";
+import apiRequests from "../../../configs/axios/apiRequests";
+import { useQuery } from "react-query";
 
 export default function Products() {
   const [isShow, setIsShow] = useState(false);
-  const [id , setId]= useState(0)
+  const [id, setId] = useState(0);
   const [products, setProducts]: any = useState([]);
+  const { data } = useQuery("Products", () =>
+    apiRequests.get("/products").then((res) => res.data.data.items)
+  );
+  console.log(data);
   useEffect(() => {
-    fetch("https://prime.liara.run/api/v1/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.data.items));
-      console.log('mohammad');
-      
-  },[]);
-
+    apiRequests
+      .get("/products")
+      .then((res) => setProducts(res.data.data.items));
+  }, []);
   const location = useLocation();
   const { t } = useTranslation();
   const [orders, setOrders] = useState([...products]);
@@ -168,10 +171,12 @@ export default function Products() {
                                       icon="bi bi-pencil"
                                     ></Button>
                                   </Link>
-                                  <div onClick={() => {
-                                    setIsShow(true)
-                                    setId(item._id)
-                                  }}>
+                                  <div
+                                    onClick={() => {
+                                      setIsShow(true);
+                                      setId(item._id);
+                                    }}
+                                  >
                                     <Button
                                       type="White"
                                       size="sm"

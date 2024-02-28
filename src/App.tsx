@@ -32,7 +32,7 @@ function App() {
   }, []);
   return (
     <>
-      <div className="">{rout}</div>
+        <div className="">{rout}</div>
     </>
   );
 }

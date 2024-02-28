@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { DevTool } from "@hookform/devtools";
+import apiRequests from "../../../../configs/axios/apiRequests";
 
 export default function Addproduct() {
   const { t } = useTranslation();
@@ -57,15 +58,7 @@ export default function Addproduct() {
       sizes: data.sizes,
       // images: [...data.images].map((item) => item.name),
     };
-    console.log(newProduct);
-
-    fetch("https://prime.liara.run/api/v1/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    }).then((res) => {
+    apiRequests.post("/products", newProduct).then((res) => {
       toast.warning(res.status);
       if (res.status === 201) {
         toast.success(t("Productadded"));
