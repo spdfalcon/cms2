@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { DevTool } from "@hookform/devtools";
 import { useParams } from "react-router-dom";
+import apiRequests from "../../../../configs/axios/apiRequests";
 
 export default function Editproduct() {
   const idpoduct = useParams().editproductid
@@ -51,13 +52,22 @@ export default function Editproduct() {
     };
     console.log(newProduct);
 
-    fetch("https://prime.liara.run/api/v1/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    }).then((res) => {
+    // fetch("https://prime.liara.run/api/v1/products", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(newProduct),
+    // }).then((res) => {
+    //   toast.warning(res.status);
+    //   if (res.status === 201) {
+    //     toast.success(t("Productadded"));
+    //     reset();
+    //   } else if (res.status === 400) {
+    //     toast.error(t("correctrequestnotsent"));
+    //   }
+    // });
+    apiRequests.post(`/products${idpoduct}`, newProduct).then((res) => {
       toast.warning(res.status);
       if (res.status === 201) {
         toast.success(t("Productadded"));
