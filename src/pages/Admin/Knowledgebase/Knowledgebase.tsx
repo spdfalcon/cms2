@@ -6,8 +6,8 @@ export default function Knowledgebase() {
   console.log(data);
   
   return (
-    <div className="">
-      
+    <div className="mt-20">
+      <h1>mohammad</h1>
     </div>
   );
 }

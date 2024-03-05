@@ -2,7 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
     input{
         @apply outline-none text-xs md:text-base dark:bg-a_general-50

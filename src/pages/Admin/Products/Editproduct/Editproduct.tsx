@@ -67,7 +67,7 @@ export default function Editproduct() {
     //     toast.error(t("correctrequestnotsent"));
     //   }
     // });
-    apiRequests.post(`/products${idpoduct}`, newProduct).then((res) => {
+    apiRequests.put(`/products/${idpoduct}`, newProduct).then((res) => {
       toast.warning(res.status);
       if (res.status === 201) {
         toast.success(t("Productadded"));
