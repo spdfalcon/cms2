@@ -28,7 +28,7 @@ export default function Editproduct() {
       const {data} = await res.json()
       return data
     }
-  });
+  });  
   const allValue = getValues();
   const watchValue = watch();
   const [tags, setTags]: any = useState([]);
@@ -51,25 +51,9 @@ export default function Editproduct() {
       // images: [...data.images].map((item) => item.name),
     };
     console.log(newProduct);
-
-    // fetch("https://prime.liara.run/api/v1/products", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(newProduct),
-    // }).then((res) => {
-    //   toast.warning(res.status);
-    //   if (res.status === 201) {
-    //     toast.success(t("Productadded"));
-    //     reset();
-    //   } else if (res.status === 400) {
-    //     toast.error(t("correctrequestnotsent"));
-    //   }
-    // });
     apiRequests.put(`/products/${idpoduct}`, newProduct).then((res) => {
       toast.warning(res.status);
-      if (res.status === 201) {
+      if (res.status === 200) {
         toast.success(t("Productadded"));
         reset();
       } else if (res.status === 400) {

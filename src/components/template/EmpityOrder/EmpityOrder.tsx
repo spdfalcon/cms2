@@ -1,4 +1,6 @@
-export default function EmpityOrder() {
+import { Link } from "react-router-dom";
+
+export default function EmpityOrder({to}:any) {
   return (
     <>
       <div className="flex justify-center items-center py-10 bg-white dark:bg-a_general-90 rounded-md">
@@ -11,7 +13,7 @@ export default function EmpityOrder() {
           </p>
           <button className="bg-a_primary-100 px-8 py-2 text-white rounded-md flex items-center justify-center">
             <i className="bi bi-plus-lg"></i>
-            <span>Add Order</span>
+            <Link to={to}>Add Order</Link>
           </button>
           <a className="text-a_primary-100" href="/">Read More</a>
         </div>

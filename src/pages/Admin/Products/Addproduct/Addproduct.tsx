@@ -4,7 +4,6 @@ import Button from "../../../../components/module/Button/Button";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import { DevTool } from "@hookform/devtools";
 import apiRequests from "../../../../configs/axios/apiRequests";
 
 export default function Addproduct() {
@@ -13,7 +12,6 @@ export default function Addproduct() {
   const {
     register,
     handleSubmit,
-    control,
     setValue,
     watch,
     reset,
@@ -550,7 +548,6 @@ export default function Addproduct() {
         </div>
       </form>
       <ToastContainer></ToastContainer>
-      <DevTool control={control}></DevTool>
     </>
   );
 }

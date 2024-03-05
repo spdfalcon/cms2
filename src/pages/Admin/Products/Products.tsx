@@ -8,8 +8,13 @@ import { useEffect, useState } from "react";
 import TrashModal from "../../../components/module/TrashModal/TrashModal";
 import apiRequests from "../../../configs/axios/apiRequests";
 import { useQuery } from "react-query";
+import Loading from "../../../components/module/Loading/Loading";
+import Pagination from "../../../components/module/Pagination/Pagination";
 
 export default function Products() {
+  const paginationInPage = 4;
+  const [page, setPage] = useState(1);
+
   const [isShow, setIsShow] = useState(false);
   const [id, setId] = useState(0);
   const { data: products, isLoading } = useQuery("Products", () =>
@@ -113,109 +118,105 @@ export default function Products() {
                             </tr>
                           </thead>
                           <tbody className="mt-5">
-                            {orders?.map((item: any) => (
-                              <tr
-                                key={item._id}
-                                className="*:px-6 *:py-3 *:text-nowrap *:text-start"
-                              >
-                                <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm flex items-center gap-2">
-                                  <img src={item.images} alt="" />
-                                  <label
-                                    htmlFor={`checkbox${item.id}`}
-                                    className=""
-                                  >
-                                    {item.name}
-                                  </label>
-                                </td>
-                                <td className=" text-a_general-100 dark:text-white text-xs md:text-sm">
-                                  <span className="rtl:flex ltr:hidden">
-                                    {new Date(
-                                      item.createdAt
-                                    ).toLocaleDateString("fa")}
-                                  </span>
-                                  <span className="ltr:flex rtl:hidden">
-                                    {new Date(
-                                      item.createdAt
-                                    ).toLocaleDateString()}
-                                  </span>
-                                </td>
-                                <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                                  {item.color}
-                                </td>
-                                <td className="">
-                                  <span
-                                    className={`px-4 py-1 rounded-md ${
-                                      item.paymentstatus === "Paid"
-                                        ? "bg-a_green-101/20  text-a_green-101"
-                                        : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
-                                    }`}
-                                  >
-                                    {item.price.toLocaleString()} ريال
-                                  </span>
-                                </td>
-                                <td className="">
-                                  <span className={`px-4 py-1 rounded-md`}>
-                                    {item.rating ? item.rating : 0}
-                                  </span>
-                                </td>
-                                <td>
-                                  <div className="right text-a_primary-100  flex gap-2 justify-center">
-                                    <Link to={`${item._id}`}>
-                                      <Button
-                                        type="White"
-                                        size="sm"
-                                        icon="bi bi-pencil"
-                                      ></Button>
-                                    </Link>
-                                    <div
-                                      onClick={() => {
-                                        setIsShow(true);
-                                        setId(item._id);
-                                      }}
+                            {orders
+                              .slice(
+                                paginationInPage * page - paginationInPage,
+                                paginationInPage * page
+                              )
+                              ?.map((item: any) => (
+                                <tr
+                                  key={item._id}
+                                  className="*:px-6 *:py-3 *:text-nowrap *:text-start"
+                                >
+                                  <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm flex items-center gap-2">
+                                    <img src={item.images} alt="" />
+                                    <label
+                                      htmlFor={`checkbox${item.id}`}
+                                      className=""
                                     >
-                                      <Button
-                                        type="White"
-                                        size="sm"
-                                        icon="bi bi-trash"
-                                      ></Button>
+                                      {item.name}
+                                    </label>
+                                  </td>
+                                  <td className=" text-a_general-100 dark:text-white text-xs md:text-sm">
+                                    <span className="rtl:flex ltr:hidden">
+                                      {new Date(
+                                        item.createdAt
+                                      ).toLocaleDateString("fa")}
+                                    </span>
+                                    <span className="ltr:flex rtl:hidden">
+                                      {new Date(
+                                        item.createdAt
+                                      ).toLocaleDateString()}
+                                    </span>
+                                  </td>
+                                  <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
+                                    {item.color}
+                                  </td>
+                                  <td className="">
+                                    <span
+                                      className={`px-4 py-1 rounded-md ${
+                                        item.paymentstatus === "Paid"
+                                          ? "bg-a_green-101/20  text-a_green-101"
+                                          : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
+                                      }`}
+                                    >
+                                      {item.price.toLocaleString()} ريال
+                                    </span>
+                                  </td>
+                                  <td className="">
+                                    <span className={`px-4 py-1 rounded-md`}>
+                                      {item.rating ? item.rating : 0}
+                                    </span>
+                                  </td>
+                                  <td>
+                                    <div className="right text-a_primary-100  flex gap-2 justify-center">
+                                      <Link to={`${item._id}`}>
+                                        <Button
+                                          type="White"
+                                          size="sm"
+                                          icon="bi bi-pencil"
+                                        ></Button>
+                                      </Link>
+                                      <div
+                                        onClick={() => {
+                                          setIsShow(true);
+                                          setId(item._id);
+                                        }}
+                                      >
+                                        <Button
+                                          type="White"
+                                          size="sm"
+                                          icon="bi bi-trash"
+                                        ></Button>
+                                      </div>
                                     </div>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))}
+                                  </td>
+                                </tr>
+                              ))}
                           </tbody>
                         </table>
                       </div>
                     </div>
                     <div className="flex down justify-between text-a_general-70">
-                      <div className="l flex gap-2 items-center">
-                        <i className="bi bi-arrow-left cursor-pointer"></i>
-                        <ul className="flex *:flex *:justify-center *:items-center gap-2 *:size-7 *:rounded *:cursor-pointer">
-                          <li>1</li>
-                          <li className="bg-a_primary-30">2</li>
-                          <li>3</li>
-                          <li>4</li>
-                          <li>5</li>
-                          <li>6</li>
-                        </ul>
-                        <i className="bi bi-arrow-right cursor-pointer"></i>
-                      </div>
+                      <Pagination
+                        all={orders.length}
+                        inpage={paginationInPage}
+                        setPage={setPage}
+                        page={page}
+                      ></Pagination>
                       <div className="r">
-                        <p>274 {t("results")}</p>
+                        <p>
+                          {orders.length} {t("results")}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               ) : (
-                <EmpityOrder></EmpityOrder>
+                <EmpityOrder to={"addproduct"}></EmpityOrder>
               )
             ) : (
-              <div className="relative flex justify-center items-center w-full mt-40 ">
-                <div className=" size-12 border-2 border-a_primary-100 animate-spin rounded-md"></div>
-                <div className="absolute top-1/2 -translate-y-1/2 text-xl animate-pulse">
-                  Loading...
-                </div>
-              </div>
+              <Loading></Loading>
             )}
           </div>
           {isShow ? (

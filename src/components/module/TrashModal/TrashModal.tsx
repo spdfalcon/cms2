@@ -16,9 +16,9 @@ const TrashModal: React.FC<Trash> = ({ setIsShow, id }) => {
   return (
     <>
       <div className="absolute w-full h-screen top-0 left-0  z-30 flex justify-center items-center">
-        <div className="z-10 bg-white p-7 rounded-md flex flex-col gap-3">
-          <p className="font-iransans-700 text-xl">{t("deleteitems")}</p>
-          <p className="">{t("areyousureyouwanttodeleteselecteditem")}</p>
+        <div className="z-10 bg-white  p-7 rounded-md flex flex-col gap-3">
+          <p className="font-iransans-700 text-xl dark:text-a_general-100">{t("deleteitems")}</p>
+          <p className="dark:text-a_general-100">{t("areyousureyouwanttodeleteselecteditem")}</p>
           <div className="flex justify-end gap-4 mt-4">
             <div onClick={() => setIsShow(false)}>
               <Button type="Destructive" size="sm">
