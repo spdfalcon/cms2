@@ -12,7 +12,6 @@ import Products from "../pages/Admin/Products/Products";
 import Productupdates from "../pages/Admin/Productupdates/Productupdates";
 import Reports from "../pages/Admin/Reports/Reports";
 import ConfirmEmail from "../pages/Registers/ConfirmEmail/ConfirmEmail";
-import Login from "../pages/Registers/Login/Login";
 import ResetPassword from "../pages/Registers/ResetPassword/ResetPassword";
 import Signup from "../pages/Registers/Signup/Signup";
 import Addproduct from "../pages/Admin/Products/Addproduct/Addproduct";
@@ -22,9 +21,10 @@ import EditCategory from "../pages/Admin/Categories/EditCategory/EditCategory";
 import Addcustomer from "../pages/Admin/Customers/Addcustomer/Addcustomer";
 import Editcustomers from "../pages/Admin/Customers/Editcustomers/Editcustomers";
 import Createcoupon from "../pages/Admin/Coupons/Createcoupon/Createcoupon";
+import Signin from "../pages/Registers/Signin/Signin";
 
 const routes = [
-  { path: "/", element: <Login></Login> },
+  { path: "/", element: <Signin></Signin> },
   {
     path: "/admin",
     element: <Admin></Admin>,

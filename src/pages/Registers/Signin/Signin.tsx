@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import apiRequests from "../../../configs/axios/apiRequests";
 
-export default function Login() {
+export default function Signin() {
   const { t } = useTranslation();
   const {
     register,
@@ -10,16 +11,18 @@ export default function Login() {
     handleSubmit,
   } = useForm({
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
-      check: false,
+      // check: false,
     },
   });
-  // 
+  //
 
-  
-  const formsubmiting = (data: any) => {
+  const formsubmiting = async (data: any) => {
     console.log(data);
+    apiRequests
+      .post("/auth/signin", data)
+      .then((res) => console.log(res.data.token));
   };
   return (
     <div className="flex h-screen text-center">
@@ -46,11 +49,11 @@ export default function Login() {
                 {t("email")}
               </label>
               <input
-                {...register("email", {
+                {...register("username", {
                   required: true,
                 })}
                 className={`border p-2 rounded focus:outline-none text-xs md:text-base ${
-                  errors.email ? "border-red-400" : "border-green-400"
+                  errors.username ? "border-red-400" : "border-green-400"
                 }`}
                 placeholder={t("enteremailaddress")}
                 type="text"
@@ -71,7 +74,7 @@ export default function Login() {
                 type="text"
                 id="password"
               />
-              <div className="flex mt-4 gap-2">
+              {/* <div className="flex mt-4 gap-2">
                 <input
                   {...register("check")}
                   className=""
@@ -84,16 +87,15 @@ export default function Login() {
                 >
                   {t("keepmesignedin")}
                 </label>
-              </div>
+              </div> */}
             </div>
             <div>
-              <Link
+              <button
                 // type="submit"
-                to={"/admin/dashboard"}
                 className="block p-3 w-full rounded bg-a_primary-100 text-white text-xs md:text-sm"
               >
                 {t("signin")}
-              </Link>
+              </button>
             </div>
             <div className="text-xs md:text-sm">
               <Link className="text-a_primary-100" to={"/resetpassword"}>
