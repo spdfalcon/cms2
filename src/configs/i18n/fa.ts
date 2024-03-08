@@ -88,6 +88,8 @@ const fa = {
   createaccount: "ایجاد حساب کاربری",
   forgotyourpassword: "رمز عبور خود را فراموش کرده اید؟",
   orsigninusing: "یا با استفاده از:",
+  Thepasswordorusernameisincorrect: "رمز عبور یا نام کاربری اشتباه است",
+
 
   // Sign in
 

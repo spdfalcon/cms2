@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import apiRequests from "../../../configs/axios/apiRequests";
-
+import Cookies from "universal-cookie";
+import { toast } from "react-toastify";
 export default function Signin() {
+  const navigate = useNavigate()
+  const cookies = new Cookies()
   const { t } = useTranslation();
   const {
     register,
@@ -22,7 +25,15 @@ export default function Signin() {
     console.log(data);
     apiRequests
       .post("/auth/signin", data)
-      .then((res) => console.log(res.data.token));
+      .then((res) =>  {
+        console.log(res);
+        if(res.status === 201){
+          cookies.set('token' , res.data.token)
+          navigate('/admin/dashboard')
+        }else {
+          toast.error(t('Thepasswordorusernameisincorrect'))
+        }
+      })
   };
   return (
     <div className="flex h-screen text-center">

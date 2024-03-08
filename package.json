@@ -16,6 +16,7 @@
     "@mui/x-data-grid": "^6.19.2",
     "axios": "^1.6.7",
     "bootstrap-icons": "^1.11.3",
+    "cookie": "^0.6.0",
     "formik": "^2.4.5",
     "i18next": "^23.8.1",
     "json-server": "^1.0.0-alpha.23",
@@ -25,10 +26,11 @@
     "react-i18next": "^14.0.1",
     "react-multi-date-picker": "^4.4.1",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.21.3",
+    "react-router-dom": "^6.22.3",
     "react-toastify": "^10.0.4",
     "recharts": "^2.10.4",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "universal-cookie": "^7.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

@@ -71,6 +71,7 @@ const en = {
   createaccount: "Create Account",
   forgotyourpassword: "Forgot your password?",
   orsigninusing: "Or sign in using:",
+  Thepasswordorusernameisincorrect: "The password or username is incorrect",
 
   // Sign in
 
