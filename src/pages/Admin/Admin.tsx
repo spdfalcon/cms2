@@ -1,11 +1,27 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import SideBar from "../../components/template/SideBar/SideBar";
 import TopBar from "../../components/template/TopBar/TopBar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Cookies from "universal-cookie";
+import apiRequests from "../../configs/axios/apiRequests";
 
 const Admin: React.FC = () => {
   const [isShowHamberMenu, setIsShowHamberMenu] = useState(false);
-
+  const cookies = new Cookies();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = cookies.get("token");
+    apiRequests
+      .get("/category", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {})
+      .catch(() => {
+        navigate("/");
+      });
+  }, []);
   return (
     <>
       <div className="relative">

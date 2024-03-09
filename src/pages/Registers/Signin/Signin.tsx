@@ -36,14 +36,17 @@ export default function Signin() {
       });
   }, []);
   const formsubmiting = async (data: any) => {
-    apiRequests.post("/auth/signin", data).then((res) => {
-      if (res.status === 201) {
-        cookies.set("token", res.data.token);
-        navigate("/admin/dashboard");
-      } else {
+    apiRequests
+      .post("/auth/signin", data)
+      .then((res) => {
+        if (res.status === 201) {
+          cookies.set("token", res.data.token);
+          navigate("/admin/dashboard");
+        }
+      })
+      .catch(() => {
         toast.error(t("Thepasswordorusernameisincorrect"));
-      }
-    });
+      });
   };
   return (
     <div className="flex h-screen text-center">
