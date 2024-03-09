@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import apiRequests from "../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import { useEffect } from "react";
 export default function Signin() {
-  const navigate = useNavigate()
-  const cookies = new Cookies()
+  const navigate = useNavigate();
+  const cookies = new Cookies();
   const { t } = useTranslation();
   const {
     register,
@@ -20,20 +21,29 @@ export default function Signin() {
     },
   });
   //
-
-  const formsubmiting = async (data: any) => {
-    console.log(data);
+  useEffect(() => {
+    const token = cookies.get("token");
     apiRequests
-      .post("/auth/signin", data)
-      .then((res) =>  {
-        console.log(res);
-        if(res.status === 201){
-          cookies.set('token' , res.data.token)
-          navigate('/admin/dashboard')
-        }else {
-          toast.error(t('Thepasswordorusernameisincorrect'))
-        }
+      .get("/category", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/admin/dashboard");
+        }
+      });
+  }, []);
+  const formsubmiting = async (data: any) => {
+    apiRequests.post("/auth/signin", data).then((res) => {
+      if (res.status === 201) {
+        cookies.set("token", res.data.token);
+        navigate("/admin/dashboard");
+      } else {
+        toast.error(t("Thepasswordorusernameisincorrect"));
+      }
+    });
   };
   return (
     <div className="flex h-screen text-center">
@@ -140,6 +150,7 @@ export default function Signin() {
           </div>
         </form>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
