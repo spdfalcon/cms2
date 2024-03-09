@@ -1,5 +1,3 @@
-import { useQuery } from "react-query";
-import apiRequests from "../../../configs/axios/apiRequests";
 import { useState } from "react";
 
 export default function Knowledgebase() {
