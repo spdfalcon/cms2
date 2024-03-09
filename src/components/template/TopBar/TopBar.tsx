@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 interface OtherComponentProps {
   isShowHamberMenu: boolean;
   setIsShowHamberMenu: Function;
 }
+const cookies = new Cookies();
 const TopBar: React.FC<OtherComponentProps> = ({
   isShowHamberMenu,
   setIsShowHamberMenu,
@@ -17,6 +20,7 @@ const TopBar: React.FC<OtherComponentProps> = ({
     name: localStorage.getItem("lang") === "fa" ? "فارسی" : "English",
   });
   const [isShowLangModal, setIsShowLangModal] = useState(false);
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [isDark, setIsDark] = useState(false);
   useEffect(() => {
@@ -109,8 +113,8 @@ const TopBar: React.FC<OtherComponentProps> = ({
           <div className="relative">
             <div
               onClick={() => {
-                setIsShowLangModal((last) => !last)
-                setIsShowUserDropDown(false)
+                setIsShowLangModal((last) => !last);
+                setIsShowUserDropDown(false);
               }}
               className=" flex items-center gap-2 cursor-pointer text-a_general-80 dark:text-a_general-40 font-semibold md:w-32"
             >
@@ -192,8 +196,8 @@ const TopBar: React.FC<OtherComponentProps> = ({
           <div className="relative">
             <div
               onClick={() => {
-                setIsShowUserDropDown((last) => !last)
-                setIsShowLangModal(false)
+                setIsShowUserDropDown((last) => !last);
+                setIsShowLangModal(false);
               }}
               className="flex items-center gap-2 cursor-pointer"
             >
@@ -208,25 +212,41 @@ const TopBar: React.FC<OtherComponentProps> = ({
               ></i>
             </div>
             <div
-              className={`duration-300 z-20 absolute px-5 py-3 bg-white rounded-md dark:bg-a_general-90 ltr:right-0 rtl:-right-32 text-nowrap flex flex-col divide-y gap-y-3 *:py-1 shadow-lg ${
+              className={`duration-300 z-50 absolute px-5 py-3 bg-white rounded-md dark:bg-a_general-90 ltr:right-0 rtl:-right-32 text-nowrap flex flex-col divide-y gap-y-3 *:py-1 shadow-lg ${
                 isShowUserDropDown ? "top-14" : "-top-64"
               }`}
             >
-              <div onClick={()=>setIsShowUserDropDown(false)} className="cursor-pointer flex text-sm gap-2 items-center">
+              <div
+                onClick={() => setIsShowUserDropDown(false)}
+                className="cursor-pointer flex text-sm gap-2 items-center"
+              >
                 <i className="bi bi-person-fill-gear bg-gradient-to-b from-[#4E96FF] to-[#80C9FC] text-transparent bg-clip-text text-xl "></i>
-                <span>{t('manageaccount')}</span>
+                <span>{t("manageaccount")}</span>
               </div>
-              <div onClick={()=>setIsShowUserDropDown(false)} className="cursor-pointer flex text-sm gap-2 items-center ">
+              <div
+                onClick={() => setIsShowUserDropDown(false)}
+                className="cursor-pointer flex text-sm gap-2 items-center "
+              >
                 <i className="bi bi-key-fill -rotate-45 bg-gradient-to-b from-[#F97FD9] to-[#FFC1E6] text-transparent bg-clip-text text-xl"></i>
-                <span>{t('changepassword')}</span>
+                <span>{t("changepassword")}</span>
               </div>
-              <div onClick={()=>setIsShowUserDropDown(false)} className="cursor-pointer flex text-sm gap-2 items-center ">
+              <div
+                onClick={() => setIsShowUserDropDown(false)}
+                className="cursor-pointer flex text-sm gap-2 items-center "
+              >
                 <i className="bi bi-repeat bg-gradient-to-b from-[#9E8FFF] to-[#EBCBFF] text-transparent bg-clip-text text-xl"></i>
-                <span>{t('activitylog')}</span>
+                <span>{t("activitylog")}</span>
               </div>
-              <div onClick={()=>setIsShowUserDropDown(false)} className="cursor-pointer flex text-sm gap-2 items-center ">
+              <div
+                onClick={() => {
+                  setIsShowUserDropDown(false);
+                  cookies.remove("token");
+                  navigate("/");
+                }}
+                className="cursor-pointer flex text-sm gap-2 items-center "
+              >
                 <i className="bi bi-box-arrow-right bg-gradient-to-b from-[#FF8F8F] to-[#FFC1C1] text-transparent bg-clip-text text-xl"></i>
-                <span>{t('logout')}</span>
+                <span>{t("logout")}</span>
               </div>
             </div>
           </div>
@@ -236,10 +256,10 @@ const TopBar: React.FC<OtherComponentProps> = ({
       {/*  */}
       <div
         onClick={() => {
-          setIsShowUserDropDown(false)
-          setIsShowLangModal(false)
+          setIsShowUserDropDown(false);
+          setIsShowLangModal(false);
         }}
-        className={`absolute w-full h-full bg-black/0 z-30 ${
+        className={`absolute w-full h-full bg-black/0 z-10 ${
           isShowUserDropDown ? "block" : "hidden"
         }`}
       ></div>
