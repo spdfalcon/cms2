@@ -7,16 +7,16 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function AddCategories() {
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit } = useForm({
     defaultValues:{
       name:''
     }
   });
-  const [products , setProducts] = useState([
+  const products = [
     { id: crypto.randomUUID(), pic: "/img/dashboard/11.png", title: "Women Striped T-Shirt" },
     { id: crypto.randomUUID(), pic: "/img/dashboard/11.png", title: "Women Striped " },
     { id: crypto.randomUUID(), pic: "/img/dashboard/11.png", title: "Women  T-Shirt" },
-  ])
+  ]
   const formSubmit = (data: any) => {
     const newcategory = {
       name:data.name,
@@ -28,6 +28,7 @@ export default function AddCategories() {
     
     
     
+    console.log(newcategory);
     
   };
   const { t } = useTranslation();
