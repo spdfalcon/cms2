@@ -212,27 +212,27 @@ const TopBar: React.FC<OtherComponentProps> = ({
               ></i>
             </div>
             <div
-              className={`duration-300 z-50 absolute px-5 py-3 bg-white rounded-md dark:bg-a_general-90 ltr:right-0 rtl:-right-32 text-nowrap flex flex-col divide-y gap-y-3 *:py-1 shadow-lg ${
+              className={`overflow-hidden duration-300 z-50 absolute *:px-5 bg-white rounded-md dark:bg-a_general-90 ltr:right-0 rtl:-right-32 text-nowrap flex flex-col divide-y   shadow-lg ${
                 isShowUserDropDown ? "top-14" : "-top-64"
               }`}
             >
               <div
                 onClick={() => setIsShowUserDropDown(false)}
-                className="cursor-pointer flex text-sm gap-2 items-center"
+                className=" hover:bg-a_primary-70 hover:text-white py-2 duration-300 cursor-pointer flex text-sm gap-2 items-center"
               >
                 <i className="bi bi-person-fill-gear bg-gradient-to-b from-[#4E96FF] to-[#80C9FC] text-transparent bg-clip-text text-xl "></i>
                 <span>{t("manageaccount")}</span>
               </div>
               <div
                 onClick={() => setIsShowUserDropDown(false)}
-                className="cursor-pointer flex text-sm gap-2 items-center "
+                className="hover:bg-a_primary-70 hover:text-white py-2 duration-300 cursor-pointer flex text-sm gap-2 items-center "
               >
                 <i className="bi bi-key-fill -rotate-45 bg-gradient-to-b from-[#F97FD9] to-[#FFC1E6] text-transparent bg-clip-text text-xl"></i>
                 <span>{t("changepassword")}</span>
               </div>
               <div
                 onClick={() => setIsShowUserDropDown(false)}
-                className="cursor-pointer flex text-sm gap-2 items-center "
+                className="hover:bg-a_primary-70 hover:text-white py-2 duration-300 cursor-pointer flex text-sm gap-2 items-center "
               >
                 <i className="bi bi-repeat bg-gradient-to-b from-[#9E8FFF] to-[#EBCBFF] text-transparent bg-clip-text text-xl"></i>
                 <span>{t("activitylog")}</span>
@@ -243,7 +243,7 @@ const TopBar: React.FC<OtherComponentProps> = ({
                   cookies.remove("token");
                   navigate("/");
                 }}
-                className="cursor-pointer flex text-sm gap-2 items-center "
+                className="hover:bg-a_primary-70 hover:text-white py-2 duration-300 cursor-pointer flex text-sm gap-2 items-center "
               >
                 <i className="bi bi-box-arrow-right bg-gradient-to-b from-[#FF8F8F] to-[#FFC1C1] text-transparent bg-clip-text text-xl"></i>
                 <span>{t("logout")}</span>
