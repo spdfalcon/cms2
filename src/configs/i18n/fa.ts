@@ -189,6 +189,8 @@ const fa = {
 
   // categories
   addcategory: "افزودن دسته بندی",
+  enteryourcategoryname: "نام کتگوری خود را وارد کنید",
+  ok: "تایید",
 
   // add categories
   womenclothes:'لباس زنانه',

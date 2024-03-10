@@ -180,6 +180,9 @@ const en = {
 
   // categories
   addcategory: "Add Category",
+  enteryourcategoryname: "Enter your category name",
+  ok: "ok",
+
   // add categories
   womenclothes: "Women Clothes",
   categoryvisibility: "Category Visibility",
