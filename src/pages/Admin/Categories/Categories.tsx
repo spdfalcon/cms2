@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import apiRequests from "../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
 import Loading from "../../../components/module/Loading/Loading";
-
+import Swal from 'sweetalert2'
 export default function Categories() {
   const cookies = new Cookies();
   const token = cookies.get("token");
@@ -28,7 +28,20 @@ export default function Categories() {
       {/* header */}
       <div>
         <Headerofpages title={t("categories")}>
-          <div onClick={()=>console.log('mohammad')
+          <div onClick={
+            ()=>{
+              Swal.fire({
+                title: 'Error!',
+                text: 'Do you want to continue',
+                icon: 'error',
+                confirmButtonText: 'ok',
+                cancelButtonText:'cancel',
+                showCancelButton:true,
+                input:'text',
+              })
+              .then(res=>console.log(res)
+              )
+            }
           }>
             <Button type="Primary" icon="bi bi-plus-lg" size="md">
               {t("addcategory")}
