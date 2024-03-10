@@ -61,7 +61,7 @@ const TopBar: React.FC<OtherComponentProps> = ({
               className="bi bi-search text-a_general-70"
             ></label>
             <input
-              className="text-sm p-2 outline-none rounded-md"
+              className="text-sm p-2 outline-none rounded-full focus:border"
               placeholder={`${t("search")}...`}
               type="search"
               name=""
