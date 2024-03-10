@@ -92,7 +92,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
 
   return (
     <div className=" bg-a_general-30 dark:bg-a_general-80 top-[68px] md:p-4 p-1 ltr:border-r rtl:border-l md:mt-[68px]">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 ">
         {items.slice(0, 8).map((item) => (
           <NavLink
             onClick={() => setIsShowHamberMenu((last: any) => !last)}
@@ -100,7 +100,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
             className={({ isActive }) =>
               isActive
                 ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
+                : "hover:bg-a_primary-70 hover:text-white flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
             }
             to={item.to}
           >
@@ -127,7 +127,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
             className={({ isActive }) =>
               isActive
                 ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
+                : "hover:bg-a_primary-70 hover:text-white flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
             }
             to={item.to}
           >
@@ -154,7 +154,7 @@ const SideBar: React.FC<OtherComponentProps> = ({
             className={({ isActive }) =>
               isActive
                 ? ` flex items-center justify-between px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md bg-a_primary-100 text-white`
-                : "flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
+                : "hover:bg-a_primary-70 hover:text-white flex justify-between items-center px-5 py-2 gap-4  font-medium text-xs md:text-sm  rounded-md  text-a_general-80 dark:text-a_general-40"
             }
             to={item.to}
           >
