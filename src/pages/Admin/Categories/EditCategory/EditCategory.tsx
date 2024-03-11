@@ -4,7 +4,7 @@ import Headerofpages from "../../../../components/module/Headerofpages/Headerofp
 import Button from "../../../../components/module/Button/Button";
 import { useTranslation } from "react-i18next";
 import CheckBox from "../../../../components/module/CheckBox/CheckBox";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import apiRequests from "../../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
@@ -73,14 +73,42 @@ export default function EditCategory() {
     },
   ];
   const formSubmit = (data: any) => {
-    const newcategory = {
-      name: data.name,
-      products,
-      image: null,
-      visibale: ischeckedaddcategoriesvisibleonsite,
-    };
-
-    console.log(newcategory);
+    Swal.fire({
+      title: "آیا از تغییرات مطمعن هستید؟",
+      confirmButtonText: t("ok"),
+      cancelButtonText: t("cancel"),
+      showCancelButton: true,
+      icon: "warning",
+      text: `${t("name")}: ${data.name}`,
+    }).then((res) => {
+      if (res.isConfirmed) {
+        apiRequests
+          .put(
+            `/category/${categoryid}`,
+            {
+              name: data.name,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            }
+          )
+          .then((res) => {
+            if (res.status === 200) {
+              Swal.fire({
+                title: "تغییرات با موفقیت انجام شد",
+                icon: "success",
+              }).then((res) => {
+                if (!res.isDenied) {
+                  navigate("/admin/categories");
+                }
+              });
+            }
+          });
+      }
+    });
   };
   const { t } = useTranslation();
   const [
