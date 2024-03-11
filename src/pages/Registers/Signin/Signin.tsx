@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import apiRequests from "../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
 import { ToastContainer, toast } from "react-toastify";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 export default function Signin() {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const { t } = useTranslation();
+  const [isvisiblePass, setIsVisiblePass] = useState(true);
   const {
     register,
     formState: { errors },
@@ -21,6 +22,7 @@ export default function Signin() {
     },
   });
   //
+
   useEffect(() => {
     const token = cookies.get("token");
     apiRequests
@@ -91,13 +93,23 @@ export default function Signin() {
               >
                 {t("password")}
               </label>
-              <input
-                {...register("password")}
-                className="border p-2 rounded focus:outline-none text-xs md:text-base"
-                placeholder={t("enterpassword")}
-                type="text"
-                id="password"
-              />
+              <div className="border  rounded focus:outline-none text-xs md:text-base flex">
+                <input
+                  {...register("password")}
+                  className="w-full p-2"
+                  placeholder={t("enterpassword")}
+                  type={`${isvisiblePass ? "password" : "text"}`}
+                  id="password"
+                />
+                <div className="cursor-pointer flex items-center">
+                  <i
+                    onClick={() => setIsVisiblePass((priv) => !priv)}
+                    className={`${
+                      isvisiblePass ? "bi bi-eye-fill" : "bi bi-eye-slash-fill"
+                    }`}
+                  ></i>
+                </div>
+              </div>
               {/* <div className="flex mt-4 gap-2">
                 <input
                   {...register("check")}
