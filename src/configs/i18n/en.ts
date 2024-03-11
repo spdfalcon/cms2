@@ -188,6 +188,9 @@ const en = {
   categoryvisibility: "Category Visibility",
   visibleonsite: "Visible on site",
   categoryinfo: "Category Info",
+  addedsuccessfully: "Added successfully",
+  aproblemhasarisen: "A problem has arisen",
+  removecategory: "Remove category",
   // add categories
   // categories
   //Customer

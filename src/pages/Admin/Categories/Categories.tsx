@@ -62,13 +62,13 @@ export default function Categories() {
                       .then(() => {
                         refetch();
                         Swal.fire({
-                          title: "با موفقیت اضافه شد",
+                          title: t("addedsuccessfully"),
                           icon: "success",
                         });
                       })
                       .catch(() => {
                         Swal.fire({
-                          title: "مشکلی به وجود آمده",
+                          title: t("aproblemhasarisen"),
                           icon: "error",
                         });
                       });
