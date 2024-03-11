@@ -7,10 +7,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { DevTool } from "@hookform/devtools";
 import { useParams } from "react-router-dom";
 import apiRequests from "../../../../configs/axios/apiRequests";
+import Cookies from "universal-cookie";
 
 export default function Editproduct() {
-  const idpoduct = useParams().editproductid
-  
+  const idpoduct = useParams().editproductid;
+
   const { t } = useTranslation();
   // form
   const {
@@ -23,22 +24,29 @@ export default function Editproduct() {
     getValues,
     formState: { errors },
   } = useForm({
-    defaultValues: async()=>{
-      const res = await fetch(`https://prime.liara.run/api/v1/products/${idpoduct}`)
-      const {data} = await res.json()
-      return data
-    }
-  });  
+    defaultValues: async () => {
+      const data = await apiRequests
+        .get(`/product/${idpoduct}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => res.data);
+      return data;
+    },
+  });
   const allValue = getValues();
   const watchValue = watch();
   const [tags, setTags]: any = useState([]);
   const [inputTags, setInputTags] = useState("");
+  const cookies = new Cookies();
+  const token = cookies.get("token");
   const formSubmit = (data: any) => {
     const newProduct = {
       name: data.name,
-      desc: data.desc,
+      description: data.description,
       category: data.category,
-      color: data.color,
+      // color: data.color,
       ...(data.weight && { weight: data.weight }),
       ...(data.country && { country: data.country }),
       count: data.count,
@@ -51,21 +59,27 @@ export default function Editproduct() {
       // images: [...data.images].map((item) => item.name),
     };
     console.log(newProduct);
-    apiRequests.put(`/products/${idpoduct}`, newProduct).then((res) => {
-      toast.warning(res.status);
-      if (res.status === 200) {
-        toast.success(t("Productadded"));
-        reset();
-      } else if (res.status === 400) {
-        toast.error(t("correctrequestnotsent"));
-      }
-    });
+    apiRequests
+      .put(`/product/${idpoduct}`, newProduct, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        toast.warning(res.status);
+        if (res.status === 200) {
+          toast.success(t("Productadded"));
+          reset();
+        } else if (res.status === 400) {
+          toast.error(t("correctrequestnotsent"));
+        }
+      });
   };
   const errorsHandler = () => {
     console.log(errors);
     if (errors.name?.message) {
       toast.error(t("pleaseentertheproductname"));
-    } else if (errors.desc?.message) {
+    } else if (errors.description?.message) {
       toast.error(t("pleaseentertheproductdescription"));
     } else if (errors.price?.message) {
       toast.error(t("Pleaseenterthepriceoftheproduct"));
@@ -138,11 +152,11 @@ export default function Editproduct() {
                   {t("productdescription")}
                 </label>
                 <textarea
-                  {...register("desc", {
+                  {...register("description", {
                     required: t("pleaseentertheproductdescription"),
                   })}
                   className={`border w-full outline-none px-4 py-2 rounded-md h-24 text-sm md:text-base ${
-                    errors.desc?.message ? "border-red-400" : ""
+                    errors.description?.message ? "border-red-400" : ""
                   }`}
                   placeholder={t("productdescription")}
                   id="addproductproductdescription"
@@ -288,7 +302,7 @@ export default function Editproduct() {
                       id="value"
                     />
                   </div>
-                  <div className="mt-5 flex flex-col gap-2">
+                  {/* <div className="mt-5 flex flex-col gap-2">
                     <label
                       htmlFor="addproductcolor"
                       className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
@@ -306,7 +320,7 @@ export default function Editproduct() {
                       type="text"
                       id="addproductcolor"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div className="mt-5 flex flex-col gap-2">
                   <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
@@ -326,7 +340,7 @@ export default function Editproduct() {
                     <option value="2Xl">2Xl</option>
                     <option value="3Xl">3Xl</option>
                   </select>
-                  {watchValue.sizes?.map((item:any, index:any) => (
+                  {watchValue.sizes?.map((item: any, index: any) => (
                     <div
                       key={index}
                       className=" bg-a_general-50 dark:bg-a_general-80 px-px md:px-2 gap-1 md:gap-3 text-a_general-80 dark:text-a_general-40 flex justify-between rounded-md text-xs md:text-base"

@@ -2,16 +2,25 @@ import React, { Dispatch, SetStateAction } from "react";
 import Button from "../Button/Button";
 import { useTranslation } from "react-i18next";
 import apiRequests from "../../../configs/axios/apiRequests";
+import Cookies from "universal-cookie";
 interface Trash {
   id: number;
   setIsShow: Dispatch<SetStateAction<boolean>>;
+  refetch:any
 }
-const TrashModal: React.FC<Trash> = ({ setIsShow, id }) => {
+const TrashModal: React.FC<Trash> = ({ setIsShow, id , refetch}) => {
+  const cookies = new Cookies()
+  const token = cookies.get('token')
   const { t } = useTranslation();
   const TrashHandler = async () => {
     setIsShow(false);
-    await apiRequests.delete(`/products/${id}`);
-    document.location.reload();
+    await apiRequests.delete(`/product/${id}`,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    });
+    // document.location.reload();
+    refetch()
   };
   return (
     <>

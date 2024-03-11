@@ -33,7 +33,7 @@ export default function Products() {
   }, [searchInput]);
   const [isShow, setIsShow] = useState(false);
   const [id, setId] = useState(0);
-  const { data: products, isLoading } = useQuery("Products", () =>
+  const { data: products, isLoading , refetch } = useQuery("Products", () =>
     apiRequests
       .get("/product", {
         headers: {
@@ -152,7 +152,7 @@ export default function Products() {
                                 )
                                 ?.map((item: any) => (
                                   <tr
-                                    key={item._id}
+                                    key={item.id}
                                     className="*:px-6 *:py-3 *:text-nowrap *:text-start"
                                   >
                                     <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm flex items-center gap-2">
@@ -197,7 +197,7 @@ export default function Products() {
                                     </td>
                                     <td>
                                       <div className="right text-a_primary-100  flex gap-2 justify-center">
-                                        <Link to={`${item._id}`}>
+                                        <Link to={`${item.id}`}>
                                           <Button
                                             type="White"
                                             size="sm"
@@ -207,7 +207,7 @@ export default function Products() {
                                         <div
                                           onClick={() => {
                                             setIsShow(true);
-                                            setId(item._id);
+                                            setId(item.id);
                                           }}
                                         >
                                           <Button
@@ -248,7 +248,7 @@ export default function Products() {
             )}
           </div>
           {isShow ? (
-            <TrashModal setIsShow={setIsShow} id={id}></TrashModal>
+            <TrashModal setIsShow={setIsShow} id={id} refetch={refetch}></TrashModal>
           ) : (
             ""
           )}
