@@ -10,8 +10,11 @@ import apiRequests from "../../../configs/axios/apiRequests";
 import { useQuery } from "react-query";
 import Loading from "../../../components/module/Loading/Loading";
 import Pagination from "../../../components/module/Pagination/Pagination";
+import Cookies from "universal-cookie";
 
 export default function Products() {
+  const cookies = new Cookies();
+  const token = cookies.get("token");
   const paginationInPage = 4;
   const [page, setPage] = useState(1);
   const [searchInput, setSearchInput] = useState("");
@@ -31,7 +34,13 @@ export default function Products() {
   const [isShow, setIsShow] = useState(false);
   const [id, setId] = useState(0);
   const { data: products, isLoading } = useQuery("Products", () =>
-    apiRequests.get("/products").then((res) => res.data.data.items)
+    apiRequests
+      .get("/product", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => res.data)
   );
   const location = useLocation();
   const { t } = useTranslation();
