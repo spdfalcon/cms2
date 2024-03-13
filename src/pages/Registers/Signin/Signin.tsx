@@ -14,6 +14,7 @@ export default function Signin() {
     register,
     formState: { errors },
     handleSubmit,
+    watch,
   } = useForm({
     defaultValues: {
       username: "",
@@ -50,6 +51,7 @@ export default function Signin() {
         toast.error(t("Thepasswordorusernameisincorrect"));
       });
   };
+
   return (
     <div className="flex h-screen text-center">
       <div className="m-auto bg-white dark:bg-a_general-90 px-[60px] py-9 rounded w-[540px]">
@@ -69,21 +71,23 @@ export default function Signin() {
           <div className=" mt-5 md:mt-10 flex flex-col md:gap-6 gap-3">
             <div className="flex flex-col text-left">
               <label
-                htmlFor="email"
+                htmlFor="username"
                 className="text-xs md:text-xs md:text-sm text-a_general-80 dark:text-a_general-40"
               >
-                {t("email")}
+                {t("username")}
               </label>
               <input
                 {...register("username", {
                   required: true,
                 })}
                 className={`border p-2 rounded focus:outline-none text-xs md:text-base ${
-                  errors.username ? "border-red-400" : "border-green-400"
+                  !watch().username || errors.username
+                    ? "border-red-400"
+                    : "border-green-400"
                 }`}
-                placeholder={t("enteremailaddress")}
+                placeholder={t("enteryourusername")}
                 type="text"
-                id="email"
+                id="username"
               />
             </div>
             <div className="flex flex-col text-left">
@@ -93,17 +97,25 @@ export default function Signin() {
               >
                 {t("password")}
               </label>
-              <div className="border  rounded focus:outline-none text-xs md:text-base flex">
+              <div
+                className={`border rounded focus:outline-none text-xs md:text-base flex ${
+                  !watch().password || errors.password
+                    ? "border-red-400"
+                    : "border-green-400"
+                }`}
+              >
                 <input
-                  {...register("password")}
-                  className="w-full p-2"
+                  {...register("password", {
+                    required: true,
+                  })}
+                  className={`w-full p-2`}
                   placeholder={t("enterpassword")}
                   type={`${isvisiblePass ? "password" : "text"}`}
                   id="password"
                 />
-                <div className="cursor-pointer flex items-center">
+                <div onClick={() => setIsVisiblePass((priv) => !priv)} className="cursor-pointer flex items-center px-2 justify-center bg-a_primary-60">
                   <i
-                    onClick={() => setIsVisiblePass((priv) => !priv)}
+                    
                     className={`${
                       isvisiblePass ? "bi bi-eye-fill" : "bi bi-eye-slash-fill"
                     }`}

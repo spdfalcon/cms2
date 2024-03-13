@@ -78,6 +78,8 @@ const fa = {
 
   // Sign in
   signin: "ورود",
+  username: "نام کاربری",
+  enteryourusername: "نام کاربری خود را وارد کنید",
   newtoourproduct: "جدید در محصول ما",
   createanaccount: "یک حساب کاربری ایجاد کنید",
   email: "ایمیل",

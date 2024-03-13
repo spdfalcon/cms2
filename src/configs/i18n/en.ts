@@ -61,6 +61,8 @@ const en = {
 
   // Sign in
   signin: "Sign in",
+  username: "Username",
+  enteryourusername: "Enter your username",
   newtoourproduct: "New to Our Product",
   createanaccount: "Create an Account",
   email: "Email",
