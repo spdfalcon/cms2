@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import apiRequests from "../../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
+import { useQuery } from "react-query";
 
 export default function Addproduct() {
   const { t } = useTranslation();
@@ -36,6 +37,7 @@ export default function Addproduct() {
       country: "",
     },
   });
+  const { refetch } = useQuery("Products");
   const allValue = getValues();
   const cookies = new Cookies();
   const token = cookies.get("token");
@@ -70,6 +72,7 @@ export default function Addproduct() {
         if (res.status === 201) {
           toast.success(t("Productadded"));
           reset();
+          refetch();
         } else if (res.status === 400) {
           toast.error(t("correctrequestnotsent"));
         }

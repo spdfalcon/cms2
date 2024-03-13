@@ -33,7 +33,7 @@ export default function Products() {
   }, [searchInput]);
   const [isShow, setIsShow] = useState(false);
   const [id, setId] = useState(0);
-  const { data: products, isLoading , refetch } = useQuery("Products", () =>
+  const { data: products, isLoading , refetch  } = useQuery("Products", () =>
     apiRequests
       .get("/product", {
         headers: {
@@ -41,7 +41,10 @@ export default function Products() {
         },
       })
       .then((res) => res.data)
-  );
+      // ,{
+      //   refetchInterval:2000
+      // }
+  )
   const location = useLocation();
   const { t } = useTranslation();
   const [orders, setOrders]: any = useState([]);
