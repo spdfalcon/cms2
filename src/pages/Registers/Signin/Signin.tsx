@@ -113,9 +113,11 @@ export default function Signin() {
                   type={`${isvisiblePass ? "password" : "text"}`}
                   id="password"
                 />
-                <div onClick={() => setIsVisiblePass((priv) => !priv)} className="cursor-pointer flex items-center px-2 justify-center bg-a_primary-60">
+                <div
+                  onClick={() => setIsVisiblePass((priv) => !priv)}
+                  className="cursor-pointer flex items-center px-2 justify-center bg-a_primary-60"
+                >
                   <i
-                    
                     className={`${
                       isvisiblePass ? "bi bi-eye-fill" : "bi bi-eye-slash-fill"
                     }`}
