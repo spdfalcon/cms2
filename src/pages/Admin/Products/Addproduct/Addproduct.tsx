@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import apiRequests from "../../../../configs/axios/apiRequests";
+import Cookies from "universal-cookie";
 
 export default function Addproduct() {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ export default function Addproduct() {
   } = useForm({
     defaultValues: {
       name: "",
-      desc: "",
+      description: "",
       category: "",
       price: "",
       discountPrice: "",
@@ -36,41 +37,49 @@ export default function Addproduct() {
     },
   });
   const allValue = getValues();
+  const cookies = new Cookies();
+  const token = cookies.get("token");
   const watchValue = watch();
   const [tags, setTags]: any = useState([]);
   const [inputTags, setInputTags] = useState("");
   const formSubmit = (data: any) => {
     const newProduct = {
       name: data.name,
-      desc: data.desc,
-      category: data.category,
-      color: data.color,
+      description: data.description,
+      // category: data.category,
+      // color: data.color,
       ...(data.weight && { weight: data.weight }),
       ...(data.country && { country: data.country }),
       count: data.count,
       price: data.price,
-      ...(data.discountPrice && { discountPrice: data.discountPrice }),
-      hasTax: data.hasTax,
+      // ...(data.discountPrice && { discountPrice: data.discountPrice }),
+      // hasTax: data.hasTax,
       isDigital: data.isDigital,
       tags: data.tags,
-      sizes: data.sizes,
+      // sizes: data.sizes,
       // images: [...data.images].map((item) => item.name),
     };
-    apiRequests.post("/products", newProduct).then((res) => {
-      toast.warning(res.status);
-      if (res.status === 201) {
-        toast.success(t("Productadded"));
-        reset();
-      } else if (res.status === 400) {
-        toast.error(t("correctrequestnotsent"));
-      }
-    });
+    apiRequests
+      .post("/product", newProduct, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        toast.warning(res.status);
+        if (res.status === 201) {
+          toast.success(t("Productadded"));
+          reset();
+        } else if (res.status === 400) {
+          toast.error(t("correctrequestnotsent"));
+        }
+      });
   };
   const errorsHandler = () => {
     console.log(errors);
     if (errors.name?.message) {
       toast.error(t("pleaseentertheproductname"));
-    } else if (errors.desc?.message) {
+    } else if (errors.description?.message) {
       toast.error(t("pleaseentertheproductdescription"));
     } else if (errors.price?.message) {
       toast.error(t("Pleaseenterthepriceoftheproduct"));
@@ -143,11 +152,11 @@ export default function Addproduct() {
                   {t("productdescription")}
                 </label>
                 <textarea
-                  {...register("desc", {
+                  {...register("description", {
                     required: t("pleaseentertheproductdescription"),
                   })}
                   className={`border w-full outline-none px-4 py-2 rounded-md h-24 text-sm md:text-base ${
-                    errors.desc?.message ? "border-red-400" : ""
+                    errors.description?.message ? "border-red-400" : ""
                   }`}
                   placeholder={t("productdescription")}
                   id="addproductproductdescription"
@@ -225,7 +234,7 @@ export default function Addproduct() {
                     id="addproductproductprice"
                   />
                 </div>
-                <div className="mt-5 flex flex-col gap-2">
+                {/* <div className="mt-5 flex flex-col gap-2">
                   <label
                     htmlFor="addproductdiscountprice"
                     className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm "
@@ -241,12 +250,10 @@ export default function Addproduct() {
                     type="text"
                     id="addproductdiscountprice"
                   />
-                </div>
+                </div> */}
               </div>
-              <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-                {/* radio */}
+              {/* <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
                 <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-                  {/* radio */}
                   <input
                     {...register("hasTax")}
                     className="peer hidden"
@@ -257,13 +264,11 @@ export default function Addproduct() {
                     className="duration-300 shadow-lg cursor-pointer w-12 h-6 bg-a_primary-40 rounded-full flex after:size-5 after:bg-white after:rounded-full items-center after:translate-x-0.5 peer-checked:after:translate-x-[26px] rtl:peer-checked:after:-translate-x-[26px] after:duration-300 peer-checked:bg-a_primary-100"
                     htmlFor="tax"
                   ></label>
-                  {/* radio */}
                   <label htmlFor="tax" className="">
                     {t("addtaxforthisproduct")}
                   </label>
                 </div>
-                {/* radio */}
-              </div>
+              </div> */}
               {/* price */}
             </div>
 
@@ -293,7 +298,7 @@ export default function Addproduct() {
                       id="value"
                     />
                   </div>
-                  <div className="mt-5 flex flex-col gap-2">
+                  {/* <div className="mt-5 flex flex-col gap-2">
                     <label
                       htmlFor="addproductcolor"
                       className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm"
@@ -311,9 +316,9 @@ export default function Addproduct() {
                       type="text"
                       id="addproductcolor"
                     />
-                  </div>
+                  </div> */}
                 </div>
-                <div className="mt-5 flex flex-col gap-2">
+                {/* <div className="mt-5 flex flex-col gap-2">
                   <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
                     {t("size")}
                   </p>
@@ -339,7 +344,7 @@ export default function Addproduct() {
                       <span>{item}</span>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
             {/* Different Options */}
@@ -409,7 +414,7 @@ export default function Addproduct() {
           </div>
 
           <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white dark:*:bg-a_general-70  dark:bg-a_general-90  *:p-7 *:rounded-md">
-            <div className="section1">
+            {/* <div className="section1">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("categories")}
               </h3>
@@ -463,7 +468,7 @@ export default function Addproduct() {
               </div>
 
               <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
-            </div>
+            </div> */}
             <div className="section2 flex flex-col gap-4">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("tags")}
@@ -515,7 +520,7 @@ export default function Addproduct() {
                 ))}
               </div>
             </div>
-            <div className="section3 flex flex-col gap-4">
+            {/* <div className="section3 flex flex-col gap-4">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("seosettings")}
               </h3>
@@ -543,7 +548,7 @@ export default function Addproduct() {
                   id="seoswttingdescription"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </form>
