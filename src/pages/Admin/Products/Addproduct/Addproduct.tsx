@@ -2,7 +2,7 @@ import Headerofpages from "../../../../components/module/Headerofpages/Headerofp
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
 import { useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import apiRequests from "../../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
