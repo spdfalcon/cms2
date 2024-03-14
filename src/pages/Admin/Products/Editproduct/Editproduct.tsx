@@ -234,7 +234,7 @@ export default function Editproduct() {
                     id="addproductproductprice"
                   />
                 </div>
-                <div className="mt-5 flex flex-col gap-2">
+                {/* <div className="mt-5 flex flex-col gap-2">
                   <label
                     htmlFor="addproductdiscountprice"
                     className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm "
@@ -250,12 +250,10 @@ export default function Editproduct() {
                     type="text"
                     id="addproductdiscountprice"
                   />
-                </div>
+                </div> */}
               </div>
-              <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-                {/* radio */}
+              {/* <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
                 <div className="mt-5 flex items-center gap-3 text-a_general-80 dark:text-a_general-40">
-                  {/* radio */}
                   <input
                     {...register("hasTax")}
                     className="peer hidden"
@@ -266,13 +264,11 @@ export default function Editproduct() {
                     className="duration-300 shadow-lg cursor-pointer w-12 h-6 bg-a_primary-40 rounded-full flex after:size-5 after:bg-white after:rounded-full items-center after:translate-x-0.5 peer-checked:after:translate-x-[26px] rtl:peer-checked:after:-translate-x-[26px] after:duration-300 peer-checked:bg-a_primary-100"
                     htmlFor="tax"
                   ></label>
-                  {/* radio */}
                   <label htmlFor="tax" className="">
                     {t("addtaxforthisproduct")}
                   </label>
                 </div>
-                {/* radio */}
-              </div>
+              </div> */}
               {/* price */}
             </div>
 
@@ -322,7 +318,7 @@ export default function Editproduct() {
                     />
                   </div> */}
                 </div>
-                <div className="mt-5 flex flex-col gap-2">
+                {/* <div className="mt-5 flex flex-col gap-2">
                   <p className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm">
                     {t("size")}
                   </p>
@@ -348,13 +344,13 @@ export default function Editproduct() {
                       <span>{item}</span>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
             {/* Different Options */}
-            <button className="text-a_primary-100 mt-5 border-b py-3 w-full text-left">
+            {/* <button className="text-a_primary-100 mt-5 border-b py-3 w-full text-left">
               {t("addmore")}
-            </button>
+            </button> */}
 
             <div className="py-5 border-b">
               <h2 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
@@ -418,7 +414,7 @@ export default function Editproduct() {
           </div>
 
           <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white dark:*:bg-a_general-70  dark:bg-a_general-90  *:p-7 *:rounded-md">
-            <div className="section1">
+            {/* <div className="section1">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("categories")}
               </h3>
@@ -472,7 +468,7 @@ export default function Editproduct() {
               </div>
 
               <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
-            </div>
+            </div> */}
             <div className="section2 flex flex-col gap-4">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("tags")}
@@ -524,7 +520,7 @@ export default function Editproduct() {
                 ))}
               </div>
             </div>
-            <div className="section3 flex flex-col gap-4">
+            {/* <div className="section3 flex flex-col gap-4">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("seosettings")}
               </h3>
@@ -552,7 +548,7 @@ export default function Editproduct() {
                   id="seoswttingdescription"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </form>

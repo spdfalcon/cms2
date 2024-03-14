@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import apiRequests from "../../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
+import { useQuery } from "react-query";
 
 export default function EditCategory() {
   const navigate = useNavigate();
@@ -55,23 +56,38 @@ export default function EditCategory() {
       return data;
     },
   });
-  const products = [
-    {
-      id: crypto.randomUUID(),
-      pic: "/img/dashboard/11.png",
-      title: "Women Striped T-Shirt",
-    },
-    {
-      id: crypto.randomUUID(),
-      pic: "/img/dashboard/11.png",
-      title: "Women Striped ",
-    },
-    {
-      id: crypto.randomUUID(),
-      pic: "/img/dashboard/11.png",
-      title: "Women  T-Shirt",
-    },
-  ];
+  const { data: products } = useQuery(
+    "category",
+    () =>
+      apiRequests
+        .get(`/category/${categoryid}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => res.data.products)
+    // ,{
+    //   refetchInterval:2000
+    // }
+  );
+
+  // const products = [
+  //   {
+  //     id: crypto.randomUUID(),
+  //     pic: "/img/dashboard/11.png",
+  //     title: "Women Striped T-Shirt",
+  //   },
+  //   {
+  //     id: crypto.randomUUID(),
+  //     pic: "/img/dashboard/11.png",
+  //     title: "Women Striped ",
+  //   },
+  //   {
+  //     id: crypto.randomUUID(),
+  //     pic: "/img/dashboard/11.png",
+  //     title: "Women  T-Shirt",
+  //   },
+  // ];
   const formSubmit = (data: any) => {
     Swal.fire({
       title: "آیا از تغییرات مطمعن هستید؟",
@@ -140,10 +156,10 @@ export default function EditCategory() {
               <p className="font-bold dark:text-white rtl:font-iransans-700">
                 {t("products")}
               </p>
-              <span className="text-a_general-60">{products.length}</span>
+              <span className="text-a_general-60">{products?.length}</span>
             </div>
             <div className="mt-5 flex flex-col gap-3">
-              {products.map((item) => (
+              {products?.map((item: any) => (
                 <div
                   key={item.id}
                   className="rounded-md px-5 py-4 border flex items-center gap-4 justify-between"
@@ -151,7 +167,7 @@ export default function EditCategory() {
                   <div className="left flex items-center gap-2 text-xs md:text-base">
                     <i className="bi bi-three-dots-vertical text-a_general-60"></i>
                     <img src="/img/dashboard/11.png" alt="" />
-                    <p>Women Striped T-Shirt</p>
+                    <p>{item.name}</p>
                   </div>
                   <div className="flex gap-5">
                     <Link to={""} className="bi bi-pencil"></Link>

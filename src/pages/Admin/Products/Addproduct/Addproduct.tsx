@@ -2,13 +2,29 @@ import Headerofpages from "../../../../components/module/Headerofpages/Headerofp
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import apiRequests from "../../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
 import { useQuery } from "react-query";
+import { DevTool } from "@hookform/devtools";
 
 export default function Addproduct() {
+  const { data: category } = useQuery(
+    "category",
+    () =>
+      apiRequests
+        .get("/category", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => res.data)
+    // ,{
+    //   refetchInterval:2000
+    // }
+  );
+
   const { t } = useTranslation();
   // form
   const {
@@ -18,6 +34,7 @@ export default function Addproduct() {
     watch,
     reset,
     getValues,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -42,13 +59,18 @@ export default function Addproduct() {
   const cookies = new Cookies();
   const token = cookies.get("token");
   const watchValue = watch();
+
+  const categoryID = category?.filter(
+    (item: any) => item.name === watchValue.category
+  );
+
   const [tags, setTags]: any = useState([]);
   const [inputTags, setInputTags] = useState("");
   const formSubmit = (data: any) => {
     const newProduct = {
       name: data.name,
       description: data.description,
-      // category: data.category,
+      categoryId: categoryID[0].id,
       // color: data.color,
       ...(data.weight && { weight: data.weight }),
       ...(data.country && { country: data.country }),
@@ -61,6 +83,7 @@ export default function Addproduct() {
       // sizes: data.sizes,
       // images: [...data.images].map((item) => item.name),
     };
+
     apiRequests
       .post("/product", newProduct, {
         headers: {
@@ -100,6 +123,7 @@ export default function Addproduct() {
     setValue("tags", tags);
   }, [tags]);
   // form
+
   return (
     <>
       <form onSubmit={handleSubmit(formSubmit)} className="w-full h-44 py-8">
@@ -417,23 +441,28 @@ export default function Addproduct() {
           </div>
 
           <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white dark:*:bg-a_general-70  dark:bg-a_general-90  *:p-7 *:rounded-md">
-            {/* <div className="section1">
+            <div className="section1">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("categories")}
               </h3>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  className=""
-                  type="radio"
-                  id="checkboxCategorieswomen"
-                  value={t("women")}
-                />
-                <label htmlFor="checkboxCategorieswomen">{t("women")}</label>
-              </div>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
+              {category?.map((item: any) => (
+                <div
+                  key={item.id}
+                  className="flex gap-2 mt-3 items-center dark:text-white "
+                >
+                  <input
+                    {...register("category", {
+                      required: t("Pleaseenteracategory"),
+                    })}
+                    className=""
+                    type="radio"
+                    id={`category${item.id}`}
+                    value={item.name}
+                  />
+                  <label htmlFor={`category${item.id}`}>{item.name}</label>
+                </div>
+              ))}
+              {/* <div className="flex gap-2 mt-3 items-center dark:text-white ">
                 <input
                   className=""
                   type="radio"
@@ -444,8 +473,8 @@ export default function Addproduct() {
                   id="checkboxCategoriesmen"
                 />
                 <label htmlFor="checkboxCategoriesmen">{t("men")}</label>
-              </div>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
+              </div> */}
+              {/* <div className="flex gap-2 mt-3 items-center dark:text-white ">
                 <input
                   className=""
                   type="radio"
@@ -456,8 +485,8 @@ export default function Addproduct() {
                   id="checkboxCategoriestshirt"
                 />
                 <label htmlFor="checkboxCategoriestshirt">{t("tshirt")}</label>
-              </div>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
+              </div> */}
+              {/* <div className="flex gap-2 mt-3 items-center dark:text-white ">
                 <input
                   className=""
                   type="radio"
@@ -468,10 +497,10 @@ export default function Addproduct() {
                   id="checkboxCategorieshoodie"
                 />
                 <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
-              </div>
+              </div> */}
 
               <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
-            </div> */}
+            </div>
             <div className="section2 flex flex-col gap-4">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("tags")}
@@ -556,6 +585,7 @@ export default function Addproduct() {
         </div>
       </form>
       <ToastContainer></ToastContainer>
+      <DevTool control={control}></DevTool>
     </>
   );
 }
