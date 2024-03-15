@@ -5,13 +5,32 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { DevTool } from "@hookform/devtools";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import apiRequests from "../../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
+import { useQuery } from "react-query";
 
 export default function Editproduct() {
+  const { data: category } = useQuery("category", () =>
+    apiRequests
+      .get("/category", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => res.data)
+  );
+  const { refetch } = useQuery("Products", () =>
+    apiRequests
+      .get("/product", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => res.data)
+  );
   const idpoduct = useParams().editproductid;
-
+  const navigate = useNavigate();
   const { t } = useTranslation();
   // form
   const {
@@ -32,7 +51,7 @@ export default function Editproduct() {
           },
         })
         .then((res) => res.data);
-      return data;
+      return {...data , category:data.category.name};
     },
   });
   const allValue = getValues();
@@ -51,14 +70,13 @@ export default function Editproduct() {
       ...(data.country && { country: data.country }),
       count: data.count,
       price: data.price,
-      ...(data.discountPrice && { discountPrice: data.discountPrice }),
-      hasTax: data.hasTax,
+      // ...(data.discountPrice && { discountPrice: data.discountPrice }),
+      // hasTax: data.hasTax,
       isDigital: data.isDigital,
       tags: data.tags,
-      sizes: data.sizes,
+      // sizes: data.sizes,
       // images: [...data.images].map((item) => item.name),
     };
-    console.log(newProduct);
     apiRequests
       .put(`/product/${idpoduct}`, newProduct, {
         headers: {
@@ -70,6 +88,8 @@ export default function Editproduct() {
         if (res.status === 200) {
           toast.success(t("Productadded"));
           reset();
+          refetch();
+          navigate("/admin/products");
         } else if (res.status === 400) {
           toast.error(t("correctrequestnotsent"));
         }
@@ -414,61 +434,30 @@ export default function Editproduct() {
           </div>
 
           <div className="r  xl:col-span-4 p-10 mt-10 rounded-md flex flex-col gap-5 *:bg-white dark:*:bg-a_general-70  dark:bg-a_general-90  *:p-7 *:rounded-md">
-            {/* <div className="section1">
+            <div className="section1">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("categories")}
               </h3>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  className=""
-                  type="radio"
-                  id="checkboxCategorieswomen"
-                  value={t("women")}
-                />
-                <label htmlFor="checkboxCategorieswomen">{t("women")}</label>
-              </div>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  className=""
-                  type="radio"
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  value={t("men")}
-                  id="checkboxCategoriesmen"
-                />
-                <label htmlFor="checkboxCategoriesmen">{t("men")}</label>
-              </div>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  className=""
-                  type="radio"
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  value={t("tshirt")}
-                  id="checkboxCategoriestshirt"
-                />
-                <label htmlFor="checkboxCategoriestshirt">{t("tshirt")}</label>
-              </div>
-              <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  className=""
-                  type="radio"
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  value={t("hoodie")}
-                  id="checkboxCategorieshoodie"
-                />
-                <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
-              </div>
+              {category?.map((item: any) => (
+                <div
+                  key={item.id}
+                  className="flex gap-2 mt-3 items-center dark:text-white "
+                >
+                  <input
+                    {...register("category", {
+                      required: t("Pleaseenteracategory"),
+                    })}
+                    className=""
+                    type="radio"
+                    id={`category${item.id}`}
+                    value={item.name}
+                  />
+                  <label htmlFor={`category${item.id}`}>{item.name}</label>
+                </div>
+              ))}
 
               <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
-            </div> */}
+            </div>
             <div className="section2 flex flex-col gap-4">
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("tags")}

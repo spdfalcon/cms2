@@ -20,9 +20,6 @@ export default function Addproduct() {
           },
         })
         .then((res) => res.data)
-    // ,{
-    //   refetchInterval:2000
-    // }
   );
 
   const { t } = useTranslation();
@@ -462,43 +459,6 @@ export default function Addproduct() {
                   <label htmlFor={`category${item.id}`}>{item.name}</label>
                 </div>
               ))}
-              {/* <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  className=""
-                  type="radio"
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  value={t("men")}
-                  id="checkboxCategoriesmen"
-                />
-                <label htmlFor="checkboxCategoriesmen">{t("men")}</label>
-              </div> */}
-              {/* <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  className=""
-                  type="radio"
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  value={t("tshirt")}
-                  id="checkboxCategoriestshirt"
-                />
-                <label htmlFor="checkboxCategoriestshirt">{t("tshirt")}</label>
-              </div> */}
-              {/* <div className="flex gap-2 mt-3 items-center dark:text-white ">
-                <input
-                  className=""
-                  type="radio"
-                  {...register("category", {
-                    required: t("Pleaseenteracategory"),
-                  })}
-                  value={t("hoodie")}
-                  id="checkboxCategorieshoodie"
-                />
-                <label htmlFor="checkboxCategorieshoodie">{t("hoodie")}</label>
-              </div> */}
-
               <p className="mt-3 text-a_primary-100">{t("createnew")}</p>
             </div>
             <div className="section2 flex flex-col gap-4">

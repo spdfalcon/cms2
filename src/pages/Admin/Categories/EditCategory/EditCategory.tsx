@@ -13,10 +13,38 @@ import { useQuery } from "react-query";
 
 export default function EditCategory() {
   const navigate = useNavigate();
+  const deleteProductHandler = (id: any) => {
+    Swal.fire({
+      title: "آیا از حذف اطمینان دارید؟",
+      icon: "warning",
+      cancelButtonText: t("cancel"),
+      showCancelButton: true,
+      confirmButtonText: t("ok"),
+    }).then((res) => {
+      if (res.isConfirmed) {
+        apiRequests
+          .delete(`category/${categoryid}/removeProduct`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            data: { productId: id },
+          })
+          .then(() => {
+            refetch();
+          })
+          .catch(() => {
+            Swal.fire({
+              title: t("aproblemhasarisen"),
+              icon: "error",
+            });
+          });
+      }
+    });
+  };
   const deleteHandler = () => {
     Swal.fire({
       title: "آیا از حذف اطمینان دارید؟",
-      icon: "error",
+      icon: "warning",
       cancelButtonText: t("cancel"),
       showCancelButton: true,
       confirmButtonText: t("ok"),
@@ -44,7 +72,7 @@ export default function EditCategory() {
   const token = cookies.get("token");
   const categoryid: any = useParams().editcategory;
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit , watch } = useForm({
     defaultValues: async () => {
       const data = await apiRequests
         .get(`/category/${categoryid}`, {
@@ -56,7 +84,8 @@ export default function EditCategory() {
       return data;
     },
   });
-  const { data: products } = useQuery(
+  const watchValue = watch()
+  const { data: products, refetch } = useQuery(
     "category",
     () =>
       apiRequests
@@ -70,7 +99,8 @@ export default function EditCategory() {
     //   refetchInterval:2000
     // }
   );
-
+      
+      
   // const products = [
   //   {
   //     id: crypto.randomUUID(),
@@ -131,6 +161,7 @@ export default function EditCategory() {
     ischeckedaddcategoriesvisibleonsite,
     setIscheckedaddcategoriesvisibleonsite,
   ] = useState(false);
+  
   return (
     <form onSubmit={handleSubmit(formSubmit)}>
       <div className=" py-9 ">
@@ -138,7 +169,7 @@ export default function EditCategory() {
           <Headerofpages
             to={"/admin/categories"}
             back={true}
-            title={t("womenclothes")}
+            title={watchValue.name}
           >
             <div className="flex gap-3 flex-col items-end lg:flex-row">
               <Button type="White" size="sm">
@@ -169,9 +200,16 @@ export default function EditCategory() {
                     <img src="/img/dashboard/11.png" alt="" />
                     <p>{item.name}</p>
                   </div>
-                  <div className="flex gap-5">
-                    <Link to={""} className="bi bi-pencil"></Link>
-                    <Link to={""} className="bi bi-trash"></Link>
+                  <div className="flex gap-1 ">
+                    <button
+                      type="button"
+                      className="bi bi-pencil hover:bg-a_green-101 duration-300 rounded-lg size-10 flex justify-center items-center hover:text-white"
+                    ></button>
+                    <button
+                      onClick={() => deleteProductHandler(item.id)}
+                      type="button"
+                      className="bi bi-trash hover:bg-a_red-101 duration-300 rounded-lg size-10 flex justify-center items-center hover:text-white"
+                    ></button>
                   </div>
                 </div>
               ))}
