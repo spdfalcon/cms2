@@ -1,3 +1,13 @@
+// export default function AddproductOfCategory() {
+//   return (
+//     <div>
+      
+//     </div>
+//   )
+// }
+
+
+
 import Headerofpages from "../../../../components/module/Headerofpages/Headerofpages";
 import { useTranslation } from "react-i18next";
 import Button from "../../../../components/module/Button/Button";
@@ -8,9 +18,12 @@ import apiRequests from "../../../../configs/axios/apiRequests";
 import Cookies from "universal-cookie";
 import { useQuery } from "react-query";
 import { DevTool } from "@hookform/devtools";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Addproduct() {
-  const { data: category } = useQuery(
+export default  function  AddproductOfCategory() {
+    const param =  useLocation().search.slice(4)
+    
+  const { data: category } =  useQuery(
     "category",
     () =>
       apiRequests
@@ -19,10 +32,13 @@ export default function Addproduct() {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((res) => res.data)
+        .then((res) => {
+            
+            return res.data
+        })
   );
-
   const { t } = useTranslation();
+  const navigate = useNavigate()
   // form
   const {
     register,
@@ -36,7 +52,7 @@ export default function Addproduct() {
   } = useForm({
     defaultValues: {
       name: "",
-      description: "",
+      description:'',
       category: '',
       price: "",
       discountPrice: "",
@@ -93,11 +109,13 @@ export default function Addproduct() {
           toast.success(t("Productadded"));
           reset();
           refetch();
+          navigate(`/admin/categories/${param}`)
         } else if (res.status === 400) {
           toast.error(t("correctrequestnotsent"));
         }
       });
   };
+  
   const errorsHandler = () => {
     console.log(errors);
     if (errors.name?.message) {
@@ -442,7 +460,7 @@ export default function Addproduct() {
               <h3 className="font-bold dark:text-white rtl:font-iransans-700 text-sm md:text-base">
                 {t("categories")}
               </h3>
-              {category?.map((item: any) => (
+              {category?.filter((item:any)=>item.id === param)?.map((item: any) => (
                 <div
                   key={item.id}
                   className="flex gap-2 mt-3 items-center dark:text-white "
@@ -450,11 +468,13 @@ export default function Addproduct() {
                   <input
                     {...register("category", {
                       required: t("Pleaseenteracategory"),
+                      
                     })}
                     className=""
                     type="radio"
                     id={`category${item.id}`}
                     value={item.name}
+                    checked
                   />
                   <label htmlFor={`category${item.id}`}>{item.name}</label>
                 </div>

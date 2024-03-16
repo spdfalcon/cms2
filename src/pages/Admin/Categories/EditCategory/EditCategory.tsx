@@ -72,7 +72,7 @@ export default function EditCategory() {
   const token = cookies.get("token");
   const categoryid: any = useParams().editcategory;
 
-  const { register, handleSubmit , watch } = useForm({
+  const { register, handleSubmit, watch } = useForm({
     defaultValues: async () => {
       const data = await apiRequests
         .get(`/category/${categoryid}`, {
@@ -84,9 +84,9 @@ export default function EditCategory() {
       return data;
     },
   });
-  const watchValue = watch()
+  const watchValue = watch();
   const { data: products, refetch } = useQuery(
-    "category",
+    "product-of-category",
     () =>
       apiRequests
         .get(`/category/${categoryid}`, {
@@ -99,8 +99,7 @@ export default function EditCategory() {
     //   refetchInterval:2000
     // }
   );
-      
-      
+
   // const products = [
   //   {
   //     id: crypto.randomUUID(),
@@ -161,7 +160,7 @@ export default function EditCategory() {
     ischeckedaddcategoriesvisibleonsite,
     setIscheckedaddcategoriesvisibleonsite,
   ] = useState(false);
-  
+
   return (
     <form onSubmit={handleSubmit(formSubmit)}>
       <div className=" py-9 ">
@@ -215,7 +214,8 @@ export default function EditCategory() {
               ))}
               <Link
                 className="py-3 border flex justify-center text-a_primary-100"
-                to={""}
+                to={`/admin/products/add-product-of-category?id=${categoryid}`}
+
               >
                 <i className="bi bi-plus-lg"></i>
                 <span>{t("addproduct")}</span>
