@@ -45,6 +45,7 @@ export default function Products() {
       //   refetchInterval:2000
       // }
   )
+  
   const location = useLocation();
   const { t } = useTranslation();
   const [orders, setOrders]: any = useState([]);

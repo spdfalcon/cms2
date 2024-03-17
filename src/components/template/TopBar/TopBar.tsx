@@ -3,6 +3,9 @@ import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "react-query";
+import apiRequests from "../../../configs/axios/apiRequests";
+import getCookies from "../../../configs/cookies/getcookise";
 interface OtherComponentProps {
   isShowHamberMenu: boolean;
   setIsShowHamberMenu: Function;
@@ -41,6 +44,22 @@ const TopBar: React.FC<OtherComponentProps> = ({
     }
   };
   const [isShowUserDropDown, setIsShowUserDropDown] = useState(false);
+  const token = getCookies();
+
+  const { data, isLoading } = useQuery(
+    "Admin",
+    () =>
+      apiRequests
+        .get("/admin", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => res.data)
+    // ,{
+    //   refetchInterval:2000
+    // }
+  );
   return (
     <>
       {/* back modal */}
@@ -202,9 +221,16 @@ const TopBar: React.FC<OtherComponentProps> = ({
               className="flex items-center gap-2 cursor-pointer"
             >
               <img src="/img/topbar/avatar.png" alt="" />
-              <span className="text-a_general-80 dark:text-a_general-40  text-sm hidden md:flex">
-                mohammadreza
-              </span>
+              {isLoading ? (
+                <div className="w-36 h-5 bg-gray-200 rounded-md animate-pulse flex flex-col justify-center items-center gap-px py-1 *:rounded-md">
+                  <div className="w-28 h-2 bg-gray-300"></div>
+                  <div className="w-28 h-2 bg-gray-300"></div>
+                </div>
+              ) : (
+                <span className="text-a_general-80 dark:text-a_general-40  text-sm hidden md:flex">
+                  {data && `${data.first_name} ${data.last_name}`}
+                </span>
+              )}
               <i
                 className={`bi bi-arrow-down-circle duration-300 ${
                   isShowUserDropDown ? "rotate-180" : ""
