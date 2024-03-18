@@ -10,16 +10,14 @@ import { useQuery } from "react-query";
 import { DevTool } from "@hookform/devtools";
 
 export default function Addproduct() {
-  const { data: category } = useQuery(
-    "category",
-    () =>
-      apiRequests
-        .get("/category", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((res) => res.data)
+  const { data: category } = useQuery("category", () =>
+    apiRequests
+      .get("/category", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => res.data)
   );
 
   const { t } = useTranslation();
@@ -37,7 +35,7 @@ export default function Addproduct() {
     defaultValues: {
       name: "",
       description: "",
-      category: '',
+      category: "",
       price: "",
       discountPrice: "",
       color: "black",
