@@ -17,7 +17,7 @@ export default function Signin() {
     watch,
   } = useForm({
     defaultValues: {
-      username: "",
+      usernameOrEmail: "",
       password: "",
       // check: false,
     },
@@ -77,11 +77,11 @@ export default function Signin() {
                 {t("username")}
               </label>
               <input
-                {...register("username", {
+                {...register("usernameOrEmail", {
                   required: true,
                 })}
                 className={`border p-2 rounded focus:outline-none text-xs md:text-base ${
-                  !watch().username || errors.username
+                  !watch().usernameOrEmail || errors.usernameOrEmail
                     ? "border-red-400"
                     : "border-green-400"
                 }`}
