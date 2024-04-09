@@ -4,17 +4,37 @@ import Button from "../../../components/module/Button/Button";
 import Filter from "../../../components/module/Filter/Filter";
 import { useEffect, useState } from "react";
 import Pagination from "../../../components/module/Pagination/Pagination";
+import { useQuery } from "react-query";
+import Cookies from "universal-cookie";
+import apiRequests from "../../../configs/axios/apiRequests";
 
 export default function Orders() {
-  const [searchValue , setSearchValue] = useState('')
-  useEffect(()=>{
-    const neworder = [...recentTransactions].filter(item=>item.order.toLowerCase().includes(searchValue.toLowerCase()))
-    if(searchValue){
-      setOrders(neworder)
-    }else{
-      setOrders(recentTransactions)
+  const date = new Date()
+  const cookeis = new Cookies();
+  const token = cookeis.get("token");
+  const { data: allorders } = useQuery("orders", () =>
+    apiRequests
+      .get("/order", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => res.data)
+  );
+console.log(allorders);
+
+
+  const [searchValue, setSearchValue] = useState("");
+  useEffect(() => {
+    const neworder = [...recentTransactions].filter((item) =>
+      item.order.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    if (searchValue) {
+      setOrders(neworder);
+    } else {
+      setOrders(recentTransactions);
     }
-  },[searchValue])
+  }, [searchValue]);
   const { t } = useTranslation();
   const recentTransactions: any = [
     {
@@ -152,117 +172,118 @@ export default function Orders() {
             </Headerofpages>
           </div>
         </div>
-        
-          <div className="grid grid-cols-1">
-            <div className="bg-white dark:bg-a_general-90 py-8 px-3 md:px-7 rounded-lg">
-              <div className="header flex justify-between">
-                <div className="left flex gap-4 flex-col md:flex-row">
-                  <div onClick={filterHandler}>
-                    <Filter
-                      nameFilter={nameFilter}
-                      setNameFilter={setNameFilter}
-                      filter={filters}
-                    ></Filter>
-                  </div>
-                  <div className="l border h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
-                    <label
-                      htmlFor="searchorder"
-                      className="bi bi-search absolute left-4 text-xs md:text-base"
-                    ></label>
-                    <input
-                      onChange={(e)=>setSearchValue(e.target.value)}
-                      value={searchValue}
-                      placeholder={`${t("search")}...`}
-                      className="w-full h-full ltr:ps-14 rtl:ps-2 text-a_general-90 outline-none text-xs md:text-base"
-                      type="search"
-                      name=""
-                      id="searchorder"
-                    />
-                  </div>
+
+        <div className="grid grid-cols-1">
+          <div className="bg-white dark:bg-a_general-90 py-8 px-3 md:px-7 rounded-lg">
+            <div className="header flex justify-between">
+              <div className="left flex gap-4 flex-col md:flex-row">
+                <div onClick={filterHandler}>
+                  <Filter
+                    nameFilter={nameFilter}
+                    setNameFilter={setNameFilter}
+                    filter={filters}
+                  ></Filter>
+                </div>
+                <div className="l border h-9 rounded-md flex gap-3 items-center  text-a_general-60 relative overflow-hidden">
+                  <label
+                    htmlFor="searchorder"
+                    className="bi bi-search absolute left-4 text-xs md:text-base"
+                  ></label>
+                  <input
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    value={searchValue}
+                    placeholder={`${t("search")}...`}
+                    className="w-full h-full ltr:ps-14 rtl:ps-2 text-a_general-90 outline-none text-xs md:text-base"
+                    type="search"
+                    name=""
+                    id="searchorder"
+                  />
                 </div>
               </div>
-              <div className="grid grid-cols-1">
-                <div className="overflow-x-auto">
-                  <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg ">
-                    <table className="w-full">
-                      <thead className="">
-                        <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
-                          <th>{t("orders")}</th>
-                          <th>{t("date")}</th>
-                          <th>{t("customer")}</th>
-                          <th>{t("paymentstatus")}</th>
-                          <th>{t("orderstatus")}</th>
-                          <th>{t("total")}</th>
-                        </tr>
-                      </thead>
-                      <tbody className=" mt-5">
-                        {orders
-                          .slice(
-                            paginationInPage * page - paginationInPage,
-                            paginationInPage * page
-                          )
-                          .map((item: any) => (
-                            <tr
-                              key={item.id}
-                              className="*:px-6 *:py-3 *:text-nowrap"
-                            >
-                              <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm">
-                                {item.order}
-                              </td>
-                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                                {item.date}
-                              </td>
-                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                                {item.customer}
-                              </td>
-                              <td className="text-xs md:text-sm">
-                                <span
-                                  className={`px-4 py-1 rounded-md ${
-                                    t(`${item.paymentstatus}`) === t("paid")
-                                      ? "bg-a_green-101/20  text-a_green-101"
-                                      : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
-                                  }`}
-                                >
-                                  {t(`${item.paymentstatus}`)}
-                                </span>
-                              </td>
-                              <td className="text-xs md:text-sm">
-                                <span
-                                  className={`px-4 py-1 rounded-md text-white ${
-                                    t(`${item.orderstatus}`) === t("ready")
-                                      ? "bg-a_yellow-101"
-                                      : t(`${item.orderstatus}`) ===
-                                        t("shipped")
-                                      ? "bg-a_general-80 "
-                                      : "bg-a_primary-100"
-                                  }`}
-                                >
-                                  {t(`${item.orderstatus}`)}
-                                </span>
-                              </td>
-                              <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
-                                {item.total}
-                              </td>
-                            </tr>
-                          ))}
-                      </tbody>
-                    </table>
-                  </div>
-                  <div className="flex down justify-between items-center text-a_general-70">
-                    <Pagination
-                      all={orders.length}
-                      inpage={paginationInPage}
-                      setPage={setPage}
-                      page={page}
-                    ></Pagination>
-                    <div className="r text-xs md:text-base">
-                      <p>{orders.length} {t("results")}</p>
-                    </div>
+            </div>
+            <div className="grid grid-cols-1">
+              <div className="overflow-x-auto">
+                <div className="tablee p-7 bg-white dark:bg-a_general-90 rounded-lg ">
+                  <table className="w-full">
+                    <thead className="">
+                      <tr className="text-a_general-80 dark:text-a_general-40 text-xs md:text-sm border-b *:px-6 *:py-3 *:text-start *:text-nowrap">
+                        <th>{t("orders")}</th>
+                        <th>{t("date")}</th>
+                        <th>{t("customer")}</th>
+                        <th>{t("paymentstatus")}</th>
+                        <th>{t("orderstatus")}</th>
+                        <th>{t("total")}</th>
+                      </tr>
+                    </thead>
+                    <tbody className=" mt-5">
+                      {allorders
+                        ?.slice(
+                          paginationInPage * page - paginationInPage,
+                          paginationInPage * page
+                        )
+                        ?.map((item: any) => (
+                          <tr
+                            key={item.id}
+                            className="*:px-6 *:py-3 *:text-nowrap"
+                          >
+                            <td className="text-a_general-100 dark:text-white font-medium text-xs md:text-sm">
+                              {item.product.name}
+                            </td>
+                            <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
+                              { new Date(item.created_at).toLocaleDateString('fa')}
+                            </td>
+                            <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
+                              {item.user.first_name}
+                            </td>
+                            <td className="text-xs md:text-sm">
+                              <span
+                                className={`px-4 py-1 rounded-md ${
+                                  t(`${item.paymentstatus}`) === t("paid")
+                                    ? "bg-a_green-101/20  text-a_green-101"
+                                    : "bg-a_general-80/15 text-a_general-80 dark:text-a_general-40"
+                                }`}
+                              >
+                                {t(`${item.paymentstatus}`)}
+                              </span>
+                            </td>
+                            <td className="text-xs md:text-sm">
+                              <span
+                                className={`px-4 py-1 rounded-md text-white ${
+                                  t(`${item.status}`) === t("ready")
+                                    ? "bg-a_yellow-101"
+                                    : t(`${item.status}`) === t("shipped")
+                                    ? "bg-a_general-80 "
+                                    : "bg-a_primary-100"
+                                }`}
+                              >
+                                {t(`${item.status}`)}
+                              </span>
+                            </td>
+                            <td className="text-a_general-100 dark:text-white text-xs md:text-sm">
+                              {item.total_price}
+                            </td>
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="flex down justify-between items-center text-a_general-70">
+                  <Pagination
+                    all={orders.length}
+                    inpage={paginationInPage}
+                    setPage={setPage}
+                    page={page}
+                  ></Pagination>
+                  <div className="r text-xs md:text-base">
+                    <p>
+                      {orders.length} {t("results")}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
     </>
   );
